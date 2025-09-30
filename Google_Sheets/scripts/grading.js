@@ -76,12 +76,15 @@ function buildGradingRequests(formItems, questions) {
                                 correctAnswers: {
                                     answers: [{ value: question.correctAnswer }]
                                 }
+                            },
+                            textQuestion: {
+                                paragraph: false
                             }
                         }
                     }
                 },
                 location: { index: itemIndex },
-                updateMask: 'questionItem.question.grading'
+                updateMask: 'questionItem.question.grading,questionItem.question.textQuestion'
             }
         });
 

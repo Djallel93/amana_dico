@@ -60,7 +60,7 @@ Ces deux scripts utilisent la librairie OAuth2 for Apps Script (1B7FSrk5Zi6L1rSx
 
 ## Claude AI Prompt
 
-I have a google sheet with 6 sheets each have a table. Here is the list with theire columns
+I have a google sheet with 7 sheets each have a table. Here is the list with theire columns
 langue :
 id    code    nom
 chapitre :
@@ -71,53 +71,18 @@ traduction :
 mot_source    mot_cible
 relation :
 mot_source    mot_cible    type(Synonyme/Antonyme)
+eleve :
+id	nom	prenom	mail	chip    tester  niveau_avance
+It's basically a bilangual dictionary french <=> Arabic (so far)
 
-It's basically a personal bilangual dictionary french <=> Arabic (so far)
+I create a google form that allows me to test my students. In the google form they're presented with x questions each one is the meaning of a word in one language or the other.
+I created a google app script project to generate and send the form. So far i've achieved what i wanted but now the problem is that the validation of the question in google forms (The 'Answer key' option not 'Response validation') is case sensitive and i need the validation to automate th process fully and release grades immediatly after they are done.
+for example for the word طويل all the fiollowinig are correct
+Long
+LONG
+long
 
-I want to create a form that allows me to test my self.
-in the form (or elswhere) i can choose one or more chapters and i'm presented with 10 questions each one is the meaning of a word in one language or the other.
-I created a google app script project and here are the files i'm using.
-The main problem so far is that when i click on the buttons (Lancer le quiz, Tout selectionner, Tout deselectionner) nothing happens.
+Also for more advanced students i want to have the option to also check harakat in words in arabic
+currently all words in the table mot don't have harakat i want to add them and if thestudent is advanced he hase to write them in the form otherwise they are ignored
 
-Correct the UI problem and adapt my code to the current tables schema. Also feel free to suggest any modification to implement your solution.
-Keep in mind that i didn't use ids in traduction and  relation tables to make it human readable. If needed i can addthem but i want to keep the whoile words for my learning
-
-This is my google app script project
-I have a google sheet with 6 sheets each have a table. Here is the list with theire columns
-langue :
-id    code    nom
-chapitre :
-id    nom
-mot :
-id    mot    langue    type    chapitre    definition
-traduction :
-mot_source    mot_cible
-relation :
-mot_source    mot_cible    type(Synonyme/Antonyme)
-It's basically a personal bilangual dictionary french <=> Arabic (so far).
-I want to create a google forms dynamically from the words in the sheets.
-So far, when the form is generated i get questions like so
-Question 1: Traduisez en Francais: "عاد"
-Question 2: Traduisez en Francais: "رجع"
-
-I want to validate the answer with the translated word since i get them both from my sheet.
-Here is my attempt but so far it's not what i want. What i'm looking for is the equivalent of
-when i'm on the form in edit mode i click on a sction (and since the form is a quiz) i have an option "Answer Key" that allows me to put correct answers, Mark all other answers as incorrect and define how many points to attribute to this question (the item.setPoints(1) is working currently)
-
-As written in the Forms API docs,
-
-The Forms Service on Apps Script does not plan to support:
-
-Subscribing to form events with Cloud Pub/Sub
-
-Setting correct answers for question types that are not multiple choice
-
-To set correct answer to a question that is a multiple choice or list, you can use .createChoice() directly. For other types like text items, you need to use the API. You can however connect with the API through Apps script using UrlFetchApp. See
-
-https://github.com/googleworkspace/apps-script-oauth2/tree/main/samples/NoLibrary
-
-https://developers.google.com/forms/api/guides/apps-script-setup
-
-https://developers.google.com/forms/api/guides/setup-grading
-
-Rewrite my functions to edit the form through the API
+What would be the best approach to handle this case ?

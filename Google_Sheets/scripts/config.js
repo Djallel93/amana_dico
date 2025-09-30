@@ -4,13 +4,38 @@
 
 const CONFIG = {
     QUIZ_SETTINGS: {
-        QUESTION_COUNT: 10,
-        MAX_QUESTIONS: 10,
-        WRONG_OPTIONS_COUNT: 3,
+        QUESTION_COUNT: 3,
         FORM_TITLE: 'Test de Vocabulaire - Français ↔ العربية',
         FORM_DESCRIPTION: 'Traduisez les mots suivants dans la langue demandée.',
         TEMPLATE_FORM_ID: '1dYBp2PWdWRdjU2Gdff2GM0F65SWxLHyaf52cv4WT2RU',
         RESULTS_FOLDER_NAME: 'translations_tests'
+    },
+
+    EMAIL_SETTINGS: {
+        SUBJECT: 'Nouveau Test de Vocabulaire - Français ↔ العربية',
+        SENDER_NAME: 'BOUAKKAZ Djalle Eddine Mohamed',
+        REPLY_TO: 'bouakaz.djallel@gmail.com',
+        EMAIL_TEMPLATE: {
+            EMOJIS: {
+                star: '&#127775;',
+                calendar: '&#128197;',
+                pencil: '&#128221;',
+                timer: '&#9201;',
+                rocket: '&#128640;',
+                arrow: '&#8596;'
+            },
+            COLORS: {
+                primary: '#4285f4',
+                primaryHover: '#357ae8',
+                background: '#f9f9f9',
+                infoBox: '#e8f0fe',
+                text: '#333',
+                textLight: '#666'
+            },
+            CONTENT: {
+                estimatedDuration: '5-10 minutes'
+            }
+        }
     },
 
     OAUTH_CONFIG: {
@@ -20,6 +45,18 @@ const CONFIG = {
     },
 
     SHEET_DEF: {
+        ELEVE: {
+            SHEET_NAME: "eleve",
+            COLUMNS: {
+                ID: 0,
+                NOM: 1,
+                PRENOM: 2,
+                MAIL: 3,
+                CHIP: 4,
+                TESTER: 5,
+                NIVEAU_AVANCE: 6
+            }
+        },
         LANGUE: {
             SHEET_NAME: "langue",
             COLUMNS: {
@@ -111,6 +148,21 @@ function getDateString() {
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const day = String(now.getDate()).padStart(2, '0');
     return `${year}_${month}_${day}`;
+}
+
+/**
+ * Get formatted date and time string
+ */
+function getDateTimeString() {
+    const now = new Date();
+    return now.toLocaleDateString('fr-FR', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
 }
 
 /**

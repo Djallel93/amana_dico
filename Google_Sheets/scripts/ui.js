@@ -7,9 +7,14 @@
  */
 function onOpen() {
     SpreadsheetApp.getUi()
-        .createMenu("🌟 Tester mes connaissances")
-        .addItem("Démarrer le Quiz", "startQuizUI")
-        .addItem("Générer un formulaire", "generateQuizForm")
+        .createMenu("📚 Tester mes connaissances")
+        .addItem("📑 Démarrer le Quiz", "startQuizUI")
+        .addSeparator()
+        .addItem("📜 Générer un formulaire", "generateQuizForm")
+        .addItem("📧 Créer et envoyer aux élèves", "createAndSendQuizFormUI")
+        .addSeparator()
+        .addItem("📋 Voir les élèves à tester", "viewStudentsToTest")
+        .addItem("🧪 Tester l'envoi d'email", "testEmailUI")
         .addToUi();
 }
 
@@ -94,5 +99,42 @@ function saveQuizResults(results) {
     } catch (error) {
         console.error('Error saving results:', error);
         throw error;
+    }
+}
+
+// ============================================
+// EMAIL & STUDENT MANAGEMENT UI FUNCTIONS
+// ============================================
+
+/**
+ * UI function to create and send quiz form
+ */
+function createAndSendQuizFormUI() {
+    const ui = SpreadsheetApp.getUi();
+
+    // Confirm action
+    const response = ui.alert(
+        'Créer et envoyer le test',
+        'Voulez-vous créer un nouveau test et l\'envoyer automatiquement à tous les élèves ?',
+        ui.ButtonSet.YES_NO
+    );
+
+    if (response !== ui.Button.YES) {
+        return;
+    }
+
+    try {
+        const result = createAndSendQuizForm();
+
+        const message = `✅ Succès !\n\n` +
+            `📝 Formulaire créé : ${result.formId}\n` +
+            `📧 Emails envoyés : ${result.emailsSent}\n` +
+            `❌ Échecs : ${result.emailsFailed}\n\n` +
+            `URL : ${result.publishedUrl}`;
+
+        ui.alert('Test créé et envoyé', message, ui.ButtonSet.OK);
+
+    } catch (error) {
+        ui.alert('❌ Erreur', `Une erreur s'est produite :\n${error.message}`, ui.ButtonSet.OK);
     }
 }
