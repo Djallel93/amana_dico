@@ -1,0 +1,7 @@
+.vscode/**
+.clasp.json
+node_modules/**
+package-lock.json
+package.json
+.cred.json
+client_secret_**

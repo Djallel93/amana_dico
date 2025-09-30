@@ -1,0 +1,358 @@
+<script>
+    let currentQuiz = [];
+    let userAnswers = {};
+    let quizResults = {};
+
+    // Initialize the app
+    function initializeApp() {
+        setupEventListeners();
+        console.log('App initialized');
+        console.log('Chapters:', chapters);
+        console.log('Words:', allWords);
+        console.log('Translations:', translations);
+    }
+
+    function setupEventListeners() {
+        // Add click events to checkbox items
+        document.querySelectorAll('.checkbox-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (e.target.type !== 'checkbox') {
+                    const checkbox = item.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                }
+            });
+        });
+    }
+
+    function selectAllChapters() {
+        document.querySelectorAll('#chapterCheckboxes input[type="checkbox"]').forEach(cb => {
+            cb.checked = true;
+        });
+    }
+
+    function clearAllChapters() {
+        document.querySelectorAll('#chapterCheckboxes input[type="checkbox"]').forEach(cb => {
+            cb.checked = false;
+        });
+    }
+
+    function startQuiz() {
+        const selectedChapters = Array.from(document.querySelectorAll('#chapterCheckboxes input[type="checkbox"]:checked'))
+            .map(cb => parseInt(cb.value));
+
+        if (selectedChapters.length === 0) {
+            alert('Veuillez sélectionner au moins un chapitre !');
+            return;
+        }
+
+        const direction = document.getElementById('quizDirection').value;
+        generateQuiz(selectedChapters, direction);
+        showQuiz();
+    }
+
+    function generateQuiz(selectedChapters, direction) {
+        // Get words from selected chapters
+        let availableWords = allWords.filter(word =>
+            selectedChapters.includes(parseInt(word.chapitre))
+        );
+
+        if (availableWords.length === 0) {
+            alert('Aucun mot trouvé dans les chapitres sélectionnés!');
+            return;
+        }
+
+        // Store quiz info for results
+        quizResults.chapters = selectedChapters.map(id => {
+            const chapter = chapters.find(c => c.id === id);
+            return chapter ? chapter.nom : `Chapitre ${id}`;
+        });
+
+        // Shuffle and take up to 10 words
+        availableWords = shuffleArray(availableWords);
+        const selectedWords = availableWords.slice(0, Math.min(10, availableWords.length));
+
+        currentQuiz = selectedWords.map((word, index) => {
+            let questionText, correctAnswer, questionType, wrongOptions;
+
+            // Find translations for this word
+            const wordTranslations = findTranslations(word.mot);
+
+            if (wordTranslations.length === 0) {
+                // Skip words without translations
+                return null;
+            }
+
+            // For simplicity, take the first translation
+            const translation = wordTranslations[0];
+
+            // Determine question direction
+            if (direction === 'word-to-translation' || (direction === 'both' && Math.random() < 0.5)) {
+                questionText = `Quelle est la traduction de « ${word.mot} » ?`;
+                correctAnswer = translation;
+                questionType = 'word-to-translation';
+                wrongOptions = generateWrongTranslations(word, availableWords);
+            } else {
+                questionText = `Quel est le mot correspondant à « ${translation} » ?`;
+                correctAnswer = word.mot;
+                questionType = 'translation-to-word';
+                wrongOptions = generateWrongWords(translation, availableWords);
+            }
+
+            const allOptions = shuffleArray([correctAnswer, ...wrongOptions]);
+
+            return {
+                id: index + 1,
+                question: questionText,
+                options: allOptions,
+                correctAnswer: correctAnswer,
+                word: word,
+                translation: translation
+            };
+        }).filter(q => q !== null); // Remove null entries
+
+        // Update quiz numbering
+        currentQuiz.forEach((question, index) => {
+            question.id = index + 1;
+        });
+
+        userAnswers = {};
+    }
+
+    function findTranslations(word) {
+        const wordTranslations = [];
+
+        // Find direct translations
+        translations.forEach(trans => {
+            if (trans.mot_source === word) {
+                wordTranslations.push(trans.mot_cible);
+            } else if (trans.mot_cible === word) {
+                wordTranslations.push(trans.mot_source);
+            }
+        });
+
+        return wordTranslations;
+    }
+
+    function generateWrongTranslations(correctWord, availableWords) {
+        const wrongOptions = [];
+        const allTranslations = [];
+
+        // Collect all possible translations from other words
+        availableWords.forEach(word => {
+            if (word.mot !== correctWord.mot) {
+                const wordTranslations = findTranslations(word.mot);
+                allTranslations.push(...wordTranslations);
+            }
+        });
+
+        // Remove duplicates and shuffle
+        const uniqueTranslations = [...new Set(allTranslations)];
+        const shuffledTranslations = shuffleArray(uniqueTranslations);
+
+        // Take first 3 as wrong options
+        for (let i = 0; i < Math.min(3, shuffledTranslations.length); i++) {
+            wrongOptions.push(shuffledTranslations[i]);
+        }
+
+        // If we don't have enough wrong options, add some generic ones
+        const genericOptions = ['غير معروف', 'Inconnu', 'Non répertorié'];
+        let genericIndex = 0;
+        while (wrongOptions.length < 3 && genericIndex < genericOptions.length) {
+            wrongOptions.push(genericOptions[genericIndex]);
+            genericIndex++;
+        }
+
+        return wrongOptions.slice(0, 3);
+    }
+
+    function generateWrongWords(correctTranslation, availableWords) {
+        const wrongOptions = [];
+        const otherWords = availableWords.filter(word => {
+            const wordTranslations = findTranslations(word.mot);
+            return !wordTranslations.includes(correctTranslation);
+        });
+
+        const shuffledWords = shuffleArray(otherWords);
+
+        for (let i = 0; i < Math.min(3, shuffledWords.length); i++) {
+            wrongOptions.push(shuffledWords[i].mot);
+        }
+
+        // If we don't have enough wrong options, add some generic ones
+        const genericOptions = ['مجهول', 'Inconnu', 'Non trouvé'];
+        let genericIndex = 0;
+        while (wrongOptions.length < 3 && genericIndex < genericOptions.length) {
+            wrongOptions.push(genericOptions[genericIndex]);
+            genericIndex++;
+        }
+
+        return wrongOptions.slice(0, 3);
+    }
+
+    function shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    }
+
+    function showQuiz() {
+        if (currentQuiz.length === 0) {
+            alert('Aucune question n\'a pu être générée. Assurez-vous que les mots sélectionnés ont des traductions.');
+            return;
+        }
+
+        document.querySelector('.setup-section').style.display = 'none';
+        document.getElementById('quizContainer').style.display = 'block';
+        renderQuestions();
+    }
+
+    function renderQuestions() {
+        const container = document.getElementById('questionContainer');
+        container.innerHTML = '';
+
+        currentQuiz.forEach((question, index) => {
+            const questionCard = document.createElement('div');
+            questionCard.className = 'question-card';
+            questionCard.innerHTML = `
+                <div class="question-header">
+                    <span class="question-number">Question ${question.id}</span>
+                    <span class="score">${index + 1} sur ${currentQuiz.length}</span>
+                </div>
+                <div class="question-text">${question.question}</div>
+                <div class="options">
+                    ${question.options.map((option, optionIndex) => `
+                        <div class="option" onclick="selectOption(${question.id}, '${escapeQuotes(option)}', this)">
+                            ${option}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            container.appendChild(questionCard);
+        });
+    }
+
+    function escapeQuotes(str) {
+        return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
+
+    function selectOption(questionId, selectedOption, optionElement) {
+        // Clear previous selections for this question
+        const questionCard = optionElement.parentElement.parentElement;
+        questionCard.querySelectorAll('.option').forEach(opt => {
+            opt.classList.remove('selected');
+        });
+
+        // Mark current selection
+        optionElement.classList.add('selected');
+        userAnswers[questionId] = selectedOption;
+    }
+
+    function submitQuiz() {
+        if (Object.keys(userAnswers).length < currentQuiz.length) {
+            if (!confirm('Vous n\'avez pas répondu à toutes les questions. Voulez-vous quand même valider ?')) {
+                return;
+            }
+        }
+        showResults();
+    }
+
+    function showResults() {
+        let correctAnswers = 0;
+        const totalQuestions = currentQuiz.length;
+
+        // Show correct/incorrect answers
+        currentQuiz.forEach(question => {
+            const questionCard = document.querySelector(`.question-card:nth-child(${question.id})`);
+            const options = questionCard.querySelectorAll('.option');
+
+            options.forEach(option => {
+                const optionText = option.textContent.trim();
+                if (optionText === question.correctAnswer) {
+                    option.classList.add('correct');
+                    if (userAnswers[question.id] === optionText) {
+                        correctAnswers++;
+                    }
+                } else if (userAnswers[question.id] === optionText) {
+                    option.classList.add('incorrect');
+                }
+            });
+        });
+
+        // Calculate and display score
+        const scorePercentage = Math.round((correctAnswers / totalQuestions) * 100);
+
+        // Store results for saving
+        quizResults.score = correctAnswers;
+        quizResults.total = totalQuestions;
+        quizResults.percentage = scorePercentage;
+
+        document.getElementById('finalScore').textContent = `${scorePercentage}%`;
+        document.getElementById('scoreBreakdown').innerHTML = `
+            <p>Vous avez correctement répondu à ${correctAnswers} question${correctAnswers > 1 ? 's' : ''} sur ${totalQuestions}.</p>
+            <p style="margin-top: 10px; color: #666;">
+                ${scorePercentage >= 80 ? '🌟 Excellent travail !' :
+                scorePercentage >= 60 ? '👍 Bon travail !' :
+                    '📚 Continuez à pratiquer !'}
+            </p>
+        `;
+        document.getElementById('resultsContainer').style.display = 'block';
+    }
+
+    function resetQuiz() {
+        document.querySelector('.setup-section').style.display = 'block';
+        document.getElementById('quizContainer').style.display = 'none';
+        document.getElementById('resultsContainer').style.display = 'none';
+        currentQuiz = [];
+        userAnswers = {};
+        quizResults = {};
+    }
+
+    // function reviewAnswers() {
+    //     document.getElementById('resultsContainer').style.display = 'none';
+    //     // Scroll to quiz container to review answers
+    //     document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
+    // }
+    function saveQuizResults(results) {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet();
+        let resultsSheet;
+
+        try {
+            resultsSheet = sheet.getSheetByName("resultats_quiz");
+        } catch (e) {
+            resultsSheet = sheet.insertSheet("resultats_quiz");
+            // Add headers
+            resultsSheet.getRange(1, 1, 1, 5).setValues([
+                ["date", "chapitres", "score", "total_questions", "pourcentage"]
+            ]);
+        }
+
+        const timestamp = new Date();
+        const lastRow = resultsSheet.getLastRow() + 1;
+
+        resultsSheet.getRange(lastRow, 1, 1, 5).setValues([[
+            timestamp.toISOString(),
+            results.chapters.join(", "),
+            results.score,
+            results.total,
+            results.percentage + "%"
+        ]]);
+
+        return "Résultats sauvegardés avec succès!";
+    }
+
+    function saveResults() {
+        if (!quizResults.score && quizResults.score !== 0) {
+            alert('Aucun résultat à sauvegarder !');
+            return;
+        }
+
+        google.script.run
+            .saveQuizResults(quizResults);
+    }
+
+    // Initialize the app when page loads
+    window.addEventListener('load', initializeApp);
+</script>
