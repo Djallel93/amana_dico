@@ -1,34 +1,33 @@
-// ============================================
-// CENTRALIZED CONFIGURATION
-// ============================================
-
 const CONFIG = {
     QUIZ_SETTINGS: {
-        QUESTION_COUNT: 3,
+        QUESTION_COUNT: 5,
         FORM_TITLE: 'Test de Vocabulaire - Français ↔ العربية',
-        FORM_DESCRIPTION: 'Traduisez les mots suivants dans la langue demandée.',
+        FORM_DESCRIPTION: 'ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ \n\n Traduisez les mots suivants dans la langue demandée',
         TEMPLATE_FORM_ID: '1dYBp2PWdWRdjU2Gdff2GM0F65SWxLHyaf52cv4WT2RU',
         RESULTS_FOLDER_NAME: 'translations_tests'
     },
 
     EMAIL_SETTINGS: {
-        SUBJECT: 'Nouveau Test de Vocabulaire - Français ↔ العربية',
+        SUBJECT: 'Nouveau Test de Vocabulaire',
         SENDER_NAME: 'BOUAKKAZ Djalle Eddine Mohamed',
         REPLY_TO: 'bouakaz.djallel@gmail.com',
         EMAIL_TEMPLATE: {
             EMOJIS: {
-                star: '&#127775;',
-                calendar: '&#128197;',
-                pencil: '&#128221;',
-                timer: '&#9201;',
-                rocket: '&#128640;',
-                arrow: '&#8596;'
+                star: '&#127775;', //🌟
+                calendar: '&#128197;', //📅
+                pencil: '&#128221;', //✏️
+                timer: '&#9201;', // ⌛
+                rocket: '&#128640;', // 🚀
+                arrow: '&#8596;', // ➡️
+                warn: '&#9888;&#65039;', // ⚠️
+                brain: '&#129504;', // 🧠
             },
             COLORS: {
                 primary: '#4285f4',
                 primaryHover: '#357ae8',
                 background: '#f9f9f9',
                 infoBox: '#e8f0fe',
+                advancedNotice: '#ffc107',
                 text: '#333',
                 textLight: '#666'
             },

@@ -11,7 +11,6 @@ function testOAuth2() {
         return false;
     }
 }
-
 function resetOAuth2() {
     clearStoredTokens();
     console.log('🔄 OAuth2 tokens cleared. Run startOAuth2Flow() to re-authorize.');

@@ -1,12 +1,10 @@
 <style>
     /* Style Sombre Élégant - Sophistiqué et moderne */
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-
     body {
         font-family: 'Inter', -apple-system, sans-serif;
         line-height: 1.6;
@@ -15,7 +13,6 @@
         padding: 20px;
         color: #e5e5e5;
     }
-
     .container {
         max-width: 900px;
         margin: 0 auto;
@@ -25,7 +22,6 @@
         overflow: hidden;
         border: 1px solid #2a2a2a;
     }
-
     .header {
         background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
         color: white;
@@ -34,7 +30,6 @@
         border-bottom: 1px solid #2a2a2a;
         position: relative;
     }
-
     .header::after {
         content: '';
         position: absolute;
@@ -44,7 +39,6 @@
         height: 1px;
         background: linear-gradient(90deg, transparent, #00d4ff, transparent);
     }
-
     .header h1 {
         font-size: 2.3em;
         margin-bottom: 8px;
@@ -54,17 +48,14 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-
     .header p {
         font-size: 1.05em;
         color: #a1a1a1;
         font-weight: 400;
     }
-
     .content {
         padding: 30px;
     }
-
     .section h2 {
         color: #00d4ff;
         margin-bottom: 20px;
@@ -72,18 +63,15 @@
         font-weight: 600;
         letter-spacing: -0.5px;
     }
-
     .setup-form {
         background: #242424;
         padding: 28px;
         border-radius: 12px;
         border: 1px solid #2a2a2a;
     }
-
     .form-group {
         margin-bottom: 20px;
     }
-
     label {
         display: block;
         margin-bottom: 8px;
@@ -91,7 +79,6 @@
         color: #d1d1d1;
         font-size: 14px;
     }
-
     input[type="text"],
     select {
         width: 100%;
@@ -103,7 +90,6 @@
         background: #1a1a1a;
         color: #e5e5e5;
     }
-
     input[type="text"]:focus,
     select:focus {
         outline: none;
@@ -111,13 +97,11 @@
         box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
         background: #242424;
     }
-
     .checkbox-group {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 10px;
     }
-
     .checkbox-item {
         display: flex;
         align-items: center;
@@ -128,13 +112,11 @@
         cursor: pointer;
         transition: all 0.3s;
     }
-
     .checkbox-item:hover {
         border-color: #00d4ff;
         background: #242424;
         box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
     }
-
     .checkbox-item input[type="checkbox"] {
         margin-right: 10px;
         width: 18px;
@@ -142,7 +124,6 @@
         cursor: pointer;
         accent-color: #00d4ff;
     }
-
     .btn {
         background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
         color: white;
@@ -156,16 +137,13 @@
         margin: 5px;
         box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
     }
-
     .btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 30px rgba(0, 212, 255, 0.3);
     }
-
     .btn:active {
         transform: translateY(0);
     }
-
     .question-card {
         background: #242424;
         border: 1px solid #2a2a2a;
@@ -174,19 +152,16 @@
         margin-bottom: 20px;
         transition: all 0.3s;
     }
-
     .question-card:hover {
         border-color: #00d4ff;
         box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
     }
-
     .question-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 20px;
     }
-
     .question-number {
         background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
         color: white;
@@ -196,25 +171,21 @@
         font-size: 13px;
         box-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
     }
-
     .score {
         color: #707070;
         font-size: 13px;
         font-weight: 500;
     }
-
     .question-text {
         font-size: 1.15em;
         margin-bottom: 20px;
         color: #e5e5e5;
         font-weight: 500;
     }
-
     .options {
         display: grid;
         gap: 10px;
     }
-
     .option {
         padding: 14px 18px;
         border: 1px solid #3a3a3a;
@@ -224,34 +195,29 @@
         background: #1a1a1a;
         color: #d1d1d1;
     }
-
     .option:hover {
         border-color: #00d4ff;
         background: #242424;
         box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
     }
-
     .option.selected {
         border-color: #00d4ff;
         background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
         color: white;
         box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
     }
-
     .option.correct {
         border-color: #10b981;
         background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         color: white;
         box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
     }
-
     .option.incorrect {
         border-color: #ef4444;
         background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
         color: white;
         box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
     }
-
     .results {
         text-align: center;
         padding: 40px;
@@ -259,7 +225,6 @@
         border-radius: 12px;
         border: 1px solid #2a2a2a;
     }
-
     .results h3 {
         font-size: 2em;
         margin-bottom: 20px;
@@ -268,7 +233,6 @@
         -webkit-text-fill-color: transparent;
         font-weight: 700;
     }
-
     .score-display {
         font-size: 3.5em;
         font-weight: 800;
@@ -278,12 +242,10 @@
         margin-bottom: 20px;
         text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
     }
-
     @media (max-width: 600px) {
         .checkbox-group {
             grid-template-columns: 1fr;
         }
-
         .header h1 {
             font-size: 1.8em;
         }

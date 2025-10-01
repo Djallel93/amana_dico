@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz d'apprentissage des langues</title>
     <?!= include('scripts/html/styles'); ?>
 </head>
-
 <body>
     <div class="container">
         <div class="header">
             <h1>🌟 Quiz d'apprentissage des langues</h1>
             <p>Testez vos connaissances en vocabulaire par chapitre</p>
         </div>
-
         <div class="content">
             <div class="setup-section">
                 <div class="section">
@@ -28,7 +25,6 @@
                                 <option value="translation-to-word">Traduction → Mot</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label>Sélectionnez les chapitres :</label>
                             <div class="checkbox-group" id="chapterCheckboxes">
@@ -42,14 +38,12 @@
                                 <? }); ?>
                             </div>
                         </div>
-
                         <button class="btn" onclick="startQuiz()">🚀 Lancer le quiz</button>
                         <button class="btn" onclick="selectAllChapters()">✅ Tout sélectionner</button>
                         <button class="btn" onclick="clearAllChapters()">❌ Tout désélectionner</button>
                     </div>
                 </div>
             </div>
-
             <div class="quiz-container" id="quizContainer">
                 <div class="section">
                     <h2 id="quizTitle">📝 Quiz en cours</h2>
@@ -62,7 +56,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="results" id="resultsContainer" style="display: none;">
                 <h3>🎉 Quiz terminé !</h3>
                 <div class="score-display" id="finalScore">0%</div>
@@ -73,7 +66,6 @@
             </div>
         </div>
     </div>
-
     <script>
         // Données provenant de Google Sheets
         const chapters = <?!= JSON.stringify(chapters) ?>;
@@ -82,8 +74,6 @@
         const languages = <?!= JSON.stringify(languages) ?>;
         console.log(allWords);
     </script>
-
     <?!= include('scripts/html/script.html') || 'FAILED TO INCLUDE' ?>
 </body>
-
 </html>
