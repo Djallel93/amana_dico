@@ -1,12 +1,16 @@
 /**
  * Create quiz forms and automatically send to students
- * Creates separate forms for regular and advanced students
+ * Creates forms based on student preferences (translation and/or relation quizzes)
+ * Priority: If both debutant and avance are checked, only avance form is created
  */
 function createAndSendQuizForm(spreadsheetId = null) {
     try {
         console.log('=== Creating and Sending Quiz Forms ===\n');
-        const students = getStudentsToTest(spreadsheetId);
-        if (students.length === 0) {
+        const studentsByCategory = getStudentsByTestCategory(spreadsheetId);
+
+        const formsToCreate = determineFormsToCreate(studentsByCategory);
+
+        if (formsToCreate.length === 0) {
             console.log('No students to test');
             return {
                 success: true,
@@ -15,39 +19,28 @@ function createAndSendQuizForm(spreadsheetId = null) {
                 emailsFailed: 0
             };
         }
-        // Separate students by level
-        const regularStudents = students.filter(s => !s.isAdvanced);
-        const advancedStudents = students.filter(s => s.isAdvanced);
+
         let allResults = [];
         let totalSent = 0;
         let totalFailed = 0;
-        // Create and send form for regular students
-        if (regularStudents.length > 0) {
-            console.log(`\n--- Regular Students (${regularStudents.length}) ---`);
-            const regularResult = createAndSendFormForStudentLevel(
-                false, // not advanced
-                regularStudents,
+
+        formsToCreate.forEach(formConfig => {
+            console.log(`\n--- ${formConfig.label} (${formConfig.students.length} students) ---`);
+            const result = createAndSendFormForStudentLevel(
+                formConfig.isAdvanced,
+                formConfig.quizType,
+                formConfig.students,
                 spreadsheetId
             );
-            allResults = allResults.concat(regularResult.results);
-            totalSent += regularResult.sent;
-            totalFailed += regularResult.failed;
-        }
-        // Create and send form for advanced students
-        if (advancedStudents.length > 0) {
-            console.log(`\n--- Advanced Students (${advancedStudents.length}) ---`);
-            const advancedResult = createAndSendFormForStudentLevel(
-                true, // advanced
-                advancedStudents,
-                spreadsheetId
-            );
-            allResults = allResults.concat(advancedResult.results);
-            totalSent += advancedResult.sent;
-            totalFailed += advancedResult.failed;
-        }
+            allResults = allResults.concat(result.results);
+            totalSent += result.sent;
+            totalFailed += result.failed;
+        });
+
         console.log('\n=== Quiz Creation and Distribution Complete ===');
         console.log(`Total emails sent: ${totalSent}`);
         console.log(`Total emails failed: ${totalFailed}`);
+
         return {
             success: true,
             emailsSent: totalSent,
@@ -59,33 +52,79 @@ function createAndSendQuizForm(spreadsheetId = null) {
         throw error;
     }
 }
+
 /**
- * Create form and send to students of a specific level
+ * Determine which forms need to be created based on student preferences
  */
-function createAndSendFormForStudentLevel(isAdvanced, students, spreadsheetId) {
+function determineFormsToCreate(studentsByCategory) {
+    const formsToCreate = [];
+
+    // Translation forms
+    if (studentsByCategory.translation.advanced.length > 0) {
+        formsToCreate.push({
+            label: 'Translation - Advanced',
+            isAdvanced: true,
+            quizType: CONFIG.QUIZ_TYPES.TRANSLATION,
+            students: studentsByCategory.translation.advanced
+        });
+    } else if (studentsByCategory.translation.debutant.length > 0) {
+        formsToCreate.push({
+            label: 'Translation - Debutant',
+            isAdvanced: false,
+            quizType: CONFIG.QUIZ_TYPES.TRANSLATION,
+            students: studentsByCategory.translation.debutant
+        });
+    }
+
+    // Relation forms
+    if (studentsByCategory.relation.advanced.length > 0) {
+        formsToCreate.push({
+            label: 'Relation - Advanced',
+            isAdvanced: true,
+            quizType: CONFIG.QUIZ_TYPES.RELATION,
+            students: studentsByCategory.relation.advanced
+        });
+    } else if (studentsByCategory.relation.debutant.length > 0) {
+        formsToCreate.push({
+            label: 'Relation - Debutant',
+            isAdvanced: false,
+            quizType: CONFIG.QUIZ_TYPES.RELATION,
+            students: studentsByCategory.relation.debutant
+        });
+    }
+
+    return formsToCreate;
+}
+
+/**
+ * Create form and send to students of a specific level and type
+ */
+function createAndSendFormForStudentLevel(isAdvanced, quizType, students, spreadsheetId) {
     try {
-        // Step 1: Create the quiz form for this level
-        console.log(`Creating ${isAdvanced ? 'ADVANCED' : 'REGULAR'} quiz form...`);
-        const formResult = createQuizForm(spreadsheetId, isAdvanced);
+        console.log(`Creating ${isAdvanced ? 'ADVANCED' : 'DEBUTANT'} ${quizType} quiz form...`);
+        const formResult = createQuizForm(spreadsheetId, isAdvanced, quizType);
         console.log(`✓ Form created: ${formResult.formId}`);
-        // Step 2: Send to students
+
         console.log(`Sending to ${students.length} students...`);
         const emailResult = sendQuizToStudentsList(
             students,
             formResult.publishedUrl,
-            isAdvanced
+            isAdvanced,
+            quizType
         );
         console.log(`✓ Emails: ${emailResult.sent} sent, ${emailResult.failed} failed`);
+
         return emailResult;
     } catch (error) {
         console.error('Error in createAndSendFormForStudentLevel:', error);
         throw error;
     }
 }
+
 /**
  * Send quiz form to a specific list of students
  */
-function sendQuizToStudentsList(students, formUrl, isAdvanced) {
+function sendQuizToStudentsList(students, formUrl, isAdvanced, quizType) {
     try {
         if (students.length === 0) {
             return {
@@ -95,29 +134,34 @@ function sendQuizToStudentsList(students, formUrl, isAdvanced) {
                 results: []
             };
         }
+
         const dateTime = getDateTimeString();
         const results = [];
         let sentCount = 0;
         let failedCount = 0;
+
         students.forEach((student, index) => {
-            // Add small delay between emails to avoid rate limiting
             if (index > 0) {
-                Utilities.sleep(1000); // 1 second delay
+                Utilities.sleep(1000);
             }
-            const result = sendQuizEmailToStudent(student, formUrl, dateTime, isAdvanced);
+
+            const result = sendQuizEmailToStudent(student, formUrl, dateTime, isAdvanced, quizType);
             results.push({
                 student: `${student.prenom} ${student.nom}`,
                 email: student.mail,
-                level: isAdvanced ? 'advanced' : 'regular',
+                level: isAdvanced ? 'advanced' : 'debutant',
+                type: quizType,
                 status: result.success ? 'sent' : 'failed',
                 error: result.error || null
             });
+
             if (result.success) {
                 sentCount++;
             } else {
                 failedCount++;
             }
         });
+
         return {
             success: true,
             sent: sentCount,
@@ -129,67 +173,115 @@ function sendQuizToStudentsList(students, formUrl, isAdvanced) {
         throw error;
     }
 }
+
 /**
  * Send quiz email to a single student
  */
-function sendQuizEmailToStudent(student, formUrl, dateTime, isAdvanced = false) {
+function sendQuizEmailToStudent(student, formUrl, dateTime, isAdvanced = false, quizType = CONFIG.QUIZ_TYPES.TRANSLATION) {
     try {
         const studentName = student.prenom
             ? `${student.prenom} ${student.nom}`
             : student.nom;
-        const emailBody = generateQuizEmailBody(studentName, formUrl, dateTime, isAdvanced);
+
+        const subject = quizType === CONFIG.QUIZ_TYPES.TRANSLATION
+            ? CONFIG.EMAIL_SETTINGS.TRANSLATION_SUBJECT
+            : CONFIG.EMAIL_SETTINGS.RELATION_SUBJECT;
+
+        const emailBody = generateQuizEmailBody(studentName, formUrl, dateTime, isAdvanced, quizType);
+
         const emailOptions = {
             htmlBody: emailBody,
             name: CONFIG.EMAIL_SETTINGS.SENDER_NAME,
             charset: 'UTF-8'
         };
+
         if (CONFIG.EMAIL_SETTINGS.REPLY_TO) {
             emailOptions.replyTo = CONFIG.EMAIL_SETTINGS.REPLY_TO;
         }
+
         GmailApp.sendEmail(
             student.mail,
-            CONFIG.EMAIL_SETTINGS.SUBJECT,
-            `Nouveau test disponible : ${formUrl}`, // Plain text fallback
+            subject,
+            `Nouveau test disponible : ${formUrl}`,
             emailOptions
         );
-        console.log(`✓ Email sent to ${student.mail} (${isAdvanced ? 'advanced' : 'regular'})`);
+
+        console.log(`✓ Email sent to ${student.mail} (${isAdvanced ? 'advanced' : 'debutant'} ${quizType})`);
         return { success: true, email: student.mail };
     } catch (error) {
         console.error(`✗ Failed to send email to ${student.mail}:`, error);
         return { success: false, email: student.mail, error: error.message };
     }
 }
+
 /**
- * Get list of students who want to be tested
+ * Get students categorized by test type and level
  */
-function getStudentsToTest(spreadsheetId = null) {
+function getStudentsByTestCategory(spreadsheetId = null) {
     const { ELEVE } = CONFIG.SHEET_DEF;
     const elevesData = getSheetData(ELEVE.SHEET_NAME, spreadsheetId);
-    const students = [];
+
+    const categorized = {
+        translation: {
+            debutant: [],
+            advanced: [],
+            all: []
+        },
+        relation: {
+            debutant: [],
+            advanced: [],
+            all: []
+        }
+    };
+
     elevesData.forEach(row => {
-        const tester = row[ELEVE.COLUMNS.TESTER];
         const mail = row[ELEVE.COLUMNS.MAIL];
-        const niveauAvance = row[ELEVE.COLUMNS.NIVEAU_AVANCE];
-        // Check if student wants to be tested and has a valid email
-        if (tester === true && mail && mail.trim() !== '') {
-            students.push({
-                id: row[ELEVE.COLUMNS.ID],
-                nom: row[ELEVE.COLUMNS.NOM] || '',
-                prenom: row[ELEVE.COLUMNS.PRENOM] || '',
-                mail: mail.trim(),
-                isAdvanced: niveauAvance === true
-            });
+        if (!mail || mail.trim() === '') return;
+
+        const student = {
+            id: row[ELEVE.COLUMNS.ID],
+            nom: row[ELEVE.COLUMNS.NOM] || '',
+            prenom: row[ELEVE.COLUMNS.PRENOM] || '',
+            mail: mail.trim()
+        };
+
+        const traductionDebutant = row[ELEVE.COLUMNS.TRADUCTION_DEBUTANT] === true;
+        const traductionAvance = row[ELEVE.COLUMNS.TRADUCTION_AVANCE] === true;
+        const comprehensionDebutant = row[ELEVE.COLUMNS.SENS_DEBUTANT] === true;
+        const comprehensionAvance = row[ELEVE.COLUMNS.SENS_AVANCE] === true;
+
+        // Translation tests - priority to advanced if both checked
+        if (traductionAvance) {
+            categorized.translation.advanced.push(student);
+            categorized.translation.all.push(student);
+        } else if (traductionDebutant) {
+            categorized.translation.debutant.push(student);
+            categorized.translation.all.push(student);
+        }
+
+        // Relation tests - priority to advanced if both checked
+        if (comprehensionAvance) {
+            categorized.relation.advanced.push(student);
+            categorized.relation.all.push(student);
+        } else if (comprehensionDebutant) {
+            categorized.relation.debutant.push(student);
+            categorized.relation.all.push(student);
         }
     });
-    console.log(`Found ${students.length} students to test`);
-    console.log(`  - Regular: ${students.filter(s => !s.isAdvanced).length}`);
-    console.log(`  - Advanced: ${students.filter(s => s.isAdvanced).length}`);
-    return students;
+
+    console.log(`Students categorized:`);
+    console.log(`  Translation - Debutant: ${categorized.translation.debutant.length}`);
+    console.log(`  Translation - Advanced: ${categorized.translation.advanced.length}`);
+    console.log(`  Relation - Debutant: ${categorized.relation.debutant.length}`);
+    console.log(`  Relation - Advanced: ${categorized.relation.advanced.length}`);
+
+    return categorized;
 }
+
 /**
  * Generate email body for quiz invitation
  */
-function generateQuizEmailBody(studentName, formUrl, dateTime, isAdvanced = false) {
+function generateQuizEmailBody(studentName, formUrl, dateTime, isAdvanced = false, quizType = CONFIG.QUIZ_TYPES.TRANSLATION) {
     return `
 <!DOCTYPE html>
 <html>
@@ -198,10 +290,11 @@ function generateQuizEmailBody(studentName, formUrl, dateTime, isAdvanced = fals
     <style>${getEmailStyles()}</style>
 </head>
 <body>
-    ${getEmailContent(studentName, formUrl, dateTime, isAdvanced)}
+    ${getEmailContent(studentName, formUrl, dateTime, isAdvanced, quizType)}
 </body>
 </html>`;
 }
+
 /**
  * Separate styles for easier maintenance
  */
@@ -272,26 +365,52 @@ function getEmailStyles() {
         }
     `;
 }
+
 /**
  * Separate content structure
  */
-function getEmailContent(studentName, formUrl, dateTime, isAdvanced) {
+function getEmailContent(studentName, formUrl, dateTime, isAdvanced, quizType) {
     const emojis = CONFIG.EMAIL_SETTINGS.EMAIL_TEMPLATE.EMOJIS;
     const colors = CONFIG.EMAIL_SETTINGS.EMAIL_TEMPLATE.COLORS;
+
     const levelBadge = isAdvanced ? emojis.brain + ' Niveau Avancé' : '';
+    const testType = quizType === CONFIG.QUIZ_TYPES.TRANSLATION
+        ? 'Vocabulaire'
+        : 'Compréhension (Synonymes/Antonymes)';
+    const testEmoji = quizType === CONFIG.QUIZ_TYPES.TRANSLATION
+        ? emojis.star
+        : emojis.pencil;
+
+    let testDescription = '';
+    let advancedDescription = '';
+
+    if (quizType === CONFIG.QUIZ_TYPES.TRANSLATION) {
+        testDescription = `<p>Ce test vous permettra d'évaluer vos connaissances en vocabulaire bilingue français-arabe.</p>`;
+        if (isAdvanced) {
+            advancedDescription = `<p>Ce test nécessite l'écriture correcte des harakat (التشكيل) pour les mots arabes.</p>`;
+        }
+    } else {
+        if (isAdvanced) {
+            testDescription = `<p>Ce test vous permettra d'évaluer votre capacité à trouver des synonymes et antonymes en respectant les harakat (التشكيل).</p>`;
+            advancedDescription = `<p>Vous devrez trouver le synonyme ou l'antonyme de mots donnés, avec l'écriture correcte des harakat.</p>`;
+        } else {
+            testDescription = `<p>Ce test vous permettra d'évaluer votre compréhension des relations sémantiques (synonymes et antonymes).</p>`;
+        }
+    }
+
     return `
     <div class="container">
         <div class="header">
-            <h1>${emojis.star} Nouveau Test de Vocabulaire${levelBadge}</h1>
+            <h1>${testEmoji} Nouveau Test de ${testType}<br>${levelBadge}</h1>
             <p style="margin: 0;">Français ${emojis.arrow} العربية</p>
         </div>
         <div class="content">
             <p>Bonjour <strong>${studentName}</strong>,</p>
-            <p>Un nouveau test de vocabulaire est disponible pour vous !</p>
+            <p>Un nouveau test de ${testType.toLowerCase()} est disponible pour vous !</p>
             ${isAdvanced ? `
             <div class="advanced-notice">
                 <p><strong>${emojis.warn} Test Niveau Avancé</strong></p>
-                <p>Ce test nécessite l'écriture correcte des harakat (التشكيل) pour les mots arabes.</p>
+                ${advancedDescription}
             </div>
             ` : ''}
             <div class="info-box">
@@ -299,7 +418,7 @@ function getEmailContent(studentName, formUrl, dateTime, isAdvanced) {
                 <p><strong>${emojis.pencil} Questions :</strong> ${CONFIG.QUIZ_SETTINGS.QUESTION_COUNT} questions</p>
                 <p><strong>${emojis.timer} Durée estimée :</strong> ${CONFIG.EMAIL_SETTINGS.EMAIL_TEMPLATE.CONTENT.estimatedDuration}</p>
             </div>
-            <p>Ce test vous permettra d'évaluer vos connaissances en vocabulaire bilingue français-arabe.</p>
+            ${testDescription}
             <div class="text-center">
                 <a href="${formUrl}" class="button">${emojis.rocket} Commencer le Test</a>
             </div>

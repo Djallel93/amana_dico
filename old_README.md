@@ -49,14 +49,15 @@ mot_source    mot_cible
 relation :
 mot_source    mot_cible    type(Synonyme/Antonyme)
 eleve :
-id	nom	prenom	mail	chip    tester  niveau_avance
+id	nom	prenom	mail	reference	traduction_debutant	traduction_avance	sens_debutant	sens_avance
 It's basically a bilangual dictionary french <=> Arabic (so far)
 I create a google form that allows me to test my students. In the google form they're presented with x questions each one is the meaning of a word in one language or the other.
-I created a google app script project to generate and send the form. So far i've achieved what i wanted but now the problem is that the validation of the question in google forms (The 'Answer key' option not 'Response validation') is case sensitive and i need the validation to automate th process fully and release grades immediatly after they are done.
-for example for the word طويل all the fiollowinig are correct
-Long
-LONG
-long
-modify the buildGradingRequests() to include the word in lower case, upper case and proper case
-Also for more advanced students i want to have the option to also check harakat in words in arabic
-currently all words in the table mot don't have harakat i want to add them and if the student is advanced he hase to write them correctly in the form answer otherwise they are ignored
+I created a google app script project to generate and send the form. So far i've achieved what i wanted but now i want to add a new feature to test students on synonyms and antonyms.
+Par fois les mots peuvent avoir plusieur sens selon le context par exemple prendre peut etre traduit par
+أَخَذَ dans le sens attraper
+ou bien رَكِبَ dans le sens prendre un transport
+
+je voudrais utiliser le champ definition de la feuille mot comme help text sur le formulaire pour avoir des questions plus claires. aussi j'ai rajoute deux colonnes a la feuille traduction pour faciliter le mapping
+id_mot_source	mot_source	id_mot_cible	mot_cible
+
+Modifies les fonctions et optimise le code
