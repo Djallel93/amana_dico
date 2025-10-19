@@ -5,8 +5,6 @@ const CONFIG = {
         RELATION_FORM_TITLE: 'Test de Compréhension - Synonymes et Antonymes',
         TRANSLATION_DESCRIPTION: 'ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ \n\n Traduisez les mots suivants dans la langue demandée',
         RELATION_DESCRIPTION: 'ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ \n\n Identifiez le type de relation entre les mots',
-        TEMPLATE_FORM_ID: '1dYBp2PWdWRdjU2Gdff2GM0F65SWxLHyaf52cv4WT2RU', //TODO: get from context
-        RESULTS_FOLDER_NAME: 'translations_tests',
         SUBFOLDER_STRUCTURE: {
             TRANSLATION_DEBUTANT: 'traduction/debutant',
             TRANSLATION_AVANCE: 'traduction/avance',
@@ -188,4 +186,26 @@ function getDateTimeString() {
  */
 function escapeQuotes(str) {
     return str.replace(/'/g, "\\'").replace(/"/g, '\\"');
+}
+
+/**
+ * Get template form ID from script properties
+ */
+function getTemplateFormId() {
+    const templateId = PropertiesService.getScriptProperties().getProperty("TEMPLATE_FORM_ID");
+    if (!templateId) {
+        throw new Error('TEMPLATE_FORM_ID not found in Script Properties. Please set it in Project Settings.');
+    }
+    return templateId;
+}
+
+/**
+ * Get template destination folder path from script properties
+ */
+function getTemplateFolderDestination() {
+    const destination = PropertiesService.getScriptProperties().getProperty("TEMPLATE_FORM_DESTINATION");
+    if (!destination) {
+        throw new Error('TEMPLATE_FORM_DESTINATION not found in Script Properties. Please set it in Project Settings.');
+    }
+    return destination;
 }

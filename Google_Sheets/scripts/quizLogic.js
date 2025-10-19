@@ -248,7 +248,8 @@ function createQuizForm(spreadsheetId = null, isAdvancedStudent = false, quizTyp
  * Duplicate the template form and move to appropriate subfolder
  */
 function duplicateTemplateForm(quizType = CONFIG.QUIZ_TYPES.TRANSLATION, isAdvancedStudent = false) {
-    const templateId = CONFIG.QUIZ_SETTINGS.TEMPLATE_FORM_ID;
+    const templateId = getTemplateFormId();
+    const destinationPath = getTemplateFolderDestination();
     const dateString = getDateString();
     const formTitle = quizType === CONFIG.QUIZ_TYPES.TRANSLATION
         ? CONFIG.QUIZ_SETTINGS.TRANSLATION_FORM_TITLE
@@ -271,7 +272,7 @@ function duplicateTemplateForm(quizType = CONFIG.QUIZ_TYPES.TRANSLATION, isAdvan
                 : CONFIG.QUIZ_SETTINGS.SUBFOLDER_STRUCTURE.SENS_DEBUTANT;
         }
 
-        moveToSubfolder(duplicatedFile.getId(), CONFIG.QUIZ_SETTINGS.RESULTS_FOLDER_NAME, subfolderPath);
+        moveToNestedFolder(duplicatedFile.getId(), destinationPath, subfolderPath);
         return form;
     } catch (error) {
         throw new Error(`Failed to duplicate template: ${error.message}`);
@@ -313,21 +314,23 @@ function addQuestionsToForm(form, questions, isAdvancedStudent, quizType) {
 /**
  * Move file to nested subfolder structure (create if doesn't exist)
  */
-function moveToSubfolder(fileId, baseFolderName, subfolderPath) {
+function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
     try {
         const file = DriveApp.getFileById(fileId);
 
-        // Get or create base folder
-        let currentFolder;
-        const baseFolders = DriveApp.getFoldersByName(baseFolderName);
-        if (baseFolders.hasNext()) {
-            currentFolder = baseFolders.next();
-        } else {
-            currentFolder = DriveApp.createFolder(baseFolderName);
+        // Parse the destination path (e.g., "/dictionnaire/2025/forms" or "dictionnaire/2025/forms")
+        const pathParts = destinationPath
+            .split('/')
+            .filter(part => part.trim().length > 0);
+
+        if (pathParts.length === 0) {
+            console.warn('Invalid destination path, file will stay in root');
+            return;
         }
 
-        // Navigate/create subfolder path (e.g., "traduction/debutant")
-        const pathParts = subfolderPath.split('/');
+        // Navigate/create folders for main destination path
+        let currentFolder = DriveApp.getRootFolder();
+        
         for (const folderName of pathParts) {
             const subfolders = currentFolder.getFoldersByName(folderName);
             if (subfolders.hasNext()) {
@@ -337,10 +340,24 @@ function moveToSubfolder(fileId, baseFolderName, subfolderPath) {
             }
         }
 
-        // Move file
+        // Navigate/create subfolder path (e.g., "traduction/debutant")
+        const subPathParts = subfolderPath.split('/').filter(part => part.trim().length > 0);
+        
+        for (const folderName of subPathParts) {
+            const subfolders = currentFolder.getFoldersByName(folderName);
+            if (subfolders.hasNext()) {
+                currentFolder = subfolders.next();
+            } else {
+                currentFolder = currentFolder.createFolder(folderName);
+            }
+        }
+
+        // Move file to final location
         file.getParents().next().removeFile(file);
         currentFolder.addFile(file);
-        console.log(`File moved to: ${baseFolderName}/${subfolderPath}`);
+        
+        const fullPath = pathParts.join('/') + '/' + subfolderPath;
+        console.log(`File moved to: /${fullPath}`);
     } catch (error) {
         console.warn(`Could not move file to subfolder: ${error.message}`);
     }
