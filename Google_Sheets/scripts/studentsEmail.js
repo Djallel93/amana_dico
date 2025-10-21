@@ -367,29 +367,38 @@ function getEmailStyles() {
 }
 
 /**
- * Separate content structure
+ * Generate email body content with dynamic messages
  */
 function getEmailContent(studentName, formUrl, dateTime, isAdvanced, quizType) {
     const emojis = CONFIG.EMAIL_SETTINGS.EMAIL_TEMPLATE.EMOJIS;
     const colors = CONFIG.EMAIL_SETTINGS.EMAIL_TEMPLATE.COLORS;
-
-    const levelBadge = isAdvanced ? emojis.brain + ' Niveau Avancé' : '';
-    const testType = quizType === CONFIG.QUIZ_TYPES.TRANSLATION
-        ? 'Vocabulaire'
-        : 'Compréhension (Synonymes/Antonymes)';
-    const testEmoji = quizType === CONFIG.QUIZ_TYPES.TRANSLATION
-        ? emojis.star
-        : emojis.pencil;
-
+    const questionCount = getQuestionCount();
+    
+    // Calculate estimated duration
+    const minDuration = Math.ceil(questionCount / 2);
+    const maxDuration = questionCount;
+    const estimatedDuration = `${minDuration}-${maxDuration} minutes`;
+    
+    // Determine test type and emoji
+    const isTranslation = quizType === CONFIG.QUIZ_TYPES.TRANSLATION;
+    const testType = isTranslation ? 'Vocabulaire' : 'Compréhension (Synonymes/Antonymes)';
+    const testEmoji = isTranslation ? emojis.star : emojis.pencil;
+    
+    // Level badge
+    const levelBadge = isAdvanced ? `${emojis.brain} Niveau Avancé` : '';
+    
+    // Test descriptions
     let testDescription = '';
     let advancedDescription = '';
-
-    if (quizType === CONFIG.QUIZ_TYPES.TRANSLATION) {
+    
+    if (isTranslation) {
         testDescription = `<p>Ce test vous permettra d'évaluer vos connaissances en vocabulaire bilingue français-arabe.</p>`;
+        
         if (isAdvanced) {
             advancedDescription = `<p>Ce test nécessite l'écriture correcte des harakat (التشكيل) pour les mots arabes.</p>`;
         }
     } else {
+        // Relation/Comprehension test
         if (isAdvanced) {
             testDescription = `<p>Ce test vous permettra d'évaluer votre capacité à trouver des synonymes et antonymes en respectant les harakat (التشكيل).</p>`;
             advancedDescription = `<p>Vous devrez trouver le synonyme ou l'antonyme de mots donnés, avec l'écriture correcte des harakat.</p>`;
@@ -397,7 +406,31 @@ function getEmailContent(studentName, formUrl, dateTime, isAdvanced, quizType) {
             testDescription = `<p>Ce test vous permettra d'évaluer votre compréhension des relations sémantiques (synonymes et antonymes).</p>`;
         }
     }
-
+    
+    // Advanced notice section
+    const advancedNoticeHtml = isAdvanced ? `
+        <div class="advanced-notice">
+            <p><strong>${emojis.warn} Test Niveau Avancé</strong></p>
+            ${advancedDescription}
+        </div>
+    ` : '';
+    
+    // Greeting message
+    const greetingMessage = `Bonjour <strong>${studentName}</strong>,`;
+    
+    // Introduction message
+    const introMessage = `Un nouveau test de ${testType.toLowerCase()} est disponible pour vous !`;
+    
+    // Button text
+    const buttonText = `${emojis.rocket} Commencer le Test`;
+    
+    // Footer advice
+    const footerAdvice = `<em>Conseil : Prenez votre temps et réfléchissez bien avant de répondre. Bonne chance !</em>`;
+    
+    // Footer disclaimer
+    const footerDisclaimer = `Cet email a été envoyé automatiquement. Si vous ne souhaitez plus recevoir de tests, veuillez contacter votre professeur.`;
+    
+    // Build HTML
     return `
     <div class="container">
         <div class="header">
@@ -405,29 +438,24 @@ function getEmailContent(studentName, formUrl, dateTime, isAdvanced, quizType) {
             <p style="margin: 0;">Français ${emojis.arrow} العربية</p>
         </div>
         <div class="content">
-            <p>Bonjour <strong>${studentName}</strong>,</p>
-            <p>Un nouveau test de ${testType.toLowerCase()} est disponible pour vous !</p>
-            ${isAdvanced ? `
-            <div class="advanced-notice">
-                <p><strong>${emojis.warn} Test Niveau Avancé</strong></p>
-                ${advancedDescription}
-            </div>
-            ` : ''}
+            <p>${greetingMessage}</p>
+            <p>${introMessage}</p>
+            ${advancedNoticeHtml}
             <div class="info-box">
                 <p><strong>${emojis.calendar} Date :</strong> ${dateTime}</p>
-                <p><strong>${emojis.pencil} Questions :</strong> ${CONFIG.QUIZ_SETTINGS.QUESTION_COUNT} questions</p>
-                <p><strong>${emojis.timer} Durée estimée :</strong> ${CONFIG.EMAIL_SETTINGS.EMAIL_TEMPLATE.CONTENT.estimatedDuration}</p>
+                <p><strong>${emojis.pencil} Questions :</strong> ${questionCount} questions</p>
+                <p><strong>${emojis.timer} Durée estimée :</strong> ${estimatedDuration}</p>
             </div>
             ${testDescription}
             <div class="text-center">
-                <a href="${formUrl}" class="button">${emojis.rocket} Commencer le Test</a>
+                <a href="${formUrl}" class="button">${buttonText}</a>
             </div>
             <p style="font-size: 14px; color: ${colors.textLight};">
-                <em>Conseil : Prenez votre temps et réfléchissez bien avant de répondre. Bonne chance !</em>
+                ${footerAdvice}
             </p>
         </div>
         <div class="footer">
-            <p>Cet email a été envoyé automatiquement. Si vous ne souhaitez plus recevoir de tests, veuillez contacter votre professeur.</p>
+            <p>${footerDisclaimer}</p>
         </div>
     </div>`;
 }

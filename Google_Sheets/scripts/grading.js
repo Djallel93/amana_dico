@@ -171,7 +171,7 @@ function generateAnswerVariations(correctAnswers, isAdvancedStudent = false, qui
     }
 
     const result = Array.from(variations).filter(v => v.length > 0);
-    console.log(`Answer variations for [${answersArray.join(', ')}]:`, result);
+    // console.log(`Answer variations for [${answersArray.join(', ')}]:`, result);
     return result;
 }
 
@@ -201,7 +201,7 @@ function buildGradingRequests(formItems, questions) {
                 quizType
             );
 
-            console.log(`Q${questionIndex + 1}: "${question.questionText}" → Valid answers:`, answerVariations);
+            // console.log(`Q${questionIndex + 1}: "${question.questionText}" → Valid answers:`, answerVariations);
 
             const answersArray = answerVariations.map(answer => ({ value: answer }));
 

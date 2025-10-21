@@ -1,14 +1,17 @@
 /**
  * Generate random translation quiz questions with definitions as help text
  */
-function generateTranslationQuizQuestions(dictionaryData, questionCount = CONFIG.QUIZ_SETTINGS.QUESTION_COUNT, isAdvancedStudent = false) {
+function generateTranslationQuizQuestions(dictionaryData, questionCount = null, isAdvancedStudent = false) {
     const { translations } = dictionaryData;
     if (!translations || translations.length === 0) {
         throw new Error('No translations available for quiz generation');
     }
 
+    // Use provided questionCount or get from properties
+    const finalQuestionCount = questionCount !== null ? questionCount : getQuestionCount();
+
     const shuffled = shuffleArray(translations);
-    const maxQuestions = Math.min(questionCount, shuffled.length);
+    const maxQuestions = Math.min(finalQuestionCount, shuffled.length);
     const selectedTranslations = shuffled.slice(0, maxQuestions);
 
     const questions = selectedTranslations.map((translation, index) => {
@@ -25,7 +28,7 @@ function generateTranslationQuizQuestions(dictionaryData, questionCount = CONFIG
             const allTranslationWords = allTranslations.map(t => t.mot);
 
             // Build help text with definition if available
-            let helpText = "";
+            let helpText = "Veuillez saisir la réponse";
             if (translation.source.definition) {
                 helpText += `\n\n💡 Contexte: ${translation.source.definition}`;
             }
@@ -51,9 +54,9 @@ function generateTranslationQuizQuestions(dictionaryData, questionCount = CONFIG
             const allTranslationWords = allTranslations.map(t => t.mot);
 
             // Build help text with definition if available
-            let helpText = `Traduisez en ${translation.source.langue}: "${translation.targetWord}"`;
+            let helpText = "Veuillez saisir la réponse";
             if (translation.target.definition) {
-                helpText += `\n\nContexte: ${translation.target.definition}`;
+                helpText += `\n\n💡 Contexte: ${translation.target.definition}`;
             }
 
             return {
@@ -81,14 +84,17 @@ function generateTranslationQuizQuestions(dictionaryData, questionCount = CONFIG
 /**
  * Generate random relation (synonym/antonym) quiz questions with definitions
  */
-function generateRelationQuizQuestions(dictionaryData, questionCount = CONFIG.QUIZ_SETTINGS.QUESTION_COUNT, isAdvancedStudent = false) {
+function generateRelationQuizQuestions(dictionaryData, questionCount = null, isAdvancedStudent = false) {
     const { relations } = dictionaryData;
     if (!relations || relations.length === 0) {
         throw new Error('No relations available for quiz generation');
     }
 
+    // Use provided questionCount or get from properties
+    const finalQuestionCount = questionCount !== null ? questionCount : getQuestionCount();
+
     const shuffled = shuffleArray(relations);
-    const maxQuestions = Math.min(questionCount, shuffled.length);
+    const maxQuestions = Math.min(finalQuestionCount, shuffled.length);
     const selectedRelations = shuffled.slice(0, maxQuestions);
 
     const questions = selectedRelations.map((relation, index) => {
@@ -200,11 +206,14 @@ function createQuizForm(spreadsheetId = null, isAdvancedStudent = false, quizTyp
         const dictionaryData = loadAllDictionaryData(sheetId);
 
         console.log('Generating questions...');
+        const questionCount = getQuestionCount();
+        console.log(`Using question count: ${questionCount}`);
+
         let questions;
         if (quizType === CONFIG.QUIZ_TYPES.TRANSLATION) {
-            questions = generateTranslationQuizQuestions(dictionaryData, CONFIG.QUIZ_SETTINGS.QUESTION_COUNT, isAdvancedStudent);
+            questions = generateTranslationQuizQuestions(dictionaryData, questionCount, isAdvancedStudent);
         } else {
-            questions = generateRelationQuizQuestions(dictionaryData, CONFIG.QUIZ_SETTINGS.QUESTION_COUNT, isAdvancedStudent);
+            questions = generateRelationQuizQuestions(dictionaryData, questionCount, isAdvancedStudent);
         }
 
         if (questions.length === 0) {
@@ -303,8 +312,8 @@ function addQuestionsToForm(form, questions, isAdvancedStudent, quizType) {
                 .setTitle(question.questionText)
                 .setRequired(true);
 
-            // Use the helpText that includes context/definitions
-            item.setHelpText(question.helpText || `Veuillez saisir la réponse`);
+            const defaultHelpText = 'Veuillez saisir la réponse';
+            item.setHelpText(question.helpText || defaultHelpText);
         }
     });
 
@@ -330,7 +339,7 @@ function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
 
         // Navigate/create folders for main destination path
         let currentFolder = DriveApp.getRootFolder();
-        
+
         for (const folderName of pathParts) {
             const subfolders = currentFolder.getFoldersByName(folderName);
             if (subfolders.hasNext()) {
@@ -342,7 +351,7 @@ function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
 
         // Navigate/create subfolder path (e.g., "traduction/debutant")
         const subPathParts = subfolderPath.split('/').filter(part => part.trim().length > 0);
-        
+
         for (const folderName of subPathParts) {
             const subfolders = currentFolder.getFoldersByName(folderName);
             if (subfolders.hasNext()) {
@@ -355,7 +364,7 @@ function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
         // Move file to final location
         file.getParents().next().removeFile(file);
         currentFolder.addFile(file);
-        
+
         const fullPath = pathParts.join('/') + '/' + subfolderPath;
         console.log(`File moved to: /${fullPath}`);
     } catch (error) {

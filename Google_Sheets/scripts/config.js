@@ -1,6 +1,5 @@
 const CONFIG = {
     QUIZ_SETTINGS: {
-        QUESTION_COUNT: 5,
         TRANSLATION_FORM_TITLE: 'Test de Vocabulaire - Français ↔ العربية',
         RELATION_FORM_TITLE: 'Test de Compréhension - Synonymes et Antonymes',
         TRANSLATION_DESCRIPTION: 'ٱلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ ٱللَّٰهِ وَبَرَكَاتُهُ \n\n Traduisez les mots suivants dans la langue demandée',
@@ -85,11 +84,12 @@ const CONFIG = {
             SHEET_NAME: "mot",
             COLUMNS: {
                 ID: 0,
-                MOT: 1,
-                LANGUE: 2,
-                TYPE: 3,
-                CHAPITRE: 4,
-                DEFINITION: 5
+                DATE_COUR: 1,
+                MOT: 2,
+                LANGUE: 3,
+                TYPE: 4,
+                CHAPITRE: 5,
+                DEFINITION: 6
             }
         },
         TRADUCTION: {
@@ -208,4 +208,21 @@ function getTemplateFolderDestination() {
         throw new Error('TEMPLATE_FORM_DESTINATION not found in Script Properties. Please set it in Project Settings.');
     }
     return destination;
+}
+
+/**
+ * Get question count from script properties with default fallback
+ */
+function getQuestionCount() {
+    const questionCount = PropertiesService.getScriptProperties().getProperty("QUESTION_COUNT");
+    if (!questionCount) {
+        console.log('QUESTION_COUNT not found in Script Properties, using default: 5');
+        return 5; // Default value
+    }
+    const count = parseInt(questionCount);
+    if (isNaN(count) || count <= 0) {
+        console.warn(`Invalid QUESTION_COUNT value: "${questionCount}", using default: 5`);
+        return 5;
+    }
+    return count;
 }

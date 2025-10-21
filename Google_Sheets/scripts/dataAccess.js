@@ -1,12 +1,64 @@
-// ============================================
-// DATA ACCESS LAYER - Optimized with caching
-// ============================================
-
 let _cachedDictionaryData = null;
 let _cacheSpreadsheetId = null;
 
 /**
- * Load all dictionary data efficiently with caching
+ * Convertir une date en format comparable (YYYY-MM-DD)
+ */
+function formatDateForComparison(date) {
+    if (!date) return null;
+    
+    let dateObj;
+    
+    // Si c'est une chaîne, parser la date
+    if (typeof date === 'string') {
+        dateObj = new Date(date);
+    } else if (date instanceof Date) {
+        dateObj = date;
+    } else {
+        return null;
+    }
+    
+    // Vérifier si la date est valide
+    if (isNaN(dateObj.getTime())) {
+        return null;
+    }
+    
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const day = String(dateObj.getDate()).padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+}
+
+/**
+ * Obtenir la date d'aujourd'hui au format comparable
+ */
+function getTodayFormatted() {
+    return formatDateForComparison(new Date());
+}
+
+/**
+ * Calculer le dimanche de la semaine en cours
+ * Si aujourd'hui est dimanche, retourne aujourd'hui
+ * Sinon, retourne le dimanche précédent
+ */
+function getSundayOfCurrentWeek() {
+    const today = new Date();
+    const dayOfWeek = today.getDay(); // 0 = dimanche, 1 = lundi, ..., 6 = samedi
+    
+    // Si on est dimanche (0), on prend aujourd'hui
+    // Sinon, on recule au dimanche précédent
+    const daysToSubtract = dayOfWeek === 0 ? 0 : dayOfWeek;
+    
+    const sunday = new Date(today);
+    sunday.setDate(today.getDate() - daysToSubtract);
+    
+    return formatDateForComparison(sunday);
+}
+
+/**
+ * Load all dictionary data efficiently with caching and date filtering
+ * Filters words to exclude those from current week's Sunday
  */
 function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     const currentSheetId = spreadsheetId || SpreadsheetApp.getActiveSpreadsheet().getId();
@@ -18,6 +70,11 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     }
 
     const { LANGUE, CHAPITRE, MOT, TRADUCTION, RELATION } = CONFIG.SHEET_DEF;
+    const today = getTodayFormatted();
+    const sundayOfWeek = getSundayOfCurrentWeek();
+    
+    console.log(`Loading dictionary data - Today: ${today}, Sunday of current week: ${sundayOfWeek}`);
+    console.log(`Filtering: only words with date_cour < ${sundayOfWeek} (strictly before current week's Sunday)`);
 
     // Load all sheets in parallel
     const languesData = getSheetData(LANGUE.SHEET_NAME, spreadsheetId);
@@ -48,21 +105,49 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     });
 
     // Build word lookup with ID and word as keys
+    // FILTER: only include words where date_cour < sunday of current week
     const motsById = {};
     const motsByWord = {};
+    let wordsIncluded = 0;
+    let wordsExcluded = 0;
+    let wordsNoDate = 0;
     
     motsData.forEach(row => {
         const id = row[MOT.COLUMNS.ID];
         const mot = row[MOT.COLUMNS.MOT];
+        const dateCour = row[MOT.COLUMNS.DATE_COUR];
+        
         if (!id || !mot) return;
+        
+        // Filter by date_cour
+        if (dateCour && dateCour.toString().trim() !== '') {
+            const formattedDateCour = formatDateForComparison(dateCour);
+            
+            if (!formattedDateCour) {
+                console.warn(`  ⚠️ Invalid date for mot "${mot}": ${dateCour}`);
+                return;
+            }
+            
+            // STRICT: date_cour must be < sunday (not equal)
+            if (formattedDateCour >= sundayOfWeek) {
+                wordsExcluded++;
+                return; // Exclude this word
+            }
+            
+            wordsIncluded++;
+        } else {
+            // Words without date are included (legacy words)
+            wordsNoDate++;
+        }
         
         const motObj = {
             id: id,
-            mot: mot,
+            mot: mot.trim(),
             langue: row[MOT.COLUMNS.LANGUE],
             type: row[MOT.COLUMNS.TYPE] || '',
             chapitre: row[MOT.COLUMNS.CHAPITRE] || '',
-            definition: row[MOT.COLUMNS.DEFINITION] || ''
+            definition: row[MOT.COLUMNS.DEFINITION] || '',
+            date_cour: dateCour || ''
         };
         
         motsById[id] = motObj;
@@ -135,7 +220,9 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
         }
     });
 
-    console.log(`Loaded: ${Object.keys(langues).length} languages, ${Object.keys(chapitres).length} chapters, ${Object.keys(motsById).length} words, ${translations.length} translations, ${relations.length} relations`);
+    const totalWords = Object.keys(motsById).length;
+    console.log(`📊 Words loaded: ${totalWords} total (${wordsIncluded} with past dates + ${wordsNoDate} without date, ${wordsExcluded} excluded from current week)`);
+    console.log(`Loaded: ${Object.keys(langues).length} languages, ${Object.keys(chapitres).length} chapters, ${translations.length} translations, ${relations.length} relations`);
 
     const result = {
         langues: Object.values(langues),
