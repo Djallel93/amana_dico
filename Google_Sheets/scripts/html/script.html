@@ -94,7 +94,7 @@
                 askedWords.add(word.mot);
 
                 // Get wrong options ONLY in the target language
-                wrongOptions = generateWrongTranslationsInLanguage(word, answerLanguage);
+                wrongOptions = generateWrongTranslationsInLanguage(word, answerLanguage, correctAnswer);
             } else {
                 // Find a word that translates to something, use that something as the question
                 const translation = wordTranslations[0];
@@ -116,49 +116,25 @@
                 askedWords.add(translation);
 
                 // Get wrong options ONLY in the source language
-                wrongOptions = generateWrongWordsInLanguage(translation, answerLanguage);
+                wrongOptions = generateWrongWordsInLanguage(translation, answerLanguage, correctAnswer);
             }
 
-            const allOptions = shuffleArray([correctAnswer, ...wrongOptions]);
-
-            // Filtrer les doublons ET la bonne réponse en double
-            const uniqueOptions = [...new Set(allOptions)];
-
-            // Si on a des doublons ou moins de 4 options, régénérer
-            if (uniqueOptions.length < 4 || uniqueOptions.filter(opt => opt === correctAnswer).length > 1) {
-                console.warn(`Doublons ou bonne réponse en double pour: ${correctAnswer}`);
-                // Régénérer les mauvaises réponses
-                if (questionType === 'word-to-translation') {
-                    const newWrongOptions = generateWrongTranslationsInLanguage(word, answerLanguage);
-                    const filtered = newWrongOptions.filter(opt => opt !== correctAnswer);
-                    const finalOptions = [correctAnswer, ...filtered.slice(0, 3)];
-                    return {
-                        id: index + 1,
-                        question: questionText,
-                        options: shuffleArray([...new Set(finalOptions)]),
-                        correctAnswer: correctAnswer,
-                        word: word,
-                        translation: wordTranslations[0]
-                    };
-                } else {
-                    const newWrongOptions = generateWrongWordsInLanguage(translation, answerLanguage);
-                    const filtered = newWrongOptions.filter(opt => opt !== correctAnswer);
-                    const finalOptions = [correctAnswer, ...filtered.slice(0, 3)];
-                    return {
-                        id: index + 1,
-                        question: questionText,
-                        options: shuffleArray([...new Set(finalOptions)]),
-                        correctAnswer: correctAnswer,
-                        word: word,
-                        translation: wordTranslations[0]
-                    };
-                }
+            // IMPORTANT: Ensure we have exactly 3 wrong options
+            if (wrongOptions.length < 3) {
+                console.warn(`Pas assez de mauvaises réponses pour: ${correctAnswer}, question ignorée`);
+                return null;
             }
+
+            // Take only first 3 wrong options
+            const finalWrongOptions = wrongOptions.slice(0, 3);
+
+            // Create final options array: 1 correct + 3 wrong
+            const allOptions = shuffleArray([correctAnswer, ...finalWrongOptions]);
 
             return {
                 id: index + 1,
                 question: questionText,
-                options: uniqueOptions,
+                options: allOptions,
                 correctAnswer: correctAnswer,
                 word: word,
                 translation: wordTranslations[0]
@@ -210,39 +186,44 @@
         return wordTranslations;
     }
 
-    function generateWrongTranslationsInLanguage(correctWord, targetLanguage) {
+    function generateWrongTranslationsInLanguage(correctWord, targetLanguage, correctAnswer) {
         const targetLangCode = getLanguageCode(targetLanguage);
         const allTranslations = [];
 
-        // Collect ALL translations in the target language (pas seulement dans les chapitres sélectionnés)
+        // Collect ALL translations in the target language from ALL words
         allWords.forEach(word => {
-            if (word.mot !== correctWord.mot && getLanguageCode(word.langue) === targetLangCode) {
+            if (getLanguageCode(word.langue) === targetLangCode) {
                 allTranslations.push(word.mot);
             }
         });
 
-        // Remove duplicates and shuffle
+        // Remove duplicates and the correct answer
         const uniqueTranslations = [...new Set(allTranslations)];
-        const shuffledTranslations = shuffleArray(uniqueTranslations);
+        const filteredTranslations = uniqueTranslations.filter(opt => opt !== correctAnswer);
 
-        // Prendre les 3 premières mauvaises réponses (exclure la bonne réponse)
-        const wrongOptions = shuffledTranslations.filter(opt => opt !== correctWord.mot).slice(0, 3);
+        // Shuffle to randomize
+        const shuffledTranslations = shuffleArray(filteredTranslations);
 
-        return wrongOptions;
+        // Return at least 3 wrong options
+        return shuffledTranslations.slice(0, 3);
     }
 
-    function generateWrongWordsInLanguage(correctTranslation, targetLanguage) {
+    function generateWrongWordsInLanguage(correctTranslation, targetLanguage, correctAnswer) {
         const targetLangCode = getLanguageCode(targetLanguage);
 
-        // Récupérer TOUS les mots dans la langue cible (pas seulement ceux sélectionnés)
-        // Exclus la bonne réponse pour éviter les doublons
+        // Récupérer TOUS les mots dans la langue cible
         const wordsInTargetLanguage = allWords.filter(word =>
-            getLanguageCode(word.langue) === targetLangCode && word.mot !== correctTranslation
+            getLanguageCode(word.langue) === targetLangCode
         );
 
-        // Récupérer les 3 premières sans doublons (Set gère automatiquement)
+        // Récupérer tous les mots uniques en excluant la bonne réponse
         const uniqueWords = [...new Set(wordsInTargetLanguage.map(w => w.mot))];
-        const shuffledWords = shuffleArray(uniqueWords);
+        const filteredWords = uniqueWords.filter(w => w !== correctAnswer);
+
+        // Shuffle to randomize
+        const shuffledWords = shuffleArray(filteredWords);
+
+        // Return at least 3 wrong options
         return shuffledWords.slice(0, 3);
     }
 

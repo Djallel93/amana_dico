@@ -89,7 +89,8 @@ const CONFIG = {
                 LANGUE: 3,
                 TYPE: 4,
                 CHAPITRE: 5,
-                DEFINITION: 6
+                DEFINITION: 6,
+                MOT_FULL: 7
             }
         },
         TRADUCTION: {

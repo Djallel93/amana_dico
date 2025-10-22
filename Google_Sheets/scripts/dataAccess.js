@@ -6,9 +6,9 @@ let _cacheSpreadsheetId = null;
  */
 function formatDateForComparison(date) {
     if (!date) return null;
-    
+
     let dateObj;
-    
+
     // Si c'est une chaîne, parser la date
     if (typeof date === 'string') {
         dateObj = new Date(date);
@@ -17,16 +17,16 @@ function formatDateForComparison(date) {
     } else {
         return null;
     }
-    
+
     // Vérifier si la date est valide
     if (isNaN(dateObj.getTime())) {
         return null;
     }
-    
+
     const year = dateObj.getFullYear();
     const month = String(dateObj.getMonth() + 1).padStart(2, '0');
     const day = String(dateObj.getDate()).padStart(2, '0');
-    
+
     return `${year}-${month}-${day}`;
 }
 
@@ -45,26 +45,29 @@ function getTodayFormatted() {
 function getSundayOfCurrentWeek() {
     const today = new Date();
     const dayOfWeek = today.getDay(); // 0 = dimanche, 1 = lundi, ..., 6 = samedi
-    
+
     // Si on est dimanche (0), on prend aujourd'hui
     // Sinon, on recule au dimanche précédent
     const daysToSubtract = dayOfWeek === 0 ? 0 : dayOfWeek;
-    
+
     const sunday = new Date(today);
     sunday.setDate(today.getDate() - daysToSubtract);
-    
+
     return formatDateForComparison(sunday);
 }
 
 /**
- * Load all dictionary data efficiently with caching and date filtering
- * Filters words to exclude those from current week's Sunday
+ * Load all dictionary data efficiently with caching and optional date filtering
+ * @param {string} spreadsheetId - Optional spreadsheet ID
+ * @param {boolean} forceReload - Force reload from sheets
+ * @param {boolean} skipDateFilter - Skip date filtering (for interactive quiz)
+ * Filters words to exclude those from current week's Sunday (unless skipDateFilter = true)
  */
-function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
+function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDateFilter = false) {
     const currentSheetId = spreadsheetId || SpreadsheetApp.getActiveSpreadsheet().getId();
-    
-    // Return cached data if available and same spreadsheet
-    if (!forceReload && _cachedDictionaryData && _cacheSpreadsheetId === currentSheetId) {
+
+    // Return cached data if available and same spreadsheet (only if not skipping filter)
+    if (!forceReload && !skipDateFilter && _cachedDictionaryData && _cacheSpreadsheetId === currentSheetId) {
         console.log('Using cached dictionary data');
         return _cachedDictionaryData;
     }
@@ -72,9 +75,14 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     const { LANGUE, CHAPITRE, MOT, TRADUCTION, RELATION } = CONFIG.SHEET_DEF;
     const today = getTodayFormatted();
     const sundayOfWeek = getSundayOfCurrentWeek();
-    
+
     console.log(`Loading dictionary data - Today: ${today}, Sunday of current week: ${sundayOfWeek}`);
-    console.log(`Filtering: only words with date_cour < ${sundayOfWeek} (strictly before current week's Sunday)`);
+
+    if (skipDateFilter) {
+        console.log(`⚠️ Date filter DISABLED - Loading ALL words for interactive quiz`);
+    } else {
+        console.log(`Filtering: only words with date_cour < ${sundayOfWeek} (strictly before current week's Sunday)`);
+    }
 
     // Load all sheets in parallel
     const languesData = getSheetData(LANGUE.SHEET_NAME, spreadsheetId);
@@ -105,41 +113,41 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     });
 
     // Build word lookup with ID and word as keys
-    // FILTER: only include words where date_cour < sunday of current week
+    // FILTER: only include words where date_cour < sunday of current week (unless skipDateFilter)
     const motsById = {};
     const motsByWord = {};
     let wordsIncluded = 0;
     let wordsExcluded = 0;
     let wordsNoDate = 0;
-    
+
     motsData.forEach(row => {
         const id = row[MOT.COLUMNS.ID];
         const mot = row[MOT.COLUMNS.MOT];
         const dateCour = row[MOT.COLUMNS.DATE_COUR];
-        
+
         if (!id || !mot) return;
-        
-        // Filter by date_cour
-        if (dateCour && dateCour.toString().trim() !== '') {
+
+        // Apply date filter only if not skipped
+        if (!skipDateFilter && dateCour && dateCour.toString().trim() !== '') {
             const formattedDateCour = formatDateForComparison(dateCour);
-            
+
             if (!formattedDateCour) {
                 console.warn(`  ⚠️ Invalid date for mot "${mot}": ${dateCour}`);
                 return;
             }
-            
+
             // STRICT: date_cour must be < sunday (not equal)
             if (formattedDateCour >= sundayOfWeek) {
                 wordsExcluded++;
                 return; // Exclude this word
             }
-            
+
             wordsIncluded++;
         } else {
-            // Words without date are included (legacy words)
+            // Words without date are included (legacy words) OR filter is skipped
             wordsNoDate++;
         }
-        
+
         const motObj = {
             id: id,
             mot: mot.trim(),
@@ -149,7 +157,7 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
             definition: row[MOT.COLUMNS.DEFINITION] || '',
             date_cour: dateCour || ''
         };
-        
+
         motsById[id] = motObj;
         motsByWord[mot] = motObj;
     });
@@ -157,17 +165,17 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     // Build translations with full word objects including definitions
     const translations = [];
     const translationsByWord = {}; // For quick lookup
-    
+
     traductionsData.forEach(row => {
         const idMotSource = row[TRADUCTION.COLUMNS.ID_MOT_SOURCE];
         const motSource = row[TRADUCTION.COLUMNS.MOT_SOURCE];
         const idMotCible = row[TRADUCTION.COLUMNS.ID_MOT_CIBLE];
         const motCible = row[TRADUCTION.COLUMNS.MOT_CIBLE];
-        
+
         // Use ID if available, fallback to word lookup
         const sourceObj = idMotSource ? motsById[idMotSource] : motsByWord[motSource];
         const targetObj = idMotCible ? motsById[idMotCible] : motsByWord[motCible];
-        
+
         if (sourceObj && targetObj) {
             const translation = {
                 source: sourceObj,
@@ -176,7 +184,7 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
                 targetWord: targetObj.mot
             };
             translations.push(translation);
-            
+
             // Build bidirectional lookup
             if (!translationsByWord[sourceObj.mot]) {
                 translationsByWord[sourceObj.mot] = [];
@@ -192,15 +200,15 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     // Build relations with full word objects
     const relations = [];
     const relationsByWord = {}; // For quick lookup by word and type
-    
+
     relationsData.forEach(row => {
         const motSource = row[RELATION.COLUMNS.MOT_SOURCE];
         const motCible = row[RELATION.COLUMNS.MOT_CIBLE];
         const type = row[RELATION.COLUMNS.TYPE];
-        
+
         const sourceObj = motsByWord[motSource];
         const targetObj = motsByWord[motCible];
-        
+
         if (sourceObj && targetObj && type) {
             const relation = {
                 source: sourceObj,
@@ -210,7 +218,7 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
                 type: type
             };
             relations.push(relation);
-            
+
             // Build lookup by source word and type
             const key = `${motSource}|${type}`;
             if (!relationsByWord[key]) {
@@ -221,7 +229,13 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
     });
 
     const totalWords = Object.keys(motsById).length;
-    console.log(`📊 Words loaded: ${totalWords} total (${wordsIncluded} with past dates + ${wordsNoDate} without date, ${wordsExcluded} excluded from current week)`);
+
+    if (skipDateFilter) {
+        console.log(`📊 Words loaded: ${totalWords} total (date filter DISABLED)`);
+    } else {
+        console.log(`📊 Words loaded: ${totalWords} total (${wordsIncluded} with past dates + ${wordsNoDate} without date, ${wordsExcluded} excluded from current week)`);
+    }
+
     console.log(`Loaded: ${Object.keys(langues).length} languages, ${Object.keys(chapitres).length} chapters, ${translations.length} translations, ${relations.length} relations`);
 
     const result = {
@@ -238,11 +252,13 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false) {
             relationsByWord
         }
     };
-    
-    // Cache the result
-    _cachedDictionaryData = result;
-    _cacheSpreadsheetId = currentSheetId;
-    
+
+    // Cache the result only if date filter was applied
+    if (!skipDateFilter) {
+        _cachedDictionaryData = result;
+        _cacheSpreadsheetId = currentSheetId;
+    }
+
     return result;
 }
 
@@ -257,9 +273,10 @@ function clearDictionaryCache() {
 
 /**
  * Get data formatted for UI (backward compatibility)
+ * skipDateFilter = true for interactive quiz
  */
-function getDataForUI() {
-    const data = loadAllDictionaryData();
+function getDataForUI(skipDateFilter = false) {
+    const data = loadAllDictionaryData(null, false, skipDateFilter);
     return {
         languages: data.langues,
         chapters: data.chapitres,
@@ -312,7 +329,7 @@ function getAllTranslationsForWord(word, dictionaryData) {
     if (lookups && lookups.translationsByWord && lookups.translationsByWord[word]) {
         return lookups.translationsByWord[word];
     }
-    
+
     // Fallback to old method if lookups not available
     const translations = [];
     dictionaryData.translations.forEach(t => {
@@ -323,25 +340,4 @@ function getAllTranslationsForWord(word, dictionaryData) {
         }
     });
     return translations;
-}
-
-/**
- * Get all relations of a specific type for a word (optimized)
- * Returns array of word objects
- */
-function getRelationsForWord(word, relationType, dictionaryData) {
-    const lookups = dictionaryData._lookups;
-    if (lookups && lookups.relationsByWord) {
-        const key = `${word}|${relationType}`;
-        return lookups.relationsByWord[key] || [];
-    }
-    
-    // Fallback to old method
-    const results = [];
-    dictionaryData.relations.forEach(r => {
-        if (r.sourceWord === word && r.type === relationType) {
-            results.push(r.target);
-        }
-    });
-    return results;
 }

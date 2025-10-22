@@ -20,7 +20,7 @@ function onOpen() {
  */
 function startQuizUI() {
     const htmlTemplate = HtmlService.createTemplateFromFile("scripts/html/dialog");
-    const data = getDataForUI();
+    const data = getDataForUI(true);
 
     htmlTemplate.chapters = data.chapters;
     htmlTemplate.words = data.words;

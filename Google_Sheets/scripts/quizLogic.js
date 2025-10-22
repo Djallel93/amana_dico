@@ -1,5 +1,6 @@
 /**
  * Generate random translation quiz questions with definitions as help text
+ * NOW USES IDs FOR ACCURATE MATCHING
  */
 function generateTranslationQuizQuestions(dictionaryData, questionCount = null, isAdvancedStudent = false) {
     const { translations } = dictionaryData;
@@ -7,7 +8,6 @@ function generateTranslationQuizQuestions(dictionaryData, questionCount = null, 
         throw new Error('No translations available for quiz generation');
     }
 
-    // Use provided questionCount or get from properties
     const finalQuestionCount = questionCount !== null ? questionCount : getQuestionCount();
 
     const shuffled = shuffleArray(translations);
@@ -24,7 +24,8 @@ function generateTranslationQuizQuestions(dictionaryData, questionCount = null, 
         const direction = Math.random() < 0.5 ? 'source-to-target' : 'target-to-source';
 
         if (direction === 'source-to-target') {
-            const allTranslations = getAllTranslationsForWord(translation.sourceWord, dictionaryData);
+            // Use ID-based lookup
+            const allTranslations = getAllTranslationsForWordId(translation.source.id, dictionaryData);
             const allTranslationWords = allTranslations.map(t => t.mot);
 
             // Build help text with definition if available
@@ -50,7 +51,8 @@ function generateTranslationQuizQuestions(dictionaryData, questionCount = null, 
                 questionType: 'text'
             };
         } else {
-            const allTranslations = getAllTranslationsForWord(translation.targetWord, dictionaryData);
+            // Use ID-based lookup
+            const allTranslations = getAllTranslationsForWordId(translation.target.id, dictionaryData);
             const allTranslationWords = allTranslations.map(t => t.mot);
 
             // Build help text with definition if available
@@ -83,6 +85,7 @@ function generateTranslationQuizQuestions(dictionaryData, questionCount = null, 
 
 /**
  * Generate random relation (synonym/antonym) quiz questions with definitions
+ * NOW USES IDs FOR ACCURATE MATCHING
  */
 function generateRelationQuizQuestions(dictionaryData, questionCount = null, isAdvancedStudent = false) {
     const { relations } = dictionaryData;
@@ -90,7 +93,6 @@ function generateRelationQuizQuestions(dictionaryData, questionCount = null, isA
         throw new Error('No relations available for quiz generation');
     }
 
-    // Use provided questionCount or get from properties
     const finalQuestionCount = questionCount !== null ? questionCount : getQuestionCount();
 
     const shuffled = shuffleArray(relations);
@@ -108,8 +110,8 @@ function generateRelationQuizQuestions(dictionaryData, questionCount = null, isA
             // Advanced: Text question to find synonym/antonym
             const askForType = Math.random() < 0.5 ? 'Synonyme' : 'Antonyme';
 
-            // Get all relations of requested type for this word
-            const relationsForWord = getRelationsForWord(relation.sourceWord, askForType, dictionaryData);
+            // Use ID-based lookup
+            const relationsForWord = getRelationsForWordId(relation.source.id, askForType, dictionaryData);
 
             if (relationsForWord.length === 0) {
                 // If no relation of requested type, use what we have
@@ -304,7 +306,6 @@ function addQuestionsToForm(form, questions, isAdvancedStudent, quizType) {
                 .setRequired(true)
                 .setChoiceValues(question.choices);
 
-            // Use the helpText with context/definitions
             item.setHelpText(question.helpText || 'Choisirez entre "Synonyme" ou "Antonyme"');
         } else {
             // Text question
@@ -327,7 +328,6 @@ function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
     try {
         const file = DriveApp.getFileById(fileId);
 
-        // Parse the destination path (e.g., "/dictionnaire/2025/forms" or "dictionnaire/2025/forms")
         const pathParts = destinationPath
             .split('/')
             .filter(part => part.trim().length > 0);
@@ -337,7 +337,6 @@ function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
             return;
         }
 
-        // Navigate/create folders for main destination path
         let currentFolder = DriveApp.getRootFolder();
 
         for (const folderName of pathParts) {
@@ -349,7 +348,6 @@ function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
             }
         }
 
-        // Navigate/create subfolder path (e.g., "traduction/debutant")
         const subPathParts = subfolderPath.split('/').filter(part => part.trim().length > 0);
 
         for (const folderName of subPathParts) {
@@ -361,7 +359,6 @@ function moveToNestedFolder(fileId, destinationPath, subfolderPath) {
             }
         }
 
-        // Move file to final location
         file.getParents().next().removeFile(file);
         currentFolder.addFile(file);
 
