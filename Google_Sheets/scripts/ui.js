@@ -5,13 +5,13 @@ function onOpen() {
     SpreadsheetApp.getUi()
         .createMenu("📚 Tester mes connaissances")
         .addItem("📑 Démarrer le Quiz", "startQuizUI")
-        // .addSeparator()
-        // .addItem("📜 Générer un formulaire", "generateQuizForm")
-        // .addItem("📧 Créer et envoyer aux élèves", "createAndSendQuizFormUI")
-        // .addSeparator()
-        // .addSubMenu(SpreadsheetApp.getUi().createMenu("🔧 Tests & Debug")
-        //     .addItem("📋 Voir les élèves à tester", "viewStudentsToTest")
-        //     .addItem("🧪 Tester l'envoi d'email", "testEmailUI"))
+        .addSeparator()
+        .addItem("📜 Générer un formulaire", "generateQuizForm")
+        .addItem("📧 Créer et envoyer aux élèves", "createAndSendQuizFormUI")
+        .addSeparator()
+        .addSubMenu(SpreadsheetApp.getUi().createMenu("🔧 Tests & Debug")
+            .addItem("📋 Voir les élèves à tester", "viewStudentsToTest")
+            .addItem("🧪 Tester l'envoi d'email", "testEmailUI"))
         .addToUi();
 }
 

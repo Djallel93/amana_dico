@@ -203,7 +203,7 @@ function generateRelationQuizQuestions(dictionaryData, questionCount = null, isA
  */
 function createQuizForm(spreadsheetId = null, isAdvancedStudent = false, quizType = CONFIG.QUIZ_TYPES.TRANSLATION) {
     try {
-        const sheetId = spreadsheetId || SpreadsheetApp.getActiveSpreadsheet().getId();
+        const sheetId = getSheetId();
         console.log(`Loading dictionary data for ${quizType} quiz...`);
         const dictionaryData = loadAllDictionaryData(sheetId);
 

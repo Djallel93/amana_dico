@@ -64,7 +64,7 @@ function getSundayOfCurrentWeek() {
  * Filters words to exclude those from current week's Sunday (unless skipDateFilter = true)
  */
 function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDateFilter = false) {
-    const currentSheetId = spreadsheetId || SpreadsheetApp.getActiveSpreadsheet().getId();
+    const currentSheetId = getSheetId();
 
     // Return cached data if available and same spreadsheet (only if not skipping filter)
     if (!forceReload && !skipDateFilter && _cachedDictionaryData && _cacheSpreadsheetId === currentSheetId) {

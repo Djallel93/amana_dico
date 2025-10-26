@@ -3,7 +3,8 @@
  * Creates forms based on student preferences (translation and/or relation quizzes)
  * Priority: If both debutant and avance are checked, only avance form is created
  */
-function createAndSendQuizForm(spreadsheetId = null) {
+function createAndSendQuizForm(sheetId = null) {
+    const spreadsheetId = getSheetId();
     try {
         console.log('=== Creating and Sending Quiz Forms ===\n');
         const studentsByCategory = getStudentsByTestCategory(spreadsheetId);

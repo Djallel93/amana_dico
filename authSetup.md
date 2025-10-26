@@ -12,7 +12,7 @@ Before executing the `getAuthorizationUrl()` function, you must have:
 - The OAuth2 module installed:
   - In Apps Script, go to Services → Libraries
   - Click + Add a library
-  - Paste the following ID: `1B7dPCa6d1KqQ2Jm2s5n4v1-wqjCzA1-sz6W6jEY6ek1p7jap8jUtA2v4`
+  - Paste the following ID: `1B7FSrk5Zi6L1rSxxTDgDEUsPzlukDsi4KGuTMorsTQHhGBzBkMun4iDF`
   - Name: OAuth2
   - Version: the most recent available
 - An active OAuth 2.0 client in Google Cloud Console (not deleted)
@@ -30,6 +30,14 @@ Before executing the `getAuthorizationUrl()` function, you must have:
    ```
    https://script.google.com/macros/d/{SCRIPT_ID}/usercallback
    ```
+
+### 🚀 Deploy Google Project
+
+Go to:
+
+   1. Google Auth Platform
+   2. Audience
+   3. Publish
 
 ### 🔍 To find your SCRIPT_ID
 

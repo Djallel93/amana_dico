@@ -42,7 +42,6 @@ const CONFIG = {
             }
         }
     },
-
     OAUTH_CONFIG: {
         // REDIRECT_URI_DEV: 'https://script.google.com/macros/d/1GB6MEbLZt5M-paXKmGo6jYxrsdi39PgpJHGLAUEcKGTyTND3bii0soab/usercallback',
         REDIRECT_URI: 'https://script.google.com/macros/d/1VNZlcJjSiAuefq78vteip8f4JTH6nTRiv9B5fsB6Ts78T6hy1WYUsUR_/usercallback',
@@ -127,9 +126,7 @@ const CONFIG = {
  */
 function getSheetData(sheetName, spreadsheetId = null) {
     try {
-        const spreadsheet = spreadsheetId
-            ? SpreadsheetApp.openById(spreadsheetId)
-            : SpreadsheetApp.getActiveSpreadsheet();
+        const spreadsheet = SpreadsheetApp.openById(getSheetId());
 
         const sheet = spreadsheet.getSheetByName(sheetName);
         if (!sheet) {
@@ -196,6 +193,14 @@ function getTemplateFormId() {
     const templateId = PropertiesService.getScriptProperties().getProperty("TEMPLATE_FORM_ID");
     if (!templateId) {
         throw new Error('TEMPLATE_FORM_ID not found in Script Properties. Please set it in Project Settings.');
+    }
+    return templateId;
+}
+
+function getSheetId() {
+    const templateId = PropertiesService.getScriptProperties().getProperty("SHEET_ID");
+    if (!templateId) {
+        throw new Error('SHEET_ID not found in Script Properties. Please set it in Project Settings.');
     }
     return templateId;
 }
