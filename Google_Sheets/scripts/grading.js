@@ -57,8 +57,11 @@ function removeHarakat(text) {
  */
 function hasReflexivePronoun(text) {
     if (!text) return null;
+
+    const normalized = text.replace(/[’‘`]/g, "'");
+
     const reflexivePattern = /^(.+?)\s*\((se|s')\)$/i;
-    const match = text.trim().match(reflexivePattern);
+    const match = normalized.trim().match(reflexivePattern);
 
     if (match) {
         return {
@@ -69,30 +72,37 @@ function hasReflexivePronoun(text) {
     return null;
 }
 
+
 /**
  * Generate reflexive verb variations
  */
 function generateReflexiveVariations(verb, pronoun) {
     const variations = [];
     const normalizedPronoun = pronoun.toLowerCase();
-    const combined = `${normalizedPronoun} ${verb}`;
+
+    // handle "s'" (no space) vs "se" (space)
+    const separator = normalizedPronoun.endsWith("'") ? "" : " ";
+    const combined = `${normalizedPronoun}${separator}${verb}`;
 
     variations.push(combined);
     variations.push(combined.toLowerCase());
     variations.push(combined.toUpperCase());
 
     const properCase = normalizedPronoun.charAt(0).toUpperCase() +
-        normalizedPronoun.slice(1) + ' ' +
+        normalizedPronoun.slice(1) +
+        separator +
         verb.toLowerCase();
     variations.push(properCase);
 
     const properCaseAlt = normalizedPronoun.charAt(0).toUpperCase() +
-        normalizedPronoun.slice(1) + ' ' +
+        normalizedPronoun.slice(1) +
+        separator +
         verb.charAt(0).toUpperCase() + verb.slice(1).toLowerCase();
     variations.push(properCaseAlt);
 
-    return variations;
+    return [...new Set(variations)];
 }
+
 
 /**
  * Generate case variations for a text answer
@@ -111,14 +121,10 @@ function generateCaseVariations(text) {
     variations.push(trimmed);
 
     const lower = trimmed.toLowerCase();
-    if (lower !== trimmed) {
-        variations.push(lower);
-    }
+    if (lower !== trimmed) variations.push(lower);
 
     const upper = trimmed.toUpperCase();
-    if (upper !== trimmed) {
-        variations.push(upper);
-    }
+    if (upper !== trimmed) variations.push(upper);
 
     const proper = trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
     if (proper !== trimmed && proper !== lower && proper !== upper) {

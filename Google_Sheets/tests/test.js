@@ -105,3 +105,8 @@ function testAnswerVariations() {
     });
     console.log('\n=== Test Complete ===');
 }
+
+function tmpTest() {
+    const test = generateCaseVariations("asseoir (s’)");
+    console.log(test);
+}

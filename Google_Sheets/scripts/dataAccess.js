@@ -341,3 +341,65 @@ function getAllTranslationsForWord(word, dictionaryData) {
     });
     return translations;
 }
+
+/**
+ * Get all possible translations for a word by its ID (optimized)
+ * Returns array of word objects with definitions
+ */
+function getAllTranslationsForWordId(wordId, dictionaryData) {
+    const lookups = dictionaryData._lookups;
+    
+    // First get the word object by ID
+    const sourceWord = lookups.motsById[wordId];
+    if (!sourceWord) {
+        console.warn(`Word with ID ${wordId} not found`);
+        return [];
+    }
+    
+    // Then use the word text to get translations
+    if (lookups && lookups.translationsByWord && lookups.translationsByWord[sourceWord.mot]) {
+        return lookups.translationsByWord[sourceWord.mot];
+    }
+    
+    // Fallback to old method if lookups not available
+    const translations = [];
+    dictionaryData.translations.forEach(t => {
+        if (t.source.id === wordId) {
+            translations.push(t.target);
+        } else if (t.target.id === wordId) {
+            translations.push(t.source);
+        }
+    });
+    return translations;
+}
+
+/**
+ * Get all relations for a word by its ID and type (optimized)
+ * Returns array of word objects
+ */
+function getRelationsForWordId(wordId, relationType, dictionaryData) {
+    const lookups = dictionaryData._lookups;
+    
+    // First get the word object by ID
+    const sourceWord = lookups.motsById[wordId];
+    if (!sourceWord) {
+        console.warn(`Word with ID ${wordId} not found`);
+        return [];
+    }
+    
+    // Build lookup key
+    const key = `${sourceWord.mot}|${relationType}`;
+    
+    if (lookups && lookups.relationsByWord && lookups.relationsByWord[key]) {
+        return lookups.relationsByWord[key];
+    }
+    
+    // Fallback to old method if lookups not available
+    const relations = [];
+    dictionaryData.relations.forEach(r => {
+        if (r.source.id === wordId && r.type === relationType) {
+            relations.push(r.target);
+        }
+    });
+    return relations;
+}
