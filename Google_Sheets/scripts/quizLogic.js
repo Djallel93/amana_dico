@@ -230,6 +230,7 @@ function createQuizForm(spreadsheetId = null, isAdvancedStudent = false, quizTyp
         let description = quizType === CONFIG.QUIZ_TYPES.TRANSLATION
             ? CONFIG.QUIZ_SETTINGS.TRANSLATION_DESCRIPTION
             : CONFIG.QUIZ_SETTINGS.RELATION_DESCRIPTION;
+        console.log(`description before advanced check: ${description}`);
 
         if (isAdvancedStudent) {
             description += '\n\n⚠️ Niveau avancé: Les harakat doivent être respectées pour les mots arabes';

@@ -164,7 +164,7 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
 
     // Build translations with full word objects including definitions
     const translations = [];
-    const translationsByWord = {}; // For quick lookup
+    const translationsByWordId = {}; // NEW: Index by word ID instead of word text
 
     traductionsData.forEach(row => {
         const idMotSource = row[TRADUCTION.COLUMNS.ID_MOT_SOURCE];
@@ -185,21 +185,21 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
             };
             translations.push(translation);
 
-            // Build bidirectional lookup
-            if (!translationsByWord[sourceObj.mot]) {
-                translationsByWord[sourceObj.mot] = [];
+            // Build bidirectional lookup BY ID (not by word text)
+            if (!translationsByWordId[sourceObj.id]) {
+                translationsByWordId[sourceObj.id] = [];
             }
-            if (!translationsByWord[targetObj.mot]) {
-                translationsByWord[targetObj.mot] = [];
+            if (!translationsByWordId[targetObj.id]) {
+                translationsByWordId[targetObj.id] = [];
             }
-            translationsByWord[sourceObj.mot].push(targetObj);
-            translationsByWord[targetObj.mot].push(sourceObj);
+            translationsByWordId[sourceObj.id].push(targetObj);
+            translationsByWordId[targetObj.id].push(sourceObj);
         }
     });
 
     // Build relations with full word objects
     const relations = [];
-    const relationsByWord = {}; // For quick lookup by word and type
+    const relationsByWordId = {}; // NEW: Index by word ID and type
 
     relationsData.forEach(row => {
         const motSource = row[RELATION.COLUMNS.MOT_SOURCE];
@@ -219,12 +219,12 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
             };
             relations.push(relation);
 
-            // Build lookup by source word and type
-            const key = `${motSource}|${type}`;
-            if (!relationsByWord[key]) {
-                relationsByWord[key] = [];
+            // Build lookup by source word ID and type (not word text)
+            const key = `${sourceObj.id}|${type}`;
+            if (!relationsByWordId[key]) {
+                relationsByWordId[key] = [];
             }
-            relationsByWord[key].push(targetObj);
+            relationsByWordId[key].push(targetObj);
         }
     });
 
@@ -248,8 +248,8 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
         _lookups: {
             motsById,
             motsByWord,
-            translationsByWord,
-            relationsByWord
+            translationsByWordId, // CHANGED: Now indexed by ID
+            relationsByWordId      // CHANGED: Now indexed by ID
         }
     };
 
@@ -321,46 +321,25 @@ function getRelations() {
 }
 
 /**
- * Get all possible translations for a given word (optimized)
- * Returns array of word objects with definitions
- */
-function getAllTranslationsForWord(word, dictionaryData) {
-    const lookups = dictionaryData._lookups;
-    if (lookups && lookups.translationsByWord && lookups.translationsByWord[word]) {
-        return lookups.translationsByWord[word];
-    }
-
-    // Fallback to old method if lookups not available
-    const translations = [];
-    dictionaryData.translations.forEach(t => {
-        if (t.sourceWord === word) {
-            translations.push(t.target);
-        } else if (t.targetWord === word) {
-            translations.push(t.source);
-        }
-    });
-    return translations;
-}
-
-/**
  * Get all possible translations for a word by its ID (optimized)
  * Returns array of word objects with definitions
+ * THIS IS THE CORRECT FUNCTION TO USE
  */
 function getAllTranslationsForWordId(wordId, dictionaryData) {
     const lookups = dictionaryData._lookups;
-    
-    // First get the word object by ID
+
+    // Check if word exists
     const sourceWord = lookups.motsById[wordId];
     if (!sourceWord) {
         console.warn(`Word with ID ${wordId} not found`);
         return [];
     }
-    
-    // Then use the word text to get translations
-    if (lookups && lookups.translationsByWord && lookups.translationsByWord[sourceWord.mot]) {
-        return lookups.translationsByWord[sourceWord.mot];
+
+    // Use ID-based lookup (not word text)
+    if (lookups && lookups.translationsByWordId && lookups.translationsByWordId[wordId]) {
+        return lookups.translationsByWordId[wordId];
     }
-    
+
     // Fallback to old method if lookups not available
     const translations = [];
     dictionaryData.translations.forEach(t => {
@@ -379,21 +358,21 @@ function getAllTranslationsForWordId(wordId, dictionaryData) {
  */
 function getRelationsForWordId(wordId, relationType, dictionaryData) {
     const lookups = dictionaryData._lookups;
-    
-    // First get the word object by ID
+
+    // Check if word exists
     const sourceWord = lookups.motsById[wordId];
     if (!sourceWord) {
         console.warn(`Word with ID ${wordId} not found`);
         return [];
     }
-    
-    // Build lookup key
-    const key = `${sourceWord.mot}|${relationType}`;
-    
-    if (lookups && lookups.relationsByWord && lookups.relationsByWord[key]) {
-        return lookups.relationsByWord[key];
+
+    // Build lookup key using ID (not word text)
+    const key = `${wordId}|${relationType}`;
+
+    if (lookups && lookups.relationsByWordId && lookups.relationsByWordId[key]) {
+        return lookups.relationsByWordId[key];
     }
-    
+
     // Fallback to old method if lookups not available
     const relations = [];
     dictionaryData.relations.forEach(r => {
