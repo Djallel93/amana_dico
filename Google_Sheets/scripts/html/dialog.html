@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz d'apprentissage des langues</title>
     <?!= include('scripts/html/styles'); ?>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -21,9 +23,10 @@
                             <label for="quizDirection">Sens du quiz :</label>
                             <select id="quizDirection">
                                 <option value="both">Les deux sens (aléatoire)</option>
-                                <option value="word-to-translation">Mot → Traduction</option>
-                                <option value="translation-to-word">Traduction → Mot</option>
+                                <option value="fr-to-ar">Français → Arabe</option>
+                                <option value="ar-to-fr">Arabe → Français</option>
                             </select>
+
                         </div>
                         <div class="form-group">
                             <label>Sélectionnez les chapitres :</label>
@@ -61,8 +64,6 @@
                 <div class="score-display" id="finalScore">0%</div>
                 <div id="scoreBreakdown"></div>
                 <button class="btn" onclick="resetQuiz()">🔄 Refaire un quiz</button>
-                <!-- <button class="btn" onclick="reviewAnswers()">👀 Revoir les réponses</button> -->
-                <!-- <button class="btn" onclick="saveResults()">💾 Enregistrer dans la feuille</button> -->
             </div>
         </div>
     </div>
@@ -76,4 +77,5 @@
     </script>
     <?!= include('scripts/html/script.html') || 'FAILED TO INCLUDE' ?>
 </body>
+
 </html>

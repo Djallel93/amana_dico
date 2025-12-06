@@ -49,14 +49,38 @@
     }
 
     function generateQuiz(selectedChapters, direction) {
-        // Get words from selected chapters
-        let availableWords = allWords.filter(word =>
-            selectedChapters.includes(parseInt(word.chapitre))
-        );
+        // Filtrer strictement les mots par chapitre sélectionné
+        let availableWords = allWords.filter(word => {
+            const wordChapter = parseInt(word.chapitre);
+            return selectedChapters.includes(wordChapter);
+        });
+
         if (availableWords.length === 0) {
             alert('Aucun mot trouvé dans les chapitres sélectionnés!');
             return;
         }
+
+        // Filtrer par langue source selon la direction choisie
+        if (direction === 'fr-to-ar') {
+            availableWords = availableWords.filter(word =>
+                getLanguageCode(word.langue) === 'fr'
+            );
+            console.log('Mode: Français → Arabe');
+        } else if (direction === 'ar-to-fr') {
+            availableWords = availableWords.filter(word =>
+                getLanguageCode(word.langue) === 'ar'
+            );
+            console.log('Mode: Arabe → Français');
+        } else {
+            console.log('Mode: Les deux sens (aléatoire)');
+        }
+
+        if (availableWords.length === 0) {
+            alert('Aucun mot trouvé dans la langue source pour la direction choisie!');
+            return;
+        }
+
+        console.log(`Mots disponibles après filtrage: ${availableWords.length}`);
 
         // Store quiz info for results
         quizResults.chapters = selectedChapters.map(id => {
@@ -68,67 +92,46 @@
         availableWords = shuffleArray(availableWords);
         const selectedWords = availableWords.slice(0, Math.min(10, availableWords.length));
 
-        const askedWords = new Set(); // Pour tracker les mots déjà demandés
+        const askedWords = new Set();
 
         currentQuiz = selectedWords.map((word, index) => {
-            let questionText, correctAnswer, questionType, wrongOptions, answerLanguage;
-
             // Find translations for this word
             const wordTranslations = findTranslations(word.mot);
             if (wordTranslations.length === 0) {
-                // Skip words without translations
                 return null;
             }
 
-            // Determine question direction
-            if (direction === 'word-to-translation' || (direction === 'both' && Math.random() < 0.5)) {
-                questionText = `Quelle est la traduction de « ${word.mot} » ?`;
-                correctAnswer = wordTranslations[0];
-                questionType = 'word-to-translation';
-                answerLanguage = getOppositeLanguage(word.langue);
-
-                // Vérifier que ce mot n'a pas déjà été demandé
-                if (askedWords.has(word.mot)) {
-                    return null; // Passer ce mot
-                }
-                askedWords.add(word.mot);
-
-                // Get wrong options ONLY in the target language
-                wrongOptions = generateWrongTranslationsInLanguage(word, answerLanguage, correctAnswer);
-            } else {
-                // Find a word that translates to something, use that something as the question
-                const translation = wordTranslations[0];
-                const translatedWord = findWordInLanguage(translation, getOppositeLanguage(word.langue));
-
-                if (!translatedWord) {
-                    return null;
-                }
-
-                questionText = `Quel est le mot correspondant à « ${translation} » ?`;
-                correctAnswer = word.mot;
-                questionType = 'translation-to-word';
-                answerLanguage = word.langue;
-
-                // Vérifier que cette traduction n'a pas déjà été demandée
-                if (askedWords.has(translation)) {
-                    return null; // Passer ce mot
-                }
-                askedWords.add(translation);
-
-                // Get wrong options ONLY in the source language
-                wrongOptions = generateWrongWordsInLanguage(translation, answerLanguage, correctAnswer);
+            // Vérifier que le mot n'a pas déjà été demandé
+            if (askedWords.has(word.mot)) {
+                return null;
             }
+            askedWords.add(word.mot);
 
-            // IMPORTANT: Ensure we have exactly 3 wrong options
+            // Déterminer la langue cible (opposée à la langue source)
+            const targetLanguage = getOppositeLanguage(word.langue);
+            const targetLanguageCode = getLanguageCode(targetLanguage);
+
+            // Question: toujours demander la traduction du mot source
+            const questionText = `Quelle est la traduction de « ${word.mot} » ?`;
+            const correctAnswer = wordTranslations[0];
+
+            // Générer les mauvaises réponses dans la langue cible
+            const wrongOptions = generateWrongTranslationsInLanguage(
+                word,
+                targetLanguage,
+                correctAnswer
+            );
+
+            // Vérifier qu'on a assez de mauvaises réponses
             if (wrongOptions.length < 3) {
                 console.warn(`Pas assez de mauvaises réponses pour: ${correctAnswer}, question ignorée`);
                 return null;
             }
 
-            // Take only first 3 wrong options
+            // Prendre uniquement 3 mauvaises réponses
             const finalWrongOptions = wrongOptions.slice(0, 3);
 
-            // Create final options array: 1 correct + 3 wrong
+            // Créer le tableau final: 1 bonne réponse + 3 mauvaises
             const allOptions = shuffleArray([correctAnswer, ...finalWrongOptions]);
 
             return {
@@ -137,7 +140,9 @@
                 options: allOptions,
                 correctAnswer: correctAnswer,
                 word: word,
-                translation: wordTranslations[0]
+                translation: wordTranslations[0],
+                sourceLanguage: getLanguageCode(word.langue),
+                targetLanguage: targetLanguageCode
             };
         }).filter(q => q !== null);
 
@@ -147,10 +152,16 @@
         });
 
         userAnswers = {};
+
+        console.log(`Questions générées: ${currentQuiz.length}`);
+
+        // Log des langues pour vérification
+        if (currentQuiz.length > 0) {
+            console.log(`Direction effective: ${currentQuiz[0].sourceLanguage} → ${currentQuiz[0].targetLanguage}`);
+        }
     }
 
     function getOppositeLanguage(langue) {
-        // Détermine la langue opposée
         const arabicCodes = ['ar', 'arabic', 'arabe', 'العربية'];
         const isArabic = arabicCodes.some(code =>
             String(langue).toLowerCase().includes(code)
@@ -206,25 +217,6 @@
 
         // Return at least 3 wrong options
         return shuffledTranslations.slice(0, 3);
-    }
-
-    function generateWrongWordsInLanguage(correctTranslation, targetLanguage, correctAnswer) {
-        const targetLangCode = getLanguageCode(targetLanguage);
-
-        // Récupérer TOUS les mots dans la langue cible
-        const wordsInTargetLanguage = allWords.filter(word =>
-            getLanguageCode(word.langue) === targetLangCode
-        );
-
-        // Récupérer tous les mots uniques en excluant la bonne réponse
-        const uniqueWords = [...new Set(wordsInTargetLanguage.map(w => w.mot))];
-        const filteredWords = uniqueWords.filter(w => w !== correctAnswer);
-
-        // Shuffle to randomize
-        const shuffledWords = shuffleArray(filteredWords);
-
-        // Return at least 3 wrong options
-        return shuffledWords.slice(0, 3);
     }
 
     function shuffleArray(array) {
