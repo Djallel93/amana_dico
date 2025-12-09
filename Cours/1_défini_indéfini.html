@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le défini et l'indéfini en arabe</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .comparison-table {
+            margin: 25px 0;
+        }
+
+        .big-number {
+            font-size: 3em;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .tanwin-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #2196f3;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tanwin-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(33, 150, 243, 0.3);
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive Design pour mobiles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            .big-number {
+                font-size: 2em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box,
+            .tanwin-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .big-number {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Le défini et l'indéfini en arabe</h1>
+        <div class="arabic-title">المَعْرِفَة وَالنَّكِرَة</div>
+
+        <div class="intro">
+            Bienvenue dans cette leçon sur le défini et l'indéfini en arabe ! En français, nous utilisons "un/une" pour
+            l'indéfini et "le/la/les" pour le défini. En arabe, c'est différent et plus simple ! Il n'y a <strong>pas
+                d'article indéfini</strong> en arabe, et un seul article défini : <span class="arabic">ال</span>
+        </div>
+
+        <h2 class="scroll-animate-left">🎯 L'indéfini (النَّكِرَة)</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Règle importante :</strong> En arabe, il n'existe <span class="highlight">AUCUN article
+                    indéfini</span> comme "un" ou "une" en français. Pour dire "un homme", on écrit simplement le mot
+                sans rien ajouter devant !</p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples simples :</h4>
+            <ul>
+                <li><span class="arabic">رَجُلٌ</span> → un homme</li>
+                <li><span class="arabic">كِتَابٌ</span> → un livre</li>
+                <li><span class="arabic">مَدْرَسَةٌ</span> → une école</li>
+                <li><span class="arabic">بَيْتٌ</span> → une maison</li>
+                <li><span class="arabic">سَيَّارَةٌ</span> → une voiture</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">⭐ Le tanwīn (التَّنْوِين) - La marque de l'indéfini</h3>
+
+        <div class="tanwin-box scroll-animate-scale">
+            <p>Le <strong>tanwīn</strong> (ou nunation) est le son /n/ à la fin d'un mot indéfini. Ce /n/ ne s'écrit pas
+                comme une lettre, mais il est indiqué en <span class="highlight">doublant la voyelle finale</span>.</p>
+        </div>
+
+        <p class="scroll-animate">Il existe <strong>trois formes</strong> de tanwīn selon les trois cas grammaticaux en
+            arabe :</p>
+
+        <h3 class="scroll-animate">1️⃣ Le cas nominatif (مَرْفُوع) - Sujet</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Double ḍamma : <span class="arabic" style="font-size: 2em;">ٌ</span> se prononce <strong>/oun/</strong>
+            </p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Arabe</th>
+                    <th>Prononciation</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">رَجُلٌ</span></td>
+                    <td>rajul<strong>oun</strong></td>
+                    <td>un homme</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">كِتَابٌ</span></td>
+                    <td>kitāb<strong>oun</strong></td>
+                    <td>un livre</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طَالِبٌ</span></td>
+                    <td>ṭālib<strong>oun</strong></td>
+                    <td>un étudiant</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمَةٌ</span></td>
+                    <td>mu'allim<strong>atoun</strong></td>
+                    <td>une enseignante</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>En phrase :</h4>
+            <p><span class="arabic">جَاءَ رَجُلٌ</span> → Un homme est venu</p>
+            <p><span class="arabic">هَذَا كِتَابٌ</span> → Ceci est un livre</p>
+        </div>
+
+        <h3 class="scroll-animate">2️⃣ Le cas direct/accusatif (مَنْصُوب) - Complément</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Double fatḥa + alif : <span class="arabic" style="font-size: 2em;">ـًا</span> se prononce
+                <strong>/an/</strong>
+            </p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Arabe</th>
+                    <th>Prononciation</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">رَجُلاً</span></td>
+                    <td>rajul<strong>an</strong></td>
+                    <td>un homme</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">كِتَابًا</span></td>
+                    <td>kitāb<strong>an</strong></td>
+                    <td>un livre</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طَالِبًا</span></td>
+                    <td>ṭālib<strong>an</strong></td>
+                    <td>un étudiant</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">بَيْتًا</span></td>
+                    <td>bayt<strong>an</strong></td>
+                    <td>une maison</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>En phrase :</h4>
+            <p><span class="arabic">رَأَيْتُ رَجُلاً</span> → J'ai vu un homme</p>
+            <p><span class="arabic">قَرَأْتُ كِتَابًا</span> → J'ai lu un livre</p>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>⚠️ Exception importante :</strong> Les mots qui se terminent par <span class="arabic">ة</span> (tā
+            marbūṭa), <span class="arabic">أ</span> ou <span class="arabic">اء</span> ne prennent PAS le alif
+            supplémentaire !
+            <br><br>
+            Exemples :
+            <ul>
+                <li><span class="arabic">مَدْرَسَةً</span> (et NON مَدْرَسَتًا) → une école</li>
+                <li><span class="arabic">سَمَاءً</span> (et NON سَمَاءًا) → un ciel</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">3️⃣ Le cas indirect/génitif (مَجْرُور) - Après préposition</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Double kasra : <span class="arabic" style="font-size: 2em;">ٍ</span> se prononce <strong>/in/</strong>
+            </p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Arabe</th>
+                    <th>Prononciation</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">رَجُلٍ</span></td>
+                    <td>rajul<strong>in</strong></td>
+                    <td>un homme</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">كِتَابٍ</span></td>
+                    <td>kitāb<strong>in</strong></td>
+                    <td>un livre</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مَدْرَسَةٍ</span></td>
+                    <td>madrasat<strong>in</strong></td>
+                    <td>une école</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">بَيْتٍ</span></td>
+                    <td>bayt<strong>in</strong></td>
+                    <td>une maison</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>En phrase :</h4>
+            <p><span class="arabic">ذَهَبَ مَعَ رَجُلٍ</span> → Il est parti avec un homme</p>
+            <p><span class="arabic">فِي بَيْتٍ</span> → dans une maison</p>
+            <p><span class="arabic">مِنْ مَدْرَسَةٍ</span> → d'une école</p>
+        </div>
+
+        <h2 class="scroll-animate-left">✨ L'article défini (أَداة التَّعْرِيف)</h2>
+
+        <div class="big-number scroll-animate-scale">ال</div>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>L'unique article défini en arabe est :</strong> <span class="arabic"
+                    style="font-size: 1.5em;">ال</span> (al-)</p>
+            <p>Il correspond à <span class="highlight">"le / la / les"</span> en français - un seul article pour tous
+                les genres et tous les nombres !</p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples simples :</h4>
+            <ul>
+                <li><span class="arabic">الرَّجُلُ</span> → l'homme / le homme</li>
+                <li><span class="arabic">الكِتَابُ</span> → le livre</li>
+                <li><span class="arabic">المَدْرَسَةُ</span> → l'école</li>
+                <li><span class="arabic">البَيْتُ</span> → la maison</li>
+                <li><span class="arabic">السَّيَّارَةُ</span> → la voiture</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">🔄 Transformation : Indéfini → Défini</h3>
+
+        <p class="scroll-animate">Quand un mot indéfini devient défini :</p>
+        <ol class="scroll-animate">
+            <li>On ajoute <span class="arabic">ال</span> au début</li>
+            <li>On supprime le tanwīn (le /n/ final)</li>
+            <li>On garde une seule voyelle à la fin</li>
+        </ol>
+
+        <table class="comparison-table scroll-animate">
+            <thead>
+                <tr>
+                    <th>Cas</th>
+                    <th>Indéfini (نَكِرَة)</th>
+                    <th>Défini (مَعْرِفَة)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Nominatif</strong></td>
+                    <td><span class="arabic">رَجُلٌ</span><br>rajul<strong>oun</strong></td>
+                    <td><span class="arabic">الرَّجُلُ</span><br>ar-rajul<strong>u</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Accusatif</strong></td>
+                    <td><span class="arabic">رَجُلاً</span><br>rajul<strong>an</strong></td>
+                    <td><span class="arabic">الرَّجُلَ</span><br>ar-rajul<strong>a</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Génitif</strong></td>
+                    <td><span class="arabic">رَجُلٍ</span><br>rajul<strong>in</strong></td>
+                    <td><span class="arabic">الرَّجُلِ</span><br>ar-rajul<strong>i</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">➕ Plus d'exemples avec différents mots</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Indéfini</th>
+                    <th>Défini</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">كِتَابٌ</span></td>
+                    <td><span class="arabic">الكِتَابُ</span></td>
+                    <td>un livre → le livre</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مَدْرَسَةٌ</span></td>
+                    <td><span class="arabic">المَدْرَسَةُ</span></td>
+                    <td>une école → l'école</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طَالِبٌ</span></td>
+                    <td><span class="arabic">الطَّالِبُ</span></td>
+                    <td>un étudiant → l'étudiant</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمَةٌ</span></td>
+                    <td><span class="arabic">المُعَلِّمَةُ</span></td>
+                    <td>une enseignante → l'enseignante</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">بَيْتٌ</span></td>
+                    <td><span class="arabic">البَيْتُ</span></td>
+                    <td>une maison → la maison</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">سَيَّارَةٌ</span></td>
+                    <td><span class="arabic">السَّيَّارَةُ</span></td>
+                    <td>une voiture → la voiture</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">قَلَمٌ</span></td>
+                    <td><span class="arabic">القَلَمُ</span></td>
+                    <td>un stylo → le stylo</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">شَجَرَةٌ</span></td>
+                    <td><span class="arabic">الشَّجَرَةُ</span></td>
+                    <td>un arbre → l'arbre</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>🗣️ En phrases complètes :</h4>
+            <ul>
+                <li><span class="arabic">التَّعْلِيمُ مُهِمٌّ</span> → L'éducation est importante</li>
+                <li><span class="arabic">القِطَطُ حَيَوَانَاتٌ</span> → Les chats sont des animaux</li>
+                <li><span class="arabic">الوَلَدُ فِي المَدْرَسَةِ</span> → Le garçon est à l'école</li>
+                <li><span class="arabic">الكِتَابُ عَلَى الطَّاوِلَةِ</span> → Le livre est sur la table</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Remarque importante :</strong> Certains noms propres (comme les prénoms) peuvent avoir le tanwīn
+            même s'ils sont grammaticalement définis :
+            <ul>
+                <li><span class="arabic">مُحَمَّدٌ</span> → Mohammed (avec tanwīn)</li>
+                <li><span class="arabic">كَرِيمٌ</span> → Karim (avec tanwīn)</li>
+            </ul>
+            Ces noms sont définis par nature (ils désignent une personne précise) mais gardent la forme indéfinie !
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>🗣️ À savoir :</strong> En arabe parlé (dialectes), le tanwīn est rarement prononcé. Les gens disent
+            simplement "rajul" au lieu de "rajuloun". Mais en arabe littéraire (coranique, journalistique), il est
+            toujours prononcé !
+        </div>
+
+        <div class="note scroll-animate-scale">
+            <strong>📚 Résumé de la leçon :</strong>
+            <ul>
+                <li>Il n'y a <strong>pas d'article indéfini</strong> en arabe</li>
+                <li>Le tanwīn (ـٌ ـًا ـٍ) marque l'indéfini</li>
+                <li>L'article défini est <span class="arabic">ال</span> (= le/la/les)</li>
+                <li>Défini = <span class="arabic">ال</span> + mot sans tanwīn</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll-animate classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

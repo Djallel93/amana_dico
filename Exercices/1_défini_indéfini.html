@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Défini et Indéfini en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        /* Responsive Design pour mobiles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .exercise h3 {
+                font-size: 1.1em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            .intro,
+            .note,
+            .exercise,
+            .question {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .section-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .answer-space,
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.75em;
+            }
+
+            th,
+            td {
+                padding: 6px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer le défini et l'indéfini
+            en arabe. N'oubliez pas : pas d'article indéfini en arabe, juste le tanwīn ! Pour le défini, ajoutez <span
+                class="arabic">ال</span> au début.
+        </div>
+
+        <h2><span class="section-number">1</span>Identifiez : défini ou indéfini ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les mots suivants sont définis (D) ou indéfinis (I)</h3>
+            <ol>
+                <li><span class="arabic">كِتَابٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الكِتَابُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مَدْرَسَةٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">البَيْتُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">رَجُلٍ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الطَّالِبُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمَةً</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">القَلَمُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَيَّارَةٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الشَّجَرَةُ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Ajoutez l'article défini</h2>
+        <div class="exercise">
+            <h3>Transformez les mots indéfinis en définis</h3>
+            <p><em>Rappel : Ajoutez ال et supprimez le tanwīn</em></p>
+            <ol>
+                <li><span class="arabic">كِتَابٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مَدْرَسَةٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">رَجُلٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَالِبٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمَةٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَيْتٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَيَّارَةٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَلَمٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَابٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">شَجَرَةٌ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Retirez l'article défini</h2>
+        <div class="exercise">
+            <h3>Transformez les mots définis en indéfinis</h3>
+            <p><em>Rappel : Retirez ال et ajoutez le tanwīn ٌ</em></p>
+            <ol>
+                <li><span class="arabic">الكِتَابُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">المَدْرَسَةُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الرَّجُلُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الطَّالِبُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">البَيْتُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">السَّيَّارَةُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">القَلَمُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">البَابُ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Les trois cas : nominatif, accusatif, génitif</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau avec les bonnes formes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sens</th>
+                        <th>Indéfini nominatif<br>(ـٌ)</th>
+                        <th>Indéfini accusatif<br>(ـًا)</th>
+                        <th>Indéfini génitif<br>(ـٍ)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>un livre</td>
+                        <td>كِتَابٌ</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>un homme</td>
+                        <td><span class="answer-space"></span></td>
+                        <td>رَجُلاً</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>un étudiant</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>طَالِبٍ</td>
+                    </tr>
+                    <tr>
+                        <td>une maison</td>
+                        <td>بَيْتٌ</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">5</span>Le tanwīn avec ة (tā marbūṭa)</h2>
+        <div class="exercise">
+            <h3>Attention ! Les mots avec ة ne prennent PAS de alif au cas accusatif</h3>
+            <p>Écrivez la forme correcte au cas accusatif (complément) :</p>
+            <ol>
+                <li><span class="arabic">مَدْرَسَة</span> (école) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَيَّارَة</span> (voiture) → <span class="answer-space"></span></li>
+                <li><span class="arabic">شَجَرَة</span> (arbre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمَة</span> (enseignante) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَالِبَة</span> (étudiante) → <span class="answer-space"></span></li>
+                <li><span class="arabic">حَدِيقَة</span> (jardin) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">6</span>Phrases complètes</h2>
+        <div class="exercise">
+            <h3>Traduisez les phrases suivantes en arabe</h3>
+            <ol>
+                <li>Un homme est venu → <span class="answer-space wide-space"></span></li>
+                <li>J'ai vu un livre → <span class="answer-space wide-space"></span></li>
+                <li>Le garçon est à l'école → <span class="answer-space wide-space"></span></li>
+                <li>L'éducation est importante → <span class="answer-space wide-space"></span></li>
+                <li>Il est parti avec un homme → <span class="answer-space wide-space"></span></li>
+                <li>Dans une maison → <span class="answer-space wide-space"></span></li>
+                <li>Le livre est sur la table → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Complétez avec défini ou indéfini</h2>
+        <div class="exercise">
+            <h3>Choisissez la forme correcte selon le contexte</h3>
+            <ol>
+                <li>هَذَا ______ (كِتَابٌ / الكِتَابُ) → Ceci est un livre</li>
+                <li>______ (كِتَابٌ / الكِتَابُ) عَلَى الطَّاوِلَةِ → Le livre est sur la table</li>
+                <li>رَأَيْتُ ______ (رَجُلاً / الرَّجُلَ) → J'ai vu un homme</li>
+                <li>______ (رَجُلُ / الرَّجُلُ) طَوِيلٌ → L'homme est grand</li>
+                <li>ذَهَبَ إِلَى ______ (مَدْرَسَةٍ / المَدْرَسَةِ) → Il est allé à l'école</li>
+                <li>هَذِهِ ______ (سَيَّارَةٌ / السَّيَّارَةُ) → Ceci est une voiture</li>
+                <li>______ (طَالِبُ / الطَّالِبُ) مُجْتَهِدٌ → L'étudiant est travailleur</li>
+                <li>فِي ______ (بَيْتٍ / البَيْتِ) → dans la maison</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Transformations multiples</h2>
+        <div class="exercise">
+            <h3>Écrivez le mot dans toutes ses formes</h3>
+
+            <div class="question">
+                <strong>Mot : كِتَاب (livre)</strong><br><br>
+                Indéfini nominatif : <span class="answer-space"></span><br>
+                Indéfini accusatif : <span class="answer-space"></span><br>
+                Indéfini génitif : <span class="answer-space"></span><br>
+                Défini nominatif : <span class="answer-space"></span><br>
+                Défini accusatif : <span class="answer-space"></span><br>
+                Défini génitif : <span class="answer-space"></span>
+            </div>
+
+            <div class="question">
+                <strong>Mot : مَدْرَسَة (école)</strong><br><br>
+                Indéfini nominatif : <span class="answer-space"></span><br>
+                Indéfini accusatif : <span class="answer-space"></span><br>
+                Indéfini génitif : <span class="answer-space"></span><br>
+                Défini nominatif : <span class="answer-space"></span><br>
+                Défini accusatif : <span class="answer-space"></span><br>
+                Défini génitif : <span class="answer-space"></span>
+            </div>
+        </div>
+
+        <h2><span class="section-number">9</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque mot contient une erreur. Corrigez-le :</h3>
+            <ol>
+                <li><span class="arabic">الكِتَابٌ</span> (le livre au nominatif) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">رَجُلُ</span> (un homme au nominatif indéfini) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">مَدْرَسَتًا</span> (une école à l'accusatif) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">البَيْتٌ</span> (la maison au nominatif) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">طَالِبن</span> (un étudiant au génitif) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">الالسَّيَّارَةُ</span> (la voiture) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+
+            <div class="question">
+                <p><span class="arabic">رَأَيْتُ رَجُلاً فِي المَدْرَسَةِ. الرَّجُلُ مُعَلِّمٌ.</span></p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de mots indéfinis y a-t-il dans la première phrase ? <span class="answer-space"></span>
+                    </li>
+                    <li>Combien de mots définis y a-t-il dans la première phrase ? <span class="answer-space"></span>
+                    </li>
+                    <li>À quel cas est le mot رَجُلاً ? <span class="answer-space"></span></li>
+                    <li>Pourquoi le mot مُعَلِّمٌ a-t-il le tanwīn ? <span class="answer-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseil :</strong> Pour réviser, relisez le cours et faites attention aux trois formes du tanwīn
+            : ٌ (nominatif), ً (accusatif), ٍ (génitif). N'oubliez pas que l'article défini ال supprime toujours le
+            tanwīn !
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable de
+            distinguer le défini de l'indéfini, d'ajouter et de retirer l'article ال, et d'utiliser correctement les
+            trois formes du tanwīn !
+        </div>
+    </div>
+</body>
+
+</html>

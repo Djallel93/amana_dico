@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le masculin et le féminin en arabe</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        .exercise {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px solid #2196f3;
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive Design pour mobiles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Le masculin et le féminin en arabe</h1>
+        <div class="arabic-title">المُذَكَّر وَالمُؤَنَّث</div>
+
+        <div class="intro">
+            Bienvenue dans cette leçon sur le genre en arabe ! Comme en français, l'arabe possède deux genres :
+            <strong>le masculin</strong> et <strong>le féminin</strong>. Mais ne vous inquiétez pas, les règles sont
+            assez simples et logiques. Dans ce cours, nous allons apprendre comment reconnaître et former les mots
+            féminins en arabe.
+        </div>
+
+        <h2 class="scroll-animate-left">🎯 Les trois formes du féminin</h2>
+        <p class="scroll-animate">En arabe, les noms masculins n'ont pas de forme particulière. Par contre, les noms
+            féminins ont <span class="highlight">trois terminaisons spéciales</span> :</p>
+
+        <h3 class="scroll-animate">1. Le tā marbūṭa (ة) - LA PLUS COURANTE</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>C'est la forme la plus fréquente ! On ajoute <span class="arabic">ـة</span> à la fin d'un mot masculin
+                pour le rendre féminin.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Masculin (المُذَكَّر)</th>
+                    <th>Féminin (المُؤَنَّث)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمٌ</span><br>enseignant</td>
+                    <td><span class="arabic">مُعَلِّمَةٌ</span><br>enseignante</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طالِبٌ</span><br>étudiant</td>
+                    <td><span class="arabic">طالِبَةٌ</span><br>étudiante</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">كاتِبٌ</span><br>écrivain</td>
+                    <td><span class="arabic">كاتِبَةٌ</span><br>écrivaine</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">صَدِيقٌ</span><br>ami</td>
+                    <td><span class="arabic">صَدِيقَةٌ</span><br>amie</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طَبِيبٌ</span><br>médecin</td>
+                    <td><span class="arabic">طَبِيبَةٌ</span><br>médecin (femme)</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَمِيرٌ</span><br>prince</td>
+                    <td><span class="arabic">أَمِيرَةٌ</span><br>princesse</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples en phrases :</h4>
+            <ul>
+                <li><span class="arabic">هُوَ مُعَلِّمٌ</span> → Il est enseignant</li>
+                <li><span class="arabic">هِيَ مُعَلِّمَةٌ</span> → Elle est enseignante</li>
+                <li><span class="arabic">هُوَ طالِبٌ جَدِيدٌ</span> → Il est un nouvel étudiant</li>
+                <li><span class="arabic">هِيَ طالِبَةٌ جَدِيدَةٌ</span> → Elle est une nouvelle étudiante</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">2. L'alif maqṣūra (ى)</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Cette forme est utilisée pour les comparatifs et certains adjectifs particuliers.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Masculin</th>
+                    <th>Féminin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Comparatifs</strong></td>
+                    <td><span class="arabic">أَكْبَرُ</span><br>plus grand</td>
+                    <td><span class="arabic">كُبْرَى</span><br>plus grande</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span class="arabic">أَصْغَرُ</span><br>plus petit</td>
+                    <td><span class="arabic">صُغْرَى</span><br>plus petite</td>
+                </tr>
+                <tr>
+                    <td><strong>États</strong></td>
+                    <td><span class="arabic">عَطْشَانُ</span><br>assoiffé</td>
+                    <td><span class="arabic">عَطْشَى</span><br>assoiffée</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span class="arabic">غَضْبَانُ</span><br>en colère</td>
+                    <td><span class="arabic">غَضْبَى</span><br>en colère</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><span class="arabic">جَوْعَانُ</span><br>affamé</td>
+                    <td><span class="arabic">جَوْعَى</span><br>affamée</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">3. Le alif hamza (اء)</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Cette forme est utilisée spécialement pour les <strong>couleurs</strong> et les <strong>défauts
+                    physiques</strong>.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Masculin</th>
+                    <th>Féminin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="5"><strong>Couleurs</strong></td>
+                    <td><span class="arabic">أَحْمَرُ</span><br>rouge</td>
+                    <td><span class="arabic">حَمْرَاءُ</span><br>rouge</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَزْرَقُ</span><br>bleu</td>
+                    <td><span class="arabic">زَرْقَاءُ</span><br>bleue</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَخْضَرُ</span><br>vert</td>
+                    <td><span class="arabic">خَضْرَاءُ</span><br>verte</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَبْيَضُ</span><br>blanc</td>
+                    <td><span class="arabic">بَيْضَاءُ</span><br>blanche</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَسْوَدُ</span><br>noir</td>
+                    <td><span class="arabic">سَوْدَاءُ</span><br>noire</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><strong>Défauts</strong></td>
+                    <td><span class="arabic">أَعْمَى</span><br>aveugle</td>
+                    <td><span class="arabic">عَمْيَاءُ</span><br>aveugle</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَعْرَجُ</span><br>boiteux</td>
+                    <td><span class="arabic">عَرْجَاءُ</span><br>boiteuse</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَصَمُّ</span><br>sourd</td>
+                    <td><span class="arabic">صَمَّاءُ</span><br>sourde</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>🎨 Exemples avec les couleurs :</h4>
+            <ul>
+                <li><span class="arabic">سَيَّارَةٌ حَمْرَاءُ</span> → Une voiture rouge</li>
+                <li><span class="arabic">قَمِيصٌ أَزْرَقُ</span> → Une chemise bleue</li>
+                <li><span class="arabic">شَجَرَةٌ خَضْرَاءُ</span> → Un arbre vert</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">💡 Les mots féminins par nature</h2>
+        <p class="scroll-animate">Certains mots sont toujours féminins, même sans terminaison spéciale :</p>
+
+        <h3 class="scroll-animate">1. Les parties du corps qui vont par paire</h3>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Arabe</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">عَيْنٌ</span></td>
+                    <td>œil</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أُذُنٌ</span></td>
+                    <td>oreille</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">يَدٌ</span></td>
+                    <td>main</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">رِجْلٌ</span></td>
+                    <td>jambe</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">قَدَمٌ</span></td>
+                    <td>pied</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">2. Les mots liés aux femmes</h3>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Arabe</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">أُمٌّ</span></td>
+                    <td>mère</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أُخْتٌ</span></td>
+                    <td>sœur</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">عَرُوسٌ</span></td>
+                    <td>mariée</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">حَامِلٌ</span></td>
+                    <td>enceinte</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">3. Les villes et les pays</h3>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Arabe</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">بَارِيسُ</span></td>
+                    <td>Paris</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مِصْرُ</span></td>
+                    <td>Égypte</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">فَرَنْسَا</span></td>
+                    <td>France</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">دِمَشْقُ</span></td>
+                    <td>Damas</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">4. Autres mots courants féminins</h3>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Arabe</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">شَمْسٌ</span></td>
+                    <td>soleil</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَرْضٌ</span></td>
+                    <td>terre</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">نَارٌ</span></td>
+                    <td>feu</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">رِيحٌ</span></td>
+                    <td>vent</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">حَرْبٌ</span></td>
+                    <td>guerre</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate-scale">
+            <strong>⚠️ Règle importante :</strong> Tout <strong>être ou objet dépourvu de raison</strong> (animaux,
+            objets, concepts) est considéré comme un <span class="highlight">féminin singulier</span> en arabe, même si
+            le nom est au pluriel !
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <strong>💡 Astuce :</strong> Quand vous apprenez un nouveau mot, apprenez toujours son genre ! Cela vous
+            aidera à former correctement les phrases et les accords.
+        </div>
+
+        <div class="rule-box scroll-animate">
+            <strong>📚 Résumé de la leçon :</strong>
+            <ul>
+                <li>Le féminin se forme souvent en ajoutant <span class="arabic">ة</span> (tā marbūṭa)</li>
+                <li>Les couleurs et défauts utilisent <span class="arabic">اء</span></li>
+                <li>Les comparatifs utilisent <span class="arabic">ى</span></li>
+                <li>Certains mots sont féminins par nature (parties du corps paires, villes, etc.)</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll-animate classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

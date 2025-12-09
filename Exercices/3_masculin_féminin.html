@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Masculin et Féminin en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        /* Responsive Design pour mobiles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .exercise h3 {
+                font-size: 1.1em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .intro,
+            .note,
+            .exercise {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .section-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .answer-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.75em;
+            }
+
+            th,
+            td {
+                padding: 6px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer le masculin et le féminin
+            en arabe. Écrivez vos réponses sur une feuille ou dans un cahier. Prenez votre temps et réfléchissez bien
+            aux règles apprises !
+        </div>
+
+        <h2><span class="section-number">1</span>Transformez au féminin avec ة</h2>
+        <div class="exercise">
+            <h3>Ajoutez la terminaison ة (tā marbūṭa)</h3>
+            <p>Transformez les mots suivants du masculin au féminin :</p>
+            <ol>
+                <li><span class="arabic">مُدَرِّسٌ</span> (professeur) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَبَّاخٌ</span> (cuisinier) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُمَرِّضٌ</span> (infirmier) → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَائِعٌ</span> (vendeur) → <span class="answer-space"></span></li>
+                <li><span class="arabic">نَاجِحٌ</span> (réussi) → <span class="answer-space"></span></li>
+                <li><span class="arabic">كَبِيرٌ</span> (grand) → <span class="answer-space"></span></li>
+                <li><span class="arabic">صَغِيرٌ</span> (petit) → <span class="answer-space"></span></li>
+                <li><span class="arabic">جَمِيلٌ</span> (beau) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَعِيدٌ</span> (heureux) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُهَنْدِسٌ</span> (ingénieur) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Les couleurs</h2>
+        <div class="exercise">
+            <h3>Choisissez la bonne forme de la couleur</h3>
+            <p>Complétez avec la forme correcte de la couleur (masculin ou féminin) :</p>
+            <ol>
+                <li><span class="arabic">قَلَمٌ</span> <span class="answer-space"></span> (أَحْمَرُ/حَمْرَاءُ) - Un
+                    stylo rouge</li>
+                <li><span class="arabic">حَقِيبَةٌ</span> <span class="answer-space"></span> (أَزْرَقُ/زَرْقَاءُ) - Un
+                    sac bleu</li>
+                <li><span class="arabic">بَابٌ</span> <span class="answer-space"></span> (أَبْيَضُ/بَيْضَاءُ) - Une
+                    porte blanche</li>
+                <li><span class="arabic">سَيَّارَةٌ</span> <span class="answer-space"></span> (أَسْوَدُ/سَوْدَاءُ) - Une
+                    voiture noire</li>
+                <li><span class="arabic">كُرَةٌ</span> <span class="answer-space"></span> (أَخْضَرُ/خَضْرَاءُ) - Une
+                    balle verte</li>
+                <li><span class="arabic">قَمِيصٌ</span> <span class="answer-space"></span> (أَصْفَرُ/صَفْرَاءُ) - Une
+                    chemise jaune</li>
+                <li><span class="arabic">وَرْدَةٌ</span> <span class="answer-space"></span> (أَحْمَرُ/حَمْرَاءُ) - Une
+                    rose rouge</li>
+                <li><span class="arabic">بَحْرٌ</span> <span class="answer-space"></span> (أَزْرَقُ/زَرْقَاءُ) - Une mer
+                    bleue</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Masculin ou féminin ?</h2>
+        <div class="exercise">
+            <h3>Identifiez le genre des mots suivants</h3>
+            <p>Écrivez "M" pour masculin ou "F" pour féminin :</p>
+            <ol>
+                <li><span class="arabic">كِتَابٌ</span> (livre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مَدْرَسَةٌ</span> (école) → <span class="answer-space"></span></li>
+                <li><span class="arabic">عَيْنٌ</span> (œil) → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَيْتٌ</span> (maison) → <span class="answer-space"></span></li>
+                <li><span class="arabic">شَمْسٌ</span> (soleil) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَمَرٌ</span> (lune) → <span class="answer-space"></span></li>
+                <li><span class="arabic">يَدٌ</span> (main) → <span class="answer-space"></span></li>
+                <li><span class="arabic">أُذُنٌ</span> (oreille) → <span class="answer-space"></span></li>
+                <li><span class="arabic">نَارٌ</span> (feu) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مَاءٌ</span> (eau) → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَرْضٌ</span> (terre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَمَاءٌ</span> (ciel) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Les nombres ordinaux</h2>
+        <div class="exercise">
+            <h3>Complétez avec la forme correcte</h3>
+            <p>Choisissez la bonne forme de "premier" :</p>
+            <ol>
+                <li><span class="arabic">الدَّرْسُ</span> <span class="answer-space"></span> (أَوَّلُ/أُولَى) - La
+                    première leçon</li>
+                <li><span class="arabic">المَرَّةُ</span> <span class="answer-space"></span> (أَوَّلُ/أُولَى) - La
+                    première fois</li>
+                <li><span class="arabic">الصَّفْحَةُ</span> <span class="answer-space"></span> (أَوَّلُ/أُولَى) - La
+                    première page</li>
+                <li><span class="arabic">اليَوْمُ</span> <span class="answer-space"></span> (أَوَّلُ/أُولَى) - Le
+                    premier jour</li>
+                <li><span class="arabic">المَدْرَسَةُ</span> <span class="answer-space"></span> (أَوَّلُ/أُولَى) - La
+                    première école</li>
+                <li><span class="arabic">الشَّهْرُ</span> <span class="answer-space"></span> (آخَرُ/أُخْرَى) - Le
+                    dernier mois</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">5</span>Phrases complètes</h2>
+        <div class="exercise">
+            <h3>Accordez l'adjectif avec le nom</h3>
+            <p>Mettez l'adjectif à la forme correcte :</p>
+            <ol>
+                <li><span class="arabic">المُعَلِّمَةُ ______</span> (جَدِيدٌ) - La nouvelle enseignante</li>
+                <li><span class="arabic">الطَّالِبُ ______</span> (مُجْتَهِدٌ) - L'étudiant travailleur</li>
+                <li><span class="arabic">البِنْتُ ______</span> (جَمِيلٌ) - La belle fille</li>
+                <li><span class="arabic">الوَلَدُ ______</span> (صَغِيرٌ) - Le petit garçon</li>
+                <li><span class="arabic">السَّيَّارَةُ ______</span> (سَرِيعٌ) - La voiture rapide</li>
+                <li><span class="arabic">الكِتَابُ ______</span> (مُفِيدٌ) - Le livre utile</li>
+                <li><span class="arabic">المَدْرَسَةُ ______</span> (كَبِيرٌ) - La grande école</li>
+                <li><span class="arabic">البَيْتُ ______</span> (نَظِيفٌ) - La maison propre</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">6</span>Traduction</h2>
+        <div class="exercise">
+            <h3>Traduisez en arabe</h3>
+            <p>Traduisez les phrases suivantes en faisant attention au genre :</p>
+            <ol>
+                <li>Elle est enseignante → <span class="answer-space"></span></li>
+                <li>Il est médecin → <span class="answer-space"></span></li>
+                <li>Une voiture rouge → <span class="answer-space"></span></li>
+                <li>Un stylo bleu → <span class="answer-space"></span></li>
+                <li>La première page → <span class="answer-space"></span></li>
+                <li>Le premier jour → <span class="answer-space"></span></li>
+                <li>Une grande maison → <span class="answer-space"></span></li>
+                <li>Un petit garçon → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Vrai ou Faux</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies ou fausses</h3>
+            <ol>
+                <li>Tous les noms de villes sont féminins en arabe <span class="answer-space"></span></li>
+                <li>Le mot <span class="arabic">شَمْس</span> (soleil) est masculin <span class="answer-space"></span>
+                </li>
+                <li>Les parties du corps qui vont par paire sont souvent féminines <span class="answer-space"></span>
+                </li>
+                <li>On ajoute toujours <span class="arabic">ة</span> pour former le féminin <span
+                        class="answer-space"></span></li>
+                <li>Les couleurs forment leur féminin avec <span class="arabic">اء</span> <span
+                        class="answer-space"></span></li>
+                <li>Le mot <span class="arabic">أُمّ</span> (mère) a besoin de <span class="arabic">ة</span> pour être
+                    féminin <span class="answer-space"></span></li>
+                <li><span class="arabic">أَوَّل</span> devient <span class="arabic">أُولَى</span> au féminin <span
+                        class="answer-space"></span></li>
+                <li>Tous les noms avec <span class="arabic">ة</span> sont féminins <span class="answer-space"></span>
+                </li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Exercice avancé</h2>
+        <div class="exercise">
+            <h3>Créez des phrases complètes</h3>
+            <p>Créez une phrase en utilisant les mots donnés et en accordant correctement :</p>
+
+            <div class="question">
+                <strong>1.</strong> <span class="arabic">مُعَلِّمَة - جَدِيد - مَدْرَسَة</span><br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+
+            <div class="question">
+                <strong>2.</strong> <span class="arabic">طَالِب - مُجْتَهِد - كِتَاب - كَبِير</span><br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+
+            <div class="question">
+                <strong>3.</strong> <span class="arabic">سَيَّارَة - أَحْمَر - سَرِيع</span><br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+
+            <div class="question">
+                <strong>4.</strong> <span class="arabic">بِنْت - صَغِير - جَمِيل</span><br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+        </div>
+
+        <h2><span class="section-number">9</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Corrigez les phrases suivantes</h3>
+            <p>Chaque phrase contient une erreur d'accord. Trouvez-la et corrigez-la :</p>
+            <ol>
+                <li><span class="arabic">المُعَلِّمُ الجَدِيدَةُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">السَّيَّارَةُ الأَحْمَرُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">البِنْتُ الصَّغِيرٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الكِتَابُ الكَبِيرَةُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">المَدْرَسَةُ الأَوَّلُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الوَلَدَةُ السَّعِيدُ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseil :</strong> Avant de vérifier vos réponses avec votre professeur, relisez chaque exercice
+            et assurez-vous d'avoir appliqué les bonnes règles. Bon courage ! 🌟
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable de
+            reconnaître le genre des noms, former correctement le féminin, et accorder les adjectifs avec les noms en
+            arabe !
+        </div>
+    </div>
+</body>
+
+</html>
