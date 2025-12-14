@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le duel en arabe</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Le duel en arabe</h1>
+        <div class="arabic-title">المُثَنّى</div>
+
+        <div class="intro">
+            Bienvenue dans cette leçon sur le duel en arabe ! Contrairement au français qui n'a que le singulier et le
+            pluriel, l'arabe possède une forme spéciale pour parler de <strong>deux</strong> choses ou personnes : le
+            <strong>duel</strong>. Cette forme unique est très simple à construire une fois que vous connaissez les
+            règles de base !
+        </div>
+
+        <h2 class="scroll-animate-left">🎯 Qu'est-ce que le duel ?</h2>
+        <p class="scroll-animate">En arabe, on distingue trois nombres :</p>
+
+        <table class="scroll-animate-scale">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Nom arabe</th>
+                    <th>Utilisation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Singulier</strong></td>
+                    <td><span class="arabic">المُفْرَد</span></td>
+                    <td>Pour <strong>une</strong> chose/personne</td>
+                </tr>
+                <tr>
+                    <td><strong>Duel</strong></td>
+                    <td><span class="arabic">المُثَنّى</span></td>
+                    <td>Pour <strong>deux</strong> choses/personnes</td>
+                </tr>
+                <tr>
+                    <td><strong>Pluriel</strong></td>
+                    <td><span class="arabic">الجَمْع</span></td>
+                    <td>Pour <strong>trois ou plus</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 Important :</strong> Le duel est utilisé <span class="highlight">uniquement pour deux</span>
+            éléments. Dès qu'il y en a trois ou plus, on utilise le pluriel !
+        </div>
+
+        <h2 class="scroll-animate-left">📝 Formation du duel</h2>
+        <p class="scroll-animate">Former le duel est très simple ! Il suffit d'ajouter un suffixe à la fin du mot
+            singulier :</p>
+
+        <div class="rule-box scroll-animate-scale">
+            <h3>Les deux terminaisons du duel :</h3>
+            <ul>
+                <li><strong>Cas sujet (nominatif - مَرْفُوع)</strong> : on ajoute <span class="arabic">ـانِ</span>
+                    /āni/</li>
+                <li><strong>Cas direct et indirect (accusatif/génitif - مَنْصوب/مَجْرور)</strong> : on ajoute <span
+                        class="arabic">ـَيْنِ</span> /ayni/</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">Exemples de base</h3>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Singulier</th>
+                    <th>Duel (cas sujet)</th>
+                    <th>Duel (cas direct/indirect)</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">كِتَابٌ</span></td>
+                    <td><span class="arabic">كِتَابَانِ</span></td>
+                    <td><span class="arabic">كِتَابَيْنِ</span></td>
+                    <td>deux livres</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">وَلَدٌ</span></td>
+                    <td><span class="arabic">وَلَدَانِ</span></td>
+                    <td><span class="arabic">وَلَدَيْنِ</span></td>
+                    <td>deux garçons</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">قَلَمٌ</span></td>
+                    <td><span class="arabic">قَلَمَانِ</span></td>
+                    <td><span class="arabic">قَلَمَيْنِ</span></td>
+                    <td>deux stylos</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">بَابٌ</span></td>
+                    <td><span class="arabic">بَابَانِ</span></td>
+                    <td><span class="arabic">بَابَيْنِ</span></td>
+                    <td>deux portes</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">رَجُلٌ</span></td>
+                    <td><span class="arabic">رَجُلاَنِ</span></td>
+                    <td><span class="arabic">رَجُلَيْنِ</span></td>
+                    <td>deux hommes</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples en phrases :</h4>
+            <ul>
+                <li><span class="arabic">جَاءَ وَلَدَانِ</span> → Deux garçons sont venus (cas sujet)</li>
+                <li><span class="arabic">رَأَيْتُ وَلَدَيْنِ</span> → J'ai vu deux garçons (cas direct)</li>
+                <li><span class="arabic">تَكَلَّمْتُ مَعَ رَجُلَيْنِ</span> → J'ai parlé avec deux hommes (cas indirect)
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">✨ Le duel avec le tā marbūṭa (ة)</h2>
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Règle importante :</strong> Pour les mots féminins se terminant par <span
+                    class="arabic">ة</span>, cette lettre se transforme en <span class="arabic">ت</span> avant
+                d'ajouter la terminaison du duel.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Singulier</th>
+                    <th>Duel (cas sujet)</th>
+                    <th>Duel (cas direct/indirect)</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">مَدْرَسَةٌ</span></td>
+                    <td><span class="arabic">مَدْرَسَتَانِ</span></td>
+                    <td><span class="arabic">مَدْرَسَتَيْنِ</span></td>
+                    <td>deux écoles</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">سَيَّارَةٌ</span></td>
+                    <td><span class="arabic">سَيَّارَتَانِ</span></td>
+                    <td><span class="arabic">سَيَّارَتَيْنِ</span></td>
+                    <td>deux voitures</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طَالِبَةٌ</span></td>
+                    <td><span class="arabic">طَالِبَتَانِ</span></td>
+                    <td><span class="arabic">طَالِبَتَيْنِ</span></td>
+                    <td>deux étudiantes</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">شَجَرَةٌ</span></td>
+                    <td><span class="arabic">شَجَرَتَانِ</span></td>
+                    <td><span class="arabic">شَجَرَتَيْنِ</span></td>
+                    <td>deux arbres</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمَةٌ</span></td>
+                    <td><span class="arabic">مُعَلِّمَتَانِ</span></td>
+                    <td><span class="arabic">مُعَلِّمَتَيْنِ</span></td>
+                    <td>deux enseignantes</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples en phrases :</h4>
+            <ul>
+                <li><span class="arabic">هُنَاكَ مَدْرَسَتَانِ</span> → Il y a deux écoles (cas sujet)</li>
+                <li><span class="arabic">دَخَلْتُ مَدْرَسَتَيْنِ</span> → Je suis entré dans deux écoles (cas direct)
+                </li>
+                <li><span class="arabic">الطَّالِبَتَانِ مُجْتَهِدَتَانِ</span> → Les deux étudiantes sont
+                    travailleuses</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">⚠️ Cas particuliers : modifications du nom</h2>
+
+        <h3 class="scroll-animate">1. Mots se terminant par اء (hamza)</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Si le <span class="arabic">اء</span> final est la marque du féminin, la hamza se transforme en <span
+                    class="arabic">و</span></p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">صَحْرَاءُ</span></td>
+                    <td><span class="arabic">صَحْرَاوَانِ</span></td>
+                    <td>deux déserts</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">حَمْرَاءُ</span></td>
+                    <td><span class="arabic">حَمْرَاوَانِ</span></td>
+                    <td>deux rouges (fém.)</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">خَضْرَاءُ</span></td>
+                    <td><span class="arabic">خَضْرَاوَانِ</span></td>
+                    <td>deux vertes</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>📌 Exception :</strong> Si le <span class="arabic">اء</span> appartient à la racine du mot (et
+            n'est pas une marque du féminin), la hamza peut être maintenue.<br>
+            Exemple : <span class="arabic">كِسَاء</span> (vêtement) → <span class="arabic">كِسَاءَانِ</span> (deux
+            vêtements)
+        </div>
+
+        <h3 class="scroll-animate">2. Mots se terminant par ى</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Le <span class="arabic">ى</span> final se transforme en <span class="arabic">ي</span></p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">مُسْتَشْفَى</span></td>
+                    <td><span class="arabic">مُسْتَشْفَيَانِ</span></td>
+                    <td>deux hôpitaux</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُصْطَفَى</span></td>
+                    <td><span class="arabic">مُصْطَفَيَانِ</span></td>
+                    <td>deux Moustafa</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">فَتْوَى</span></td>
+                    <td><span class="arabic">فَتْوَيَانِ</span></td>
+                    <td>deux avis juridiques</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">📊 Tableau récapitulatif : Singulier → Duel</h2>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Type de mot</th>
+                    <th>Singulier</th>
+                    <th>Duel (nominatif)</th>
+                    <th>Duel (accusatif/génitif)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Masculin simple</strong></td>
+                    <td><span class="arabic">كِتَابٌ</span></td>
+                    <td><span class="arabic">كِتَابَانِ</span></td>
+                    <td><span class="arabic">كِتَابَيْنِ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Féminin avec ة</strong></td>
+                    <td><span class="arabic">مَدْرَسَةٌ</span></td>
+                    <td><span class="arabic">مَدْرَسَتَانِ</span></td>
+                    <td><span class="arabic">مَدْرَسَتَيْنِ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Terminant en اء</strong></td>
+                    <td><span class="arabic">صَحْرَاءُ</span></td>
+                    <td><span class="arabic">صَحْرَاوَانِ</span></td>
+                    <td><span class="arabic">صَحْرَاوَيْنِ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Terminant en ى</strong></td>
+                    <td><span class="arabic">مُسْتَشْفَى</span></td>
+                    <td><span class="arabic">مُسْتَشْفَيَانِ</span></td>
+                    <td><span class="arabic">مُسْتَشْفَيَيْنِ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">💡 Exemples pratiques</h2>
+        <div class="example-box scroll-animate-scale">
+            <h4>📚 Vocabulaire avec le duel :</h4>
+            <ul>
+                <li><span class="arabic">يَوْمَانِ</span> → deux jours</li>
+                <li><span class="arabic">سَاعَتَانِ</span> → deux heures</li>
+                <li><span class="arabic">أُسْبُوعَانِ</span> → deux semaines</li>
+                <li><span class="arabic">شَهْرَانِ</span> → deux mois</li>
+                <li><span class="arabic">سَنَتَانِ</span> → deux ans</li>
+                <li><span class="arabic">عَيْنَانِ</span> → deux yeux</li>
+                <li><span class="arabic">يَدَانِ</span> → deux mains</li>
+                <li><span class="arabic">رِجْلاَنِ</span> → deux jambes</li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>✍️ Phrases complètes :</h4>
+            <ul>
+                <li><span class="arabic">عِنْدِي كِتَابَانِ</span> → J'ai deux livres</li>
+                <li><span class="arabic">فِي الغُرْفَةِ طَالِبَانِ</span> → Dans la chambre, il y a deux étudiants
+                </li>
+                <li><span class="arabic">قَرَأْتُ كِتَابَيْنِ</span> → J'ai lu deux livres</li>
+                <li><span class="arabic">ذَهَبْتُ إِلَى مَدْرَسَتَيْنِ</span> → Je suis allé à deux écoles</li>
+                <li><span class="arabic">الطَّالِبَانِ مُجْتَهِدَانِ</span> → Les deux étudiants sont travailleurs</li>
+            </ul>
+        </div>
+
+        <div class="rule-box scroll-animate">
+            <strong>📚 Résumé de la leçon :</strong>
+            <ul>
+                <li>Le duel est utilisé pour <strong>exactement deux</strong> choses/personnes</li>
+                <li>Formation simple : ajouter <span class="arabic">ـانِ</span> (nominatif) ou <span
+                        class="arabic">ـَيْنِ</span> (accusatif/génitif)</li>
+                <li>Le <span class="arabic">ة</span> devient <span class="arabic">ت</span> avant le suffixe du duel
+                </li>
+                <li>Attention aux transformations : <span class="arabic">اء → و</span> et <span class="arabic">ى →
+                        ي</span></li>
+                <li>Le duel s'applique aux noms, adjectifs et même aux verbes !</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Astuce :</strong> Le duel est très régulier en arabe ! Une fois que vous connaissez la forme
+            singulière, former le duel est presque automatique. Pratiquez avec les mots courants et vous maîtriserez
+            rapidement cette forme unique de la langue arabe ! 🎉
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

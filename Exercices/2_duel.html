@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Le duel en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .exercise h3 {
+                font-size: 1.1em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            .intro,
+            .note,
+            .exercise,
+            .question {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .section-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .answer-space,
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.75em;
+            }
+
+            th,
+            td {
+                padding: 6px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين المُثَنّى</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer le duel en arabe.
+            Rappelez-vous : le duel est utilisé uniquement pour DEUX choses/personnes. Ajoutez <span
+                class="arabic">ـانِ</span> (nominatif) ou <span class="arabic">ـَيْنِ</span> (accusatif/génitif) !
+        </div>
+
+        <h2><span class="section-number">1</span>Formation du duel : cas nominatif</h2>
+        <div class="exercise">
+            <h3>Transformez les mots suivants au duel (cas sujet - nominatif)</h3>
+            <p><em>Rappel : Ajoutez ـانِ à la fin du mot</em></p>
+            <ol>
+                <li><span class="arabic">كِتَابٌ</span> (un livre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَلَمٌ</span> (un stylo) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَالِبٌ</span> (un étudiant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَيْتٌ</span> (une maison) → <span class="answer-space"></span></li>
+                <li><span class="arabic">رَجُلٌ</span> (un homme) → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَابٌ</span> (une porte) → <span class="answer-space"></span></li>
+                <li><span class="arabic">وَلَدٌ</span> (un garçon) → <span class="answer-space"></span></li>
+                <li><span class="arabic">صَدِيقٌ</span> (un ami) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Formation du duel : cas accusatif/génitif</h2>
+        <div class="exercise">
+            <h3>Transformez les mots suivants au duel (cas direct/indirect)</h3>
+            <p><em>Rappel : Ajoutez ـَيْنِ à la fin du mot</em></p>
+            <ol>
+                <li><span class="arabic">كِتَابٌ</span> (un livre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَلَمٌ</span> (un stylo) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمٌ</span> (un enseignant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَبِيبٌ</span> (un médecin) → <span class="answer-space"></span></li>
+                <li><span class="arabic">كُرْسِيٌّ</span> (une chaise) → <span class="answer-space"></span></li>
+                <li><span class="arabic">شَهْرٌ</span> (un mois) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Le duel avec le tā marbūṭa (ة)</h2>
+        <div class="exercise">
+            <h3>Transformez ces mots féminins au duel (cas nominatif)</h3>
+            <p><em>Rappel : ة devient ت avant d'ajouter le suffixe du duel</em></p>
+            <ol>
+                <li><span class="arabic">مَدْرَسَةٌ</span> (une école) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَيَّارَةٌ</span> (une voiture) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَالِبَةٌ</span> (une étudiante) → <span class="answer-space"></span></li>
+                <li><span class="arabic">شَجَرَةٌ</span> (un arbre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمَةٌ</span> (une enseignante) → <span class="answer-space"></span></li>
+                <li><span class="arabic">حَدِيقَةٌ</span> (un jardin) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَاعَةٌ</span> (une heure) → <span class="answer-space"></span></li>
+                <li><span class="arabic">جَامِعَةٌ</span> (une université) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Complétez le tableau du duel</h2>
+        <div class="exercise">
+            <h3>Remplissez les cases vides</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Singulier</th>
+                        <th>Duel (nominatif)</th>
+                        <th>Duel (accusatif/génitif)</th>
+                        <th>Traduction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="arabic">كِتَابٌ</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>deux livres</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">مَدْرَسَةٌ</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>deux écoles</td>
+                    </tr>
+                    <tr>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="arabic">قَلَمَانِ</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>deux stylos</td>
+                    </tr>
+                    <tr>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="arabic">طَالِبَيْنِ</span></td>
+                        <td>deux étudiants</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">5</span>Singulier, duel ou pluriel ?</h2>
+        <div class="exercise">
+            <h3>Identifiez si le mot est au singulier (S), duel (D) ou pluriel (P)</h3>
+            <ol>
+                <li><span class="arabic">كِتَابٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">كِتَابَانِ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">كُتُبٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَالِبَةٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَالِبَتَانِ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَالِبَاتٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمُونَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمَانِ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَيْتَيْنِ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">بُيُوتٌ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">6</span>Cas particuliers : اء et ى</h2>
+        <div class="exercise">
+            <h3>Transformez ces mots au duel (nominatif)</h3>
+            <p><em>Attention aux modifications : اء → و et ى → ي</em></p>
+            <ol>
+                <li><span class="arabic">صَحْرَاءُ</span> (désert) → <span class="answer-space"></span></li>
+                <li><span class="arabic">حَمْرَاءُ</span> (rouge fém.) → <span class="answer-space"></span></li>
+                <li><span class="arabic">خَضْرَاءُ</span> (verte) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُسْتَشْفَى</span> (hôpital) → <span class="answer-space"></span></li>
+                <li><span class="arabic">فَتْوَى</span> (avis juridique) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Phrases avec le duel</h2>
+        <div class="exercise">
+            <h3>Traduisez les phrases suivantes en arabe</h3>
+            <ol>
+                <li>Deux livres → <span class="answer-space wide-space"></span></li>
+                <li>J'ai deux stylos → <span class="answer-space wide-space"></span></li>
+                <li>Deux garçons sont venus → <span class="answer-space wide-space"></span></li>
+                <li>J'ai vu deux étudiantes → <span class="answer-space wide-space"></span></li>
+                <li>Dans deux écoles → <span class="answer-space wide-space"></span></li>
+                <li>Les deux enseignants → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Choisissez la bonne forme</h2>
+        <div class="exercise">
+            <h3>Sélectionnez la forme correcte du duel selon le contexte</h3>
+            <ol>
+                <li>جَاءَ ______ (وَلَدَانِ / وَلَدَيْنِ) → Deux garçons sont venus</li>
+                <li>رَأَيْتُ ______ (كِتَابَانِ / كِتَابَيْنِ) → J'ai vu deux livres</li>
+                <li>______ (مُعَلِّمَانِ / مُعَلِّمَيْنِ) فِي الفَصْلِ → Deux enseignants dans la classe</li>
+                <li>ذَهَبْتُ إِلَى ______ (مَدْرَسَتَانِ / مَدْرَسَتَيْنِ) → Je suis allé à deux écoles</li>
+                <li>عِنْدِي ______ (قَلَمَانِ / قَلَمَيْنِ) → J'ai deux stylos</li>
+                <li>تَكَلَّمْتُ مَعَ ______ (رَجُلاَنِ / رَجُلَيْنِ) → J'ai parlé avec deux hommes</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>Le vocabulaire du temps</h2>
+        <div class="exercise">
+            <h3>Formez le duel de ces unités de temps</h3>
+            <ol>
+                <li><span class="arabic">يَوْمٌ</span> (jour) → deux jours : <span class="answer-space"></span></li>
+                <li><span class="arabic">سَاعَةٌ</span> (heure) → deux heures : <span class="answer-space"></span></li>
+                <li><span class="arabic">أُسْبُوعٌ</span> (semaine) → deux semaines : <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">شَهْرٌ</span> (mois) → deux mois : <span class="answer-space"></span></li>
+                <li><span class="arabic">سَنَةٌ</span> (année) → deux ans : <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Le corps humain</h2>
+        <div class="exercise">
+            <h3>Les parties du corps qui vont par paire (au duel naturel)</h3>
+            <ol>
+                <li><span class="arabic">عَيْنٌ</span> (œil) → deux yeux : <span class="answer-space"></span></li>
+                <li><span class="arabic">أُذُنٌ</span> (oreille) → deux oreilles : <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">يَدٌ</span> (main) → deux mains : <span class="answer-space"></span></li>
+                <li><span class="arabic">رِجْلٌ</span> (jambe) → deux jambes : <span class="answer-space"></span></li>
+                <li><span class="arabic">قَدَمٌ</span> (pied) → deux pieds : <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">11</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque forme contient une erreur. Corrigez-la :</h3>
+            <ol>
+                <li><span class="arabic">كِتَابُونَ</span> (pour "deux livres") → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">مَدْرَسَةَانِ</span> (pour "deux écoles") → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">طَالِبَاتَانِ</span> (pour "deux étudiantes") → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">رَأَيْتُ رَجُلاَنِ</span> (J'ai vu deux hommes) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">صَحْرَاءَانِ</span> (deux déserts) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">12</span>Construction de phrases</h2>
+        <div class="exercise">
+            <h3>Complétez les phrases avec le duel approprié</h3>
+
+            <div class="question">
+                <p>فِي الغُرْفَةِ ______ (طَالِبٌ)</p>
+                <p>(Dans la chambre, il y a deux étudiants)</p>
+                <p>Réponse : <span class="answer-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p>قَرَأْتُ ______ (كِتَابٌ) أَمْسِ</p>
+                <p>(J'ai lu deux livres hier)</p>
+                <p>Réponse : <span class="answer-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p>______ (المُعَلِّمَةُ) مُجْتَهِدَتَانِ</p>
+                <p>(Les deux enseignantes sont travailleuses)</p>
+                <p>Réponse : <span class="answer-space"></span></p>
+            </div>
+        </div>
+
+        <h2><span class="section-number">13</span>Duel ou pluriel ?</h2>
+        <div class="exercise">
+            <h3>Choisissez entre duel et pluriel selon le nombre</h3>
+            <ol>
+                <li>Pour 2 livres, j'utilise : <span class="arabic">كِتَابَانِ</span> ou <span
+                        class="arabic">كُتُبٌ</span> ? <span class="answer-space"></span></li>
+                <li>Pour 3 étudiants, j'utilise : <span class="arabic">طَالِبَانِ</span> ou <span
+                        class="arabic">طُلاَّبٌ</span> ? <span class="answer-space"></span></li>
+                <li>Pour 2 voitures, j'utilise : <span class="arabic">سَيَّارَتَانِ</span> ou <span
+                        class="arabic">سَيَّارَاتٌ</span> ? <span class="answer-space"></span></li>
+                <li>Pour 5 hommes, j'utilise : <span class="arabic">رَجُلاَنِ</span> ou <span
+                        class="arabic">رِجَالٌ</span> ? <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">14</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+
+            <div class="question">
+                <p><span class="arabic">فِي المَكْتَبَةِ طَالِبَانِ يَقْرَآنِ كِتَابَيْنِ</span></p>
+                <p>(Dans la bibliothèque, deux étudiants lisent deux livres)</p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien d'étudiants y a-t-il ? <span class="answer-space"></span></li>
+                    <li>Quel est le cas de <span class="arabic">طَالِبَانِ</span> ? <span class="answer-space"></span>
+                    </li>
+                    <li>Combien de livres lisent-ils ? <span class="answer-space"></span></li>
+                    <li>Quel est le cas de <span class="arabic">كِتَابَيْنِ</span> ? <span class="answer-space"></span>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="question">
+                <p><span class="arabic">ذَهَبَتْ أُخْتَانِ إِلَى مَدْرَسَتَيْنِ مُخْتَلِفَتَيْنِ</span></p>
+                <p>(Deux sœurs sont allées à deux écoles différentes)</p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de sœurs sont mentionnées ? <span class="answer-space"></span></li>
+                    <li>Pourquoi utilise-t-on <span class="arabic">مَدْرَسَتَيْنِ</span> et non <span
+                            class="arabic">مَدْرَسَتَانِ</span> ? <span class="answer-space wide-space"></span></li>
+                    <li>Traduisez <span class="arabic">مُخْتَلِفَتَيْنِ</span> : <span class="answer-space"></span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <h2><span class="section-number">15</span>Challenge final !</h2>
+        <div class="exercise">
+            <h3>Écrivez une phrase complète en utilisant le duel</h3>
+
+            <div class="question">
+                <p><strong>Consigne :</strong> Créez une phrase qui contient AU MOINS deux mots au duel, en utilisant
+                    les éléments suivants :</p>
+                <ul>
+                    <li>Deux étudiants / <span class="arabic">طَالِبَانِ</span></li>
+                    <li>Deux livres / <span class="arabic">كِتَابَانِ</span> ou <span class="arabic">كِتَابَيْنِ</span>
+                    </li>
+                    <li>Un verbe de votre choix</li>
+                </ul>
+                <p>Votre phrase : <span class="answer-space wide-space"></span></p>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseil :</strong> Le duel est une particularité fascinante de l'arabe ! Pour le maîtriser,
+            pratiquez régulièrement en transformant les mots que vous connaissez au duel. Rappelez-vous : <span
+                class="arabic">ـانِ</span> pour le nominatif, <span class="arabic">ـَيْنِ</span> pour
+            l'accusatif/génitif, et n'oubliez pas que le <span class="arabic">ة</span> devient <span
+                class="arabic">ت</span> !
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable de
+            former le duel dans tous les cas (nominatif, accusatif, génitif), de reconnaître les mots au duel, et de
+            les utiliser correctement dans des phrases. Bravo ! 🎉
+        </div>
+    </div>
+</body>
+
+</html>

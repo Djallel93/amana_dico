@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les nombres cardinaux en arabe</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        .exercise {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px solid #2196f3;
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .digits-table {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Les nombres cardinaux en arabe</h1>
+        <div class="arabic-title">الأَعْداد الأَصْلِيّة</div>
+
+        <div class="intro">
+            Bienvenue dans cette leçon sur les nombres cardinaux en arabe ! Les nombres en arabe peuvent sembler
+            complexes au début, mais ne vous inquiétez pas. Dans ce cours, nous allons apprendre le système de comptage
+            arabe étape par étape. Nous découvrirons comment écrire et prononcer les nombres de 0 à plusieurs millions.
+        </div>
+
+        <h2 class="scroll-animate-left">🔢 Les chiffres arabes</h2>
+        <p class="scroll-animate">Il existe deux systèmes de chiffres en arabe :</p>
+
+        <div class="digits-table scroll-animate-scale">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Système</th>
+                        <th>0</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Orientaux</strong></td>
+                        <td>٠</td>
+                        <td>١</td>
+                        <td>٢</td>
+                        <td>٣</td>
+                        <td>٤</td>
+                        <td>٥</td>
+                        <td>٦</td>
+                        <td>٧</td>
+                        <td>٨</td>
+                        <td>٩</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Occidentaux</strong></td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>ℹ️ Information :</strong> Les chiffres arabes <span class="highlight">orientaux</span> sont
+            utilisés au Moyen-Orient. Les chiffres <span class="highlight">occidentaux</span> (utilisés dans le monde
+            entier aujourd'hui) sont utilisés en Afrique du Nord.
+        </div>
+
+        <h2 class="scroll-animate-left">🎯 Les unités (0-10) / وَحَدات</h2>
+        <p class="scroll-animate">Commençons par les nombres de base de 0 à 10 :</p>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>0</strong></td>
+                    <td><span class="arabic">صِفْر</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1</strong></td>
+                    <td><span class="arabic">واحِد / أَحَد</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2</strong></td>
+                    <td><span class="arabic">اِثْنانِ / اِثْنَيْنِ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3</strong></td>
+                    <td><span class="arabic">ثَلاثة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>4</strong></td>
+                    <td><span class="arabic">أَرْبَعة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>5</strong></td>
+                    <td><span class="arabic">خَمْسة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>6</strong></td>
+                    <td><span class="arabic">سِتّة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>7</strong></td>
+                    <td><span class="arabic">سَبْعة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>8</strong></td>
+                    <td><span class="arabic">ثَمانِية</span></td>
+                </tr>
+                <tr>
+                    <td><strong>9</strong></td>
+                    <td><span class="arabic">تِسْعة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>10</strong></td>
+                    <td><span class="arabic">عَشْرة</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">Les nombres 11 à 19</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour former les nombres de 11 à 19, on combine l'unité avec <span class="arabic">عَشَرَ</span>. Ces
+                nombres sont <strong>indéclinables</strong> avec une fatḥa finale.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>11</strong></td>
+                    <td><span class="arabic">أَحَدَ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>12</strong></td>
+                    <td><span class="arabic">اِثْنا عَشَرَ / اِثْنَيْ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>13</strong></td>
+                    <td><span class="arabic">ثَلاثةَ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>14</strong></td>
+                    <td><span class="arabic">أَرْبَعةَ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>15</strong></td>
+                    <td><span class="arabic">خَمْسةَ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>16</strong></td>
+                    <td><span class="arabic">سِتّةَ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>17</strong></td>
+                    <td><span class="arabic">سَبْعةَ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>18</strong></td>
+                    <td><span class="arabic">ثَمانيةَ عَشَرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>19</strong></td>
+                    <td><span class="arabic">تِسْعةَ عَشَرَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">🔟 Les dizaines (20-90) / عَشَرات</h2>
+        <div class="rule-box scroll-animate-scale">
+            <p>Les dizaines sont formées en prenant le <strong>pluriel masculin régulier</strong> des unités (3-9),
+                sauf pour 20 qui est le pluriel de 10.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>20</strong></td>
+                    <td><span class="arabic">عِشْرُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>30</strong></td>
+                    <td><span class="arabic">ثَلاثُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>40</strong></td>
+                    <td><span class="arabic">أَرْبَعُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>50</strong></td>
+                    <td><span class="arabic">خَمْسُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>60</strong></td>
+                    <td><span class="arabic">سِتُّونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>70</strong></td>
+                    <td><span class="arabic">سَبْعُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>80</strong></td>
+                    <td><span class="arabic">ثَمانُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>90</strong></td>
+                    <td><span class="arabic">تِسْعُونَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">Les nombres 21 à 29</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour créer des nombres intermédiaires, on écrit d'abord l'<strong>unité</strong> suivie de <span
+                    class="arabic">و</span> (et) puis la <strong>dizaine</strong>.</p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><span class="arabic">واحِد وَعِشْرون</span> → 21</li>
+                <li><span class="arabic">ثَلاثة وَعِشْرون</span> → 23</li>
+                <li><span class="arabic">خَمْسة وَعِشْرون</span> → 25</li>
+                <li><span class="arabic">تِسْعة وَعِشْرون</span> → 29</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Règle importante :</strong> En arabe, l'<span class="highlight">unité se prononce avant la
+                dizaine</span> (contrairement au français).
+        </div>
+
+        <h2 class="scroll-animate-left">💯 Les centaines (100-900) / مِئات</h2>
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour 300 à 900, les unités sont écrites comme préfixes à 100 <span class="arabic">مِئة</span>, formant
+                une annexion.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>100</strong></td>
+                    <td><span class="arabic">مِئة / مائة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>200</strong></td>
+                    <td><span class="arabic">مِئتان / مِئتَيْن</span></td>
+                </tr>
+                <tr>
+                    <td><strong>300</strong></td>
+                    <td><span class="arabic">ثَلاثُمِئةٍ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>400</strong></td>
+                    <td><span class="arabic">أَرْبَعُمِئةٍ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>500</strong></td>
+                    <td><span class="arabic">خَمْسُمِئةٍ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>600</strong></td>
+                    <td><span class="arabic">سِتُّمِئةٍ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>700</strong></td>
+                    <td><span class="arabic">سَبْعُمِئةٍ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>800</strong></td>
+                    <td><span class="arabic">ثَمانُمِئةٍ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>900</strong></td>
+                    <td><span class="arabic">تِسْعُمِئةٍ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemple de nombre complexe :</h4>
+            <ul>
+                <li><strong>622</strong> : <span class="arabic">سِتُّمِئةٍ واثْنَانِ وعِشْرُونَ</span></li>
+                <li>Ordre : centaines → unités → dizaines</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">🏢 Les milliers (1000+) / آلاف</h2>
+
+        <h3 class="scroll-animate">1 000 à 10 000</h3>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1 000</strong></td>
+                    <td><span class="arabic">أَلْف</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2 000</strong></td>
+                    <td><span class="arabic">أَلْفان / أَلْفَيْن</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3 000</strong></td>
+                    <td><span class="arabic">ثَلاثةُ آلاف</span></td>
+                </tr>
+                <tr>
+                    <td><strong>4 000</strong></td>
+                    <td><span class="arabic">أَرْبَعةُ آلاف</span></td>
+                </tr>
+                <tr>
+                    <td><strong>5 000</strong></td>
+                    <td><span class="arabic">خَمْسةُ آلاف</span></td>
+                </tr>
+                <tr>
+                    <td><strong>10 000</strong></td>
+                    <td><span class="arabic">عَشَرَةُ آلاف</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">11 000 à 999 999</h3>
+        <div class="rule-box scroll-animate-scale">
+            <p>À partir de 11 000, le mot millier s'écrit au <strong>singulier indéfini</strong> au cas direct <span
+                    class="arabic">أَلْفًا</span>.</p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><strong>11 000</strong> : <span class="arabic">أَحَدَ عَشَرَ أَلْفًا</span></li>
+                <li><strong>29 000</strong> : <span class="arabic">تِسْعَةٌ وَعِشْرونَ أَلْفًا</span></li>
+                <li><strong>400 000</strong> : <span class="arabic">أَرْبَعُمِئةٍ أَلْفًا</span></li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Nombre très complexe :</h4>
+            <ul>
+                <li><strong>1 187</strong> : <span class="arabic">أَلْفٌ وَمِئةٌ وسَبْعةٌ وثَمانُون</span></li>
+                <li>Ordre : milliers → centaines → unités → dizaines</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">🌍 Les millions et milliards / المَلايِين و البلايِين</h2>
+
+        <h3 class="scroll-animate">Les millions</h3>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1 000 000</strong></td>
+                    <td><span class="arabic">مِلْيُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2 000 000</strong></td>
+                    <td><span class="arabic">مِلْيُونَانِ / مِلْيُونَيْنِ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3+ millions</strong></td>
+                    <td><span class="arabic">مَلايِينَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">Les milliards</h3>
+        <div class="note scroll-animate">
+            <strong>ℹ️ Note :</strong> Il existe deux variantes du mot milliard : <span class="arabic">مِليار</span> (du
+            français) et <span class="arabic">بِلِيون</span> (de l'anglais
+            "billion").
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1 000 000 000</strong></td>
+                    <td><span class="arabic">مِليار / بِلْيُونَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2 000 000 000</strong></td>
+                    <td><span class="arabic">مِليارانِ / مِلياريْنِ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3+ milliards</strong></td>
+                    <td><span class="arabic">مِليارات / بَلايِينَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>📚 Ordre final complet des nombres :</strong>
+            <p style="text-align: center; margin-top: 15px;">
+                <span class="highlight">Milliards → Millions → Milliers → Centaines → Unités → Dizaines</span>
+            </p>
+        </div>
+
+        <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+        <div class="rule-box scroll-animate">
+            <ul>
+                <li>Les nombres <strong>0-10</strong> sont les bases à mémoriser</li>
+                <li>Les nombres <strong>11-19</strong> combinent l'unité avec <span class="arabic">عَشَرَ</span></li>
+                <li>Les <strong>dizaines</strong> (20-90) sont des pluriels masculins réguliers</li>
+                <li>Pour <strong>21-29</strong> : unité + <span class="arabic">و</span> + dizaine</li>
+                <li>Les <strong>centaines</strong> (300-900) forment une annexion avec <span class="arabic">مِئة</span>
+                </li>
+                <li>Les <strong>milliers</strong> utilisent le pluriel <span class="arabic">آلاف</span> jusqu'à 10 000
+                </li>
+                <li>À partir de 11 000 : singulier indéfini <span class="arabic">أَلْفًا</span></li>
+                <li>L'ordre est : milliards → millions → milliers → centaines → <strong>unités → dizaines</strong>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html

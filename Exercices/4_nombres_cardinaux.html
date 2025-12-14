@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les nombres cardinaux en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        .number-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: inline-block;
+            min-width: 100px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        /* Responsive Design pour mobiles */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .exercise h3 {
+                font-size: 1.1em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            .intro,
+            .note,
+            .exercise,
+            .question {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .section-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .answer-space,
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.75em;
+            }
+
+            th,
+            td {
+                padding: 6px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين الأَعْداد</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer les nombres cardinaux en
+            arabe. Rappelez-vous : en arabe, l'unité se prononce avant la dizaine (sauf pour 11-19), et l'ordre général
+            est milliers → centaines → unités → dizaines.
+        </div>
+
+        <h2><span class="section-number">1</span>Écrivez les nombres en chiffres</h2>
+        <div class="exercise">
+            <h3>Convertissez les nombres arabes en chiffres occidentaux</h3>
+            <ol>
+                <li><span class="arabic">خَمْسة</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">عَشْرة</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">ثَلاثةَ عَشَرَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">عِشْرُونَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَبْعة وَعِشْرون</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَرْبَعُونَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مِئة</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">خَمْسُمِئةٍ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَلْف</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">ثَلاثةُ آلاف</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Écrivez les nombres en arabe</h2>
+        <div class="exercise">
+            <h3>Convertissez les chiffres en mots arabes</h3>
+            <ol>
+                <li><span class="number-box">3</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">7</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">11</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">15</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">30</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">50</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">200</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">400</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">2 000</span> → <span class="answer-space"></span></li>
+                <li><span class="number-box">5 000</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Les unités (0-10)</h2>
+        <div class="exercise">
+            <h3>Complétez les nombres manquants</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Chiffre</th>
+                        <th>Arabe</th>
+                        <th>Translittération</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0</td>
+                        <td><span class="answer-space"></span></td>
+                        <td>ṣifr</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><span class="arabic">واحِد</span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><span class="answer-space"></span></td>
+                        <td>arbaʿa</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><span class="arabic">سِتّة</span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><span class="answer-space"></span></td>
+                        <td>thamāniya</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><span class="arabic">عَشْرة</span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">4</span>Les nombres 11-19</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres suivants en arabe</h3>
+            <ol>
+                <li>12 → <span class="answer-space"></span></li>
+                <li>14 → <span class="answer-space"></span></li>
+                <li>16 → <span class="answer-space"></span></li>
+                <li>18 → <span class="answer-space"></span></li>
+                <li>19 → <span class="answer-space"></span></li>
+            </ol>
+            <p><em>Rappel : Ces nombres combinent l'unité avec عَشَرَ</em></p>
+        </div>
+
+        <h2><span class="section-number">5</span>Les dizaines (20-90)</h2>
+        <div class="exercise">
+            <h3>Écrivez les dizaines en arabe</h3>
+            <ol>
+                <li>20 → <span class="answer-space"></span></li>
+                <li>40 → <span class="answer-space"></span></li>
+                <li>60 → <span class="answer-space"></span></li>
+                <li>70 → <span class="answer-space"></span></li>
+                <li>90 → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">6</span>Les nombres composés (21-99)</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres suivants en respectant l'ordre : unité + و + dizaine</h3>
+            <ol>
+                <li>22 → <span class="answer-space wide-space"></span></li>
+                <li>35 → <span class="answer-space wide-space"></span></li>
+                <li>48 → <span class="answer-space wide-space"></span></li>
+                <li>56 → <span class="answer-space wide-space"></span></li>
+                <li>73 → <span class="answer-space wide-space"></span></li>
+                <li>89 → <span class="answer-space wide-space"></span></li>
+                <li>91 → <span class="answer-space wide-space"></span></li>
+                <li>99 → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Les centaines (100-900)</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau des centaines</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Chiffre</th>
+                        <th>Arabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>100</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>200</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>300</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>500</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>700</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>900</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">8</span>Les milliers</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres suivants en arabe</h3>
+            <ol>
+                <li>1 000 → <span class="answer-space"></span></li>
+                <li>2 000 → <span class="answer-space"></span></li>
+                <li>4 000 → <span class="answer-space"></span></li>
+                <li>7 000 → <span class="answer-space"></span></li>
+                <li>10 000 → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>Nombres complexes</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres suivants en arabe (attention à l'ordre !)</h3>
+            <p><em>Rappel : centaines → unités → dizaines</em></p>
+            <ol>
+                <li>135 → <span class="answer-space wide-space"></span></li>
+                <li>247 → <span class="answer-space wide-space"></span></li>
+                <li>358 → <span class="answer-space wide-space"></span></li>
+                <li>469 → <span class="answer-space wide-space"></span></li>
+                <li>622 → <span class="answer-space wide-space"></span></li>
+                <li>785 → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Très grands nombres</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres suivants en arabe</h3>
+            <p><em>Rappel : milliers → centaines → unités → dizaines</em></p>
+            <ol>
+                <li>1 500 → <span class="answer-space wide-space"></span></li>
+                <li>2 345 → <span class="answer-space wide-space"></span></li>
+                <li>5 678 → <span class="answer-space wide-space"></span></li>
+                <li>11 000 → <span class="answer-space wide-space"></span></li>
+                <li>25 000 → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">11</span>Les millions et milliards</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres suivants</h3>
+            <ol>
+                <li>Un million → <span class="answer-space"></span></li>
+                <li>Deux millions → <span class="answer-space"></span></li>
+                <li>Trois millions → <span class="answer-space"></span></li>
+                <li>Un milliard (version française) → <span class="answer-space"></span></li>
+                <li>Un milliard (version anglaise) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">12</span>Compréhension : Quel est l'ordre ?</h2>
+        <div class="exercise">
+            <h3>Remettez les éléments dans le bon ordre pour écrire ces nombres</h3>
+
+            <div class="question">
+                <p><strong>Pour écrire 425 :</strong></p>
+                <p>Éléments : <span class="arabic">خَمْسة</span> / <span class="arabic">عِشْرون</span> / <span
+                        class="arabic">أَرْبَعُمِئةٍ</span></p>
+                <p>Ordre correct : <span class="answer-space wide-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p><strong>Pour écrire 1 348 :</strong></p>
+                <p>Éléments : <span class="arabic">ثَمانية</span> / <span class="arabic">أَرْبَعون</span> / <span
+                        class="arabic">ثَلاثُمِئةٍ</span> / <span class="arabic">أَلْف</span></p>
+                <p>Ordre correct : <span class="answer-space wide-space"></span></p>
+            </div>
+        </div>
+
+        <h2><span class="section-number">13</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque nombre contient une erreur. Corrigez-le :</h3>
+            <ol>
+                <li><span class="arabic">عِشْرة وثَلاثة</span> (pour 13) → <span class="answer-space"></span></li>
+                <li><span class="arabic">خَمْسونَ وسِتّة</span> (pour 56) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مِئة وعِشْرون</span> (pour 120) → <span class="answer-space"></span></li>
+                <li><span class="arabic">ثَلاث مِئة</span> (pour 300) → <span class="answer-space"></span></li>
+                <li><span class="arabic">عَشَرة أَلْف</span> (pour 10 000) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">14</span>Problèmes mathématiques</h2>
+        <div class="exercise">
+            <h3>Résolvez et écrivez la réponse en arabe</h3>
+            <ol>
+                <li>5 + 3 = <span class="answer-space"></span></li>
+                <li>10 + 5 = <span class="answer-space"></span></li>
+                <li>20 + 8 = <span class="answer-space"></span></li>
+                <li>100 + 50 = <span class="answer-space"></span></li>
+                <li>300 + 45 = <span class="answer-space"></span></li>
+                <li>1 000 + 500 = <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">15</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+
+            <div class="question">
+                <p><span class="arabic">فِي المَدْرَسَةِ خَمْسُمِئةٍ وَثَلاثة وَعِشْرونَ طالِباً</span></p>
+                <p>(Il y a 523 étudiants dans l'école)</p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Quel est le nombre total d'étudiants en chiffres ? <span class="answer-space"></span></li>
+                    <li>Quel mot représente les centaines ? <span class="answer-space"></span></li>
+                    <li>Dans quel ordre sont écrits les éléments du nombre ? <span
+                            class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+
+            <div class="question">
+                <p><span class="arabic">اِشْتَرَيْتُ كِتاباً بِأَرْبَعةَ عَشَرَ دُولاراً</span></p>
+                <p>(J'ai acheté un livre pour 14 dollars)</p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien coûte le livre en chiffres ? <span class="answer-space"></span></li>
+                    <li>Pourquoi utilise-t-on <span class="arabic">أَرْبَعةَ عَشَرَ</span> et non <span
+                            class="arabic">أَرْبَعة وَعَشْرة</span> ? <span class="answer-space wide-space"></span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseil :</strong> Pour bien mémoriser les nombres, pratiquez régulièrement en comptant dans
+            votre tête en arabe. Commencez par les unités, puis les dizaines, et progressez vers les nombres plus
+            complexes. N'oubliez pas que l'ordre en arabe est différent du français !
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable
+            d'écrire et de lire les nombres cardinaux en arabe de 0 à plusieurs milliers, en respectant l'ordre correct
+            : milliers → centaines → unités → dizaines. Félicitations ! 🎉
+        </div>
+    </div>
+</body>
+
+</html>
