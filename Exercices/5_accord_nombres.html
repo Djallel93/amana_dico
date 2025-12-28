@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Accord des nombres en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .exercise h3 {
+                font-size: 1.1em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            .intro,
+            .note,
+            .exercise,
+            .question {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .section-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .answer-space,
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.75em;
+            }
+
+            th,
+            td {
+                padding: 6px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين أَحْكام العَدَد</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer l'accord des nombres
+            avec les objets comptés en arabe. Rappelez-vous : 1-2 même genre, 3-10 genre opposé, 11-12 même genre,
+            13-19 accord mixte !
+        </div>
+
+        <h2><span class="section-number">1</span>Accord en genre : 1-2</h2>
+        <div class="exercise">
+            <h3>Choisissez la forme correcte du nombre (1 ou 2)</h3>
+            <p><em>Rappel : Le nombre doit avoir le même genre que l'objet compté</em></p>
+            <ol>
+                <li>______ (وَاحِدٌ / وَاحِدَةٌ) رَجُلٌ → 1 homme</li>
+                <li>______ (وَاحِدٌ / وَاحِدَةٌ) امْرَأَةٌ → 1 femme</li>
+                <li>______ (اثْنَانِ / اثْنَتَانِ) رَجُلَانِ → 2 hommes</li>
+                <li>______ (اثْنَانِ / اثْنَتَانِ) امْرَأَتَانِ → 2 femmes</li>
+                <li>______ (وَاحِدٌ / وَاحِدَةٌ) كِتَابٌ → 1 livre</li>
+                <li>______ (اثْنَانِ / اثْنَتَانِ) سَيَّارَتَانِ → 2 voitures</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Accord en genre : 3-10</h2>
+        <div class="exercise">
+            <h3>Choisissez la forme correcte (genre opposé à l'objet compté)</h3>
+            <ol>
+                <li>______ (ثَلَاثَةُ / ثَلَاثُ) رِجَالٍ → 3 hommes</li>
+                <li>______ (أَرْبَعَةُ / أَرْبَعُ) نِسَاءٍ → 4 femmes</li>
+                <li>______ (خَمْسَةُ / خَمْسُ) كُتُبٍ → 5 livres</li>
+                <li>______ (سِتَّةُ / سِتُّ) سَيَّارَاتٍ → 6 voitures</li>
+                <li>______ (سَبْعَةُ / سَبْعُ) أَيَّامٍ → 7 jours</li>
+                <li>______ (ثَمَانِيَةُ / ثَمَانِي) مُعَلِّمَاتٍ → 8 enseignantes</li>
+                <li>______ (تِسْعَةُ / تِسْعُ) طُلَّابٍ → 9 étudiants</li>
+                <li>______ (عَشَرَةُ / عَشْرُ) صَفَحَاتٍ → 10 pages</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Accord en genre : 11-12</h2>
+        <div class="exercise">
+            <h3>Complétez avec la forme correcte (même genre)</h3>
+            <ol>
+                <li>______ رَجُلًا → 11 hommes (أَحَدَ عَشَرَ / إِحْدَى عَشْرَةَ)</li>
+                <li>______ امْرَأَةً → 11 femmes (أَحَدَ عَشَرَ / إِحْدَى عَشْرَةَ)</li>
+                <li>______ طَالِبًا → 12 étudiants (اثْنَا عَشَرَ / اثْنَتَا عَشْرَةَ)</li>
+                <li>______ طَالِبَةً → 12 étudiantes (اثْنَا عَشَرَ / اثْنَتَا عَشْرَةَ)</li>
+                <li>______ كِتَابًا → 11 livres (أَحَدَ عَشَرَ / إِحْدَى عَشْرَةَ)</li>
+                <li>______ سَاعَةً → 12 heures (اثْنَا عَشَرَ / اثْنَتَا عَشْرَةَ)</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Accord en genre : 13-19</h2>
+        <div class="exercise">
+            <h3>Complétez avec la forme correcte (1ère partie opposée, 2ème partie même)</h3>
+            <p><em>Rappel : L'unité prend le genre opposé, mais عَشَرَ/عَشَرَةَ s'accorde</em></p>
+            <ol>
+                <li>______ رَجُلًا → 14 hommes (أَرْبَعَةَ عَشَرَ / أَرْبَعَ عَشْرَةَ)</li>
+                <li>______ امْرَأَةً → 14 femmes (أَرْبَعَةَ عَشَرَ / أَرْبَعَ عَشْرَةَ)</li>
+                <li>______ طَالِبًا → 16 étudiants (سِتَّةَ عَشَرَ / سِتَّ عَشْرَةَ)</li>
+                <li>______ سَيَّارَةً → 18 voitures (ثَمَانِيَةَ عَشَرَ / ثَمَانِيَ عَشْرَةَ)</li>
+                <li>______ كِتَابًا → 15 livres (خَمْسَةَ عَشَرَ / خَمْسَ عَشْرَةَ)</li>
+                <li>______ مُعَلِّمَةً → 17 enseignantes (سَبْعَةَ عَشَرَ / سَبْعَ عَشْرَةَ)</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">5</span>Tableau récapitulatif</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau avec l'accord correct</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Objet masculin (رَجُل)</th>
+                        <th>Objet féminin (امْرَأَة)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">6</span>Traduisez en arabe</h2>
+        <div class="exercise">
+            <h3>Écrivez les expressions suivantes en arabe</h3>
+            <ol>
+                <li>4 hommes → <span class="answer-space wide-space"></span></li>
+                <li>6 femmes → <span class="answer-space wide-space"></span></li>
+                <li>3 livres → <span class="answer-space wide-space"></span></li>
+                <li>5 voitures → <span class="answer-space wide-space"></span></li>
+                <li>11 étudiants → <span class="answer-space wide-space"></span></li>
+                <li>12 enseignantes → <span class="answer-space wide-space"></span></li>
+                <li>14 jours → <span class="answer-space wide-space"></span></li>
+                <li>17 pages → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Les dizaines et les centaines</h2>
+        <div class="exercise">
+            <h3>Complétez (les dizaines et centaines sont invariables)</h3>
+            <ol>
+                <li>عِشْرُونَ ______ → 20 étudiants (طَالِبًا / طَالِبَةً - les deux sont possibles)</li>
+                <li>ثَلَاثُونَ ______ → 30 livres (كِتَابًا)</li>
+                <li>خَمْسُونَ ______ → 50 femmes (امْرَأَةً)</li>
+                <li>مِئَةُ ______ → 100 hommes (رَجُلٍ)</li>
+                <li>مِئَةُ ______ → 100 femmes (امْرَأَةٍ)</li>
+                <li>أَلْفُ ______ → 1000 livres (كِتَابٍ)</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Nombres composés (21-99)</h2>
+        <div class="exercise">
+            <h3>Accordez l'unité correctement (la dizaine reste invariable)</h3>
+            <ol>
+                <li>______ وَعِشْرُونَ رَجُلًا → 24 hommes (أَرْبَعَةٌ / أَرْبَعٌ)</li>
+                <li>______ وَثَلَاثُونَ امْرَأَةً → 35 femmes (خَمْسَةٌ / خَمْسٌ)</li>
+                <li>______ وَأَرْبَعُونَ كِتَابًا → 47 livres (سَبْعَةٌ / سَبْعٌ)</li>
+                <li>______ وَخَمْسُونَ سَيَّارَةً → 56 voitures (سِتَّةٌ / سِتٌّ)</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur d'accord. Corrigez-la :</h3>
+            <ol>
+                <li><span class="arabic">ثَلَاثُ رِجَالٍ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">خَمْسَةُ نِسَاءٍ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">إِحْدَى عَشَرَ رَجُلًا</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">اثْنَا عَشَرَ امْرَأَةً</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَرْبَعَ عَشَرَةَ رَجُلًا</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَبْعَةَ عَشَرَ سَيَّارَةً</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Vrai ou Faux</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Les nombres 1 et 2 prennent le genre opposé à l'objet compté <span class="answer-space"></span>
+                </li>
+                <li>Les nombres 3 à 10 prennent le genre opposé à l'objet compté <span class="answer-space"></span>
+                </li>
+                <li>Les nombres 11 et 12 prennent le même genre que l'objet compté <span class="answer-space"></span>
+                </li>
+                <li>Pour 13-19, les deux parties prennent le genre opposé <span class="answer-space"></span></li>
+                <li>Les dizaines (20-90) changent selon le genre <span class="answer-space"></span></li>
+                <li>100 et 1000 sont invariables en genre <span class="answer-space"></span></li>
+                <li>Dans 25, le 5 s'accorde avec l'objet compté <span class="answer-space"></span></li>
+                <li>Le féminin de اثْنَان est اثْنَتَان <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">11</span>Exercice avancé : Grands nombres</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres suivants en arabe avec l'accord correct</h3>
+            <ol>
+                <li>214 livres → <span class="answer-space wide-space"></span></li>
+                <li>325 voitures → <span class="answer-space wide-space"></span></li>
+                <li>1 436 étudiants → <span class="answer-space wide-space"></span></li>
+                <li>2 587 pages → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">12</span>Phrases complètes</h2>
+        <div class="exercise">
+            <h3>Créez des phrases en utilisant les éléments donnés</h3>
+
+            <div class="question">
+                <strong>1.</strong> (7 - طَالِبٌ - فِي الصَّفِّ)<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+
+            <div class="question">
+                <strong>2.</strong> (15 - مُعَلِّمَةٌ - فِي المَدْرَسَةِ)<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+
+            <div class="question">
+                <strong>3.</strong> (23 - كِتَابٌ - عَلَى الطَّاوِلَةِ)<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+        </div>
+
+        <h2><span class="section-number">13</span>Compréhension : Analyse</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+
+            <div class="question">
+                <p><span class="arabic">فِي المَدْرَسَةِ خَمْسَةَ عَشَرَ صَفًّا وَثَلَاثُونَ مُعَلِّمَةً</span></p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de classes y a-t-il dans l'école ? <span class="answer-space"></span></li>
+                    <li>Pourquoi utilise-t-on خَمْسَةَ et non خَمْسَ pour 15 ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Combien d'enseignantes y a-t-il ? <span class="answer-space"></span></li>
+                    <li>Pourquoi ثَلَاثُونَ ne change-t-il pas ? <span class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <h2><span class="section-number">14</span>Challenge : Cas spéciaux</h2>
+        <div class="exercise">
+            <h3>Écrivez les expressions suivantes (attention aux cas particuliers !)</h3>
+            <ol>
+                <li>1001 nuits → <span class="answer-space wide-space"></span></li>
+                <li>102 jours → <span class="answer-space wide-space"></span></li>
+            </ol>
+            <p><em>Astuce : On utilise des circonlocutions pour ces nombres</em></p>
+        </div>
+
+        <h2><span class="section-number">15</span>Révision globale</h2>
+        <div class="exercise">
+            <h3>Complétez le texte avec les nombres corrects</h3>
+
+            <div class="question">
+                <p>فِي جَامِعَتِنَا ______ (8) كُلِّيَّاتٌ وَ______ (12) مَكْتَبَةً. يَدْرُسُ فِيهَا ______ (1500)
+                    طَالِبٌ وَ______ (3) طَالِبَةً. يُوجَدُ أَيْضًا ______ (45) مُعَلِّمًا وَ______ (27) مُعَلِّمَةً.</p>
+                <p><em>(Dans notre université, il y a 8 facultés et 12 bibliothèques. Y étudient 1500 étudiants et 3
+                        étudiantes. Il y a aussi 45 enseignants et 27 enseignantes.)</em></p>
+            </div>
+        </div>
+
+</body>
+
+</html>

@@ -3,7 +3,6 @@
     let userAnswers = {};
     let quizResults = {};
 
-    // Initialize the app
     function initializeApp() {
         setupEventListeners();
         console.log('App initialized');
@@ -13,7 +12,6 @@
     }
 
     function setupEventListeners() {
-        // Add click events to checkbox items
         document.querySelectorAll('.checkbox-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 if (e.target.type !== 'checkbox') {
@@ -49,10 +47,11 @@
     }
 
     function generateQuiz(selectedChapters, direction) {
-        // Filtrer strictement les mots par chapitre sélectionné
+        // CORRECTION: Filtrer par chapitre en utilisant l'ID numérique
         let availableWords = allWords.filter(word => {
-            const wordChapter = parseInt(word.chapitre);
-            return selectedChapters.includes(wordChapter);
+            // Le mot peut avoir 'chapitre' (ID numérique) ou 'chapitreNom' (nom textuel)
+            const wordChapterId = parseInt(word.chapitre);
+            return selectedChapters.includes(wordChapterId);
         });
 
         if (availableWords.length === 0) {
@@ -88,50 +87,40 @@
             return chapter ? chapter.nom : `Chapitre ${id}`;
         });
 
-        // Shuffle and take up to 10 words
         availableWords = shuffleArray(availableWords);
         const selectedWords = availableWords.slice(0, Math.min(10, availableWords.length));
 
         const askedWords = new Set();
 
         currentQuiz = selectedWords.map((word, index) => {
-            // Find translations for this word
             const wordTranslations = findTranslations(word.mot);
             if (wordTranslations.length === 0) {
                 return null;
             }
 
-            // Vérifier que le mot n'a pas déjà été demandé
             if (askedWords.has(word.mot)) {
                 return null;
             }
             askedWords.add(word.mot);
 
-            // Déterminer la langue cible (opposée à la langue source)
             const targetLanguage = getOppositeLanguage(word.langue);
             const targetLanguageCode = getLanguageCode(targetLanguage);
 
-            // Question: toujours demander la traduction du mot source
             const questionText = `Quelle est la traduction de « ${word.mot} » ?`;
             const correctAnswer = wordTranslations[0];
 
-            // Générer les mauvaises réponses dans la langue cible
             const wrongOptions = generateWrongTranslationsInLanguage(
                 word,
                 targetLanguage,
                 correctAnswer
             );
 
-            // Vérifier qu'on a assez de mauvaises réponses
             if (wrongOptions.length < 3) {
                 console.warn(`Pas assez de mauvaises réponses pour: ${correctAnswer}, question ignorée`);
                 return null;
             }
 
-            // Prendre uniquement 3 mauvaises réponses
             const finalWrongOptions = wrongOptions.slice(0, 3);
-
-            // Créer le tableau final: 1 bonne réponse + 3 mauvaises
             const allOptions = shuffleArray([correctAnswer, ...finalWrongOptions]);
 
             return {
@@ -146,7 +135,6 @@
             };
         }).filter(q => q !== null);
 
-        // Update quiz numbering
         currentQuiz.forEach((question, index) => {
             question.id = index + 1;
         });
@@ -155,7 +143,6 @@
 
         console.log(`Questions générées: ${currentQuiz.length}`);
 
-        // Log des langues pour vérification
         if (currentQuiz.length > 0) {
             console.log(`Direction effective: ${currentQuiz[0].sourceLanguage} → ${currentQuiz[0].targetLanguage}`);
         }
@@ -186,7 +173,6 @@
 
     function findTranslations(word) {
         const wordTranslations = [];
-        // Find direct translations
         translations.forEach(trans => {
             if (trans.mot_source === word) {
                 wordTranslations.push(trans.mot_cible);
@@ -201,21 +187,16 @@
         const targetLangCode = getLanguageCode(targetLanguage);
         const allTranslations = [];
 
-        // Collect ALL translations in the target language from ALL words
         allWords.forEach(word => {
             if (getLanguageCode(word.langue) === targetLangCode) {
                 allTranslations.push(word.mot);
             }
         });
 
-        // Remove duplicates and the correct answer
         const uniqueTranslations = [...new Set(allTranslations)];
         const filteredTranslations = uniqueTranslations.filter(opt => opt !== correctAnswer);
-
-        // Shuffle to randomize
         const shuffledTranslations = shuffleArray(filteredTranslations);
 
-        // Return at least 3 wrong options
         return shuffledTranslations.slice(0, 3);
     }
 
@@ -267,12 +248,10 @@
     }
 
     function selectOption(questionId, selectedOption, optionElement) {
-        // Clear previous selections for this question
         const questionCard = optionElement.parentElement.parentElement;
         questionCard.querySelectorAll('.option').forEach(opt => {
             opt.classList.remove('selected');
         });
-        // Mark current selection
         optionElement.classList.add('selected');
         userAnswers[questionId] = selectedOption;
     }
@@ -290,7 +269,6 @@
         let correctAnswers = 0;
         const totalQuestions = currentQuiz.length;
 
-        // Show correct/incorrect answers
         currentQuiz.forEach(question => {
             const questionCard = document.querySelector(`.question-card:nth-child(${question.id})`);
             const options = questionCard.querySelectorAll('.option');
@@ -307,10 +285,8 @@
             });
         });
 
-        // Calculate and display score
         const scorePercentage = Math.round((correctAnswers / totalQuestions) * 100);
 
-        // Store results for saving
         quizResults.score = correctAnswers;
         quizResults.total = totalQuestions;
         quizResults.percentage = scorePercentage;
@@ -337,6 +313,5 @@
         quizResults = {};
     }
 
-    // Initialize the app when page loads
     window.addEventListener('load', initializeApp);
 </script>

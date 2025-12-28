@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Règles des nombres en arabe - Cours</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Règles des nombres en arabe</h1>
+        <div class="arabic-title">أَحْكام العَدَد والمَعْدُود</div>
+
+        <div class="intro">
+            Ce cours avancé couvre les règles complexes de l'accord des nombres arabes avec les objets comptés
+            (المَعْدُود). Maîtriser ces structures est essentiel pour atteindre une compétence en grammaire arabe de
+            niveau avancé. Comprendre ces règles est fondamental pour naviguer dans le système complexe de l'accord des
+            nombres, qui est dicté par trois facteurs clés : le genre des noms comptés, la quantité exprimée et la
+            déclinaison grammaticale spécifique impliquée.
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Prérequis :</strong> Avant d'étudier cette partie, assurez-vous de connaître les <span
+                class="highlight">nombres cardinaux</span> (0-1000).
+        </div>
+
+        <h2 class="scroll-animate-left">📊 I. L'accord en genre du nombre / جِنْس العَدَد</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Principe fondamental :</strong> Le nombre peut correspondre ou non au genre de l'objet compté, en
+                fonction de sa valeur numérique.</p>
+        </div>
+
+        <h3 class="scroll-animate">Tableau récapitulatif complet</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Accord en genre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1 - 2</strong></td>
+                    <td>Même genre que l'objet compté</td>
+                </tr>
+                <tr>
+                    <td><strong>3 à 10</strong></td>
+                    <td>Genre opposé à l'objet compté (au singulier)</td>
+                </tr>
+                <tr>
+                    <td><strong>11 - 12</strong></td>
+                    <td>Même genre que l'objet compté</td>
+                </tr>
+                <tr>
+                    <td><strong>13 à 19</strong></td>
+                    <td>1ère partie (unité) : opposé<br>2ème partie (dix) : même genre</td>
+                </tr>
+                <tr>
+                    <td><strong>Dizaines (20 à 90)</strong></td>
+                    <td>Invariable (ne change pas)</td>
+                </tr>
+                <tr>
+                    <td><strong>Nombres composés (21 à 99)</strong></td>
+                    <td>Unité : 1-2 même genre, 3-9 opposé<br>Dizaine : invariable</td>
+                </tr>
+                <tr>
+                    <td><strong>100 et 1000</strong></td>
+                    <td>Invariable (ne change pas)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">A. Les unités (1 à 10, 100, 1000)</h3>
+
+        <h4 class="scroll-animate">1-2 : Même genre</h4>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><span class="arabic">اِمْرَأَةٌ واحِدةٌ</span> → 1 femme (واحِدةٌ est féminin)</li>
+                <li><span class="arabic">رَجُلانِ اِثْنانِ</span> → 2 hommes (اِثْنانِ est masculin)</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Note importante :</strong> Le féminin de <span class="arabic">اِثْنان</span> est <span
+                class="arabic">اِثْنَتان</span>
+        </div>
+
+        <h4 class="scroll-animate">3-10 : Genre opposé</h4>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Le nombre prend le <strong>genre opposé</strong> à celui de l'objet compté au singulier.</p>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><span class="arabic">أَرْبَعةُ رِجالٍ</span> → 4 hommes (أَرْبَعة est féminin car رَجُل est
+                    masculin)</li>
+                <li><span class="arabic">سِتُّ نِساءٍ</span> → 6 femmes (سِتُّ est masculin car اِمْرَأَة est féminin)
+                </li>
+                <li><span class="arabic">ثَلاثَةُ كُتُبٍ</span> → 3 livres (ثَلاثَة est féminin car كِتاب est masculin)
+                </li>
+                <li><span class="arabic">خَمْسُ سَيّاراتٍ</span> → 5 voitures (خَمْسُ est masculin car سَيّارة est
+                    féminin)</li>
+            </ul>
+        </div>
+
+        <h4 class="scroll-animate">100 et 1000 : Invariables</h4>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><span class="arabic">مِئَةُ رَجُلٍ</span> → 100 hommes</li>
+                <li><span class="arabic">مِئَةُ اِمْرَأَةٍ</span> → 100 femmes</li>
+                <li><span class="arabic">أَلْفُ رَجُلٍ</span> → 1000 hommes</li>
+                <li><span class="arabic">أَلْفُ اِمْرَأَةٍ</span> → 1000 femmes</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. Les nombres composés (11 à 19)</h3>
+
+        <h4 class="scroll-animate">11-12 : Les deux parties s'accordent</h4>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Les deux parties du nombre s'accordent avec le <strong>même genre</strong> que l'objet compté.</p>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><span class="arabic">أَحَدَ عَشَرَ رَجُلاً</span> → 11 hommes</li>
+                <li><span class="arabic">اِثْنَتَا عَشَرَةَ اِمْرَأَةً</span> → 12 femmes</li>
+            </ul>
+        </div>
+
+        <h4 class="scroll-animate">13-19 : Accord mixte</h4>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>1ère partie</strong> (unité) : genre opposé à l'objet compté<br>
+                <strong>2ème partie</strong> (عَشَرَ/عَشَرَةَ) : même genre que l'objet compté
+            </p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><span class="arabic">أَرْبَعَةَ عَشَرَ رَجُلاً</span> → 14 hommes<br>
+                    (أَرْبَعَةَ féminin / عَشَرَ masculin)</li>
+                <li><span class="arabic">سَبْعَ عَشَرَةَ اِمْرأَةً</span> → 17 femmes<br>
+                    (سَبْعَ masculin / عَشَرَةَ féminin)</li>
+                <li><span class="arabic">ثَلاثَةَ عَشَرَ كِتاباً</span> → 13 livres</li>
+                <li><span class="arabic">تِسْعَةُ آلافٍ وَخَمْسُمِئِةٍ وَأَرْبَعَةُ رِجالٍ</span> → 9504 hommes<br>
+                    (précédé par 4 → génitif pluriel)</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>⚠️ Cas particulier :</strong> Pour tout nombre supérieur à 100 et dont les deux derniers chiffres
+            sont 01 ou 02 (101, 102, 1001, 2002, etc.), on utilise des circonlocutions :
+            <ul>
+                <li><span class="arabic">أَلْف لَيْلة وَلَيْلة</span> → 1001 nuits (Les Mille et une nuits)</li>
+                <li><span class="arabic">مِئِة يَوم وَيَوْمان</span> → 102 jours</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">📚 Résumé des règles essentielles</h2>
+
+        <div class="rule-box scroll-animate">
+            <h3>🎯 Accord en genre :</h3>
+            <ul>
+                <li><strong>1-2 :</strong> Même genre</li>
+                <li><strong>3-10 :</strong> Genre opposé</li>
+                <li><strong>11-12 :</strong> Même genre</li>
+                <li><strong>13-19 :</strong> 1ère partie opposé, 2ème partie même</li>
+                <li><strong>20-90 :</strong> Invariable</li>
+                <li><strong>100, 1000 :</strong> Invariable</li>
+            </ul>
+        </div>
+
+        <div class="rule-box scroll-animate">
+            <h3>📋 Cas et forme du nom :</h3>
+            <ul>
+                <li><strong>3-10 :</strong> Pluriel</li>
+                <li><strong>11-99 :</strong> Singulier</li>
+                <li><strong>100, 1000 :</strong> Singulier</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -9,7 +9,6 @@ function formatDateForComparison(date) {
 
     let dateObj;
 
-    // Si c'est une chaîne, parser la date
     if (typeof date === 'string') {
         dateObj = new Date(date);
     } else if (date instanceof Date) {
@@ -18,7 +17,6 @@ function formatDateForComparison(date) {
         return null;
     }
 
-    // Vérifier si la date est valide
     if (isNaN(dateObj.getTime())) {
         return null;
     }
@@ -39,34 +37,22 @@ function getTodayFormatted() {
 
 /**
  * Calculer le dimanche de la semaine en cours
- * Si aujourd'hui est dimanche, retourne aujourd'hui
- * Sinon, retourne le dimanche précédent
  */
 function getSundayOfCurrentWeek() {
     const today = new Date();
-    const dayOfWeek = today.getDay(); // 0 = dimanche, 1 = lundi, ..., 6 = samedi
-
-    // Si on est dimanche (0), on prend aujourd'hui
-    // Sinon, on recule au dimanche précédent
+    const dayOfWeek = today.getDay();
     const daysToSubtract = dayOfWeek === 0 ? 0 : dayOfWeek;
-
     const sunday = new Date(today);
     sunday.setDate(today.getDate() - daysToSubtract);
-
     return formatDateForComparison(sunday);
 }
 
 /**
  * Load all dictionary data efficiently with caching and optional date filtering
- * @param {string} spreadsheetId - Optional spreadsheet ID
- * @param {boolean} forceReload - Force reload from sheets
- * @param {boolean} skipDateFilter - Skip date filtering (for interactive quiz)
- * Filters words to exclude those from current week's Sunday (unless skipDateFilter = true)
  */
 function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDateFilter = false) {
     const currentSheetId = getSheetId();
 
-    // Return cached data if available and same spreadsheet (only if not skipping filter)
     if (!forceReload && !skipDateFilter && _cachedDictionaryData && _cacheSpreadsheetId === currentSheetId) {
         console.log('Using cached dictionary data');
         return _cachedDictionaryData;
@@ -102,18 +88,19 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
         }
     });
 
-    // Build chapter lookup
+    // Build chapter lookup - MAINTENANT PAR NOM ET PAR ID
     const chapitres = {};
+    const chapitresByName = {}; // NOUVEAU: lookup par nom
     chapitresData.forEach(row => {
         const id = row[CHAPITRE.COLUMNS.ID];
         const nom = row[CHAPITRE.COLUMNS.NOM];
         if (id && nom) {
             chapitres[id] = { id, nom };
+            chapitresByName[nom] = { id, nom }; // Index par nom aussi
         }
     });
 
     // Build word lookup with ID and word as keys
-    // FILTER: only include words where date_cour < sunday of current week (unless skipDateFilter)
     const motsById = {};
     const motsByWord = {};
     let wordsIncluded = 0;
@@ -124,6 +111,7 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
         const id = row[MOT.COLUMNS.ID];
         const mot = row[MOT.COLUMNS.MOT];
         const dateCour = row[MOT.COLUMNS.DATE_COUR];
+        const chapitreValue = row[MOT.COLUMNS.CHAPITRE]; // Peut être ID ou nom
 
         if (!id || !mot) return;
 
@@ -136,16 +124,40 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
                 return;
             }
 
-            // STRICT: date_cour must be < sunday (not equal)
             if (formattedDateCour >= sundayOfWeek) {
                 wordsExcluded++;
-                return; // Exclude this word
+                return;
             }
 
             wordsIncluded++;
         } else {
-            // Words without date are included (legacy words) OR filter is skipped
             wordsNoDate++;
+        }
+
+        // CORRECTION: Déterminer l'ID du chapitre (que ce soit un ID ou un nom)
+        let chapitreId = chapitreValue;
+        let chapitreNom = '';
+
+        if (chapitreValue) {
+            // Si c'est un nombre, c'est probablement un ID
+            if (!isNaN(chapitreValue) && chapitres[chapitreValue]) {
+                chapitreId = chapitreValue;
+                chapitreNom = chapitres[chapitreValue].nom;
+            }
+            // Sinon, c'est un nom de chapitre
+            else if (chapitresByName[chapitreValue]) {
+                chapitreId = chapitresByName[chapitreValue].id;
+                chapitreNom = chapitreValue;
+            }
+            // Fallback: traiter comme un nom si pas trouvé
+            else {
+                chapitreNom = chapitreValue;
+                // Chercher l'ID correspondant
+                const foundChapter = Object.values(chapitres).find(c => c.nom === chapitreValue);
+                if (foundChapter) {
+                    chapitreId = foundChapter.id;
+                }
+            }
         }
 
         const motObj = {
@@ -153,7 +165,8 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
             mot: mot.trim(),
             langue: row[MOT.COLUMNS.LANGUE],
             type: row[MOT.COLUMNS.TYPE] || '',
-            chapitre: row[MOT.COLUMNS.CHAPITRE] || '',
+            chapitre: chapitreId || chapitreValue || '', // ID numérique préféré
+            chapitreNom: chapitreNom || chapitreValue || '', // Nom lisible
             definition: row[MOT.COLUMNS.DEFINITION] || '',
             date_cour: dateCour || ''
         };
@@ -164,7 +177,7 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
 
     // Build translations with full word objects including definitions
     const translations = [];
-    const translationsByWordId = {}; // NEW: Index by word ID instead of word text
+    const translationsByWordId = {};
 
     traductionsData.forEach(row => {
         const idMotSource = row[TRADUCTION.COLUMNS.ID_MOT_SOURCE];
@@ -172,7 +185,6 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
         const idMotCible = row[TRADUCTION.COLUMNS.ID_MOT_CIBLE];
         const motCible = row[TRADUCTION.COLUMNS.MOT_CIBLE];
 
-        // Use ID if available, fallback to word lookup
         const sourceObj = idMotSource ? motsById[idMotSource] : motsByWord[motSource];
         const targetObj = idMotCible ? motsById[idMotCible] : motsByWord[motCible];
 
@@ -185,7 +197,6 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
             };
             translations.push(translation);
 
-            // Build bidirectional lookup BY ID (not by word text)
             if (!translationsByWordId[sourceObj.id]) {
                 translationsByWordId[sourceObj.id] = [];
             }
@@ -199,7 +210,7 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
 
     // Build relations with full word objects
     const relations = [];
-    const relationsByWordId = {}; // NEW: Index by word ID and type
+    const relationsByWordId = {};
 
     relationsData.forEach(row => {
         const motSource = row[RELATION.COLUMNS.MOT_SOURCE];
@@ -219,7 +230,6 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
             };
             relations.push(relation);
 
-            // Build lookup by source word ID and type (not word text)
             const key = `${sourceObj.id}|${type}`;
             if (!relationsByWordId[key]) {
                 relationsByWordId[key] = [];
@@ -244,16 +254,15 @@ function loadAllDictionaryData(spreadsheetId = null, forceReload = false, skipDa
         mots: Object.values(motsById),
         translations,
         relations,
-        // Lookups for optimization
         _lookups: {
             motsById,
             motsByWord,
-            translationsByWordId, // CHANGED: Now indexed by ID
-            relationsByWordId      // CHANGED: Now indexed by ID
+            translationsByWordId,
+            relationsByWordId,
+            chapitresByName // NOUVEAU: ajout du lookup par nom
         }
     };
 
-    // Cache the result only if date filter was applied
     if (!skipDateFilter) {
         _cachedDictionaryData = result;
         _cacheSpreadsheetId = currentSheetId;
@@ -273,7 +282,6 @@ function clearDictionaryCache() {
 
 /**
  * Get data formatted for UI (backward compatibility)
- * skipDateFilter = true for interactive quiz
  */
 function getDataForUI(skipDateFilter = false) {
     const data = loadAllDictionaryData(null, false, skipDateFilter);
@@ -322,25 +330,20 @@ function getRelations() {
 
 /**
  * Get all possible translations for a word by its ID (optimized)
- * Returns array of word objects with definitions
- * THIS IS THE CORRECT FUNCTION TO USE
  */
 function getAllTranslationsForWordId(wordId, dictionaryData) {
     const lookups = dictionaryData._lookups;
 
-    // Check if word exists
     const sourceWord = lookups.motsById[wordId];
     if (!sourceWord) {
         console.warn(`Word with ID ${wordId} not found`);
         return [];
     }
 
-    // Use ID-based lookup (not word text)
     if (lookups && lookups.translationsByWordId && lookups.translationsByWordId[wordId]) {
         return lookups.translationsByWordId[wordId];
     }
 
-    // Fallback to old method if lookups not available
     const translations = [];
     dictionaryData.translations.forEach(t => {
         if (t.source.id === wordId) {
@@ -354,26 +357,22 @@ function getAllTranslationsForWordId(wordId, dictionaryData) {
 
 /**
  * Get all relations for a word by its ID and type (optimized)
- * Returns array of word objects
  */
 function getRelationsForWordId(wordId, relationType, dictionaryData) {
     const lookups = dictionaryData._lookups;
 
-    // Check if word exists
     const sourceWord = lookups.motsById[wordId];
     if (!sourceWord) {
         console.warn(`Word with ID ${wordId} not found`);
         return [];
     }
 
-    // Build lookup key using ID (not word text)
     const key = `${wordId}|${relationType}`;
 
     if (lookups && lookups.relationsByWordId && lookups.relationsByWordId[key]) {
         return lookups.relationsByWordId[key];
     }
 
-    // Fallback to old method if lookups not available
     const relations = [];
     dictionaryData.relations.forEach(r => {
         if (r.source.id === wordId && r.type === relationType) {

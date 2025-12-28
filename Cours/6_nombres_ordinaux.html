@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les nombres ordinaux en arabe</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Les nombres ordinaux en arabe</h1>
+        <div class="arabic-title">الأَعْداد التَّرْتيبِيَّة</div>
+
+        <div class="intro">
+            Bienvenue dans cette leçon sur les nombres ordinaux en arabe ! Les nombres ordinaux (premier, deuxième,
+            troisième...) servent à indiquer la position, le rang ou l'ordre des éléments. Contrairement aux nombres
+            cardinaux qui répondent à la question "combien ?", les ordinaux répondent à "lequel dans l'ordre ?". En
+            arabe, ces nombres ont des formes particulières et s'accordent en genre avec le nom qu'ils qualifient.
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Prérequis :</strong> Avant d'étudier cette partie, assurez-vous de connaître les <span
+                class="highlight">nombres cardinaux</span> ainsi que les règles du <span class="highlight">masculin et
+                du féminin</span>.
+        </div>
+
+        <h2 class="scroll-animate-left">🎯 Qu'est-ce qu'un nombre ordinal ?</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Définition :</strong> Les nombres ordinaux indiquent la position ou le rang dans une séquence
+                ordonnée. En français : premier, deuxième, troisième, etc. En arabe : <span class="arabic">الأَوَّل،
+                    الثَّانِي، الثَّالِث</span></p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples d'utilisation :</h4>
+            <ul>
+                <li><span class="arabic">الدَّرْسُ الأَوَّلُ</span> → La première leçon</li>
+                <li><span class="arabic">الطَّابِقُ الثَّالِثُ</span> → Le troisième étage</li>
+                <li><span class="arabic">الصَّفُّ الخَامِسُ</span> → La cinquième classe</li>
+                <li><span class="arabic">القَرْنُ العِشْرُونَ</span> → Le vingtième siècle</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">📊 Formation des nombres ordinaux</h2>
+
+        <h3 class="scroll-animate">A. De 1 à 10 : Formes irrégulières</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Les dix premiers nombres ordinaux ont des formes <strong>spéciales</strong> qui doivent être mémorisées.
+                Ils suivent le schème <span class="arabic">فَاعِل</span> pour la plupart.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Masculin</th>
+                    <th>Féminin</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1er</strong></td>
+                    <td><span class="arabic">أَوَّلُ</span></td>
+                    <td><span class="arabic">أُولَى</span></td>
+                    <td>premier / première</td>
+                </tr>
+                <tr>
+                    <td><strong>2e</strong></td>
+                    <td><span class="arabic">ثَانٍ</span></td>
+                    <td><span class="arabic">ثَانِيَةٌ</span></td>
+                    <td>deuxième / seconde</td>
+                </tr>
+                <tr>
+                    <td><strong>3e</strong></td>
+                    <td><span class="arabic">ثَالِثٌ</span></td>
+                    <td><span class="arabic">ثَالِثَةٌ</span></td>
+                    <td>troisième</td>
+                </tr>
+                <tr>
+                    <td><strong>4e</strong></td>
+                    <td><span class="arabic">رَابِعٌ</span></td>
+                    <td><span class="arabic">رَابِعَةٌ</span></td>
+                    <td>quatrième</td>
+                </tr>
+                <tr>
+                    <td><strong>5e</strong></td>
+                    <td><span class="arabic">خَامِسٌ</span></td>
+                    <td><span class="arabic">خَامِسَةٌ</span></td>
+                    <td>cinquième</td>
+                </tr>
+                <tr>
+                    <td><strong>6e</strong></td>
+                    <td><span class="arabic">سَادِسٌ</span></td>
+                    <td><span class="arabic">سَادِسَةٌ</span></td>
+                    <td>sixième</td>
+                </tr>
+                <tr>
+                    <td><strong>7e</strong></td>
+                    <td><span class="arabic">سَابِعٌ</span></td>
+                    <td><span class="arabic">سَابِعَةٌ</span></td>
+                    <td>septième</td>
+                </tr>
+                <tr>
+                    <td><strong>8e</strong></td>
+                    <td><span class="arabic">ثَامِنٌ</span></td>
+                    <td><span class="arabic">ثَامِنَةٌ</span></td>
+                    <td>huitième</td>
+                </tr>
+                <tr>
+                    <td><strong>9e</strong></td>
+                    <td><span class="arabic">تَاسِعٌ</span></td>
+                    <td><span class="arabic">تَاسِعَةٌ</span></td>
+                    <td>neuvième</td>
+                </tr>
+                <tr>
+                    <td><strong>10e</strong></td>
+                    <td><span class="arabic">عَاشِرٌ</span></td>
+                    <td><span class="arabic">عَاشِرَةٌ</span></td>
+                    <td>dixième</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>⚠️ Cas particuliers :</strong>
+            <ul>
+                <li><span class="arabic">أَوَّل</span> (premier) et <span class="arabic">أُولَى</span> (première) sont
+                    complètement irréguliers</li>
+                <li><span class="arabic">ثَانٍ</span> (deuxième) perd son nûn final quand il est défini ou dans une
+                    annexion : <span class="arabic">الثَّانِي</span></li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples en phrases :</h4>
+            <ul>
+                <li><span class="arabic">الدَّرْسُ الأَوَّلُ</span> → La première leçon (masculin)</li>
+                <li><span class="arabic">المَرَّةُ الأُولَى</span> → La première fois (féminin)</li>
+                <li><span class="arabic">الكِتَابُ الثَّالِثُ</span> → Le troisième livre (masculin)</li>
+                <li><span class="arabic">الصَّفْحَةُ الخَامِسَةُ</span> → La cinquième page (féminin)</li>
+                <li><span class="arabic">الطَّالِبُ السَّابِعُ</span> → Le septième étudiant (masculin)</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. De 11 à 19 : Construction particulière</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour les nombres ordinaux de 11 à 19, on utilise une construction spéciale : le nombre cardinal suivi de
+                l'ordinal correspondant à l'unité.</p>
+            <p><strong>Formule :</strong> <span class="arabic">حَادِي عَشَرَ</span> (onzième) = <span
+                    class="arabic">حَادِي</span> (de واحد) + <span class="arabic">عَشَرَ</span> (dix)</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Masculin</th>
+                    <th>Féminin</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>11e</strong></td>
+                    <td><span class="arabic">حَادِي عَشَرَ</span></td>
+                    <td><span class="arabic">حَادِيَةَ عَشْرَةَ</span></td>
+                    <td>onzième</td>
+                </tr>
+                <tr>
+                    <td><strong>12e</strong></td>
+                    <td><span class="arabic">ثَانِيَ عَشَرَ</span></td>
+                    <td><span class="arabic">ثَانِيَةَ عَشْرَةَ</span></td>
+                    <td>douzième</td>
+                </tr>
+                <tr>
+                    <td><strong>13e</strong></td>
+                    <td><span class="arabic">ثَالِثَ عَشَرَ</span></td>
+                    <td><span class="arabic">ثَالِثَةَ عَشْرَةَ</span></td>
+                    <td>treizième</td>
+                </tr>
+                <tr>
+                    <td><strong>14e</strong></td>
+                    <td><span class="arabic">رَابِعَ عَشَرَ</span></td>
+                    <td><span class="arabic">رَابِعَةَ عَشْرَةَ</span></td>
+                    <td>quatorzième</td>
+                </tr>
+                <tr>
+                    <td><strong>15e</strong></td>
+                    <td><span class="arabic">خَامِسَ عَشَرَ</span></td>
+                    <td><span class="arabic">خَامِسَةَ عَشْرَةَ</span></td>
+                    <td>quinzième</td>
+                </tr>
+                <tr>
+                    <td><strong>16e</strong></td>
+                    <td><span class="arabic">سَادِسَ عَشَرَ</span></td>
+                    <td><span class="arabic">سَادِسَةَ عَشْرَةَ</span></td>
+                    <td>seizième</td>
+                </tr>
+                <tr>
+                    <td><strong>17e</strong></td>
+                    <td><span class="arabic">سَابِعَ عَشَرَ</span></td>
+                    <td><span class="arabic">سَابِعَةَ عَشْرَةَ</span></td>
+                    <td>dix-septième</td>
+                </tr>
+                <tr>
+                    <td><strong>18e</strong></td>
+                    <td><span class="arabic">ثَامِنَ عَشَرَ</span></td>
+                    <td><span class="arabic">ثَامِنَةَ عَشْرَةَ</span></td>
+                    <td>dix-huitième</td>
+                </tr>
+                <tr>
+                    <td><strong>19e</strong></td>
+                    <td><span class="arabic">تَاسِعَ عَشَرَ</span></td>
+                    <td><span class="arabic">تَاسِعَةَ عَشْرَةَ</span></td>
+                    <td>dix-neuvième</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples en phrases :</h4>
+            <ul>
+                <li><span class="arabic">القَرْنُ الحَادِي عَشَرَ</span> → Le onzième siècle (masculin)</li>
+                <li><span class="arabic">السَّنَةُ الثَّالِثَةَ عَشْرَةَ</span> → La treizième année (féminin)</li>
+                <li><span class="arabic">الطَّابِقُ الخَامِسَ عَشَرَ</span> → Le quinzième étage (masculin)</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">C. Les dizaines (20, 30, 40...)</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour les dizaines, on utilise le schème <span class="arabic">فَاعِل</span> avec la forme plurielle.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Chiffre</th>
+                    <th>Arabe</th>
+                    <th>Français</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>20e</strong></td>
+                    <td><span class="arabic">عِشْرُونَ</span></td>
+                    <td>vingtième</td>
+                </tr>
+                <tr>
+                    <td><strong>30e</strong></td>
+                    <td><span class="arabic">ثَلاثُونَ</span></td>
+                    <td>trentième</td>
+                </tr>
+                <tr>
+                    <td><strong>40e</strong></td>
+                    <td><span class="arabic">أَرْبَعُونَ</span></td>
+                    <td>quarantième</td>
+                </tr>
+                <tr>
+                    <td><strong>50e</strong></td>
+                    <td><span class="arabic">خَمْسُونَ</span></td>
+                    <td>cinquantième</td>
+                </tr>
+                <tr>
+                    <td><strong>60e</strong></td>
+                    <td><span class="arabic">سِتُّونَ</span></td>
+                    <td>soixantième</td>
+                </tr>
+                <tr>
+                    <td><strong>70e</strong></td>
+                    <td><span class="arabic">سَبْعُونَ</span></td>
+                    <td>soixante-dixième</td>
+                </tr>
+                <tr>
+                    <td><strong>80e</strong></td>
+                    <td><span class="arabic">ثَمَانُونَ</span></td>
+                    <td>quatre-vingtième</td>
+                </tr>
+                <tr>
+                    <td><strong>90e</strong></td>
+                    <td><span class="arabic">تِسْعُونَ</span></td>
+                    <td>quatre-vingt-dixième</td>
+                </tr>
+                <tr>
+                    <td><strong>100e</strong></td>
+                    <td><span class="arabic">مِئَةٌ</span></td>
+                    <td>centième</td>
+                </tr>
+                <tr>
+                    <td><strong>1000e</strong></td>
+                    <td><span class="arabic">أَلْفٌ</span></td>
+                    <td>millième</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 À noter :</strong> Pour les dizaines, on utilise généralement la forme du nombre cardinal. La
+            distinction entre cardinal et ordinal est souvent faite par le contexte.
+        </div>
+
+        <h3 class="scroll-animate">D. Nombres composés (21-99)</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour les nombres composés, on combine l'ordinal de l'unité avec le cardinal de la dizaine, reliés par
+                <span class="arabic">وَ</span> (et).
+            </p>
+            <p><strong>Formule :</strong> Ordinal de l'unité + <span class="arabic">وَ</span> + Cardinal de la dizaine
+            </p>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples :</h4>
+            <ul>
+                <li><span class="arabic">الحَادِي وَالعِشْرُونَ</span> → Le vingt-et-unième</li>
+                <li><span class="arabic">الثَّالِثُ وَالثَّلاثُونَ</span> → Le trente-troisième</li>
+                <li><span class="arabic">الخَامِسُ وَالأَرْبَعُونَ</span> → Le quarante-cinquième</li>
+                <li><span class="arabic">السَّابِعُ وَالسِّتُّونَ</span> → Le soixante-septième</li>
+                <li><span class="arabic">التَّاسِعُ وَالتِّسْعُونَ</span> → Le quatre-vingt-dix-neuvième</li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 En phrases complètes :</h4>
+            <ul>
+                <li><span class="arabic">هَذَا الكِتَابُ الثَّالِثُ وَالعِشْرُونَ</span> → Ceci est le vingt-troisième
+                    livre</li>
+                <li><span class="arabic">في القَرْنِ الحَادِي وَالعِشْرِينَ</span> → Au vingt-et-unième siècle</li>
+                <li><span class="arabic">السَّنَةُ الخَامِسَةُ وَالأَرْبَعُونَ</span> → La quarante-cinquième année</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">📝 Position et accord des nombres ordinaux</h2>
+
+        <h3 class="scroll-animate">A. Position dans la phrase</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Règle importante :</strong> Les nombres ordinaux se placent <span class="highlight">après</span>
+                le nom qu'ils qualifient, comme tous les adjectifs en arabe.</p>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Structure : Nom + Ordinal</h4>
+            <ul>
+                <li><span class="arabic">الدَّرْسُ الأَوَّلُ</span> → La première leçon (littéralement : la leçon la
+                    première)</li>
+                <li><span class="arabic">الصَّفُّ الثَّانِي</span> → La deuxième classe</li>
+                <li><span class="arabic">المَرَّةُ الثَّالِثَةُ</span> → La troisième fois</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. Accord en genre</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Les nombres ordinaux s'accordent en <strong>genre</strong> avec le nom qu'ils qualifient.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Nom masculin</th>
+                    <th>Nom féminin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">الكِتَابُ الأَوَّلُ</span><br>Le premier livre</td>
+                    <td><span class="arabic">الصَّفْحَةُ الأُولَى</span><br>La première page</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">الطَّابِقُ الثَّالِثُ</span><br>Le troisième étage</td>
+                    <td><span class="arabic">المَرَّةُ الثَّالِثَةُ</span><br>La troisième fois</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">الصَّفُّ الخَامِسُ</span><br>La cinquième classe</td>
+                    <td><span class="arabic">السَّنَةُ الخَامِسَةُ</span><br>La cinquième année</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Plus d'exemples d'accord :</h4>
+            <ul>
+                <li>Masculin : <span class="arabic">الشَّهْرُ السَّابِعُ</span> → Le septième mois</li>
+                <li>Féminin : <span class="arabic">اللَّيْلَةُ السَّابِعَةُ</span> → La septième nuit</li>
+                <li>Masculin : <span class="arabic">اليَوْمُ التَّاسِعُ</span> → Le neuvième jour</li>
+                <li>Féminin : <span class="arabic">السَّاعَةُ التَّاسِعَةُ</span> → La neuvième heure</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">C. Accord en définition</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Le nombre ordinal prend l'article défini <span class="arabic">ال</span> quand le nom est défini, créant
+                ainsi un accord en définition.</p>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>✅ Correct :</h4>
+            <ul>
+                <li><span class="arabic">الدَّرْسُ الأَوَّلُ</span> → La première leçon (les deux sont définis)</li>
+                <li><span class="arabic">الكِتَابُ الثَّالِثُ</span> → Le troisième livre (les deux sont définis)</li>
+            </ul>
+            <h4>❌ Incorrect :</h4>
+            <ul>
+                <li><span class="arabic">الدَّرْسُ أَوَّلُ</span> → (sans ال sur l'ordinal)</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">D. Déclinaison (cas grammaticaux)</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Les nombres ordinaux se déclinent selon les trois cas grammaticaux en arabe : nominatif, accusatif et
+                génitif.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Cas</th>
+                    <th>Exemple (masculin)</th>
+                    <th>Exemple (féminin)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Nominatif</strong></td>
+                    <td><span class="arabic">الكِتَابُ الأَوَّلُ</span><br>Le premier livre (sujet)</td>
+                    <td><span class="arabic">الصَّفْحَةُ الأُولَى</span><br>La première page (sujet)</td>
+                </tr>
+                <tr>
+                    <td><strong>Accusatif</strong></td>
+                    <td><span class="arabic">قَرَأْتُ الكِتَابَ الأَوَّلَ</span><br>J'ai lu le premier livre</td>
+                    <td><span class="arabic">قَرَأْتُ الصَّفْحَةَ الأُولَى</span><br>J'ai lu la première page</td>
+                </tr>
+                <tr>
+                    <td><strong>Génitif</strong></td>
+                    <td><span class="arabic">في الكِتَابِ الأَوَّلِ</span><br>Dans le premier livre</td>
+                    <td><span class="arabic">في الصَّفْحَةِ الأُولَى</span><br>Dans la première page</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">🎓 Usages particuliers</h2>
+
+        <h3 class="scroll-animate">A. Dans les dates et le calendrier</h3>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📅 Exemples avec les dates :</h4>
+            <ul>
+                <li><span class="arabic">اليَوْمُ الأَوَّلُ مِنْ يَنَايِرَ</span> → Le premier jour de janvier</li>
+                <li><span class="arabic">الشَّهْرُ الخَامِسُ</span> → Le cinquième mois (mai)</li>
+                <li><span class="arabic">السَّنَةُ الأُولَى</span> → La première année</li>
+                <li><span class="arabic">القَرْنُ الحَادِي وَالعِشْرُونَ</span> → Le vingt-et-unième siècle</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. Dans l'éducation</h3>
+
+        <div class="example-box scroll-animate-left">
+            <h4>🎒 Exemples scolaires :</h4>
+            <ul>
+                <li><span class="arabic">الصَّفُّ الأَوَّلُ الابْتِدَائِي</span> → La première année primaire</li>
+                <li><span class="arabic">الفَصْلُ الدِّرَاسِيُّ الثَّانِي</span> → Le deuxième semestre</li>
+                <li><span class="arabic">السَّنَةُ الجَامِعِيَّةُ الثَّالِثَةُ</span> → La troisième année universitaire
+                </li>
+                <li><span class="arabic">الدَّرْسُ الخَامِسُ</span> → La cinquième leçon</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">C. Dans les titres et les rangs</h3>
+
+        <div class="example-box scroll-animate-right">
+            <h4>👑 Exemples avec des titres :</h4>
+            <ul>
+                <li><span class="arabic">لُويس الرَّابِعَ عَشَرَ</span> → Louis XIV (Louis quatorze)</li>
+                <li><span class="arabic">الحَرْبُ العَالَمِيَّةُ الثَّانِيَةُ</span> → La Deuxième Guerre mondiale</li>
+                <li><span class="arabic">الجُزْءُ الأَوَّلُ</span> → La première partie</li>
+                <li><span class="arabic">المَرْحَلَةُ الثَّالِثَةُ</span> → La troisième étape</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">D. Dans les adresses et les lieux</h3>
+
+        <div class="example-box scroll-animate-left">
+            <h4>🏢 Exemples avec des lieux :</h4>
+            <ul>
+                <li><span class="arabic">الطَّابِقُ الأَوَّلُ</span> → Le premier étage</li>
+                <li><span class="arabic">الغُرْفَةُ الثَّالِثَةُ</span> → La troisième chambre</li>
+                <li><span class="arabic">الشَّارِعُ الخَامِسُ</span> → La cinquième rue</li>
+                <li><span class="arabic">المَبْنَى السَّابِعُ</span> → Le septième bâtiment</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">🔍 Distinctions importantes</h2>
+
+        <h3 class="scroll-animate">Ordinal vs Cardinal</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Différence clé :</strong></p>
+            <ul>
+                <li><strong>Cardinal</strong> : répond à "combien ?" → <span class="arabic">ثَلاثَةُ كُتُبٍ</span>
+                    (trois livres)</li>
+                <li><strong>Ordinal</strong> : répond à "lequel ?" → <span class="arabic">الكِتَابُ الثَّالِثُ</span>
+                    (le troisième livre)</li>
+            </ul>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Exemple</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cardinal</strong></td>
+                    <td><span class="arabic">عِنْدِي خَمْسَةُ كُتُبٍ</span></td>
+                    <td>J'ai cinq livres</td>
+                </tr>
+                <tr>
+                    <td><strong>Ordinal</strong></td>
+                    <td><span class="arabic">أَقْرَأُ الكِتَابَ الخَامِسَ</span></td>
+                    <td>Je lis le cinquième livre</td>
+                </tr>
+                <tr>
+                    <td><strong>Cardinal</strong></td>
+                    <td><span class="arabic">دَرَسْتُ سَبْعَ سَاعَاتٍ</span></td>
+                    <td>J'ai étudié sept heures</td>
+                </tr>
+                <tr>
+                    <td><strong>Ordinal</strong></td>
+                    <td><span class="arabic">في السَّاعَةِ السَّابِعَةِ</span></td>
+                    <td>À la septième heure</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">📚 Résumé des règles essentielles</h2>
+
+        <div class="rule-box scroll-animate">
+            <h3>🎯 Points clés à retenir :</h3>
+            <ul>
+                <li><strong>Position :</strong> L'ordinal se place après le nom</li>
+                <li><strong>Accord en genre :</strong> Masculin avec masculin, féminin avec féminin</li>
+                <li><strong>Accord en définition :</strong> Si le nom a ال, l'ordinal aussi</li>
+                <li><strong>1-10 :</strong> Formes irrégulières à mémoriser</li>
+                <li><strong>11-19 :</strong> Construction avec l'unité ordinale + عَشَرَ/عَشْرَةَ</li>
+                <li><strong>21-99 :</strong> Ordinal de l'unité + وَ + cardinal de la dizaine</li>
+                <li><strong>Déclinaison :</strong> Les ordinaux suivent les trois cas grammaticaux</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Astuce pour mémoriser :</strong> Les premiers ordinaux (1-10) suivent le schème <span
+                class="arabic">فَاعِل</span> (fā'il) : <span class="arabic">ثَالِث، رَابِع، خَامِس...</span> Cette
+            régularité facilite leur mémorisation !
+        </div>
+
+        <div class="example-box scroll-animate-scale">
+            <h4>✨ Exemples récapitulatifs :</h4>
+            <ul>
+                <li><span class="arabic">هَذَا الدَّرْسُ الأَوَّلُ في النَّحْوِ</span> → C'est la première leçon de
+                    grammaire</li>
+                <li><span class="arabic">أَسْكُنُ في الطَّابِقِ السَّادِسِ</span> → J'habite au sixième étage</li>
+                <li><span class="arabic">نَحْنُ في القَرْنِ الحَادِي وَالعِشْرِينَ</span> → Nous sommes au
+                    vingt-et-unième siècle</li>
+                <li><span class="arabic">قَرَأْتُ الصَّفْحَةَ الثَّالِثَةَ عَشْرَةَ</span> → J'ai lu la treizième page
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
+</parameter>
