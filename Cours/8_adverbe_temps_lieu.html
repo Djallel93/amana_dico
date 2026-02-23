@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les adverbes en arabe - ظُرُوف</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .visual-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .visual-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .visual-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .direction-arrow {
+            width: 80px;
+            height: 80px;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .arrow-up {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 40px solid #667eea;
+            margin: 0 auto;
+        }
+
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 40px solid #667eea;
+            margin: 0 auto;
+        }
+
+        .arrow-left {
+            width: 0;
+            height: 0;
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-right: 40px solid #667eea;
+            margin: 0 auto;
+        }
+
+        .arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-left: 40px solid #667eea;
+            margin: 0 auto;
+        }
+
+        .clock-shape {
+            width: 80px;
+            height: 80px;
+            border: 4px solid #764ba2;
+            border-radius: 50%;
+            margin: 10px auto;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .clock-hand {
+            width: 2px;
+            height: 30px;
+            background: #764ba2;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform-origin: bottom;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .location-marker {
+            width: 40px;
+            height: 60px;
+            background: #4caf50;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            margin: 10px auto;
+            position: relative;
+        }
+
+        .location-marker::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .calendar-shape {
+            width: 70px;
+            height: 70px;
+            background: #f44336;
+            border-radius: 5px;
+            margin: 10px auto;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .calendar-top {
+            width: 100%;
+            height: 15px;
+            background: #c62828;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .calendar-date {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding-top: 15px;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .grammar-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #2196f3;
+        }
+
+        .cube-container {
+            perspective: 1000px;
+            width: 400px;
+            height: 500px;
+            margin: 60px auto;
+        }
+
+        .cube-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+
+        .cube-wrapper:hover {
+            animation-play-state: paused;
+        }
+
+        .cube-section {
+            margin: 50px 0;
+            padding: 30px 0;
+            min-height: 300px;
+            overflow: visible;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotateX(-20deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: rotateX(-20deg) rotateY(360deg);
+            }
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #667eea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .face:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.6);
+            transform: scale(1.05);
+        }
+
+        .face-label {
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .arabic-text {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .french-text {
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .arrow-indicator {
+            margin-top: 10px;
+            font-size: 2em;
+        }
+
+        /* Front face - DEVANT */
+        .front {
+            transform: translateZ(100px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 244, 255, 0.95));
+        }
+
+        /* Back face - DERRIÈRE */
+        .back {
+            transform: translateZ(-100px) rotateY(180deg);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 243, 205, 0.95));
+        }
+
+        /* Right face - DROITE (none in Arabic adverbs, using بَيْنَ) */
+        .right {
+            transform: rotateY(90deg) translateZ(100px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(232, 245, 233, 0.95));
+        }
+
+        /* Left face - GAUCHE (none in Arabic adverbs, using حَوْلَ) */
+        .left {
+            transform: rotateY(-90deg) translateZ(100px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(243, 229, 245, 0.95));
+        }
+
+        /* Top face - AU-DESSUS */
+        .top {
+            transform: rotateX(90deg) translateZ(100px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(227, 242, 253, 0.95));
+        }
+
+        /* Bottom face - EN DESSOUS */
+        .bottom {
+            transform: rotateX(-90deg) translateZ(100px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 235, 238, 0.95));
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+        }
+
+        .controls button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .controls button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #667eea;
+            color: white;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-box h3 {
+            color: #764ba2;
+            margin-top: 0;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .legend-item .arabic {
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .legend-item .french {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .face {
+                width: 150px;
+                height: 150px;
+            }
+
+            .front {
+                transform: translateZ(75px);
+            }
+
+            .back {
+                transform: translateZ(-75px) rotateY(180deg);
+            }
+
+            .right {
+                transform: rotateY(90deg) translateZ(75px);
+            }
+
+            .left {
+                transform: rotateY(-90deg) translateZ(75px);
+            }
+
+            .top {
+                transform: rotateX(90deg) translateZ(75px);
+            }
+
+            .bottom {
+                transform: rotateX(-90deg) translateZ(75px);
+            }
+
+            .arabic-text {
+                font-size: 1.5em;
+            }
+
+            .title h1 {
+                font-size: 1.8em;
+            }
+
+            .controls button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+                margin: 5px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .visual-container {
+                flex-direction: column;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Les adverbes en arabe</h1>
+        <div class="arabic-title">ظُرُوف الزَّمَان وَالمَكَان</div>
+
+        <div class="intro">
+            Les adverbes en arabe sont appelés <span class="arabic">ظُرُوف</span> (ẓurūf), ce qui signifie littéralement
+            "contenants" ou "récipients". Ils indiquent le temps et le lieu où l'action du verbe se déroule. Cette leçon
+            vous guidera à travers les deux catégories principales : les adverbes de lieu et les adverbes de temps.
+        </div>
+
+        <h2 class="scroll-animate-left">📖 I. Introduction : Déclinable vs Indéclinable</h2>
+
+        <div class="grammar-box scroll-animate">
+            <h3>Qu'est-ce que "déclinable" et "indéclinable" ?</h3>
+            <p>En arabe, les mots peuvent être de deux types selon leur comportement grammatical :</p>
+
+            <div class="rule-box">
+                <h4><span class="highlight">Déclinable (مُعْرَب)</span></h4>
+                <p>Un mot déclinable <strong>change sa terminaison</strong> selon sa fonction dans la phrase :</p>
+                <ul>
+                    <li><strong>Nominatif (مَرْفُوع)</strong> : terminaison en <span class="arabic">ـُ</span> (ḍamma) →
+                        sujet</li>
+                    <li><strong>Accusatif (مَنْصُوب)</strong> : terminaison en <span class="arabic">ـَ</span> (fatḥa) →
+                        complément</li>
+                    <li><strong>Génitif (مَجْرُور)</strong> : terminaison en <span class="arabic">ـِ</span> (kasra) →
+                        après préposition</li>
+                </ul>
+                <p><strong>Exemple avec</strong> <span class="arabic">أَمَامَ</span> (devant) :</p>
+                <ul>
+                    <li><span class="arabic">جَلَسْتُ أَمَامَ المَدْرَسَةِ</span> → Je me suis assis
+                        <strong>devant</strong> l'école (accusatif)
+                    </li>
+                    <li><span class="arabic">مِنْ أَمَامِ البَيْتِ</span> → <strong>de devant</strong> la maison
+                        (génitif après préposition)</li>
+                </ul>
+            </div>
+
+            <div class="rule-box">
+                <h4><span class="highlight">Indéclinable (مَبْنِيّ)</span></h4>
+                <p>Un mot indéclinable <strong>garde toujours la même forme</strong>, quelle que soit sa fonction :</p>
+                <ul>
+                    <li>La terminaison ne change jamais</li>
+                    <li>Souvent utilisé avec des particules ou des mots anciens</li>
+                </ul>
+                <p><strong>Exemple avec</strong> <span class="arabic">أَمْسِ</span> (hier) :</p>
+                <ul>
+                    <li><span class="arabic">رَأَيْتُهُ أَمْسِ</span> → Je l'ai vu <strong>hier</strong> (toujours <span
+                            class="arabic">ـِ</span>)</li>
+                    <li><span class="arabic">مِنْ أَمْسِ</span> → <strong>depuis hier</strong> (toujours <span
+                            class="arabic">ـِ</span>)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Astuce :</strong> Les adverbes sont généralement à l'<span class="highlight">accusatif</span>
+            (fatḥa) quand ils sont déclinables. Quand ils sont suivis d'un nom, ils forment une <strong>annexion
+                (إِضَافَة)</strong>.
+        </div>
+
+        <h2 class="scroll-animate-left">📍 II. Les adverbes de lieu / ظُرُوف المَكَان</h2>
+
+        <div class="intro scroll-animate">
+            Les adverbes de lieu indiquent où se déroule l'action. Ils répondent à la question <span
+                class="arabic">أَيْنَ؟</span> (Où ?).
+        </div>
+
+        <div class="title">
+            <h1>🎲 Cube des Adverbes de Lieu</h1>
+            <p class="arabic-text" style="color: white;">ظُرُوف المَكَان</p>
+        </div>
+        <div class="cube-section">
+            <div class=".cube-container">
+                <div class="cube-wrapper" id="cube">
+                    <!-- Front face -->
+                    <div class="face front">
+                        <div class="face-label">FACE AVANT</div>
+                        <div class="arabic-text">أَمَامَ</div>
+                        <div class="french-text">Devant</div>
+                        <div class="arrow-indicator">⬆️</div>
+                    </div>
+
+                    <!-- Back face -->
+                    <div class="face back">
+                        <div class="face-label">FACE ARRIÈRE</div>
+                        <div class="arabic-text">خَلْفَ / وَرَاءَ</div>
+                        <div class="french-text">Derrière</div>
+                        <div class="arrow-indicator">⬇️</div>
+                    </div>
+
+                    <!-- Right face -->
+                    <div class="face right">
+                        <div class="face-label">FACE DROITE</div>
+                        <div class="arabic-text">بَيْنَ</div>
+                        <div class="french-text">Entre</div>
+                        <div class="arrow-indicator">↔️</div>
+                    </div>
+
+                    <!-- Left face -->
+                    <div class="face left">
+                        <div class="face-label">FACE GAUCHE</div>
+                        <div class="arabic-text">حَوْلَ</div>
+                        <div class="french-text">Autour</div>
+                        <div class="arrow-indicator">🔄</div>
+                    </div>
+
+                    <!-- Top face -->
+                    <div class="face top">
+                        <div class="face-label">FACE SUPÉRIEURE</div>
+                        <div class="arabic-text">فَوْقَ</div>
+                        <div class="french-text">Au-dessus</div>
+                        <div class="arrow-indicator">⬆️</div>
+                    </div>
+
+                    <!-- Bottom face -->
+                    <div class="face bottom">
+                        <div class="face-label">FACE INFÉRIEURE</div>
+                        <div class="arabic-text">تَحْتَ</div>
+                        <div class="french-text">En dessous</div>
+                        <div class="arrow-indicator">⬇️</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button onclick="pauseRotation()">⏸️ Pause</button>
+            <button onclick="resumeRotation()">▶️ Reprendre</button>
+            <button onclick="resetRotation()">🔄 Réinitialiser</button>
+        </div>
+
+        <div class="info-box">
+
+            <h3 style="margin-top: 30px;">💡 Conseils d'utilisation</h3>
+            <ul>
+                <li>✨ Survolez les faces du cube pour les mettre en évidence</li>
+                <li>⏸️ Mettez en pause pour observer une face spécifique</li>
+                <li>🔄 Le cube tourne automatiquement pour montrer toutes les faces</li>
+                <li>📱 Fonctionne aussi sur mobile et tablette</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">A. Adverbes de lieu déclinables</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Français</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Devant</strong></td>
+                    <td><span class="arabic">أَمَامَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Derrière</strong></td>
+                    <td><span class="arabic">خَلْفَ / وَرَاءَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Au-dessus</strong></td>
+                    <td><span class="arabic">فَوْقَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>En dessous</strong></td>
+                    <td><span class="arabic">تَحْتَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Avec</strong></td>
+                    <td><span class="arabic">مَعَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Chez / À</strong></td>
+                    <td><span class="arabic">عِنْدَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Au milieu de</strong></td>
+                    <td><span class="arabic">وَسْطَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>À travers</strong></td>
+                    <td><span class="arabic">عَبْرَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Entre</strong></td>
+                    <td><span class="arabic">بَيْنَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Autour</strong></td>
+                    <td><span class="arabic">حَوْلَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples en contexte :</h4>
+            <ul>
+                <li><span class="arabic">الكِتَابُ فَوْقَ الطَّاوِلَةِ</span> → Le livre est sur la table</li>
+                <li><span class="arabic">جَلَسَ الطَّالِبُ أَمَامَ المُعَلِّمِ</span> → L'étudiant s'est assis devant le
+                    professeur</li>
+                <li><span class="arabic">القِطَّةُ تَحْتَ السَّرِيرِ</span> → Le chat est sous le lit</li>
+                <li><span class="arabic">المَكْتَبَةُ خَلْفَ المَسْجِدِ</span> → La bibliothèque est derrière la mosquée
+                </li>
+                <li><span class="arabic">وَقَفَ بَيْنَ البَابَيْنِ</span> → Il s'est tenu entre les deux portes</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. Adverbes de lieu indéclinables</h3>
+
+        <!-- <div class="visual-container scroll-animate-scale">
+            <div class="visual-item">
+                <div class="location-marker"></div>
+                <p class="arabic">هُنَا</p>
+                <p>Ici</p>
+            </div>
+            <div class="visual-item">
+                <div class="location-marker" style="background: #2196f3;"></div>
+                <p class="arabic">هُنَاكَ</p>
+                <p>Là-bas</p>
+            </div>
+        </div> -->
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Français</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Chez / Auprès de</strong></td>
+                    <td><span class="arabic">لَدَى</span></td>
+                </tr>
+                <tr>
+                    <td><strong>De / Depuis</strong></td>
+                    <td><span class="arabic">لَدُنْ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Où (relatif)</strong></td>
+                    <td><span class="arabic">حَيْثُ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Où (interrogatif)</strong></td>
+                    <td><span class="arabic">أَيْنَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Ici</strong></td>
+                    <td><span class="arabic">هُنَا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Là-bas</strong></td>
+                    <td><span class="arabic">هُنَاكَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Là (démonstratif)</strong></td>
+                    <td><span class="arabic">ثَمَّ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples en contexte :</h4>
+            <ul>
+                <li><span class="arabic">أَيْنَ المَفْتَاحُ؟</span> → Où est la clé ?</li>
+                <li><span class="arabic">المَفْتَاحُ هُنَا</span> → La clé est ici</li>
+                <li><span class="arabic">المَكْتَبُ هُنَاكَ</span> → Le bureau est là-bas</li>
+                <li><span class="arabic">لَدَيْهِ مَعْلُومَاتٌ مُهِمَّةٌ</span> → Il a des informations importantes</li>
+                <li><span class="arabic">اجْلِسْ حَيْثُ تُرِيدُ</span> → Assieds-toi où tu veux</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">⏰ III. Les adverbes de temps / ظُرُوف الزَّمَان</h2>
+
+        <div class="intro scroll-animate">
+            Les adverbes de temps indiquent quand se déroule l'action. Ils répondent à la question <span
+                class="arabic">مَتَى؟</span> (Quand ?).
+        </div>
+
+        <h3 class="scroll-animate">A. Adverbes de temps déclinables</h3>
+
+        <div class="visual-container scroll-animate-scale">
+            <div class="visual-item">
+                <div class="clock-shape">
+                    <div class="clock-hand" style="transform: translateX(-50%) rotate(-45deg);"></div>
+                </div>
+                <p class="arabic">قَبْلَ</p>
+                <p>Avant</p>
+            </div>
+            <div class="visual-item">
+                <div class="clock-shape">
+                    <div class="clock-hand" style="transform: translateX(-50%) rotate(0deg);"></div>
+                </div>
+                <p class="arabic">حِينَ</p>
+                <p>Au moment de</p>
+            </div>
+            <div class="visual-item">
+                <div class="clock-shape">
+                    <div class="clock-hand" style="transform: translateX(-50%) rotate(45deg);"></div>
+                </div>
+                <p class="arabic">بَعْدَ</p>
+                <p>Après</p>
+            </div>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Français</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Après</strong></td>
+                    <td><span class="arabic">بَعْدَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Avant</strong></td>
+                    <td><span class="arabic">قَبْلَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Quand / Au moment de</strong></td>
+                    <td><span class="arabic">حِينَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Lors de / Moment de</strong></td>
+                    <td><span class="arabic">حَالَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Pendant</strong></td>
+                    <td><span class="arabic">أَثْنَاءَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Avec / Lors de</strong></td>
+                    <td><span class="arabic">مَعَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Au moment précis de</strong></td>
+                    <td><span class="arabic">فَوْرَ</span></td>
+                </tr>
+                    </parameter>
+                    <parameter name="new_str">
+                <tr>
+                    <td><strong>Entre</strong></td>
+                    <td><span class="arabic">بَيْنَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Environ / Autour de</strong></td>
+                    <td><span class="arabic">حَوْلَ / نَحْوَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples en contexte :</h4>
+            <ul>
+                <li><span class="arabic">جَاءَ قَبْلَ الغُرُوبِ</span> → Il est venu avant le coucher du soleil</li>
+                <li><span class="arabic">سَأَذْهَبُ بَعْدَ الدَّرْسِ</span> → J'irai après le cours</li>
+                <li><span class="arabic">حِينَ وَصَلْتُ، كَانَتْ نَائِمَةً</span> → Quand je suis arrivé, elle dormait
+                </li>
+                <li><span class="arabic">أَثْنَاءَ السَّفَرِ، قَابَلْتُ صَدِيقِي</span> → Pendant le voyage, j'ai
+                    rencontré mon ami</li>
+                <li><span class="arabic">فَوْرَ وُصُولِهِ، اتَّصَلَ بِي</span> → Dès son arrivée, il m'a appelé</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. Adverbes de temps indéclinables</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Français</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Hier</strong></td>
+                    <td><span class="arabic">أَمْسِ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Jamais (passé)</strong></td>
+                    <td><span class="arabic">قَطُّ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Tandis que</strong></td>
+                    <td><span class="arabic">بَيْنَمَا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Quand (passé)</strong></td>
+                    <td><span class="arabic">لَمَّا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Quand (interrogatif)</strong></td>
+                    <td><span class="arabic">مَتَى</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Maintenant</strong></td>
+                    <td><span class="arabic">الآنَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Depuis</strong></td>
+                    <td><span class="arabic">مُذْ / مُنْذُ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples en contexte :</h4>
+            <ul>
+                <li><span class="arabic">رَأَيْتُهُ أَمْسِ</span> → Je l'ai vu hier</li>
+                <li><span class="arabic">مَا فَعَلْتُ ذٰلِكَ قَطُّ</span> → Je n'ai jamais fait cela</li>
+                <li><span class="arabic">بَيْنَمَا كُنْتُ أَدْرُسُ، دَخَلَ أَخِي</span> → Tandis que j'étudiais, mon
+                    frère est entré</li>
+                <li><span class="arabic">لَمَّا انْتَهَى الدَّرْسُ، خَرَجْنَا</span> → Quand le cours s'est terminé,
+                    nous sommes sortis</li>
+                <li><span class="arabic">مَتَى سَتَأْتِي؟</span> → Quand viendras-tu ?</li>
+                <li><span class="arabic">أَنَا مَشْغُولٌ الآنَ</span> → Je suis occupé maintenant</li>
+                <li><span class="arabic">مُنْذُ سَاعَةٍ</span> → Depuis une heure</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>⚠️ Note importante :</strong> L'adverbe <span class="arabic">أَمْسِ</span> (hier) garde toujours sa
+            forme avec kasra finale <span class="arabic">ـِ</span>, quelle que soit sa position dans la phrase.
+        </div>
+
+        <h2 class="scroll-animate-left">🤲 IV. Adverbes exprimant la possession</h2>
+
+        <div class="intro scroll-animate">
+            En arabe, il n'existe pas de verbe "avoir" comme en français. On utilise certains adverbes pour exprimer la
+            possession dans une phrase nominale.
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <h3>Structure pour exprimer "avoir" :</h3>
+            <p><span class="arabic">عِنْدَ</span> ou <span class="arabic">لَدَى</span> + nom/pronom + objet possédé
+                (nominatif)</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Adverbe</th>
+                    <th>Arabe</th>
+                    <th>Usage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Avoir (général)</strong></td>
+                    <td><span class="arabic">عِنْدَ</span></td>
+                    <td>Plus courant dans le langage quotidien</td>
+                </tr>
+                <tr>
+                    <td><strong>Avoir (soutenu)</strong></td>
+                    <td><span class="arabic">لَدَى</span></td>
+                    <td>Plus formel et littéraire</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples avec possession :</h4>
+            <ul>
+                <li><span class="arabic">عِنْدِي سَيَّارَةٌ</span> → J'ai une voiture</li>
+                <li><span class="arabic">عِنْدَكَ وَقْتٌ؟</span> → As-tu du temps ?</li>
+                <li><span class="arabic">عِنْدَهَا كِتَابٌ جَدِيدٌ</span> → Elle a un nouveau livre</li>
+                <li><span class="arabic">لَدَى الطَّبِيبِ خِبْرَةٌ كَبِيرَةٌ</span> → Le médecin a une grande expérience
+                </li>
+                <li><span class="arabic">لَدَيْنَا مَشْرُوعٌ مُهِمٌّ</span> → Nous avons un projet important</li>
+                <li><span class="arabic">عِنْدَ سَارَةَ قِطَّةٌ جَمِيلَةٌ</span> → Sara a un beau chat</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 À noter :</strong> Quand <span class="arabic">لَدَى</span> est suivi d'un pronom, il devient
+            <span class="arabic">لَدَيْـ</span> : <span class="arabic">لَدَيَّ، لَدَيْكَ، لَدَيْهِ</span>
+        </div>
+
+        <h2 class="scroll-animate-left">💬 V. Dialogues pratiques</h2>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 1 : Chercher quelque chose</h4>
+            <p><strong>A:</strong> <span class="arabic">أَيْنَ هَاتِفُكَ؟</span><br>
+                Où est ton téléphone ?</p>
+            <p><strong>B:</strong> <span class="arabic">هُنَا، فَوْقَ الطَّاوِلَةِ</span><br>
+                Ici, sur la table</p>
+            <p><strong>A:</strong> <span class="arabic">وَأَيْنَ مَفَاتِيحُكَ؟</span><br>
+                Et où sont tes clés ?</p>
+            <p><strong>B:</strong> <span class="arabic">هُنَاكَ، بَيْنَ الكُتُبِ</span><br>
+                Là-bas, entre les livres</p>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 2 : Planifier une rencontre</h4>
+            <p><strong>A:</strong> <span class="arabic">مَتَى سَنَلْتَقِي؟</span><br>
+                Quand nous rencontrerons-nous ?</p>
+            <p><strong>B:</strong> <span class="arabic">غَدًا، بَعْدَ الظُّهْرِ</span><br>
+                Demain, après-midi</p>
+            <p><strong>A:</strong> <span class="arabic">حَسَنًا، أَيْنَ نَلْتَقِي؟</span><br>
+                D'accord, où nous retrouvons-nous ?</p>
+            <p><strong>B:</strong> <span class="arabic">أَمَامَ المَكْتَبَةِ</span><br>
+                Devant la bibliothèque</p>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 3 : Au restaurant</h4>
+            <p><strong>Client:</strong> <span class="arabic">أَيْنَ المَرَاحِيضُ مِنْ فَضْلِكَ؟</span><br>
+                Où sont les toilettes s'il vous plaît ?</p>
+            <p><strong>Serveur:</strong> <span class="arabic">هُنَاكَ، خَلْفَ المَطْبَخِ</span><br>
+                Là-bas, derrière la cuisine</p>
+            <p><strong>Client:</strong> <span class="arabic">شُكْرًا، وَمَتَى يَأْتِي الطَّعَامُ؟</span><br>
+                Merci, et quand arrive la nourriture ?</p>
+            <p><strong>Serveur:</strong> <span class="arabic">بَعْدَ خَمْسِ دَقَائِقَ</span><br>
+                Dans cinq minutes</p>
+        </div>
+
+        <h2 class="scroll-animate-left">🎯 VI. Situations réelles avec adverbes</h2>
+
+        <div class="example-box scroll-animate">
+            <h4>🏠 À la maison</h4>
+            <ul>
+                <li><span class="arabic">الكُرْسِيُّ أَمَامَ التِّلْفَازِ</span> → La chaise est devant la télévision
+                </li>
+                <li><span class="arabic">القُمَامَةُ تَحْتَ المَطْبَخِ</span> → La poubelle est sous (l'évier de) la
+                    cuisine</li>
+                <li><span class="arabic">النَّافِذَةُ فَوْقَ السَّرِيرِ</span> → La fenêtre est au-dessus du lit</li>
+                <li><span class="arabic">الحَمَّامُ بَيْنَ غُرْفَتَيْنِ</span> → La salle de bain est entre deux
+                    chambres</li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🏫 À l'école</h4>
+            <ul>
+                <li><span class="arabic">جَلَسْتُ خَلْفَ صَدِيقِي</span> → Je me suis assis derrière mon ami</li>
+                <li><span class="arabic">المُعَلِّمُ يَقِفُ أَمَامَ السَّبُّورَةِ</span> → Le professeur se tient devant
+                    le tableau</li>
+                <li><span class="arabic">أَثْنَاءَ الدَّرْسِ، دَخَلَ المُدِيرُ</span> → Pendant le cours, le directeur
+                    est entré</li>
+                <li><span class="arabic">بَعْدَ الامْتِحَانِ، ذَهَبْنَا إِلَى المَقْهَى</span> → Après l'examen, nous
+                    sommes allés au café</li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🚗 En voyage</h4>
+            <ul>
+                <li><span class="arabic">الفُنْدُقُ بَيْنَ المَسْجِدِ وَالسُّوقِ</span> → L'hôtel est entre la mosquée
+                    et le marché</li>
+                <li><span class="arabic">المَطَارُ بَعِيدٌ عَنِ المَدِينَةِ</span> → L'aéroport est loin de la ville
+                </li>
+                <li><span class="arabic">حِينَ وَصَلْنَا، كَانَ الجَوُّ بَارِدًا</span> → Quand nous sommes arrivés, il
+                    faisait froid</li>
+                <li><span class="arabic">سَنُغَادِرُ غَدًا، قَبْلَ الفَجْرِ</span> → Nous partirons demain, avant l'aube
+                </li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>💼 Au travail</h4>
+            <ul>
+                <li><span class="arabic">المُدِيرُ الآنَ فِي اجْتِمَاعٍ</span> → Le directeur est maintenant en réunion
+                </li>
+                <li><span class="arabic">مَكْتَبِي بِجَانِبِ النَّافِذَةِ</span> → Mon bureau est à côté de la fenêtre
+                </li>
+                <li><span class="arabic">سَأُرْسِلُ التَّقْرِيرَ بَعْدَ سَاعَةٍ</span> → J'enverrai le rapport dans une
+                    heure</li>
+                <li><span class="arabic">عِنْدِي مَوْعِدٌ مَعَ العَمِيلِ غَدًا</span> → J'ai un rendez-vous avec le
+                    client demain</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">📚 VII. Résumé des règles essentielles</h2>
+
+        <div class="rule-box scroll-animate">
+            <h3>🎯 Points clés à retenir :</h3>
+
+            <h4>Déclinable vs Indéclinable :</h4>
+            <ul>
+                <li><span class="highlight">Déclinable (مُعْرَب)</span> : change sa terminaison selon la fonction
+                    grammaticale</li>
+                <li><span class="highlight">Indéclinable (مَبْنِيّ)</span> : garde toujours la même forme</li>
+            </ul>
+
+            <h4>Adverbes de lieu :</h4>
+            <ul>
+                <li>Répondent à la question <span class="arabic">أَيْنَ؟</span> (Où ?)</li>
+                <li>Exemples déclinables : <span class="arabic">أَمَامَ، خَلْفَ، فَوْقَ، تَحْتَ</span></li>
+                <li>Exemples indéclinables : <span class="arabic">هُنَا، هُنَاكَ، حَيْثُ</span></li>
+            </ul>
+
+            <h4>Adverbes de temps :</h4>
+            <ul>
+                <li>Répondent à la question <span class="arabic">مَتَى؟</span> (Quand ?)</li>
+                <li>Exemples déclinables : <span class="arabic">قَبْلَ، بَعْدَ، حِينَ، أَثْنَاءَ</span></li>
+                <li>Exemples indéclinables : <span class="arabic">أَمْسِ، الآنَ، مَتَى</span></li>
+            </ul>
+
+            <h4>Expression de la possession :</h4>
+            <ul>
+                <li>Utiliser <span class="arabic">عِنْدَ</span> (courant) ou <span class="arabic">لَدَى</span> (formel)
+                </li>
+                <li>Structure : adverbe + possesseur + objet possédé</li>
+                <li>Exemple : <span class="arabic">عِنْدِي كِتَابٌ</span> = J'ai un livre</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Astuce finale :</strong> Les adverbes sont généralement à l'<span
+                class="highlight">accusatif</span> (avec fatḥa) quand ils sont déclinables. Quand ils sont suivis d'un
+            nom, ils forment une <strong>annexion (إِضَافَة)</strong> et le nom qui suit est au génitif.
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+        const cube = document.getElementById('cube');
+        let isPaused = false;
+
+        function pauseRotation() {
+            cube.style.animationPlayState = 'paused';
+            isPaused = true;
+        }
+
+        function resumeRotation() {
+            cube.style.animationPlayState = 'running';
+            isPaused = false;
+        }
+
+        function resetRotation() {
+            cube.style.animation = 'none';
+            setTimeout(() => {
+                cube.style.animation = 'rotate 20s infinite linear';
+            }, 10);
+            isPaused = false;
+        }
+
+        // Pause on hover
+        cube.addEventListener('mouseenter', () => {
+            if (!isPaused) {
+                cube.style.animationPlayState = 'paused';
+            }
+        });
+
+        cube.addEventListener('mouseleave', () => {
+            if (!isPaused) {
+                cube.style.animationPlayState = 'running';
+            }
+        });
+    </script>
+</body>
+
+</html>

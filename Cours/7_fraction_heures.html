@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les fractions et l'heure en arabe</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .clock-visual {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Les fractions et l'heure en arabe</h1>
+        <div class="arabic-title">الكُسُور وَالسَّاعَة</div>
+
+        <div class="intro">
+            Bienvenue dans cette leçon sur les fractions et l'expression du temps en arabe ! Les fractions sont
+            essentielles pour exprimer des quantités partielles, tandis que savoir dire et demander l'heure est
+            indispensable dans la vie quotidienne. Cette leçon vous guidera à travers les structures grammaticales
+            nécessaires pour maîtriser ces deux aspects importants de la langue arabe.
+        </div>
+
+        <h2 class="scroll-animate-left">📐 I. Les fractions en arabe / الكُسُور</h2>
+
+        <div class="intro scroll-animate">
+            Les fractions en arabe utilisent les nombres ordinaux pour le dénominateur. La structure est logique et
+            suit des règles précises d'accord en genre et en nombre.
+        </div>
+
+        <h3 class="scroll-animate">A. Structure de base des fractions</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Formule générale :</strong></p>
+            <p>Numérateur (nombre cardinal) + Dénominateur (nombre ordinal au féminin)</p>
+            <p class="arabic">بِسْط (عَدَد أَصْلِي) + مَقَام (عَدَد تَرْتِيبِي مُؤَنَّث)</p>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Règle importante :</strong> Le dénominateur (partie du bas de la fraction) est toujours un
+            nombre ordinal <span class="highlight">au féminin</span>, même si on parle d'un objet masculin.
+        </div>
+
+        <h3 class="scroll-animate">B. Les fractions de base (1/2, 1/3, 1/4...)</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Fraction</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1/2</strong></td>
+                    <td><span class="arabic">نِصْف</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/3</strong></td>
+                    <td><span class="arabic">ثُلُث</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/4</strong></td>
+                    <td><span class="arabic">رُبْع / رُبُع</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/5</strong></td>
+                    <td><span class="arabic">خُمْس / خُمُس</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/6</strong></td>
+                    <td><span class="arabic">سُدْس / سُدُس</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/7</strong></td>
+                    <td><span class="arabic">سُبْع / سُبُع</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/8</strong></td>
+                    <td><span class="arabic">ثُمْن / ثُمُن</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/9</strong></td>
+                    <td><span class="arabic">تُسْع / تُسُع</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/10</strong></td>
+                    <td><span class="arabic">عُشْر / عُشُر</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>⚠️ Cas particuliers :</strong> Les fractions 1/2, 1/3 et 1/4 ont des formes spéciales héritées de
+            l'arabe classique : <span class="arabic">نِصْف، ثُلُث، رُبْع</span>
+        </div>
+
+        <h3 class="scroll-animate">C. Formation des autres fractions</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Pour les fractions autres que 1/n :</strong></p>
+            <p>On utilise le nombre cardinal pour le numérateur + le nombre ordinal féminin pour le dénominateur</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Fraction</th>
+                    <th>Arabe</th>
+                    <th>Structure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>2/3</strong></td>
+                    <td><span class="arabic">ثُلُثَان</span></td>
+                    <td>Duel de ثُلُث</td>
+                </tr>
+                <tr>
+                    <td><strong>3/4</strong></td>
+                    <td><span class="arabic">ثَلَاثَةُ أَرْبَاع</span></td>
+                    <td>3 + pluriel de رُبْع</td>
+                </tr>
+                <tr>
+                    <td><strong>2/5</strong></td>
+                    <td><span class="arabic">خُمْسَان</span></td>
+                    <td>Duel de خُمْس</td>
+                </tr>
+                <tr>
+                    <td><strong>3/5</strong></td>
+                    <td><span class="arabic">ثَلَاثَةُ أَخْمَاس</span></td>
+                    <td>3 + pluriel de خُمْس</td>
+                </tr>
+                <tr>
+                    <td><strong>4/7</strong></td>
+                    <td><span class="arabic">أَرْبَعَةُ أَسْبَاع</span></td>
+                    <td>4 + pluriel de سُبْع</td>
+                </tr>
+                <tr>
+                    <td><strong>5/8</strong></td>
+                    <td><span class="arabic">خَمْسَةُ أَثْمَان</span></td>
+                    <td>5 + pluriel de ثُمْن</td>
+                </tr>
+                <tr>
+                    <td><strong>7/10</strong></td>
+                    <td><span class="arabic">سَبْعَةُ أَعْشَار</span></td>
+                    <td>7 + pluriel de عُشْر</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemples en contexte :</h4>
+            <ul>
+                <li><span class="arabic">أَكَلْتُ نِصْفَ التُّفَّاحَة</span> → J'ai mangé la moitié de la pomme</li>
+                <li><span class="arabic">شَرِبْتُ ثُلُثَ الكَأْس</span> → J'ai bu le tiers du verre</li>
+                <li><span class="arabic">قَرَأْتُ ثَلَاثَةَ أَرْبَاع الكِتَاب</span> → J'ai lu trois quarts du livre
+                </li>
+                <li><span class="arabic">أَنْجَزْتُ خُمْسَيْ العَمَل</span> → J'ai accompli deux cinquièmes du travail
+                </li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">D. Fractions avec des dizaines et centaines</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour les dénominateurs plus grands (20, 30, 100...), on utilise les nombres ordinaux correspondants.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Fraction</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1/20</strong></td>
+                    <td><span class="arabic">جُزْء مِنْ عِشْرِين</span></td>
+                </tr>
+                <tr>
+                    <td><strong>1/100</strong></td>
+                    <td><span class="arabic">جُزْء مِنْ مِئَة / واحِد بِالمِئَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>25/100</strong></td>
+                    <td><span class="arabic">خَمْسَة وَعِشْرُون بِالمِئَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>50/100</strong></td>
+                    <td><span class="arabic">خَمْسُون بِالمِئَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>75/100</strong></td>
+                    <td><span class="arabic">خَمْسَة وَسَبْعُون بِالمِئَة</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 Les pourcentages :</strong> En arabe moderne, les pourcentages s'expriment avec <span
+                class="arabic">بِالمِئَة</span> (pour cent) : <span class="arabic">٥٠٪ = خَمْسُون بِالمِئَة</span>
+        </div>
+
+        <h2 class="scroll-animate-left">🕐 II. L'heure en arabe / السَّاعَة</h2>
+
+        <div class="intro scroll-animate">
+            Dire et demander l'heure est une compétence essentielle en arabe. Le système horaire arabe utilise à la
+            fois le format 12 heures et 24 heures, avec des expressions spécifiques pour les différentes parties de
+            l'heure.
+        </div>
+
+        <h3 class="scroll-animate">A. Demander l'heure</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Expressions courantes pour demander l'heure :</strong></p>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>🗣️ Questions courantes :</h4>
+            <ul>
+                <li><span class="arabic">كَمِ السَّاعَة؟</span> → Quelle heure est-il ? (littéralement : combien
+                    l'heure ?)</li>
+                <li><span class="arabic">مَا السَّاعَة؟</span> → Quelle heure est-il ?</li>
+                <li><span class="arabic">مَا الوَقْت الآن؟</span> → Quelle heure est-il maintenant ?</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. Les heures pile</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Structure :</strong> <span class="arabic">السَّاعَة</span> + nombre ordinal féminin</p>
+            <p>Le mot <span class="arabic">السَّاعَة</span> (l'heure) est féminin, donc le nombre ordinal doit être au
+                féminin.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Heure</th>
+                    <th>Arabe</th>
+                    <th>Prononciation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الوَاحِدَة</span></td>
+                    <td>as-sâ'ah al-wâhidah</td>
+                </tr>
+                <tr>
+                    <td><strong>2:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّانِيَة</span></td>
+                    <td>as-sâ'ah ath-thâniyah</td>
+                </tr>
+                <tr>
+                    <td><strong>3:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّالِثَة</span></td>
+                    <td>as-sâ'ah ath-thâlithah</td>
+                </tr>
+                <tr>
+                    <td><strong>4:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الرَّابِعَة</span></td>
+                    <td>as-sâ'ah ar-râbi'ah</td>
+                </tr>
+                <tr>
+                    <td><strong>5:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الخَامِسَة</span></td>
+                    <td>as-sâ'ah al-khâmisah</td>
+                </tr>
+                <tr>
+                    <td><strong>6:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ السَّادِسَة</span></td>
+                    <td>as-sâ'ah as-sâdisah</td>
+                </tr>
+                <tr>
+                    <td><strong>7:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ السَّابِعَة</span></td>
+                    <td>as-sâ'ah as-sâbi'ah</td>
+                </tr>
+                <tr>
+                    <td><strong>8:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّامِنَة</span></td>
+                    <td>as-sâ'ah ath-thâminah</td>
+                </tr>
+                <tr>
+                    <td><strong>9:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ التَّاسِعَة</span></td>
+                    <td>as-sâ'ah at-tâsi'ah</td>
+                </tr>
+                <tr>
+                    <td><strong>10:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ العَاشِرَة</span></td>
+                    <td>as-sâ'ah al-'âshirah</td>
+                </tr>
+                <tr>
+                    <td><strong>11:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الحَادِيَةَ عَشْرَة</span></td>
+                    <td>as-sâ'ah al-hâdiyah 'ashrah</td>
+                </tr>
+                <tr>
+                    <td><strong>12:00</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّانِيَةَ عَشْرَة</span></td>
+                    <td>as-sâ'ah ath-thâniyah 'ashrah</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Dialogues simples :</h4>
+            <ul>
+                <li><span class="arabic">- كَمِ السَّاعَة؟</span> → Quelle heure est-il ?<span class="arabic"><br>- السَّاعَةُ الثَّالِثَة</span> → Il est trois heures</li>
+                <li><span class="arabic">- مَتَى تَذْهَبُ إِلَى المَدْرَسَة؟</span> → Quand vas-tu à l'école ?<span class="arabic"><br>- السَّاعَةُ السَّابِعَة صَبَاحًا</span> → À sept heures du matin</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">C. Les minutes : et quart, et demie, moins le quart</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Expressions clés pour les fractions d'heure :</strong></p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Expression</th>
+                    <th>Arabe</th>
+                    <th>Exemple</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Et quart (15 min)</strong></td>
+                    <td><span class="arabic">وَالرُّبْع</span></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّالِثَةُ وَالرُّبْع</span><br>3h15</td>
+                </tr>
+                <tr>
+                    <td><strong>Et demie (30 min)</strong></td>
+                    <td><span class="arabic">وَالنِّصْف</span></td>
+                    <td><span class="arabic">السَّاعَةُ الخَامِسَةُ وَالنِّصْف</span><br>5h30</td>
+                </tr>
+                <tr>
+                    <td><strong>Moins le quart</strong></td>
+                    <td><span class="arabic">إِلَّا الرُّبْع</span></td>
+                    <td><span class="arabic">السَّاعَةُ السَّابِعَةُ إِلَّا الرُّبْع</span><br>6h45 (7h moins le
+                        quart)</td>
+                </tr>
+                <tr>
+                    <td><strong>Moins dix</strong></td>
+                    <td><span class="arabic">إِلَّا عَشْر دَقَائِق</span></td>
+                    <td><span class="arabic">السَّاعَةُ التَّاسِعَةُ إِلَّا عَشْر دَقَائِق</span><br>8h50</td>
+                </tr>
+                <tr>
+                    <td><strong>Et cinq (minutes)</strong></td>
+                    <td><span class="arabic">وَخَمْس دَقَائِق</span></td>
+                    <td><span class="arabic">السَّاعَةُ الرَّابِعَةُ وَخَمْس دَقَائِق</span><br>4h05</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 À noter :</strong> Le mot <span class="arabic">دَقِيقَة</span> (minute) au pluriel devient
+            <span class="arabic">دَقَائِق</span>
+        </div>
+
+        <h3 class="scroll-animate">D. Dire les minutes exactes</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Structure pour les minutes précises :</strong></p>
+            <p><span class="arabic">السَّاعَة</span> + heure + <span class="arabic">وَ</span> + nombre de minutes +
+                <span class="arabic">دَقِيقَة/دَقَائِق</span>
+            </p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Heure</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>2:05</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّانِيَةُ وَخَمْس دَقَائِق</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3:10</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّالِثَةُ وَعَشْر دَقَائِق</span></td>
+                </tr>
+                <tr>
+                    <td><strong>4:20</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الرَّابِعَةُ وَعِشْرُون دَقِيقَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>5:25</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الخَامِسَةُ وَخَمْس وَعِشْرُون دَقِيقَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>6:35</strong></td>
+                    <td><span class="arabic">السَّاعَةُ السَّادِسَةُ وَخَمْس وَثَلَاثُون دَقِيقَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>7:40</strong></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّامِنَةُ إِلَّا عِشْرُون دَقِيقَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>8:50</strong></td>
+                    <td><span class="arabic">السَّاعَةُ التَّاسِعَةُ إِلَّا عَشْر دَقَائِق</span></td>
+                </tr>
+                <tr>
+                    <td><strong>9:55</strong></td>
+                    <td><span class="arabic">السَّاعَةُ العَاشِرَةُ إِلَّا خَمْس دَقَائِق</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>⚠️ Règle grammaticale :</strong> Pour les minutes :
+            <ul>
+                <li>1-2 minutes : <span class="arabic">دَقِيقَة</span> (singulier) ou <span
+                        class="arabic">دَقِيقَتَان</span> (duel)</li>
+                <li>3-10 minutes : <span class="arabic">دَقَائِق</span> (pluriel)</li>
+                <li>11+ minutes : <span class="arabic">دَقِيقَة</span> (singulier après le nombre)</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">E. Les moments de la journée</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Expressions pour préciser le moment de la journée :</strong></p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Moment</th>
+                    <th>Arabe</th>
+                    <th>Exemple</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Du matin</strong></td>
+                    <td><span class="arabic">صَبَاحًا</span></td>
+                    <td><span class="arabic">السَّاعَةُ السَّابِعَةُ صَبَاحًا</span><br>7h du matin</td>
+                </tr>
+                <tr>
+                    <td><strong>De l'après-midi</strong></td>
+                    <td><span class="arabic">ظُهْرًا / بَعْدَ الظُّهْر</span></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّانِيَةُ ظُهْرًا</span><br>2h de l'après-midi</td>
+                </tr>
+                <tr>
+                    <td><strong>Du soir</strong></td>
+                    <td><span class="arabic">مَسَاءً</span></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّامِنَةُ مَسَاءً</span><br>8h du soir</td>
+                </tr>
+                <tr>
+                    <td><strong>De la nuit</strong></td>
+                    <td><span class="arabic">لَيْلًا</span></td>
+                    <td><span class="arabic">السَّاعَةُ الحَادِيَةَ عَشْرَةَ لَيْلًا</span><br>11h de la nuit</td>
+                </tr>
+                <tr>
+                    <td><strong>Midi</strong></td>
+                    <td><span class="arabic">الظُّهْر / مُنْتَصَف النَّهَار</span></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّانِيَةَ عَشْرَةَ ظُهْرًا</span><br>Midi</td>
+                </tr>
+                <tr>
+                    <td><strong>Minuit</strong></td>
+                    <td><span class="arabic">مُنْتَصَف اللَّيْل</span></td>
+                    <td><span class="arabic">السَّاعَةُ الثَّانِيَةَ عَشْرَةَ لَيْلًا</span><br>Minuit</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples de phrases complètes :</h4>
+            <ul>
+                <li><span class="arabic">أَسْتَيْقِظُ السَّاعَةَ السَّادِسَةَ صَبَاحًا</span> → Je me réveille à 6h du
+                    matin</li>
+                <li><span class="arabic">أَذْهَبُ إِلَى العَمَل السَّاعَةَ الثَّامِنَةَ وَالنِّصْف صَبَاحًا</span> → Je
+                    vais
+                    au travail à 8h30 du matin</li>
+                <li><span class="arabic">نَتَنَاوَلُ الغَدَاءَ السَّاعَةَ الوَاحِدَةَ ظُهْرًا</span> → Nous déjeunons à
+                    13h</li>
+                <li><span class="arabic">أَعُودُ إِلَى البَيْت السَّاعَةَ السَّادِسَةَ مَسَاءً</span> → Je rentre à la
+                    maison à 18h</li>
+                <li><span class="arabic">أَنَامُ السَّاعَةَ الحَادِيَةَ عَشْرَةَ لَيْلًا</span> → Je dors à 23h</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">F. Le système de 24 heures</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Format moderne :</strong> En arabe moderne, notamment dans les contextes officiels (horaires de
+                train, d'avion, télévision), on utilise le système de 24 heures.</p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>🚂 Exemples avec le format 24h :</h4>
+            <ul>
+                <li>13h00 → <span class="arabic">السَّاعَةُ الثَّالِثَةَ عَشْرَةَ</span></li>
+                <li>15h30 → <span class="arabic">السَّاعَةُ الخَامِسَةَ عَشْرَةَ وَالنِّصْف</span></li>
+                <li>17h15 → <span class="arabic">السَّاعَةُ السَّابِعَةَ عَشْرَةَ وَالرُّبْع</span></li>
+                <li>20h00 → <span class="arabic">السَّاعَةُ العِشْرُون</span></li>
+                <li>23h00 → <span class="arabic">السَّاعَةُ الثَّالِثَةَ وَالعِشْرُون</span></li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">G. Expressions temporelles utiles</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Expression française</th>
+                    <th>Arabe</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Quand ?</strong></td>
+                    <td><span class="arabic">مَتَى؟</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Maintenant</strong></td>
+                    <td><span class="arabic">الآن</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Sous peu</strong></td>
+                    <td><span class="arabic">بَعْدَ قَلِيل</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Dans une heure</strong></td>
+                    <td><span class="arabic">بَعْدَ سَاعَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Il y a une heure</strong></td>
+                    <td><span class="arabic">قَبْلَ سَاعَة</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Tôt</strong></td>
+                    <td><span class="arabic">مُبَكِّرًا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Tard</strong></td>
+                    <td><span class="arabic">مُتَأَخِّرًا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>À l'heure</strong></td>
+                    <td><span class="arabic">فِي الوَقْت المُحَدَّد</span></td>
+                </tr>
+                <tr>
+                    <td><strong>En retard</strong></td>
+                    <td><span class="arabic">مُتَأَخِّر</span></td>
+                </tr>
+                <tr>
+                    <td><strong>En avance</strong></td>
+                    <td><span class="arabic">مُبَكِّر</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">💬 III. Dialogues pratiques</h2>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 1 : Rendez-vous</h4>
+            <p><strong>A:</strong> <span class="arabic">كَمِ السَّاعَة الآن؟</span><br>
+                Quelle heure est-il maintenant ?</p>
+            <p><strong>B:</strong> <span class="arabic">السَّاعَةُ الثَّالِثَةُ وَالنِّصْف</span><br>
+                Il est trois heures et demie</p>
+            <p><strong>A:</strong> <span class="arabic">مَتَى مَوْعِدُنَا؟</span><br>
+                Quand est notre rendez-vous ?</p>
+            <p><strong>B:</strong> <span class="arabic">السَّاعَةُ الخَامِسَةُ مَسَاءً</span><br>
+                À cinq heures du soir</p>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 2 : À la gare</h4>
+            <p><strong>A:</strong> <span class="arabic">مَتَى يُغَادِرُ القِطَار؟</span><br>
+                Quand part le train ?</p>
+            <p><strong>B:</strong> <span class="arabic">السَّاعَةُ الرَّابِعَةَ عَشْرَةَ وَعِشْرُون دَقِيقَة</span><br>
+                À 14h20</p>
+            <p><strong>A:</strong> <span class="arabic">وَمَتَى يَصِلُ؟</span><br>
+                Et quand arrive-t-il ?</p>
+            <p><strong>B:</strong> <span class="arabic">السَّاعَةُ السَّادِسَةَ عَشْرَةَ إِلَّا عَشْر
+                    دَقَائِق</span><br>
+                À 15h50</p>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 3 : Programme quotidien</h4>
+            <p><strong>A:</strong> <span class="arabic">مَتَى تَسْتَيْقِظُ؟</span><br>
+                Quand te réveilles-tu ?</p>
+            <p><strong>B:</strong> <span class="arabic">أَسْتَيْقِظُ السَّاعَةَ السَّابِعَةَ صَبَاحًا</span><br>
+                Je me réveille à 7h du matin</p>
+            <p><strong>A:</strong> <span class="arabic">وَمَتَى تَذْهَبُ إِلَى الجَامِعَة؟</span><br>
+                Et quand vas-tu à l'université ?</p>
+            <p><strong>B:</strong> <span class="arabic">السَّاعَةَ الثَّامِنَةَ وَالرُّبْع</span><br>
+                À 8h15</p>
+        </div>
+
+        <h2 class="scroll-animate-left">📚 Résumé des règles essentielles</h2>
+
+        <div class="rule-box scroll-animate">
+            <h3>🎯 Points clés à retenir :</h3>
+
+            <h4>Fractions :</h4>
+            <ul>
+                <li>Le dénominateur est toujours au <span class="highlight">féminin</span></li>
+                <li>Formes spéciales : <span class="arabic">نِصْف</span> (1/2), <span class="arabic">ثُلُث</span>
+                    (1/3), <span class="arabic">رُبْع</span> (1/4)</li>
+                <li>Pour 2/n : utiliser le duel</li>
+                <li>Pour 3+/n : cardinal + pluriel du dénominateur</li>
+            </ul>
+
+            <h4>L'heure :</h4>
+            <ul>
+                <li><span class="arabic">السَّاعَة</span> est féminin → nombres ordinaux féminins</li>
+                <li><span class="arabic">وَالرُّبْع</span> = et quart (15 min)</li>
+                <li><span class="arabic">وَالنِّصْف</span> = et demie (30 min)</li>
+                <li><span class="arabic">إِلَّا</span> = moins (pour 45-59 minutes)</li>
+                <li>Moments : <span class="arabic">صَبَاحًا</span> (matin), <span class="arabic">ظُهْرًا</span>
+                    (après-midi), <span class="arabic">مَسَاءً</span> (soir), <span class="arabic">لَيْلًا</span>
+                    (nuit)</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Astuce pratique :</strong> Pour dire l'heure en arabe, pensez d'abord au nombre ordinal féminin
+            de l'heure (première, deuxième, troisième...), puis ajoutez les minutes avec <span class="arabic">وَ</span>
+            (et) ou <span class="arabic">إِلَّا</span> (moins).
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

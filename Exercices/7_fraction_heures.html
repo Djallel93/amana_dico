@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les fractions et l'heure en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        .clock-box {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .exercise h3 {
+                font-size: 1.1em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            .intro,
+            .note,
+            .exercise,
+            .question {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .section-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .answer-space,
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.75em;
+            }
+
+            th,
+            td {
+                padding: 6px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين الْكُسُور وَالسَّاعَة</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer les fractions et l'heure
+            en arabe. Rappelez-vous : le dénominateur des fractions est toujours au féminin, et l'heure utilise les
+            nombres ordinaux féminins. Bon courage !
+        </div>
+
+        <h2><span class="section-number">1</span>Les fractions de base (1/2, 1/3, 1/4...)</h2>
+        <div class="exercise">
+            <h3>Écrivez les fractions suivantes en arabe</h3>
+            <ol>
+                <li>1/2 (moitié) → <span class="answer-space"></span></li>
+                <li>1/3 (tiers) → <span class="answer-space"></span></li>
+                <li>1/4 (quart) → <span class="answer-space"></span></li>
+                <li>1/5 (cinquième) → <span class="answer-space"></span></li>
+                <li>1/6 (sixième) → <span class="answer-space"></span></li>
+                <li>1/7 (septième) → <span class="answer-space"></span></li>
+                <li>1/8 (huitième) → <span class="answer-space"></span></li>
+                <li>1/10 (dixième) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Fractions en contexte</h2>
+        <div class="exercise">
+            <h3>Traduisez les phrases suivantes en arabe</h3>
+            <ol>
+                <li>J'ai mangé la moitié de la pomme → <span class="answer-space wide-space"></span></li>
+                <li>J'ai bu le tiers du verre → <span class="answer-space wide-space"></span></li>
+                <li>J'ai lu trois quarts du livre → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Demander l'heure</h2>
+        <div class="exercise">
+            <h3>Traduisez les questions suivantes en arabe</h3>
+            <ol>
+                <li>Quelle heure est-il ? (version avec كَمْ) → <span class="answer-space wide-space"></span></li>
+                <li>Quelle heure est-il ? (version avec مَا) → <span class="answer-space wide-space"></span></li>
+                <li>Quand part le train ? → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Les heures pile</h2>
+        <div class="exercise">
+            <h3>Écrivez les heures suivantes en arabe</h3>
+            <ol>
+                <li><span class="clock-box">1:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">3:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">5:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">7:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">9:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">11:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">12:00</span> → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">5</span>Et quart, et demie, moins le quart</h2>
+        <div class="exercise">
+            <h3>Écrivez les heures suivantes en arabe</h3>
+            <ol>
+                <li><span class="clock-box">3:15</span> (trois heures et quart) → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">5:30</span> (cinq heures et demie) → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">6:45</span> (sept heures moins le quart) → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">2:15</span> (deux heures et quart) → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">8:30</span> (huit heures et demie) → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">10:45</span> (onze heures moins le quart) → <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">6</span>Les minutes exactes</h2>
+        <div class="exercise">
+            <h3>Écrivez les heures suivantes en arabe</h3>
+            <ol>
+                <li><span class="clock-box">2:05</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">3:10</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">4:20</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">5:25</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">6:35</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">7:40</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">8:50</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">9:55</span> → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Les moments de la journée</h2>
+        <div class="exercise">
+            <h3>Complétez avec le bon moment de la journée</h3>
+            <ol>
+                <li>7h ______ (du matin) → <span class="answer-space"></span></li>
+                <li>2h ______ (de l'après-midi) → <span class="answer-space"></span></li>
+                <li>8h ______ (du soir) → <span class="answer-space"></span></li>
+                <li>11h ______ (de la nuit) → <span class="answer-space"></span></li>
+                <li>12h ______ (midi) → <span class="answer-space"></span></li>
+                <li>12h ______ (minuit) → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Phrases complètes avec l'heure</h2>
+        <div class="exercise">
+            <h3>Traduisez les phrases suivantes en arabe</h3>
+            <ol>
+                <li>Je me réveille à 6h du matin → <span class="answer-space wide-space"></span></li>
+                <li>Je vais au travail à 8h30 du matin → <span class="answer-space wide-space"></span></li>
+                <li>Nous déjeunons à 13h → <span class="answer-space wide-space"></span></li>
+                <li>Je rentre à la maison à 18h → <span class="answer-space wide-space"></span></li>
+                <li>Je dors à 23h → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>Le format 24 heures</h2>
+        <div class="exercise">
+            <h3>Écrivez les heures suivantes en arabe (format 24h)</h3>
+            <ol>
+                <li><span class="clock-box">13:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">15:30</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">17:15</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">20:00</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="clock-box">23:00</span> → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Expressions temporelles</h2>
+        <div class="exercise">
+            <h3>Traduisez les expressions suivantes en arabe</h3>
+            <ol>
+                <li>Maintenant → <span class="answer-space"></span></li>
+                <li>Sous peu → <span class="answer-space"></span></li>
+                <li>Dans une heure → <span class="answer-space"></span></li>
+                <li>Il y a une heure → <span class="answer-space"></span></li>
+                <li>Tôt → <span class="answer-space"></span></li>
+                <li>Tard → <span class="answer-space"></span></li>
+                <li>À l'heure → <span class="answer-space wide-space"></span></li>
+                <li>En retard → <span class="answer-space"></span></li>
+                <li>En avance → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">11</span>Dialogue : Rendez-vous</h2>
+        <div class="exercise">
+            <h3>Complétez le dialogue en arabe</h3>
+
+            <div class="question">
+                <p><strong>A:</strong> Quelle heure est-il maintenant ?<br>
+                    <span class="answer-space wide-space"></span>
+                </p>
+
+                <p><strong>B:</strong> Il est trois heures et demie<br>
+                    <span class="answer-space wide-space"></span>
+                </p>
+
+                <p><strong>A:</strong> Quand est notre rendez-vous ?<br>
+                    <span class="answer-space wide-space"></span>
+                </p>
+
+                <p><strong>B:</strong> À cinq heures du soir<br>
+                    <span class="answer-space wide-space"></span>
+                </p>
+            </div>
+        </div>
+
+        <h2><span class="section-number">12</span>Vrai ou Faux</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>نِصْف signifie "moitié" <span class="answer-space"></span></li>
+                <li>Le mot السَّاعَة est masculin <span class="answer-space"></span></li>
+                <li>Pour dire l'heure, on utilise les nombres ordinaux féminins <span class="answer-space"></span></li>
+                <li>وَالرُّبْع signifie "et demie" <span class="answer-space"></span></li>
+                <li>إِلَّا signifie "moins" pour l'heure <span class="answer-space"></span></li>
+                <li>صَبَاحًا signifie "du matin" <span class="answer-space"></span></li>
+                <li>2/3 s'écrit avec le duel ثُلُثَانِ <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">13</span>Tableau récapitulatif</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fraction/Heure</th>
+                        <th>Arabe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1/2 heure</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>1/4 heure</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>3:00</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>5:15</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>8:30</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Du matin</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Du soir</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">14</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur. Corrigez-la :</h3>
+            <ol>
+                <li><span class="arabic">السَّاعَةُ الثَّالِثُ</span> (pour 3h) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">السَّاعَةُ الْخَامِسَةُ وَالنِّصْفَةُ</span> (pour 5h30) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">ثُلُثُ</span> utilisé comme dénominateur féminin → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">السَّاعَةُ الثَّانِيَةَ صَبَاحٌ</span> → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">أَكَلْتُ نِصْفَانِ التُّفَّاحَةِ</span> → <span class="answer-space"></span>
+                </li>
+            </ol>
+        </div>
+
+
+        <h2><span class="section-number">15</span>Horaires de train</h2>
+        <div class="exercise">
+            <h3>Complétez les informations en arabe</h3>
+
+            <div class="question">
+                <p><strong>Train Paris-Lyon :</strong></p>
+                <ul>
+                    <li>Départ : 14h20 → <span class="answer-space wide-space"></span></li>
+                    <li>Arrivée : 16h35 → <span class="answer-space wide-space"></span></li>
+                    <li>Durée : 2h15 → <span class="answer-space wide-space"></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <h2><span class="section-number">16</span>Programme quotidien</h2>
+        <div class="exercise">
+            <h3>Écrivez votre programme quotidien en arabe</h3>
+            <div class="question">
+                <p>Décrivez votre journée typique en utilisant au moins 5 heures différentes. Utilisez les expressions
+                    de temps appropriées (صَبَاحًا, ظُهْرًا, مَسَاءً, etc.)</p>
+                <textarea
+                    style="width: 100%; min-height: 150px; padding: 10px; border: 2px solid #667eea; border-radius: 5px; font-size: 1.1em;"></textarea>
+            </div>
+        </div>
+
+        <h2><span class="section-number">17</span>Défi final : Compréhension globale</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+
+            <div class="question">
+                <p><span class="arabic">أَسْتَيْقِظُ السَّاعَةَ السَّابِعَةَ صَبَاحًا. أَشْرَبُ نِصْفَ كَأْسِ حَلِيبٍ.
+                        أَذْهَبُ إِلَى الْعَمَلِ السَّاعَةَ الثَّامِنَةَ وَالرُّبْعَ. أَعْمَلُ لِمُدَّةِ ثَمَانِي
+                        سَاعَاتٍ. أَعُودُ السَّاعَةَ الْخَامِسَةَ إِلَّا الرُّبْعَ مَسَاءً.</span></p>
+
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>À quelle heure se réveille la personne ? → <span class="answer-space"></span></li>
+                    <li>Combien de lait boit-elle ? → <span class="answer-space"></span></li>
+                    <li>À quelle heure va-t-elle au travail ? → <span class="answer-space"></span></li>
+                    <li>Combien d'heures travaille-t-elle ? → <span class="answer-space"></span></li>
+                    <li>À quelle heure rentre-t-elle ? (écrivez en chiffres) → <span class="answer-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ligne temporelle - Adverbes de temps</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title {
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title h1 {
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .title p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        .timeline-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: relative;
+            height: 8px;
+            background: linear-gradient(to right, #ff6b6b 0%, #ff6b6b 33%, #4ecdc4 33%, #4ecdc4 66%, #95e1d3 66%, #95e1d3 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-arrow {
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 20px solid #95e1d3;
+        }
+
+        .period-section {
+            position: absolute;
+            top: -60px;
+            height: 120px;
+            border-left: 2px dashed rgba(255, 255, 255, 0.5);
+            border-right: 2px dashed rgba(255, 255, 255, 0.5);
+        }
+
+        .period-section.past {
+            left: 0;
+            width: 33%;
+            background: rgba(255, 107, 107, 0.1);
+        }
+
+        .period-section.present {
+            left: 33%;
+            width: 33%;
+            background: rgba(78, 205, 196, 0.15);
+        }
+
+        .period-section.future {
+            left: 66%;
+            width: 34%;
+            background: rgba(149, 225, 211, 0.1);
+        }
+
+        .period-label {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.3em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .adverb-block {
+            position: absolute;
+            top: 30px;
+            transform: translateX(-50%);
+            background: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            min-width: 120px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid;
+        }
+
+        .adverb-block:hover {
+            transform: translateX(-50%) translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .adverb-block.past {
+            border-color: #ff6b6b;
+        }
+
+        .adverb-block.present {
+            border-color: #4ecdc4;
+        }
+
+        .adverb-block.future {
+            border-color: #95e1d3;
+        }
+
+        .adverb-block .arabic {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .adverb-block.past .arabic {
+            color: #ff6b6b;
+        }
+
+        .adverb-block.present .arabic {
+            color: #4ecdc4;
+        }
+
+        .adverb-block.future .arabic {
+            color: #95e1d3;
+        }
+
+        .adverb-block .french {
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .adverb-block .type {
+            font-size: 0.75em;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Ligne de connexion entre adverbe et timeline */
+        .connection-line {
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .past .connection-line {
+            background: #ff6b6b;
+        }
+
+        .present .connection-line {
+            background: #4ecdc4;
+        }
+
+        .future .connection-line {
+            background: #95e1d3;
+        }
+
+        .moving-indicator {
+            position: absolute;
+            top: -20px;
+            width: 4px;
+            height: 48px;
+            background: #764ba2;
+            animation: moveIndicator 10s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(118, 75, 162, 0.8);
+            border-radius: 2px;
+        }
+
+        @keyframes moveIndicator {
+
+            0%,
+            100% {
+                left: 0%;
+            }
+
+            50% {
+                left: 100%;
+            }
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 120px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-box h3 {
+            color: #764ba2;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .adverbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .adverb-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .adverb-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .adverb-card .arabic {
+            font-size: 1.4em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .adverb-card .french {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .adverb-card .type {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .controls button {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .controls button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #667eea;
+            color: white;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-color {
+            width: 40px;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .title h1 {
+                font-size: 1.8em;
+            }
+
+            .timeline-container {
+                padding: 60px 10px;
+            }
+
+            .adverb-block {
+                padding: 8px 12px;
+                min-width: 90px;
+            }
+
+            .adverb-block .arabic {
+                font-size: 1.3em;
+            }
+
+            .period-label {
+                font-size: 0.9em;
+                top: -70px;
+            }
+
+            .adverbs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .controls button {
+                padding: 10px 15px;
+                font-size: 0.9em;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <h1>⏰ Ligne Temporelle des Adverbes</h1>
+        <p style="color: white; font-size: 1.5em;">ظُرُوف الزَّمَان</p>
+    </div>
+
+    <div class="timeline-container">
+        <!-- Sections de périodes -->
+        <div class="period-section past">
+            <div class="period-label">⬅️ PASSÉ<br>المَاضِي</div>
+        </div>
+        <div class="period-section present">
+            <div class="period-label">⏰ PRÉSENT<br>الحَاضِر</div>
+        </div>
+        <div class="period-section future">
+            <div class="period-label">FUTUR ➡️<br>المُسْتَقْبَل</div>
+        </div>
+
+        <div class="timeline-line">
+            <div class="timeline-arrow"></div>
+            <div class="moving-indicator"></div>
+
+            <!-- PASSÉ -->
+            <div class="adverb-block past" style="left: 8%;">
+                <div class="connection-line"></div>
+                <div class="arabic">أَمْسِ</div>
+                <div class="french">Hier</div>
+                <div class="type">Indéclinable</div>
+            </div>
+
+            <div class="adverb-block past" style="left: 20%;">
+                <div class="connection-line"></div>
+                <div class="arabic">قَبْلَ</div>
+                <div class="french">Avant</div>
+                <div class="type">Déclinable</div>
+            </div>
+
+            <div class="adverb-block past" style="left: 30%;">
+                <div class="connection-line"></div>
+                <div class="arabic">مُنْذُ</div>
+                <div class="french">Depuis</div>
+                <div class="type">Indéclinable</div>
+            </div>
+
+            <!-- PRÉSENT -->
+            <div class="adverb-block present" style="left: 42%;">
+                <div class="connection-line"></div>
+                <div class="arabic">حِينَ</div>
+                <div class="french">Quand</div>
+                <div class="type">Déclinable</div>
+            </div>
+
+            <div class="adverb-block present" style="left: 50%; top: 35px; z-index: 10;">
+                <div class="connection-line"></div>
+                <div class="arabic" style="font-size: 1.8em;">الآنَ</div>
+                <div class="french" style="font-size: 1.1em;">Maintenant</div>
+                <div class="type">Indéclinable</div>
+            </div>
+
+            <div class="adverb-block present" style="left: 58%;">
+                <div class="connection-line"></div>
+                <div class="arabic">أَثْنَاءَ</div>
+                <div class="french">Pendant</div>
+                <div class="type">Déclinable</div>
+            </div>
+
+            <!-- FUTUR -->
+            <div class="adverb-block future" style="left: 70%;">
+                <div class="connection-line"></div>
+                <div class="arabic">بَعْدَ</div>
+                <div class="french">Après</div>
+                <div class="type">Déclinable</div>
+            </div>
+
+            <div class="adverb-block future" style="left: 82%;">
+                <div class="connection-line"></div>
+                <div class="arabic">غَدًا</div>
+                <div class="french">Demain</div>
+                <div class="type">Déclinable</div>
+            </div>
+
+            <div class="adverb-block future" style="left: 92%;">
+                <div class="connection-line"></div>
+                <div class="arabic">فَوْرَ</div>
+                <div class="french">Dès que</div>
+                <div class="type">Déclinable</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-box">
+        <h3>📊 Légende des périodes</h3>
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff6b6b;"></div>
+                <span><strong>Passé</strong> - Actions terminées</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4ecdc4;"></div>
+                <span><strong>Présent</strong> - Actions en cours</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #95e1d3;"></div>
+                <span><strong>Futur</strong> - Actions à venir</span>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px;">📚 Autres adverbes de temps importants</h3>
+        <div class="adverbs-grid">
+            <div class="adverb-card">
+                <div class="arabic">قَطُّ</div>
+                <div class="french">Jamais (passé)</div>
+                <div class="type">Indéclinable - مَبْنِيّ</div>
+            </div>
+            <div class="adverb-card">
+                <div class="arabic">بَيْنَمَا</div>
+                <div class="french">Tandis que</div>
+                <div class="type">Indéclinable - مَبْنِيّ</div>
+            </div>
+            <div class="adverb-card">
+                <div class="arabic">لَمَّا</div>
+                <div class="french">Quand (passé)</div>
+                <div class="type">Indéclinable - مَبْنِيّ</div>
+            </div>
+            <div class="adverb-card">
+                <div class="arabic">مَتَى</div>
+                <div class="french">Quand ? (interrogatif)</div>
+                <div class="type">Indéclinable - مَبْنِيّ</div>
+            </div>
+            <div class="adverb-card">
+                <div class="arabic">حَالَ</div>
+                <div class="french">Au moment de</div>
+                <div class="type">Déclinable - مُعْرَب</div>
+            </div>
+            <div class="adverb-card">
+                <div class="arabic">مَعَ</div>
+                <div class="french">Avec / Lors de</div>
+                <div class="type">Déclinable - مُعْرَب</div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px;">💡 Comment utiliser la ligne temporelle</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li>✨ <strong>Survolez</strong> les blocs d'adverbes pour les mettre en évidence</li>
+            <li>🎨 Les <strong>couleurs</strong> représentent les trois périodes temporelles</li>
+            <li>📊 La barre <strong>animée</strong> représente le flux du temps</li>
+            <li>🔤 <strong>Déclinable</strong> : change selon la fonction grammaticale</li>
+            <li>🔒 <strong>Indéclinable</strong> : forme fixe, ne change jamais</li>
+        </ul>
+    </div>
+
+    <script>
+        const adverbBlocks = document.querySelectorAll('.adverb-block');
+
+        adverbBlocks.forEach(block => {
+            block.addEventListener('click', function () {
+                adverbBlocks.forEach(b => b.style.opacity = '0.5');
+                this.style.opacity = '1';
+
+                setTimeout(() => {
+                    adverbBlocks.forEach(b => b.style.opacity = '1');
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

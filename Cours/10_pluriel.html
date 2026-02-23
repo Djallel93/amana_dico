@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les formes du pluriel en arabe</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        .exercise {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 2px solid #2196f3;
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(156, 39, 176, 0.3);
+        }
+
+        .info-box {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #03a9f4;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(3, 169, 244, 0.3);
+        }
+
+        .warning-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #f44336;
+            margin: 15px 0;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .visible {
+            opacity: 1 !important;
+            transform: translateX(0) translateY(0) scale(1) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Les formes du pluriel en arabe</h1>
+        <div class="arabic-title">الجَمْع</div>
+
+        <div class="intro scroll-animate">
+            <strong>Bienvenue dans ce cours sur le pluriel en arabe !</strong><br>
+            En arabe, le pluriel présente des particularités fascinantes et uniques. Contrairement au français qui
+            ajoute généralement un "-s", l'arabe dispose de deux systèmes distincts : le <strong>pluriel
+                régulier</strong> (appelé aussi "pluriel sain") et le <strong>pluriel irrégulier</strong> (appelé
+            "pluriel brisé"). Ce cours vous guidera à travers ces deux formes avec clarté et simplicité.
+        </div>
+
+        <h2 class="scroll-animate-left">📚 Les deux types de pluriel / نَوْعا الجَمْع</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Il existe <strong>deux types principaux de pluriel</strong> en arabe :</p>
+            <ul>
+                <li><strong>Le pluriel régulier (الجَمْعُ السالِمُ)</strong> : formation prévisible par ajout de
+                    suffixes</li>
+                <li><strong>Le pluriel brisé (جَمْعُ التَكْسِيرِ)</strong> : formation irrégulière avec modification
+                    interne du mot</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">👨 Le pluriel masculin régulier / جَمْعُ المُذَكَّرِ السالِم</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour former le pluriel masculin régulier, on remplace les terminaisons du singulier par ces deux
+                suffixes :</p>
+            <ul>
+                <li><strong>Cas sujet (مَرْفُوع)</strong> : <span class="arabic">ـونَ</span> /ūna/</li>
+                <li><strong>Cas direct (مَنْصوب) et indirect (مَجْرور)</strong> : <span class="arabic">ـِينَ</span>
+                    /īna/</li>
+            </ul>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Pluriel cas sujet</th>
+                    <th>Pluriel cas direct/indirect</th>
+                    <th>Singulier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">مُهَنْدِسُونَ</span></td>
+                    <td><span class="arabic">مُهَنْدِسِينَ</span></td>
+                    <td><span class="arabic">مُهَنْدِس</span><br>ingénieur</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمُونَ</span></td>
+                    <td><span class="arabic">مُعَلِّمِينَ</span></td>
+                    <td><span class="arabic">مُعَلِّم</span><br>enseignant</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طالِبُونَ</span></td>
+                    <td><span class="arabic">طالِبِينَ</span></td>
+                    <td><span class="arabic">طالِب</span><br>étudiant</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>📝 Modifications spécifiques :</strong>
+            <ul>
+                <li><strong>Pour les mots se terminant par <span class="arabic">اء</span></strong> : la hamza reste<br>
+                    Exemple : <span class="arabic">بَنّاءٌ ← بَنّاؤُونَ / بَنّائِينَ</span> (maçon → maçons)</li>
+                <li><strong>Pour les mots se terminant par <span class="arabic">ى</span></strong> : l'alif disparaît
+                    mais la fatḥa reste<br>
+                    Exemple : <span class="arabic">مُغَطًّى ← مُغَطَّونَ / مُغَطَّينَ</span> (couvert → couverts)</li>
+                <li><strong>Pour les participes actifs de verbes faibles</strong> : le kasra final et le <span
+                        class="arabic">ي</span> disparaissent<br>
+                    Exemple : <span class="arabic">راضٍ ← راضُونَ / راضِينَ</span> (satisfait → satisfaits)</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">👩 Le pluriel féminin régulier / جَمْعُ المُؤَنَّثِ السالِم</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Pour former le pluriel féminin régulier, on remplace les terminaisons du singulier (en enlevant le
+                <span class="arabic">ة</span> s'il est présent) par :
+            </p>
+            <ul>
+                <li><strong>Cas sujet (مَرْفُوع)</strong> : <span class="arabic">ـاتٌ</span> /ātun/</li>
+                <li><strong>Cas direct (مَنْصوب) et indirect (مَجْرور)</strong> : <span class="arabic">ـاتٍ</span>
+                    /ātin/</li>
+            </ul>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Pluriel (cas sujet)</th>
+                    <th>Pluriel (cas direct/indirect)</th>
+                    <th>Singulier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">مَلِكاتٌ</span></td>
+                    <td><span class="arabic">مَلِكاتٍ</span></td>
+                    <td><span class="arabic">مَلِكةٌ</span><br>reine</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّماتٌ</span></td>
+                    <td><span class="arabic">مُعَلِّماتٍ</span></td>
+                    <td><span class="arabic">مُعَلِّمةٌ</span><br>enseignante</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طالِباتٌ</span></td>
+                    <td><span class="arabic">طالِباتٍ</span></td>
+                    <td><span class="arabic">طالِبةٌ</span><br>étudiante</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-right">
+            <h4>🔍 Transformations particulières :</h4>
+            <p><strong>Pour les noms se terminant par <span class="arabic">ى</span>, <span class="arabic">اة</span> ou
+                    <span class="arabic">اء</span></strong> : ces terminaisons sont
+                remplacées par un <span class="arabic">و</span> ou un <span class="arabic">ي</span></p>
+            <ul>
+                <li><span class="arabic">قَناة ← قَنَوات</span> (canal → canaux)</li>
+                <li><span class="arabic">حَياة ← حَيَوات</span> (vie → vies)</li>
+                <li><span class="arabic">سَماء ← سَمَاوات</span> (ciel → cieux)</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">Exceptions à connaître</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Pluriel</th>
+                    <th>Singulier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">سَنَوات</span></td>
+                    <td><span class="arabic">سَنة</span> (année)</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">بَنات</span></td>
+                    <td><span class="arabic">بِنْت</span> (fille)</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أُمَّهات</span></td>
+                    <td><span class="arabic">أُمّ</span> (mère)</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">أَخَوات</span></td>
+                    <td><span class="arabic">أُخْت</span> (sœur)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">💫 Le pluriel brisé (irrégulier) / جَمْعُ التَكْسِير</h2>
+
+        <div class="intro scroll-animate">
+            Le <strong>pluriel brisé</strong> est une caractéristique unique de l'arabe. Il fonctionne comme les
+            pluriels irréguliers en français (par exemple : "œil → yeux", "cheval → chevaux"). La formation se fait par
+            des <span class="highlight">modifications internes du mot</span> plutôt que par simple ajout de suffixes.
+        </div>
+
+        <div class="warning-box scroll-animate-scale">
+            <strong>⚠️ Point important :</strong> Il n'existe pas de règle absolue pour créer des pluriels brisés à
+            partir des mots singuliers. Certains mots peuvent avoir plusieurs formes de pluriel. Le pluriel brisé est
+            <strong>utilisé plus fréquemment</strong> que le pluriel régulier en arabe.
+        </div>
+
+        <div class="info-box scroll-animate">
+            <strong>💡 Conseil pratique :</strong> Lors de l'apprentissage d'un nouveau mot en arabe, il est essentiel
+            de <span class="highlight">mémoriser simultanément sa forme au singulier ET au pluriel</span>. Avec
+            l'exposition à la langue, ces formes se mémorisent naturellement.
+        </div>
+
+        <h3 class="scroll-animate">Exemples courants de pluriel brisé</h3>
+
+        <div class="info-box scroll-animate">
+            <strong>💡 À savoir :</strong> Voici quelques transformations fréquentes que vous rencontrerez. L'objectif
+            n'est pas de les mémoriser toutes, mais de vous familiariser avec les changements internes qui se produisent
+            dans les mots.
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Singulier</th>
+                    <th>Pluriel</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">كِتاب</span></td>
+                    <td><span class="arabic">كُتُب</span></td>
+                    <td>livre → livres</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">وَلَد</span></td>
+                    <td><span class="arabic">أَوْلاد</span></td>
+                    <td>garçon → garçons</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">بَيْت</span></td>
+                    <td><span class="arabic">بُيُوت</span></td>
+                    <td>maison → maisons</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">رَجُل</span></td>
+                    <td><span class="arabic">رِجال</span></td>
+                    <td>homme → hommes</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">يَوْم</span></td>
+                    <td><span class="arabic">أَيّام</span></td>
+                    <td>jour → jours</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مَدِينة</span></td>
+                    <td><span class="arabic">مُدُن</span></td>
+                    <td>ville → villes</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">قَلْب</span></td>
+                    <td><span class="arabic">قُلُوب</span></td>
+                    <td>cœur → cœurs</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">صَدِيق</span></td>
+                    <td><span class="arabic">أَصْدِقاء</span></td>
+                    <td>ami → amis</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">شَهْر</span></td>
+                    <td><span class="arabic">أَشْهُر</span></td>
+                    <td>mois → mois</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">بَنْك</span></td>
+                    <td><span class="arabic">بُنُوك</span></td>
+                    <td>banque → banques</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">D'autres exemples de pluriels brisés</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Singulier</th>
+                    <th>Pluriel</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">قَلَم</span></td>
+                    <td><span class="arabic">أَقْلام</span></td>
+                    <td>stylo → stylos</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">دَرْس</span></td>
+                    <td><span class="arabic">دُرُوس</span></td>
+                    <td>leçon → leçons</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">سُوق</span></td>
+                    <td><span class="arabic">أَسْواق</span></td>
+                    <td>marché → marchés</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طالِب</span></td>
+                    <td><span class="arabic">طُلاّب</span></td>
+                    <td>étudiant → étudiants</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">صُورة</span></td>
+                    <td><span class="arabic">صُوَر</span></td>
+                    <td>image → images</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">جار</span></td>
+                    <td><span class="arabic">جِيران</span></td>
+                    <td>voisin → voisins</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">طَعام</span></td>
+                    <td><span class="arabic">أَطْعِمة</span></td>
+                    <td>nourriture → nourritures</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">قَصِيدة</span></td>
+                    <td><span class="arabic">قَصائِد</span></td>
+                    <td>poème → poèmes</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مَطْعَم</span></td>
+                    <td><span class="arabic">مَطاعِم</span></td>
+                    <td>restaurant → restaurants</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">عالِم</span></td>
+                    <td><span class="arabic">عُلَماء</span></td>
+                    <td>savant → savants</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">🧠 La notion de "doué de raison" / العاقِل</h2>
+
+        <div class="intro scroll-animate">
+            En arabe, il existe une distinction importante entre les êtres <strong>doués de raison</strong> (العاقِل) et
+            ceux qui <strong>ne le sont pas</strong> (غَيْر العاقِل). Cette distinction influence le choix du type de
+            pluriel à utiliser.
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>📌 Définition :</strong>
+            <ul>
+                <li><strong>Doués de raison (العاقِل)</strong> : les êtres humains (hommes, femmes, enfants)</li>
+                <li><strong>Non doués de raison (غَيْر العاقِل)</strong> : les animaux, les objets, les plantes, les
+                    concepts abstraits</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">Règles d'utilisation du pluriel selon cette distinction</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>Pour les êtres humains (doués de raison) :</strong>
+            <ul>
+                <li><strong>Masculin :</strong> on utilise généralement le <span class="highlight">pluriel masculin
+                        régulier</span> <span class="arabic">ـون / ـين</span></li>
+                <li><strong>Féminin :</strong> on utilise généralement le <span class="highlight">pluriel féminin
+                        régulier</span> <span class="arabic">ـات</span></li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>💡 Exemples pour les êtres doués de raison :</h4>
+            <ul>
+                <li><span class="arabic">مُعَلِّم ← مُعَلِّمون</span> (enseignant → enseignants) - pluriel régulier</li>
+                <li><span class="arabic">طالِبة ← طالِبات</span> (étudiante → étudiantes) - pluriel régulier</li>
+                <li><span class="arabic">طَبِيب ← أَطِبّاء</span> (médecin → médecins) - pluriel brisé également
+                    possible</li>
+            </ul>
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>Pour les êtres non doués de raison :</strong>
+            <ul>
+                <li>On utilise généralement le <span class="highlight">pluriel brisé</span></li>
+                <li>Ces pluriels sont traités grammaticalement comme des <strong>féminins singuliers</strong> dans les
+                    accords</li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>💡 Exemples pour les êtres non doués de raison :</h4>
+            <ul>
+                <li><span class="arabic">كِتاب ← كُتُب</span> (livre → livres) - pluriel brisé</li>
+                <li><span class="arabic">حَيَوان ← حَيَوانات</span> (animal → animaux) - pluriel féminin régulier</li>
+                <li><span class="arabic">شَجَرة ← أَشْجار</span> (arbre → arbres) - pluriel brisé</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">🎯 Comment choisir entre pluriel régulier et pluriel brisé ?</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>Principes généraux :</strong>
+            <ul>
+                <li><strong>Pluriel masculin régulier :</strong> souvent utilisé pour les noms de métiers, les
+                    participes actifs et certains adjectifs masculins</li>
+                <li><strong>Pluriel féminin régulier :</strong> principalement pour les entités humaines féminines et
+                    certains noms non-humains</li>
+                <li><strong>Pluriel brisé :</strong> très fréquent, utilisé pour la majorité des noms (objets, animaux,
+                    concepts abstraits) et certains humains</li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>💡 Exemples comparatifs :</h4>
+            <ul>
+                <li><strong>Entités humaines masculines :</strong> souvent pluriel régulier<br>
+                    <span class="arabic">مُعَلِّم ← مُعَلِّمون</span> (enseignant → enseignants)
+                </li>
+                <li><strong>Entités humaines féminines :</strong> souvent pluriel régulier<br>
+                    <span class="arabic">مُعَلِّمة ← مُعَلِّمات</span> (enseignante → enseignantes)
+                </li>
+                <li><strong>Objets et concepts :</strong> généralement pluriel brisé<br>
+                    <span class="arabic">كِتاب ← كُتُب</span> (livre → livres)
+                </li>
+            </ul>
+        </div>
+
+        <div class="warning-box scroll-animate">
+            <strong>⚠️ Attention :</strong> Certains mots peuvent avoir <strong>à la fois</strong> une forme de pluriel
+            régulier ET une forme de pluriel brisé, parfois avec des nuances de sens différentes !
+        </div>
+
+        <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+
+        <div class="rule-box scroll-animate">
+            <ul>
+                <li>L'arabe possède <strong>deux types principaux de pluriel</strong> : régulier et brisé</li>
+                <li>Le <strong>pluriel masculin régulier</strong> utilise les suffixes <span class="arabic">ـون</span>
+                    (cas sujet) et <span class="arabic">ـين</span> (autres cas)</li>
+                <li>Le <strong>pluriel féminin régulier</strong> utilise les suffixes <span class="arabic">ـات</span>
+                    (avec tanwīn selon le caractère défini/indéfini)</li>
+                <li>Le <strong>pluriel brisé</strong> modifie la structure interne du mot selon de nombreuses
+                    transformations
+                    différentes</li>
+                <li>La distinction entre <span class="highlight">doués de raison</span> (êtres humains) et <span
+                        class="highlight">non doués de raison</span> (animaux, objets) influence le choix du pluriel
+                </li>
+                <li>Pour les <strong>êtres humains</strong>, on utilise généralement les pluriels réguliers</li>
+                <li>Pour les <strong>animaux et objets</strong>, on utilise généralement le pluriel brisé</li>
+                <li>Il est <span class="highlight">essentiel de mémoriser chaque nom avec sa forme plurielle</span> lors
+                    de l'apprentissage</li>
+                <li>Le pluriel brisé est <strong>plus fréquent</strong> en arabe que le pluriel régulier</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

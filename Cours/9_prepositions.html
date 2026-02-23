@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les prépositions en arabe - Cours</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3);
+        }
+
+        .prep-card {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #2196f3;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .prep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+        }
+
+        .prep-card h4 {
+            color: #1976d2;
+            margin-top: 0;
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+                font-size: 0.85em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .intro,
+            .note,
+            .example-box,
+            .rule-box,
+            .prep-card {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            table {
+                font-size: 0.8em;
+            }
+
+            th,
+            td {
+                padding: 6px 3px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Les prépositions en arabe</h1>
+        <div class="arabic-title">حُرُوفُ الجَرّ</div>
+
+        <div class="intro">
+            Bienvenue dans cette leçon sur les prépositions en arabe ! Les prépositions (حُرُوفُ الجَرّ) sont des
+            particules essentielles qui établissent des relations entre les mots dans une phrase. Elles indiquent le
+            lieu, le temps, la direction, la possession et bien d'autres rapports. En arabe, les prépositions ont une
+            particularité importante : elles régissent toujours le cas <span class="highlight">génitif</span>
+            (المَجْرُور) du nom qui les suit.
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Règle fondamentale :</strong> Toute préposition en arabe est suivie d'un nom au <span
+                class="highlight">cas génitif (مَجْرُور)</span>, marqué par la kasra (ـِ) ou le tanwin kasra (ـٍ).
+        </div>
+
+        <h2 class="scroll-animate-left">📚 I. Qu'est-ce qu'une préposition ?</h2>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Définition :</strong> Les prépositions (حُرُوفُ الجَرّ) sont des particules invariables qui
+                établissent un lien grammatical entre deux éléments de la phrase. Le mot qui suit la préposition est
+                appelé "nom régi" (اسْمٌ مَجْرُور) et prend obligatoirement le cas génitif.</p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>📝 Exemple de base :</h4>
+            <ul>
+                <li><span class="arabic">ذَهَبْتُ إِلَى المَدْرَسَةِ</span> → Je suis allé(e) à l'école
+                    <ul>
+                        <li><span class="arabic">إِلَى</span> = préposition (vers, à)</li>
+                        <li><span class="arabic">المَدْرَسَةِ</span> = nom au génitif (marqué par la kasra)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">🔤 II. Les principales prépositions en arabe</h2>
+
+        <div class="intro scroll-animate">
+            L'arabe possède 21 prépositions principales. Certaines sont très courantes et utilisées quotidiennement,
+            tandis que d'autres sont plus littéraires. Nous allons étudier les plus importantes en détail.
+        </div>
+
+        <h3 class="scroll-animate">A. Les prépositions les plus courantes</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Préposition</th>
+                    <th>Arabe</th>
+                    <th>Sens principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>مِنْ</strong></td>
+                    <td class="arabic">مِنْ</td>
+                    <td>de, depuis, à partir de</td>
+                </tr>
+                <tr>
+                    <td><strong>إِلَى</strong></td>
+                    <td class="arabic">إِلَى</td>
+                    <td>vers, à, jusqu'à</td>
+                </tr>
+                <tr>
+                    <td><strong>فِي</strong></td>
+                    <td class="arabic">فِي</td>
+                    <td>dans, en, à</td>
+                </tr>
+                <tr>
+                    <td><strong>عَلَى</strong></td>
+                    <td class="arabic">عَلَى</td>
+                    <td>sur, au-dessus de</td>
+                </tr>
+                <tr>
+                    <td><strong>عَنْ</strong></td>
+                    <td class="arabic">عَنْ</td>
+                    <td>de, au sujet de, à propos de</td>
+                </tr>
+                <tr>
+                    <td><strong>بِ</strong></td>
+                    <td class="arabic">بِ</td>
+                    <td>avec, par, à</td>
+                </tr>
+                <tr>
+                    <td><strong>لِ</strong></td>
+                    <td class="arabic">لِ</td>
+                    <td>pour, à, de</td>
+                </tr>
+                <tr>
+                    <td><strong>كَ</strong></td>
+                    <td class="arabic">كَ</td>
+                    <td>comme, tel que</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="scroll-animate">B. Prépositions de lieu</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Préposition</th>
+                    <th>Arabe</th>
+                    <th>Sens</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>أَمَامَ</strong></td>
+                    <td class="arabic">أَمَامَ</td>
+                    <td>devant</td>
+                </tr>
+                <tr>
+                    <td><strong>خَلْفَ</strong></td>
+                    <td class="arabic">خَلْفَ</td>
+                    <td>derrière</td>
+                </tr>
+                <tr>
+                    <td><strong>فَوْقَ</strong></td>
+                    <td class="arabic">فَوْقَ</td>
+                    <td>au-dessus de</td>
+                </tr>
+                <tr>
+                    <td><strong>تَحْتَ</strong></td>
+                    <td class="arabic">تَحْتَ</td>
+                    <td>sous, en-dessous de</td>
+                </tr>
+                <tr>
+                    <td><strong>بَيْنَ</strong></td>
+                    <td class="arabic">بَيْنَ</td>
+                    <td>entre (deux éléments)</td>
+                </tr>
+                <tr>
+                    <td><strong>عِنْدَ</strong></td>
+                    <td class="arabic">عِنْدَ</td>
+                    <td>chez, auprès de</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">📖 III. Étude détaillée des prépositions principales</h2>
+
+        <div class="prep-card scroll-animate">
+            <h4>1. <span class="arabic">مِنْ</span> (min) - De, depuis, à partir de</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Point de départ spatial :</strong> de, depuis
+                    <ul>
+                        <li><span class="arabic">جِئْتُ مِنَ البَيْتِ</span> → Je suis venu de la maison</li>
+                        <li><span class="arabic">سَافَرْتُ مِنْ بَارِيسَ إِلَى لَنْدَنَ</span> → J'ai voyagé de Paris à
+                            Londres</li>
+                    </ul>
+                </li>
+                <li><strong>Point de départ temporel :</strong> depuis, à partir de
+                    <ul>
+                        <li><span class="arabic">مِنَ الصَّبَاحِ</span> → Depuis le matin</li>
+                        <li><span class="arabic">مِنْ يَوْمِ الاِثْنَيْنِ</span> → À partir de lundi</li>
+                    </ul>
+                </li>
+                <li><strong>Partie d'un tout :</strong> de, parmi
+                    <ul>
+                        <li><span class="arabic">وَاحِدٌ مِنَ الطُّلَّابِ</span> → Un des étudiants</li>
+                        <li><span class="arabic">بَعْضٌ مِنَ الكُتُبِ</span> → Quelques-uns des livres</li>
+                    </ul>
+                </li>
+                <li><strong>Cause :</strong> de, à cause de
+                    <ul>
+                        <li><span class="arabic">أَرْتَعِشُ مِنَ البَرْدِ</span> → Je tremble de froid</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4>2. <span class="arabic">إِلَى</span> (ilā) - Vers, à, jusqu'à</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Direction, destination :</strong> vers, à
+                    <ul>
+                        <li><span class="arabic">ذَهَبْتُ إِلَى المَدْرَسَةِ</span> → Je suis allé(e) à l'école</li>
+                        <li><span class="arabic">سَافَرَ إِلَى مِصْرَ</span> → Il a voyagé vers l'Égypte</li>
+                    </ul>
+                </li>
+                <li><strong>Limite temporelle :</strong> jusqu'à
+                    <ul>
+                        <li><span class="arabic">مِنَ الاِثْنَيْنِ إِلَى الجُمُعَةِ</span> → De lundi à vendredi</li>
+                        <li><span class="arabic">إِلَى الغَدِ</span> → Jusqu'à demain</li>
+                    </ul>
+                </li>
+                <li><strong>But :</strong> pour, en vue de
+                    <ul>
+                        <li><span class="arabic">يَسْعَى إِلَى النَّجَاحِ</span> → Il aspire au succès</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4>3. <span class="arabic">فِي</span> (fī) - Dans, en, à</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Localisation dans un lieu :</strong> dans, à
+                    <ul>
+                        <li><span class="arabic">أَسْكُنُ فِي بَارِيسَ</span> → J'habite à Paris</li>
+                        <li><span class="arabic">الكِتَابُ فِي الحَقِيبَةِ</span> → Le livre est dans le sac</li>
+                    </ul>
+                </li>
+                <li><strong>Moment dans le temps :</strong> en, à, pendant
+                    <ul>
+                        <li><span class="arabic">فِي الصَّبَاحِ</span> → Le matin</li>
+                        <li><span class="arabic">فِي شَهْرِ رَمَضَانَ</span> → Pendant le mois de Ramadan</li>
+                    </ul>
+                </li>
+                <li><strong>Domaine, sujet :</strong> en, dans
+                    <ul>
+                        <li><span class="arabic">خَبِيرٌ فِي الرِّيَاضِيَّاتِ</span> → Expert en mathématiques</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4>4. <span class="arabic">عَلَى</span> (ʿalā) - Sur, au-dessus de</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Position supérieure :</strong> sur
+                    <ul>
+                        <li><span class="arabic">الكِتَابُ عَلَى الطَّاوِلَةِ</span> → Le livre est sur la table</li>
+                        <li><span class="arabic">الصُّورَةُ عَلَى الجِدَارِ</span> → L'image est sur le mur</li>
+                    </ul>
+                </li>
+                <li><strong>Obligation, responsabilité :</strong> à (quelqu'un de faire)
+                    <ul>
+                        <li><span class="arabic">عَلَيْكَ أَنْ تَدْرُسَ</span> → Tu dois étudier</li>
+                        <li><span class="arabic">عَلَيْهِ دَيْنٌ</span> → Il a une dette (sur lui pèse une dette)</li>
+                    </ul>
+                </li>
+                <li><strong>Opposition :</strong> contre
+                    <ul>
+                        <li><span class="arabic">حَرْبٌ عَلَى العَدُوِّ</span> → Guerre contre l'ennemi</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4>5. <span class="arabic">عَنْ</span> (ʿan) - De, au sujet de</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Éloignement :</strong> de, loin de
+                    <ul>
+                        <li><span class="arabic">ابْتَعَدَ عَنِ المَدِينَةِ</span> → Il s'est éloigné de la ville</li>
+                    </ul>
+                </li>
+                <li><strong>Sujet, propos :</strong> au sujet de, à propos de
+                    <ul>
+                        <li><span class="arabic">تَحَدَّثَ عَنِ السَّفَرِ</span> → Il a parlé du voyage</li>
+                        <li><span class="arabic">بَحَثَ عَنِ الحَقِيقَةِ</span> → Il a cherché la vérité</li>
+                    </ul>
+                </li>
+                <li><strong>Substitution :</strong> à la place de, pour
+                    <ul>
+                        <li><span class="arabic">نَابَ عَنْهُ</span> → Il l'a remplacé</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4>6. <span class="arabic">بِ</span> (bi) - Avec, par, à</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Accompagnement :</strong> avec
+                    <ul>
+                        <li><span class="arabic">كَتَبْتُ بِالقَلَمِ</span> → J'ai écrit avec le stylo</li>
+                    </ul>
+                </li>
+                <li><strong>Moyen, instrument :</strong> par, au moyen de
+                    <ul>
+                        <li><span class="arabic">سَافَرْتُ بِالطَّائِرَةِ</span> → J'ai voyagé en avion</li>
+                        <li><span class="arabic">قَطَعَ بِالسِّكِّينِ</span> → Il a coupé avec le couteau</li>
+                    </ul>
+                </li>
+                <li><strong>Attachement :</strong> à
+                    <ul>
+                        <li><span class="arabic">مَرْحَبًا بِكَ</span> → Bienvenue (à toi)</li>
+                    </ul>
+                </li>
+                <li><strong>Prix :</strong> pour, à
+                    <ul>
+                        <li><span class="arabic">اشْتَرَيْتُهُ بِعَشَرَةِ دَنَانِيرَ</span> → Je l'ai acheté pour dix
+                            dinars</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4>7. <span class="arabic">لِ</span> (li) - Pour, à, de</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Possession :</strong> à, de
+                    <ul>
+                        <li><span class="arabic">هَذَا الكِتَابُ لِي</span> → Ce livre est à moi</li>
+                        <li><span class="arabic">البَيْتُ لِأَحْمَدَ</span> → La maison est à Ahmad</li>
+                    </ul>
+                </li>
+                <li><strong>But, destination :</strong> pour
+                    <ul>
+                        <li><span class="arabic">هَدِيَّةٌ لَكَ</span> → Un cadeau pour toi</li>
+                        <li><span class="arabic">أَدْرُسُ لِلاِمْتِحَانِ</span> → J'étudie pour l'examen</li>
+                    </ul>
+                </li>
+                <li><strong>Cause :</strong> à cause de
+                    <ul>
+                        <li><span class="arabic">فَرِحْتُ لِنَجَاحِهِ</span> → Je me suis réjoui de sa réussite</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4>8. <span class="arabic">كَ</span> (ka) - Comme, tel que</h4>
+            <p><strong>Significations principales :</strong></p>
+            <ul>
+                <li><strong>Comparaison :</strong> comme, tel que
+                    <ul>
+                        <li><span class="arabic">هُوَ كَالأَسَدِ</span> → Il est comme un lion</li>
+                        <li><span class="arabic">كَالشَّمْسِ</span> → Comme le soleil</li>
+                    </ul>
+                </li>
+                <li><strong>Approximation :</strong> environ, à peu près
+                    <ul>
+                        <li><span class="arabic">كَسَاعَةٍ</span> → Environ une heure</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">⚙️ IV. Règles grammaticales importantes</h2>
+
+        <h3 class="scroll-animate">A. Le cas génitif après les prépositions</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Règle absolue :</strong> Tout nom qui suit une préposition doit être au <span
+                    class="highlight">cas génitif (مَجْرُور)</span>.</p>
+            <p><strong>Marqueurs du génitif :</strong></p>
+            <ul>
+                <li>Nom défini : kasra (ـِ) → <span class="arabic">مِنَ البَيْتِ</span></li>
+                <li>Nom indéfini : tanwin kasra (ـٍ) → <span class="arabic">فِي بَيْتٍ</span></li>
+                <li>Duel : <span class="arabic">يْنِ-</span> → <span class="arabic">بَيْنَ الطَّالِبَيْنِ</span></li>
+                <li>Pluriel masculin sain : <span class="arabic">ينَ-</span> → <span class="arabic">مَعَ
+                        المُعَلِّمِينَ</span></li>
+            </ul>
+        </div>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples de cas génitif :</h4>
+            <ul>
+                <li><span class="arabic">ذَهَبْتُ إِلَى المَدْرَسَةِ</span> → Je suis allé(e) à l'école
+                    <br>(المَدْرَسَةِ avec kasra car défini)
+                </li>
+                <li><span class="arabic">جَلَسْتُ فِي حَدِيقَةٍ</span> → Je me suis assis(e) dans un jardin
+                    <br>(حَدِيقَةٍ avec tanwin kasra car indéfini)
+                </li>
+                <li><span class="arabic">تَحَدَّثْتُ مَعَ الطُّلَّابِ</span> → J'ai parlé avec les étudiants
+                    <br>(الطُّلَّابِ avec kasra, pluriel irrégulier)
+                </li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">B. Les prépositions monosyllabiques (بِ، لِ، كَ)</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p><strong>Particularité :</strong> Les prépositions <span class="arabic">بِ</span>, <span
+                    class="arabic">لِ</span> et <span class="arabic">كَ</span> sont des lettres uniques qui <span
+                    class="highlight">s'attachent directement</span> au mot qui suit.</p>
+        </div>
+
+        <div class="example-box scroll-animate-right">
+            <h4>✏️ Exemples d'attachement :</h4>
+            <ul>
+                <li><span class="arabic">بِ + القَلَم = بِالقَلَمِ</span> → avec le stylo</li>
+                <li><span class="arabic">لِ + الطَّالِب = لِلطَّالِبِ</span> → pour/à l'étudiant</li>
+                <li><span class="arabic">كَ + الشَّمْس = كَالشَّمْسِ</span> → comme le soleil</li>
+                <li><span class="arabic">بِ + كِتَاب = بِكِتَابٍ</span> → avec un livre</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>⚠️ Attention :</strong> Quand <span class="arabic">لِ</span> ou <span class="arabic">بِ</span>
+            précèdent l'article défini <span class="arabic">ال</span>, on assimile la voyelle :
+            <ul>
+                <li><span class="arabic">لِ + ال = لِلْ</span> (prononcé "lil")</li>
+                <li><span class="arabic">بِ + ال = بِالْ</span> (prononcé "bil")</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">C. Prépositions avec pronoms suffixes</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <p>Les prépositions peuvent se combiner avec les pronoms personnels suffixes pour former un ensemble.</p>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Pronom</th>
+                    <th>مِنْ</th>
+                    <th>إِلَى</th>
+                    <th>فِي</th>
+                    <th>عَلَى</th>
+                    <th>لِ</th>
+                    <th>بِ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>moi</td>
+                    <td class="arabic">مِنِّي</td>
+                    <td class="arabic">إِلَيَّ</td>
+                    <td class="arabic">فِيَّ</td>
+                    <td class="arabic">عَلَيَّ</td>
+                    <td class="arabic">لِي</td>
+                    <td class="arabic">بِي</td>
+                </tr>
+                <tr>
+                    <td>toi (m)</td>
+                    <td class="arabic">مِنْكَ</td>
+                    <td class="arabic">إِلَيْكَ</td>
+                    <td class="arabic">فِيكَ</td>
+                    <td class="arabic">عَلَيْكَ</td>
+                    <td class="arabic">لَكَ</td>
+                    <td class="arabic">بِكَ</td>
+                </tr>
+                <tr>
+                    <td>toi (f)</td>
+                    <td class="arabic">مِنْكِ</td>
+                    <td class="arabic">إِلَيْكِ</td>
+                    <td class="arabic">فِيكِ</td>
+                    <td class="arabic">عَلَيْكِ</td>
+                    <td class="arabic">لَكِ</td>
+                    <td class="arabic">بِكِ</td>
+                </tr>
+                <tr>
+                    <td>lui</td>
+                    <td class="arabic">مِنْهُ</td>
+                    <td class="arabic">إِلَيْهِ</td>
+                    <td class="arabic">فِيهِ</td>
+                    <td class="arabic">عَلَيْهِ</td>
+                    <td class="arabic">لَهُ</td>
+                    <td class="arabic">بِهِ</td>
+                </tr>
+                <tr>
+                    <td>elle</td>
+                    <td class="arabic">مِنْهَا</td>
+                    <td class="arabic">إِلَيْهَا</td>
+                    <td class="arabic">فِيهَا</td>
+                    <td class="arabic">عَلَيْهَا</td>
+                    <td class="arabic">لَهَا</td>
+                    <td class="arabic">بِهَا</td>
+                </tr>
+                <tr>
+                    <td>nous</td>
+                    <td class="arabic">مِنَّا</td>
+                    <td class="arabic">إِلَيْنَا</td>
+                    <td class="arabic">فِينَا</td>
+                    <td class="arabic">عَلَيْنَا</td>
+                    <td class="arabic">لَنَا</td>
+                    <td class="arabic">بِنَا</td>
+                </tr>
+                <tr>
+                    <td>vous (m pl)</td>
+                    <td class="arabic">مِنْكُمْ</td>
+                    <td class="arabic">إِلَيْكُمْ</td>
+                    <td class="arabic">فِيكُمْ</td>
+                    <td class="arabic">عَلَيْكُمْ</td>
+                    <td class="arabic">لَكُمْ</td>
+                    <td class="arabic">بِكُمْ</td>
+                </tr>
+                <tr>
+                    <td>eux</td>
+                    <td class="arabic">مِنْهُمْ</td>
+                    <td class="arabic">إِلَيْهِمْ</td>
+                    <td class="arabic">فِيهِمْ</td>
+                    <td class="arabic">عَلَيْهِمْ</td>
+                    <td class="arabic">لَهُمْ</td>
+                    <td class="arabic">بِهِمْ</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate-left">
+            <h4>📝 Exemples avec pronoms :</h4>
+            <ul>
+                <li><span class="arabic">جِئْتُ إِلَيْكَ</span> → Je suis venu vers toi</li>
+                <li><span class="arabic">هَذَا الكِتَابُ لِي</span> → Ce livre est à moi</li>
+                <li><span class="arabic">تَحَدَّثَ عَنْهَا</span> → Il a parlé d'elle</li>
+                <li><span class="arabic">ذَهَبْتُ مَعَهُمْ</span> → Je suis allé(e) avec eux</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">🌍 V. Prépositions de lieu détaillées</h2>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">أَمَامَ</span> (amāma) - Devant</h4>
+            <ul>
+                <li><span class="arabic">وَقَفْتُ أَمَامَ البَابِ</span> → Je me suis tenu(e) devant la porte</li>
+                <li><span class="arabic">السَّيَّارَةُ أَمَامَ البَيْتِ</span> → La voiture est devant la maison</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">خَلْفَ</span> (khalfa) - Derrière</h4>
+            <ul>
+                <li><span class="arabic">الحَدِيقَةُ خَلْفَ المَنْزِلِ</span> → Le jardin est derrière la maison</li>
+                <li><span class="arabic">جَلَسَ خَلْفِي</span> → Il s'est assis derrière moi</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">فَوْقَ</span> (fawqa) - Au-dessus de, sur</h4>
+            <ul>
+                <li><span class="arabic">الطَّائِرُ فَوْقَ الشَّجَرَةِ</span> → L'oiseau est au-dessus de l'arbre</li>
+                <li><span class="arabic">السَّمَاءُ فَوْقَنَا</span> → Le ciel est au-dessus de nous</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">تَحْتَ</span> (taḥta) - Sous, en-dessous de</h4>
+            <ul>
+                <li><span class="arabic">القِطُّ تَحْتَ الطَّاوِلَةِ</span> → Le chat est sous la table</li>
+                <li><span class="arabic">جَلَسْنَا تَحْتَ الشَّجَرَةِ</span> → Nous nous sommes assis sous l'arbre</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">بَيْنَ</span> (bayna) - Entre</h4>
+            <ul>
+                <li><span class="arabic">جَلَسْتُ بَيْنَ أَحْمَدَ وَفَاطِمَةَ</span> → Je me suis assis(e) entre Ahmad
+                    et Fatima</li>
+                <li><span class="arabic">العَلَاقَةُ بَيْنَ البَلَدَيْنِ</span> → La relation entre les deux pays</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">عِنْدَ</span> (ʿinda) - Chez, auprès de, à</h4>
+            <ul>
+                <li><span class="arabic">أَنَا عِنْدَ صَدِيقِي</span> → Je suis chez mon ami</li>
+                <li><span class="arabic">عِنْدِي كِتَابٌ</span> → J'ai un livre (chez moi il y a un livre)</li>
+                <li><span class="arabic">المَوْعِدُ عِنْدَ الظُّهْرِ</span> → Le rendez-vous est à midi</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">🕐 VI. Prépositions de temps</h2>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">مُنْذُ / مُذْ</span> (mundhu / mudh) - Depuis, il y a</h4>
+            <ul>
+                <li><span class="arabic">لَمْ أَرَهُ مُنْذُ سَنَةٍ</span> → Je ne l'ai pas vu depuis un an</li>
+                <li><span class="arabic">مُنْذُ الصَّبَاحِ</span> → Depuis le matin</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">حَتَّى</span> (ḥattā) - Jusqu'à</h4>
+            <ul>
+                <li><span class="arabic">انْتَظَرْتُهُ حَتَّى المَسَاءِ</span> → Je l'ai attendu jusqu'au soir</li>
+                <li><span class="arabic">مِنَ الإِثْنَيْنِ حَتَّى الجُمُعَةِ</span> → Du lundi jusqu'à vendredi</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">قَبْلَ</span> (qabla) - Avant</h4>
+            <ul>
+                <li><span class="arabic">قَبْلَ الظُّهْرِ</span> → Avant midi</li>
+                <li><span class="arabic">قَبْلَ سَنَةٍ</span> → Il y a un an (avant une année)</li>
+            </ul>
+        </div>
+
+        <div class="prep-card scroll-animate">
+            <h4><span class="arabic">بَعْدَ</span> (baʿda) - Après</h4>
+            <ul>
+                <li><span class="arabic">بَعْدَ الدَّرْسِ</span> → Après le cours</li>
+                <li><span class="arabic">بَعْدَ قَلِيلٍ</span> → Après un peu (sous peu)</li>
+            </ul>
+        </div>
+
+        <h2 class="scroll-animate-left">💬 VII. Dialogues pratiques</h2>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 1 : Au marché</h4>
+            <p><strong>A:</strong> <span class="arabic">مِنْ أَيْنَ أَنْتَ؟</span><br>
+                D'où es-tu ?</p>
+            <p><strong>B:</strong> <span class="arabic">أَنَا مِنْ فَرَنْسَا</span><br>
+                Je suis de France</p>
+            <p><strong>A:</strong> <span class="arabic">وَمَاذَا تَعْمَلُ فِي المَغْرِبِ؟</span><br>
+                Et que fais-tu au Maroc ?</p>
+            <p><strong>B:</strong> <span class="arabic">أَدْرُسُ اللُّغَةَ العَرَبِيَّةَ فِي الجَامِعَةِ</span><br>
+                J'étudie la langue arabe à l'université</p>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 2 : Directions</h4>
+            <p><strong>A:</strong> <span class="arabic">أَيْنَ المَسْجِدُ؟</span><br>
+                Où est la mosquée ?</p>
+            <p><strong>B:</strong> <span class="arabic">المَسْجِدُ بَيْنَ المَدْرَسَةِ وَالسُّوقِ</span><br>
+                La mosquée est entre l'école et le marché</p>
+            <p><strong>A:</strong> <span class="arabic">كَيْفَ أَذْهَبُ إِلَيْهِ؟</span><br>
+                Comment j'y vais ?</p>
+            <p><strong>B:</strong> <span class="arabic">اِمْشِ إِلَى الأَمَامِ، ثُمَّ اِنْعَطِفْ عَلَى
+                    اليَمِينِ</span><br>
+                Marche tout droit, puis tourne à droite</p>
+        </div>
+
+        <div class="example-box scroll-animate">
+            <h4>🗨️ Dialogue 3 : Rendez-vous</h4>
+            <p><strong>A:</strong> <span class="arabic">مَتَى نَلْتَقِي؟</span><br>
+                Quand nous rencontrons-nous ?</p>
+            <p><strong>B:</strong> <span class="arabic">عِنْدَ السَّاعَةِ الثَّالِثَةِ مَسَاءً</span><br>
+                À trois heures de l'après-midi</p>
+            <p><strong>A:</strong> <span class="arabic">أَيْنَ؟</span><br>
+                Où ?</p>
+            <p><strong>B:</strong> <span class="arabic">فِي المَقْهَى الَّذِي أَمَامَ المَكْتَبَةِ</span><br>
+                Dans le café qui est devant la bibliothèque</p>
+        </div>
+
+        <h2 class="scroll-animate-left">📋 VIII. Liste complète des 21 prépositions</h2>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Préposition</th>
+                    <th>Arabe</th>
+                    <th>Sens principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>min</td>
+                    <td class="arabic">مِنْ</td>
+                    <td>de, depuis</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ilā</td>
+                    <td class="arabic">إِلَى</td>
+                    <td>vers, à</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>fī</td>
+                    <td class="arabic">فِي</td>
+                    <td>dans, en</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>ʿalā</td>
+                    <td class="arabic">عَلَى</td>
+                    <td>sur</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>ʿan</td>
+                    <td class="arabic">عَنْ</td>
+                    <td>de, au sujet de</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>bi</td>
+                    <td class="arabic">بِ</td>
+                    <td>avec, par</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>li</td>
+                    <td class="arabic">لِ</td>
+                    <td>pour, à</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>ka</td>
+                    <td class="arabic">كَ</td>
+                    <td>comme</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>mundhu</td>
+                    <td class="arabic">مُنْذُ</td>
+                    <td>depuis</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>ḥattā</td>
+                    <td class="arabic">حَتَّى</td>
+                    <td>jusqu'à</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>ʿinda</td>
+                    <td class="arabic">عِنْدَ</td>
+                    <td>chez, auprès de</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>maʿa</td>
+                    <td class="arabic">مَعَ</td>
+                    <td>avec</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>bayna</td>
+                    <td class="arabic">بَيْنَ</td>
+                    <td>entre</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>qabla</td>
+                    <td class="arabic">قَبْلَ</td>
+                    <td>avant</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>baʿda</td>
+                    <td class="arabic">بَعْدَ</td>
+                    <td>après</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>fawqa</td>
+                    <td class="arabic">فَوْقَ</td>
+                    <td>au-dessus de</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>taḥta</td>
+                    <td class="arabic">تَحْتَ</td>
+                    <td>sous</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>amāma</td>
+                    <td class="arabic">أَمَامَ</td>
+                    <td>devant</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>khalfa</td>
+                    <td class="arabic">خَلْفَ</td>
+                    <td>derrière</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>rubba</td>
+                    <td class="arabic">رُبَّ</td>
+                    <td>combien de (rare)</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>wāw al-qasam</td>
+                    <td class="arabic">وَ</td>
+                    <td>par (serment)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="scroll-animate-left">📚 Résumé des règles essentielles</h2>
+
+        <div class="rule-box scroll-animate">
+            <h3>🎯 Points clés à retenir :</h3>
+            <ul>
+                <li><strong>Règle d'or :</strong> Toute préposition impose le <span class="highlight">cas génitif
+                        (مَجْرُور)</span> au nom qui suit</li>
+                <li><strong>Marqueurs du génitif :</strong> kasra (ـِ) pour les définis, tanwin kasra (ـٍ) pour les
+                    indéfinis</li>
+                <li><strong>Prépositions monosyllabiques :</strong> <span class="arabic">بِ، لِ، كَ</span> s'attachent
+                    directement au mot</li>
+                <li><strong>Avec pronoms :</strong> Les prépositions se combinent avec les pronoms suffixes</li>
+                <li><strong>Polysémie :</strong> Une même préposition peut avoir plusieurs sens selon le contexte</li>
+            </ul>
+        </div>
+
+        <div class="rule-box scroll-animate">
+            <h3>📖 Les 8 prépositions essentielles :</h3>
+            <ul>
+                <li><span class="arabic">مِنْ</span> - origine, point de départ</li>
+                <li><span class="arabic">إِلَى</span> - destination, direction</li>
+                <li><span class="arabic">فِي</span> - localisation dans un lieu ou temps</li>
+                <li><span class="arabic">عَلَى</span> - position supérieure, obligation</li>
+                <li><span class="arabic">عَنْ</span> - éloignement, sujet</li>
+                <li><span class="arabic">بِ</span> - instrument, moyen</li>
+                <li><span class="arabic">لِ</span> - possession, but</li>
+                <li><span class="arabic">كَ</span> - comparaison</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Astuce pratique :</strong> Pour bien maîtriser les prépositions, pratiquez-les dans des phrases
+            complètes et mémorisez les expressions courantes. Les prépositions sont souvent idiomatiques et leur usage
+            précis s'apprend par la pratique régulière.
+        </div>
+
+        <div class="example-box scroll-animate-scale">
+            <h4>✨ Phrases récapitulatives :</h4>
+            <ul>
+                <li><span class="arabic">سَافَرْتُ مِنْ بَارِيسَ إِلَى القَاهِرَةِ</span> → J'ai voyagé de Paris au
+                    Caire</li>
+                <li><span class="arabic">أَسْكُنُ فِي شَقَّةٍ فَوْقَ المَقْهَى</span> → J'habite dans un appartement
+                    au-dessus du café</li>
+                <li><span class="arabic">كَتَبْتُ بِالقَلَمِ عَلَى الوَرَقَةِ</span> → J'ai écrit avec le stylo sur la
+                    feuille</li>
+                <li><span class="arabic">هَذَا الكِتَابُ لِي، وَذَلِكَ لَكَ</span> → Ce livre est à moi, et celui-là est
+                    à toi</li>
+                <li><span class="arabic">جَلَسْتُ بَيْنَ أَحْمَدَ وَعَلِيٍّ أَمَامَ المُعَلِّمِ</span> → Je me suis
+                    assis entre Ahmad et Ali devant le professeur</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            );
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>

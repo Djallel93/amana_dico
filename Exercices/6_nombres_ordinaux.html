@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les nombres ordinaux en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .arabic-title {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .exercise h3 {
+                font-size: 1.1em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            .intro,
+            .note,
+            .exercise,
+            .question {
+                padding: 12px;
+                font-size: 0.95em;
+            }
+
+            .section-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .arabic {
+                font-size: 1.2em;
+            }
+
+            .answer-space,
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.75em;
+            }
+
+            th,
+            td {
+                padding: 6px 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين الْأَعْدَاد التَّرْتِيبِيَّة</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer les nombres ordinaux en
+            arabe. Rappelez-vous : les ordinaux se placent après le nom, s'accordent en genre et prennent l'article
+            défini avec les noms définis. Bon courage !
+        </div>
+
+        <h2><span class="section-number">1</span>Les ordinaux de 1 à 10</h2>
+        <div class="exercise">
+            <h3>Écrivez les nombres ordinaux en arabe</h3>
+            <ol>
+                <li>Premier (masculin) → <span class="answer-space"></span></li>
+                <li>Première (féminin) → <span class="answer-space"></span></li>
+                <li>Deuxième (masculin) → <span class="answer-space"></span></li>
+                <li>Deuxième (féminin) → <span class="answer-space"></span></li>
+                <li>Troisième (masculin) → <span class="answer-space"></span></li>
+                <li>Troisième (féminin) → <span class="answer-space"></span></li>
+                <li>Cinquième (masculin) → <span class="answer-space"></span></li>
+                <li>Septième (féminin) → <span class="answer-space"></span></li>
+                <li>Neuvième (masculin) → <span class="answer-space"></span></li>
+                <li>Dixième (féminin) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Accord en genre</h2>
+        <div class="exercise">
+            <h3>Choisissez la forme correcte de l'ordinal</h3>
+            <ol>
+                <li><span class="arabic">الدَّرْسُ</span> ______ (أَوَّلُ / أُولَى) → La première leçon</li>
+                <li><span class="arabic">الْكِتَابُ</span> ______ (ثَالِثٌ / ثَالِثَةٌ) → Le troisième livre</li>
+                <li><span class="arabic">الصَّفْحَةُ</span> ______ (خَامِسٌ / خَامِسَةٌ) → La cinquième page</li>
+                <li><span class="arabic">الْيَوْمُ</span> ______ (رَابِعٌ / رَابِعَةٌ) → Le quatrième jour</li>
+                <li><span class="arabic">السَّنَةُ</span> ______ (سَادِسٌ / سَادِسَةٌ) → La sixième année</li>
+                <li><span class="arabic">الطَّابِقُ</span> ______ (سَابِعٌ / سَابِعَةٌ) → Le septième étage</li>
+                <li><span class="arabic">الْمَرَّةُ</span> ______ (ثَامِنٌ / ثَامِنَةٌ) → La huitième fois</li>
+                <li><span class="arabic">الصَّفُّ</span> ______ (تَاسِعٌ / تَاسِعَةٌ) → La neuvième classe</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Traduisez en arabe</h2>
+        <div class="exercise">
+            <h3>Écrivez les expressions suivantes en arabe</h3>
+            <ol>
+                <li>La première leçon → <span class="answer-space wide-space"></span></li>
+                <li>Le deuxième livre → <span class="answer-space wide-space"></span></li>
+                <li>La troisième page → <span class="answer-space wide-space"></span></li>
+                <li>Le cinquième jour → <span class="answer-space wide-space"></span></li>
+                <li>La septième année → <span class="answer-space wide-space"></span></li>
+                <li>Le dixième étage → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Les ordinaux 11-19</h2>
+        <div class="exercise">
+            <h3>Complétez avec la forme correcte</h3>
+            <ol>
+                <li>Le onzième siècle → <span class="arabic">الْقَرْنُ</span> <span
+                        class="answer-space wide-space"></span></li>
+                <li>La douzième heure → <span class="arabic">السَّاعَةُ</span> <span
+                        class="answer-space wide-space"></span></li>
+                <li>Le treizième livre → <span class="arabic">الْكِتَابُ</span> <span
+                        class="answer-space wide-space"></span></li>
+                <li>La quatorzième page → <span class="arabic">الصَّفْحَةُ</span> <span
+                        class="answer-space wide-space"></span></li>
+                <li>Le quinzième étudiant → <span class="arabic">الطَّالِبُ</span> <span
+                        class="answer-space wide-space"></span></li>
+                <li>La dix-huitième nuit → <span class="arabic">اللَّيْلَةُ</span> <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">5</span>Tableau récapitulatif</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau avec les formes correctes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Français</th>
+                        <th>Masculin</th>
+                        <th>Féminin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Premier/Première</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Quatrième</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Sixième</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Huitième</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Dixième</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">6</span>Les dizaines</h2>
+        <div class="exercise">
+            <h3>Écrivez les ordinaux suivants en arabe</h3>
+            <ol>
+                <li>Le vingtième siècle → <span class="answer-space wide-space"></span></li>
+                <li>Le trentième jour → <span class="answer-space wide-space"></span></li>
+                <li>Le cinquantième anniversaire → <span class="answer-space wide-space"></span></li>
+                <li>Le centième livre → <span class="answer-space wide-space"></span></li>
+                <li>Le millième étudiant → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Nombres composés (21-99)</h2>
+        <div class="exercise">
+            <h3>Construisez les ordinaux composés</h3>
+            <ol>
+                <li>Le vingt-et-unième siècle → <span class="answer-space wide-space"></span></li>
+                <li>Le trente-troisième jour → <span class="answer-space wide-space"></span></li>
+                <li>La quarante-cinquième page → <span class="answer-space wide-space"></span></li>
+                <li>Le soixante-septième étudiant → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur. Corrigez-la :</h3>
+            <ol>
+                <li><span class="arabic">الدَّرْسُ الْأُولَى</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الصَّفْحَةُ الثَّالِثُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الْكِتَابُ خَامِسٌ</span> (sans article) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">السَّنَةُ السَّابِعُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">الطَّابِقُ الْعَاشِرَةُ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>Vrai ou Faux</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Les ordinaux se placent avant le nom en arabe <span class="answer-space"></span></li>
+                <li>Les ordinaux s'accordent en genre avec le nom <span class="answer-space"></span></li>
+                <li><span class="arabic">أَوَّلُ</span> et <span class="arabic">أُولَى</span> suivent un schème régulier
+                    <span class="answer-space"></span>
+                </li>
+                <li>Si le nom a l'article الـ, l'ordinal doit aussi l'avoir <span class="answer-space"></span></li>
+                <li>Les ordinaux 3-10 suivent le schème فَاعِل <span class="answer-space"></span></li>
+                <li>Pour 11-19, on utilise l'ordinal de l'unité + عَشَرَ/عَشْرَةَ <span class="answer-space"></span>
+                </li>
+                <li>Les dizaines utilisent la même forme que les cardinaux <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Phrases complètes</h2>
+        <div class="exercise">
+            <h3>Créez des phrases en utilisant les éléments donnés</h3>
+
+            <div class="question">
+                <strong>1.</strong> (premier - leçon - livre)<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+
+            <div class="question">
+                <strong>2.</strong> (cinquième - étage - habiter)<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+
+            <div class="question">
+                <strong>3.</strong> (troisième - page - lire)<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+        </div>
+
+        <h2><span class="section-number">11</span>Compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+
+            <div class="question">
+                <p><span class="arabic">أَسْكُنُ فِي الطَّابِقِ الثَّالِثِ. أَدْرُسُ فِي الصَّفِّ الْخَامِسِ
+                        الِابْتِدَائِيّ</span></p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>À quel étage habite la personne ? <span class="answer-space"></span></li>
+                    <li>En quelle année scolaire est-elle ? <span class="answer-space"></span></li>
+                    <li>Réécrivez la phrase en remplaçant "troisième" par "septième" : <span
+                            class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <h2><span class="section-number">12</span>Défi final</h2>
+        <div class="exercise">
+            <h3>Complétez la séquence</h3>
+            <ol>
+                <li><span class="arabic">الْأَوَّلُ، الثَّانِي، ______، الرَّابِعُ</span></li>
+                <li><span class="arabic">الْخَامِسَةُ، ______، السَّابِعَةُ، الثَّامِنَةُ</span></li>
+                <li><span class="arabic">الْعَاشِرُ، الْحَادِي عَشَرَ، ______، الثَّالِثَ عَشَرَ</span></li>
+                <li><span class="arabic">الْعِشْرُونَ، الْحَادِي وَالْعِشْرُونَ، ______، الثَّالِثُ
+                        وَالْعِشْرُونَ</span></li>
+            </ol>
+        </div>
+
+    </div>
+</body>
+
+</html>
