@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le passé en arabe — الفِعْل الماضِي</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50%       { transform: scale(1.05); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+        h2:hover { transform: translateX(10px); }
+
+        h3 { color: #764ba2; font-size: 1.3em; margin-top: 20px; }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        /* ---- tables ---- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 13px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+        td {
+            padding: 11px 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f0f4ff; transition: all 0.2s ease; }
+
+        /* suffix highlighted in table cells */
+        .suffix { color: #d32f2f; font-weight: bold; }
+
+        /* ---- arabic inline ---- */
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .arabic:hover { color: #667eea; }
+
+        /* ---- coloured boxes ---- */
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .note:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
+        .note strong { color: #856404; font-size: 1.05em; }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .example-box:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(76,175,80,0.3); }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .rule-box:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(156,39,176,0.3); }
+
+        .info-box {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #03a9f4;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .info-box:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(3,169,244,0.3); }
+
+        .warning-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #f44336;
+            margin: 15px 0;
+        }
+        .warning-box strong { color: #c62828; }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* verb-type card */
+        .verb-card {
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 3px 10px rgba(102,126,234,0.15);
+        }
+        .verb-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .verb-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .verb-meaning { color: #555; font-size: 1.05em; }
+
+        ul { line-height: 1.8; }
+        li { margin: 8px 0; }
+
+        /* scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .visible {
+            opacity: 1 !important;
+            transform: translateX(0) translateY(0) scale(1) !important;
+        }
+
+        /* suffix legend */
+        .suffix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .suffix-item {
+            background: #f0f4ff;
+            border: 1px solid #c5cae9;
+            border-radius: 8px;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        .suffix-item .ar { font-size: 1.5em; color: #764ba2; font-weight: bold; }
+        .suffix-item .fr { font-size: 0.9em; color: #555; margin-top: 4px; }
+
+        @media screen and (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 15px; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .arabic { font-size: 1.2em; }
+            table { font-size: 0.9em; }
+            th, td { padding: 8px 4px; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Le passé en arabe</h1>
+    <div class="arabic-title">الفِعْل الماضِي</div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="intro scroll-animate">
+        <strong>Bienvenue dans ce cours sur le passé en arabe !</strong><br>
+        En arabe, le système verbal repose sur un concept fondamental différent du français : la distinction entre
+        <strong>accompli</strong> et <strong>inaccompli</strong>. Le passé — appelé <strong>الفِعْل الماضِي</strong>
+        (le verbe accompli) — exprime une action <em>terminée</em>, dont l'accomplissement est complet au moment
+        où l'on parle. Ce cours vous guidera à travers sa formation et sa conjugaison complète.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">🌱 La racine trilitère — أَصْل الفِعْل</h2>
+
+    <div class="rule-box scroll-animate-scale">
+        <p>Le verbe arabe est bâti sur une <strong>racine de trois consonnes</strong> appelée <strong>الجَذْر</strong>
+        (la racine). Ces trois consonnes portent un sens de base, et c'est en les entourant de voyelles et
+        d'affixes précis que l'on forme les différents temps, modes et dérivés.</p>
+        <p>Pour représenter cette structure de manière abstraite, les grammairiens arabes utilisent le
+        <strong>verbe modèle</strong> <span class="arabic">فَعَلَ</span>, dont les trois lettres
+        <span class="arabic">ف</span> — <span class="arabic">ع</span> — <span class="arabic">ل</span>
+        jouent le rôle de substituts pour les trois consonnes radicales de n'importe quel verbe.</p>
+    </div>
+
+    <div class="example-box scroll-animate-right">
+        <h4>📝 Comment utiliser le modèle فَعَلَ :</h4>
+        <ul>
+            <li>Racine <span class="arabic">ك – ت – ب</span> → verbe de base : <span class="arabic">كَتَبَ</span> (écrire)</li>
+            <li>Racine <span class="arabic">ذ – ه – ب</span> → verbe de base : <span class="arabic">ذَهَبَ</span> (aller)</li>
+            <li>Racine <span class="arabic">ف – ه – م</span> → verbe de base : <span class="arabic">فَهِمَ</span> (comprendre)</li>
+        </ul>
+        <p>La forme de base au passé correspond toujours à la <strong>3ème personne du singulier masculin</strong>
+        (il…). C'est sous cette forme que les verbes sont listés dans les dictionnaires.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">📐 Structure du passé — كيف يُبنى الماضِي</h2>
+
+    <div class="rule-box scroll-animate-scale">
+        <strong>Principe clé :</strong> Au passé, la conjugaison s'obtient en ajoutant des
+        <span class="highlight">suffixes</span> directement à la racine vocalisée. Il n'y a pas de préfixes
+        au passé — uniquement des terminaisons.
+    </div>
+
+    <div class="info-box scroll-animate">
+        <strong>💡 Les suffixes du passé à mémoriser :</strong>
+        <div style="margin-top:16px; overflow-x:auto;">
+            <table style="width:100%; border-collapse:collapse; box-shadow:none; margin:0;">
+                <thead>
+                    <tr>
+                        <th style="background:#e8eaf6; color:#3949ab; padding:10px; border:1px solid #c5cae9; font-size:1em; width:14%;">Personne</th>
+                        <th style="background:#e8eaf6; color:#3949ab; padding:10px; border:1px solid #c5cae9; font-size:1em; width:14%;">Genre</th>
+                        <th style="background:#e3f2fd; color:#1565c0; padding:10px; border:1px solid #90caf9; font-size:1em;">Singulier<br><span style="font-weight:normal; font-size:0.85em;">مُفْرَد</span></th>
+                        <th style="background:#e8f5e9; color:#2e7d32; padding:10px; border:1px solid #a5d6a7; font-size:1em;">Duel<br><span style="font-weight:normal; font-size:0.85em;">مُثَنَّى</span></th>
+                        <th style="background:#fff3e0; color:#e65100; padding:10px; border:1px solid #ffcc80; font-size:1em;">Pluriel<br><span style="font-weight:normal; font-size:0.85em;">جَمْع</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2" style="border:1px solid #ddd; padding:10px; text-align:center; font-weight:bold; background:#fafafa;">3ᵉ<br><span style="font-size:0.8em; color:#666;">الغائِب</span></td>
+                        <td style="border:1px solid #ddd; padding:10px; text-align:center; background:#fafafa;">M.</td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#e3f2fd;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">il</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">—</div>
+                            <div style="color:#777; font-size:0.78em; font-style:italic;">forme de base</div>
+                        </td>
+                        <td rowspan="2" style="border:1px solid #ddd; padding:12px; text-align:center; background:#e8f5e9;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">ils/elles deux</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـَا</div>
+                        </td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#fff3e0;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">ils</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـُوا</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #ddd; padding:10px; text-align:center; background:#fafafa;">F.</td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#e3f2fd;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">elle</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـَتْ</div>
+                        </td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#fff3e0;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">elles</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْنَ</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" style="border:1px solid #ddd; padding:10px; text-align:center; font-weight:bold; background:#fafafa;">2ᵉ<br><span style="font-size:0.8em; color:#666;">المُخاطَب</span></td>
+                        <td style="border:1px solid #ddd; padding:10px; text-align:center; background:#fafafa;">M.</td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#e3f2fd;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">tu (m.)</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْتَ</div>
+                        </td>
+                        <td rowspan="2" style="border:1px solid #ddd; padding:12px; text-align:center; background:#e8f5e9;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">vous deux</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْتُمَا</div>
+                        </td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#fff3e0;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">vous (m.)</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْتُمْ</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #ddd; padding:10px; text-align:center; background:#fafafa;">F.</td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#e3f2fd;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">tu (f.)</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْتِ</div>
+                        </td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#fff3e0;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">vous (f.)</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْتُنَّ</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border:1px solid #ddd; padding:10px; text-align:center; font-weight:bold; background:#fafafa;">1ʳᵉ<br><span style="font-size:0.8em; color:#666;">المُتَكَلِّم</span></td>
+                        <td style="border:1px solid #ddd; padding:10px; text-align:center; background:#fafafa;">M/F</td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#e3f2fd;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">je</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْتُ</div>
+                        </td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#e8f5e9; color:#888; font-style:italic;">—</td>
+                        <td style="border:1px solid #ddd; padding:12px; text-align:center; background:#fff3e0;">
+                            <div style="color:#555; font-size:0.85em; margin-bottom:4px;">nous</div>
+                            <div style="color:#d32f2f; font-size:1.6em; font-weight:bold;">ـْنَا</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📝 À observer :</strong>
+        <ul>
+            <li>La <strong>3ᵉ personne du singulier masculin</strong> ne prend <em>aucun suffixe</em> — c'est la
+            forme nue de la racine vocalisée.</li>
+            <li>Les suffixes commençant par une consonne (ـْتَ, ـْنَ…) déclenchent l'apparition d'un
+            <strong>sukūn (ـْ)</strong> sur la dernière radicale.</li>
+            <li>Il n'y a <strong>pas de distinction de genre</strong> à la 1ʳᵉ personne (singulier et pluriel).</li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">📊 Tableau modèle — فَعَلَ</h2>
+
+    <div class="intro scroll-animate">
+        Voici le tableau complet de conjugaison au passé avec le verbe modèle abstrait
+        <span class="arabic">فَعَلَ</span>. Les suffixes apparaissent en <span style="color:#d32f2f; font-weight:bold;">rouge</span>.
+    </div>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr>
+                <th>Personne</th>
+                <th>Genre</th>
+                <th>Singulier</th>
+                <th>Duel</th>
+                <th>Pluriel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2"><strong>3ᵉ personne</strong><br><span class="arabic" style="font-size:1em;">الغائِب</span></td>
+                <td>Masculin</td>
+                <td><span class="arabic">فَعَلَ</span></td>
+                <td><span class="arabic">فَعَلَ<span class="suffix">ا</span></span></td>
+                <td><span class="arabic">فَعَلَ<span class="suffix">وا</span></span></td>
+            </tr>
+            <tr>
+                <td>Féminin</td>
+                <td><span class="arabic">فَعَلَ<span class="suffix">تْ</span></span></td>
+                <td><span class="arabic">فَعَلَ<span class="suffix">تَا</span></span></td>
+                <td><span class="arabic">فَعَلْ<span class="suffix">نَ</span></span></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><strong>2ᵉ personne</strong><br><span class="arabic" style="font-size:1em;">المُخاطَب</span></td>
+                <td>Masculin</td>
+                <td><span class="arabic">فَعَلْ<span class="suffix">تَ</span></span></td>
+                <td rowspan="2"><span class="arabic">فَعَلْ<span class="suffix">تُمَا</span></span></td>
+                <td><span class="arabic">فَعَلْ<span class="suffix">تُمْ</span></span></td>
+            </tr>
+            <tr>
+                <td>Féminin</td>
+                <td><span class="arabic">فَعَلْ<span class="suffix">تِ</span></span></td>
+                <td><span class="arabic">فَعَلْ<span class="suffix">تُنَّ</span></span></td>
+            </tr>
+            <tr>
+                <td><strong>1ʳᵉ personne</strong><br><span class="arabic" style="font-size:1em;">المُتَكَلِّم</span></td>
+                <td>M / F</td>
+                <td><span class="arabic">فَعَلْ<span class="suffix">تُ</span></span></td>
+                <td>—</td>
+                <td><span class="arabic">فَعَلْ<span class="suffix">نَا</span></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">🔤 Les trois voyelles de la 2ᵉ radicale — حَرَكَة العَيْن</h2>
+
+    <div class="intro scroll-animate">
+        En arabe, tous les verbes trilitères sains ne se comportent pas de la même façon au passé. La différence
+        réside dans la <strong>voyelle portée par la 2ᵉ consonne radicale</strong> (appelée
+        <span class="arabic">العَيْن</span> dans le modèle فَعَلَ). Il existe <strong>trois possibilités</strong>,
+        et cette voyelle est imprévisible — elle fait partie de la définition du verbe et doit être
+        <span class="highlight">mémorisée avec chaque nouveau mot</span>.
+    </div>
+
+    <div class="rule-box scroll-animate-scale">
+        <p>Les trois types :</p>
+        <ul>
+            <li><span class="arabic">فَعَلَ</span> — voyelle <strong>fatḥa (a)</strong> sur la 2ᵉ radicale → type le plus courant</li>
+            <li><span class="arabic">فَعِلَ</span> — voyelle <strong>kasra (i)</strong> sur la 2ᵉ radicale → souvent lié à des états ou sentiments</li>
+            <li><span class="arabic">فَعُلَ</span> — voyelle <strong>ḍamma (u)</strong> sur la 2ᵉ radicale → rare, souvent lié à des qualités innées</li>
+        </ul>
+    </div>
+
+    <!-- ---- TYPE 1 : فَعَلَ ---- -->
+    <div class="verb-card scroll-animate">
+        <div class="verb-card-header">
+            <span class="verb-badge">Type فَعَلَ</span>
+            <span class="arabic" style="font-size:1.8em;">كَتَبَ</span>
+            <span class="verb-meaning">écrire — racine : ك – ت – ب</span>
+        </div>
+        <p>La voyelle du milieu est une <strong>fatḥa</strong> : <span class="arabic">كَ<strong>تَ</strong>بَ</span>.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Personne</th>
+                    <th>Genre</th>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>3ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">كَتَبَ</span></td>
+                    <td><span class="arabic">كَتَبَ<span class="suffix">ا</span></span></td>
+                    <td><span class="arabic">كَتَبُ<span class="suffix">وا</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic">كَتَبَ<span class="suffix">تْ</span></span></td>
+                    <td><span class="arabic">كَتَبَ<span class="suffix">تَا</span></span></td>
+                    <td><span class="arabic">كَتَبْ<span class="suffix">نَ</span></span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">كَتَبْ<span class="suffix">تَ</span></span></td>
+                    <td rowspan="2"><span class="arabic">كَتَبْ<span class="suffix">تُمَا</span></span></td>
+                    <td><span class="arabic">كَتَبْ<span class="suffix">تُمْ</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic">كَتَبْ<span class="suffix">تِ</span></span></td>
+                    <td><span class="arabic">كَتَبْ<span class="suffix">تُنَّ</span></span></td>
+                </tr>
+                <tr>
+                    <td><strong>1ʳᵉ</strong></td>
+                    <td>M/F</td>
+                    <td><span class="arabic">كَتَبْ<span class="suffix">تُ</span></span></td>
+                    <td>—</td>
+                    <td><span class="arabic">كَتَبْ<span class="suffix">نَا</span></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="example-box" style="margin-top:10px;">
+            <strong>Exemples :</strong>
+            <ul>
+                <li><span class="arabic">كَتَبَ الوَلَدُ رِسَالَةً</span> → Le garçon a écrit une lettre</li>
+                <li><span class="arabic">كَتَبْتُ في دَفْتَرِي</span> → J'ai écrit dans mon cahier</li>
+                <li><span class="arabic">كَتَبْنَا الدَّرْسَ</span> → Nous avons écrit la leçon</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ---- TYPE 2 : فَعِلَ ---- -->
+    <div class="verb-card scroll-animate">
+        <div class="verb-card-header">
+            <span class="verb-badge">Type فَعِلَ</span>
+            <span class="arabic" style="font-size:1.8em;">فَهِمَ</span>
+            <span class="verb-meaning">comprendre — racine : ف – ه – م</span>
+        </div>
+        <p>La voyelle du milieu est une <strong>kasra</strong> : <span class="arabic">فَ<strong>هِ</strong>مَ</span>.
+        Ce type est souvent lié à des <em>états mentaux, sensoriels ou émotionnels</em>.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Personne</th>
+                    <th>Genre</th>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>3ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">فَهِمَ</span></td>
+                    <td><span class="arabic">فَهِمَ<span class="suffix">ا</span></span></td>
+                    <td><span class="arabic">فَهِمُ<span class="suffix">وا</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic">فَهِمَ<span class="suffix">تْ</span></span></td>
+                    <td><span class="arabic">فَهِمَ<span class="suffix">تَا</span></span></td>
+                    <td><span class="arabic">فَهِمْ<span class="suffix">نَ</span></span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">فَهِمْ<span class="suffix">تَ</span></span></td>
+                    <td rowspan="2"><span class="arabic">فَهِمْ<span class="suffix">تُمَا</span></span></td>
+                    <td><span class="arabic">فَهِمْ<span class="suffix">تُمْ</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic">فَهِمْ<span class="suffix">تِ</span></span></td>
+                    <td><span class="arabic">فَهِمْ<span class="suffix">تُنَّ</span></span></td>
+                </tr>
+                <tr>
+                    <td><strong>1ʳᵉ</strong></td>
+                    <td>M/F</td>
+                    <td><span class="arabic">فَهِمْ<span class="suffix">تُ</span></span></td>
+                    <td>—</td>
+                    <td><span class="arabic">فَهِمْ<span class="suffix">نَا</span></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="example-box" style="margin-top:10px;">
+            <strong>Exemples :</strong>
+            <ul>
+                <li><span class="arabic">فَهِمَ الطَّالِبُ الدَّرْسَ</span> → L'étudiant a compris la leçon</li>
+                <li><span class="arabic">فَهِمْتُ السُّؤالَ</span> → J'ai compris la question</li>
+                <li><span class="arabic">فَهِمْنَا الكِتَابَ</span> → Nous avons compris le livre</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ---- TYPE 3 : فَعُلَ ---- -->
+    <div class="verb-card scroll-animate">
+        <div class="verb-card-header">
+            <span class="verb-badge">Type فَعُلَ</span>
+            <span class="arabic" style="font-size:1.8em;">كَبُرَ</span>
+            <span class="verb-meaning">être grand / grandir — racine : ك – ب – ر</span>
+        </div>
+        <p>La voyelle du milieu est une <strong>ḍamma</strong> : <span class="arabic">كَ<strong>بُ</strong>رَ</span>.</p>
+        <div class="warning-box">
+            <strong>⚠️ Type rare :</strong> Les verbes de type <span class="arabic">فَعُلَ</span> sont peu nombreux
+            en arabe. Ils expriment presque exclusivement des <strong>qualités ou attributs innés</strong>
+            (être grand, être beau, être noble…). Exemples courants : <span class="arabic">حَسُنَ</span> (être bon/beau),
+            <span class="arabic">كَرُمَ</span> (être généreux), <span class="arabic">عَظُمَ</span> (être grand/illustre).
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Personne</th>
+                    <th>Genre</th>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>3ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">كَبُرَ</span></td>
+                    <td><span class="arabic">كَبُرَ<span class="suffix">ا</span></span></td>
+                    <td><span class="arabic">كَبُرُ<span class="suffix">وا</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic">كَبُرَ<span class="suffix">تْ</span></span></td>
+                    <td><span class="arabic">كَبُرَ<span class="suffix">تَا</span></span></td>
+                    <td><span class="arabic">كَبُرْ<span class="suffix">نَ</span></span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">كَبُرْ<span class="suffix">تَ</span></span></td>
+                    <td rowspan="2"><span class="arabic">كَبُرْ<span class="suffix">تُمَا</span></span></td>
+                    <td><span class="arabic">كَبُرْ<span class="suffix">تُمْ</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic">كَبُرْ<span class="suffix">تِ</span></span></td>
+                    <td><span class="arabic">كَبُرْ<span class="suffix">تُنَّ</span></span></td>
+                </tr>
+                <tr>
+                    <td><strong>1ʳᵉ</strong></td>
+                    <td>M/F</td>
+                    <td><span class="arabic">كَبُرْ<span class="suffix">تُ</span></span></td>
+                    <td>—</td>
+                    <td><span class="arabic">كَبُرْ<span class="suffix">نَا</span></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="example-box" style="margin-top:10px;">
+            <strong>Exemples :</strong>
+            <ul>
+                <li><span class="arabic">كَبُرَ الوَلَدُ</span> → Le garçon a grandi</li>
+                <li><span class="arabic">كَبُرْتُ في هَذِهِ المَدِينَةِ</span> → J'ai grandi dans cette ville</li>
+                <li><span class="arabic">كَبُرْنَا مَعاً</span> → Nous avons grandi ensemble</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📝 Observation importante :</strong> Quelle que soit la voyelle de la 2ᵉ radicale au passé,
+        <strong>les suffixes restent identiques</strong> pour les trois types. Seule la voyelle interne change.
+        La structure des terminaisons est donc universelle et s'applique à tous les verbes sains.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+
+    <div class="rule-box scroll-animate">
+        <ul>
+            <li>Le passé arabe exprime une action <strong>accomplie et terminée</strong></li>
+            <li>Il se forme en ajoutant des <strong>suffixes</strong> à la racine — jamais de préfixes</li>
+            <li>La <strong>3ᵉ personne du singulier masculin</strong> (il) est la forme de base, sans suffixe</li>
+            <li>Il existe <strong>trois types</strong> selon la voyelle de la 2ᵉ radicale :
+                <span class="arabic">فَعَلَ</span> / <span class="arabic">فَعِلَ</span> / <span class="arabic">فَعُلَ</span>
+            </li>
+            <li>Le type <span class="arabic">فَعُلَ</span> est rare et réservé aux qualités innées</li>
+            <li>La voyelle de la 2ᵉ radicale est <span class="highlight">imprévisible</span> et doit être mémorisée avec chaque verbe</li>
+            <li>Les <strong>suffixes sont identiques</strong> pour les trois types</li>
+            <li>Il n'y a <strong>pas de distinction de genre</strong> à la 1ʳᵉ personne</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll(
+            '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+        ).forEach(el => observer.observe(el));
+    });
+</script>
+</body>
+</html>

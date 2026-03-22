@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Le présent et le futur en arabe — الفِعْل المُضارِع</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+        .prefix  { color: #1565c0; font-weight: bold; }
+        .suffix  { color: #d32f2f; font-weight: bold; }
+        .fut-p   { color: #2e7d32; font-weight: bold; font-size: 1.1em; }
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+        .wide-space { width: 340px; }
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+        .note strong { color: #856404; }
+        ol { padding-left: 25px; }
+        li { margin: 15px 0; line-height: 1.8; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        .verb-ref {
+            background: #e8eaf6;
+            border: 1px solid #9fa8da;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        .verb-ref .ar { font-size: 1.6em; color: #3949ab; font-weight: bold; }
+        .verb-ref .fr { color: #555; font-size: 0.9em; }
+        .compare-past { color: #6a1b9a; font-weight: bold; }
+        .compare-pres { color: #1565c0; font-weight: bold; }
+        @media screen and (max-width: 768px) {
+            body { padding: 10px; }
+            .container { padding: 15px; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+            .arabic { font-size: 1.3em; }
+            .answer-space { width: 140px; display: block; margin: 10px 0; }
+            .wide-space { width: 100%; }
+            table { font-size: 0.85em; }
+            th, td { padding: 8px 4px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>📝 Exercices Pratiques</h1>
+    <div class="arabic-title">تَمَارِين الفِعْل المُضارِع</div>
+
+    <div class="intro">
+        <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer l'inaccompli en arabe.
+        Rappelez-vous : l'inaccompli se construit avec des <strong>préfixes obligatoires</strong> (bleu) et des
+        <strong>suffixes</strong> (rouge). Il exprime le présent et le futur. Le futur s'obtient en ajoutant
+        <span class="fut-p">سَـ</span> ou <span class="fut-p">سَوْفَ</span> devant l'inaccompli.
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">1</span>Les quatre préfixes</h2>
+    <div class="exercise">
+        <h3>Associez chaque préfixe à la ou les personnes qu'il exprime</h3>
+        <table>
+            <thead>
+                <tr><th>Préfixe</th><th>Personne(s) exprimée(s)</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="arabic" style="color:#1565c0;">أَ</span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td><span class="arabic" style="color:#1565c0;">نَ</span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td><span class="arabic" style="color:#1565c0;">يَ</span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td><span class="arabic" style="color:#1565c0;">تَ</span></td><td><span class="answer-space wide-space"></span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">2</span>Passé → Inaccompli : la voyelle du milieu</h2>
+    <div class="exercise">
+        <h3>Donnez la forme de l'inaccompli (3ᵉ sg. m.) à partir du passé donné</h3>
+        <div class="note">
+            <strong>💡 Rappel :</strong> La voyelle de la 2ᵉ radicale à l'inaccompli peut être différente
+            de celle du passé. Mémorisez les paires passé / inaccompli pour chaque verbe.
+            <ul>
+                <li><span class="compare-past">كَتَبَ</span> → <span class="compare-pres">يَكْتُبُ</span> (a→u)</li>
+                <li><span class="compare-past">فَهِمَ</span> → <span class="compare-pres">يَفْهَمُ</span> (i→a)</li>
+                <li><span class="compare-past">كَبُرَ</span> → <span class="compare-pres">يَكْبُرُ</span> (u→u)</li>
+            </ul>
+        </div>
+        <ol>
+            <li><span class="arabic compare-past">كَتَبَ</span> → inaccompli (il) : <span class="answer-space"></span></li>
+            <li><span class="arabic compare-past">فَهِمَ</span> → inaccompli (il) : <span class="answer-space"></span></li>
+            <li><span class="arabic compare-past">كَبُرَ</span> → inaccompli (il) : <span class="answer-space"></span></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">3</span>Conjugaison de يَكْتُبُ — compléter le tableau</h2>
+    <div class="exercise">
+        <h3>Complétez le tableau de conjugaison à l'inaccompli</h3>
+        <div style="margin-bottom:15px;">
+            <div class="verb-ref"><span class="ar">يَكْتُبُ</span> <span class="fr">— écrire / il écrit (passé : كَتَبَ)</span></div>
+        </div>
+        <table>
+            <thead>
+                <tr><th>Personne</th><th>Genre</th><th>Singulier</th><th>Duel</th><th>Pluriel</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>3ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">يَكْتُبُ</span></td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td rowspan="2"><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>1ʳᵉ</strong></td>
+                    <td>M/F</td>
+                    <td><span class="answer-space"></span></td>
+                    <td>—</td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">4</span>Conjugaison de يَفْهَمُ — compléter le tableau</h2>
+    <div class="exercise">
+        <h3>Complétez le tableau de conjugaison à l'inaccompli</h3>
+        <div style="margin-bottom:15px;">
+            <div class="verb-ref"><span class="ar">يَفْهَمُ</span> <span class="fr">— comprendre / il comprend (passé : فَهِمَ)</span></div>
+        </div>
+        <table>
+            <thead>
+                <tr><th>Personne</th><th>Genre</th><th>Singulier</th><th>Duel</th><th>Pluriel</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>3ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">يَفْهَمُ</span></td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td rowspan="2"><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>1ʳᵉ</strong></td>
+                    <td>M/F</td>
+                    <td><span class="answer-space"></span></td>
+                    <td>—</td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">5</span>Conjugaison de يَكْبُرُ — compléter le tableau</h2>
+    <div class="exercise">
+        <h3>Complétez le tableau de conjugaison à l'inaccompli</h3>
+        <div style="margin-bottom:15px;">
+            <div class="verb-ref"><span class="ar">يَكْبُرُ</span> <span class="fr">— grandir / il grandit (passé : كَبُرَ)</span></div>
+        </div>
+        <table>
+            <thead>
+                <tr><th>Personne</th><th>Genre</th><th>Singulier</th><th>Duel</th><th>Pluriel</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>3ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic">يَكْبُرُ</span></td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td rowspan="2"><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="answer-space"></span></td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+                <tr>
+                    <td><strong>1ʳᵉ</strong></td>
+                    <td>M/F</td>
+                    <td><span class="answer-space"></span></td>
+                    <td>—</td>
+                    <td><span class="answer-space"></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">6</span>Quelle forme est-ce ?</h2>
+    <div class="exercise">
+        <h3>Identifiez la personne, le genre et le nombre de chaque forme verbale</h3>
+        <ol>
+            <li><span class="arabic">يَكْتُبُونَ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">تَفْهَمِينَ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">أَكْبُرُ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">تَكْتُبَانِ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">يَفْهَمْنَ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">نَكْبُرُ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">تَكْتُبُ</span> → <span class="answer-space wide-space"></span><br>
+                <em>(attention : deux réponses possibles — lesquelles ?)</em></li>
+            <li><span class="arabic">يَكْبُرَانِ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">تَفْهَمُونَ</span> → <span class="answer-space wide-space"></span></li>
+            <li><span class="arabic">تَكْتُبْنَ</span> → <span class="answer-space wide-space"></span></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">7</span>Conjuguez selon l'indication</h2>
+    <div class="exercise">
+        <h3>Conjuguez le verbe entre parenthèses à la forme indiquée</h3>
+        <ol>
+            <li>(يَكْتُبُ) — elle écrit → <span class="answer-space"></span></li>
+            <li>(يَكْتُبُ) — vous écrivez (f. pl.) → <span class="answer-space"></span></li>
+            <li>(يَكْتُبُ) — nous écrivons → <span class="answer-space"></span></li>
+            <li>(يَفْهَمُ) — tu comprends (m.) → <span class="answer-space"></span></li>
+            <li>(يَفْهَمُ) — ils deux comprennent → <span class="answer-space"></span></li>
+            <li>(يَفْهَمُ) — j'écris → <span class="answer-space"></span></li>
+            <li>(يَكْبُرُ) — vous deux grandissez → <span class="answer-space"></span></li>
+            <li>(يَكْبُرُ) — elles grandissent → <span class="answer-space"></span></li>
+            <li>(يَكْبُرُ) — tu grandis (f.) → <span class="answer-space"></span></li>
+            <li>(يَفْهَمُ) — ils comprennent → <span class="answer-space"></span></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">8</span>Passé → Présent : changez le temps</h2>
+    <div class="exercise">
+        <h3>Transformez les formes du passé en inaccompli (même personne, genre, nombre)</h3>
+        <ol>
+            <li><span class="arabic">كَتَبَ</span> → <span class="answer-space"></span></li>
+            <li><span class="arabic">كَتَبَتْ</span> → <span class="answer-space"></span></li>
+            <li><span class="arabic">فَهِمْتُ</span> → <span class="answer-space"></span></li>
+            <li><span class="arabic">كَبُرُوا</span> → <span class="answer-space"></span></li>
+            <li><span class="arabic">فَهِمْنَا</span> → <span class="answer-space"></span></li>
+            <li><span class="arabic">كَتَبْتِ</span> → <span class="answer-space"></span></li>
+            <li><span class="arabic">كَبُرَا</span> → <span class="answer-space"></span></li>
+            <li><span class="arabic">فَهِمْتُمْ</span> → <span class="answer-space"></span></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">9</span>Exprimer le futur avec سَ et سَوْفَ</h2>
+    <div class="exercise">
+        <h3>Mettez les formes suivantes au futur — une fois avec سَـ, une fois avec سَوْفَ</h3>
+        <ol>
+            <li><span class="arabic">يَكْتُبُ</span><br>
+                avec سَـ : <span class="answer-space"></span><br>
+                avec سَوْفَ : <span class="answer-space"></span></li>
+            <li><span class="arabic">تَفْهَمُ</span><br>
+                avec سَـ : <span class="answer-space"></span><br>
+                avec سَوْفَ : <span class="answer-space"></span></li>
+            <li><span class="arabic">نَكْبُرُ</span><br>
+                avec سَـ : <span class="answer-space"></span><br>
+                avec سَوْفَ : <span class="answer-space"></span></li>
+            <li><span class="arabic">تَكْتُبِينَ</span><br>
+                avec سَـ : <span class="answer-space"></span><br>
+                avec سَوْفَ : <span class="answer-space"></span></li>
+            <li><span class="arabic">يَفْهَمُونَ</span><br>
+                avec سَـ : <span class="answer-space"></span><br>
+                avec سَوْفَ : <span class="answer-space"></span></li>
+        </ol>
+        <div class="note">
+            <strong>⚠️ Rappel :</strong> <span class="fut-p">سَـ</span> se colle directement au verbe (sans espace).
+            <span class="fut-p">سَوْفَ</span> est un mot séparé suivi du verbe.
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">10</span>Présent ou futur ? Choisissez la particule</h2>
+    <div class="exercise">
+        <h3>Traduisez chaque phrase en arabe — présent (inaccompli seul) ou futur (سَـ / سَوْفَ)</h3>
+        <ol>
+            <li>Il écrit une lettre <em>(maintenant)</em> → <span class="answer-space wide-space"></span></li>
+            <li>Il écrira une lettre <em>(demain)</em> → <span class="answer-space wide-space"></span></li>
+            <li>Je comprends la leçon <em>(maintenant)</em> → <span class="answer-space wide-space"></span></li>
+            <li>Nous comprendrons <em>(certainement / emphase)</em> → <span class="answer-space wide-space"></span></li>
+            <li>Tu grandis vite <em>(maintenant)</em> → <span class="answer-space wide-space"></span></li>
+            <li>Elles grandiront ensemble → <span class="answer-space wide-space"></span></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">11</span>Vrai ou faux ?</h2>
+    <div class="exercise">
+        <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+        <ol>
+            <li>L'inaccompli exprime uniquement le présent <span class="answer-space"></span></li>
+            <li>Il existe quatre préfixes à l'inaccompli <span class="answer-space"></span></li>
+            <li>Le préfixe تَ peut exprimer la 2ᵉ et la 3ᵉ personne <span class="answer-space"></span></li>
+            <li>La voyelle du milieu est toujours la même au passé et à l'inaccompli <span class="answer-space"></span></li>
+            <li>سَوْفَ s'écrit collé au verbe comme سَـ <span class="answer-space"></span></li>
+            <li>سَوْفَ exprime le futur avec davantage d'emphase que سَـ <span class="answer-space"></span></li>
+            <li>La 3ᵉ pers. sg. masc. يَفْعَلُ est la forme de référence de l'inaccompli <span class="answer-space"></span></li>
+            <li>Il n'y a pas de distinction de genre à la 1ʳᵉ personne <span class="answer-space"></span></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">12</span>Trouvez l'erreur</h2>
+    <div class="exercise">
+        <h3>Chaque forme verbale contient une erreur. Corrigez-la :</h3>
+        <ol>
+            <li><span class="arabic">يَكْتُبَانَ</span> (duel masc. — nūn finale) → <span class="answer-space"></span></li>
+            <li><span class="arabic">تَفْهَمِوْنَ</span> (2ᵉ pl. m.) → <span class="answer-space"></span></li>
+            <li><span class="arabic">سَوْفَيَكْتُبُ</span> (سَوْفَ collé au verbe) → <span class="answer-space"></span></li>
+            <li><span class="arabic">أُكْتُبُ</span> (1ʳᵉ sg. — voyelle du préfixe) → <span class="answer-space"></span></li>
+            <li><span class="arabic">سَنَكْبُرَ</span> (futur 1ʳᵉ pl. — voyelle finale) → <span class="answer-space"></span></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">13</span>Tableau comparatif passé / inaccompli</h2>
+    <div class="exercise">
+        <h3>Pour chaque forme au passé, donnez la forme correspondante à l'inaccompli</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Forme</th>
+                    <th>Passé (كَتَبَ)</th>
+                    <th>Inaccompli (يَكْتُبُ)</th>
+                    <th>Passé (فَهِمَ)</th>
+                    <th>Inaccompli (يَفْهَمُ)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>3ᵉ sg. m.</td><td><span class="arabic" style="color:#6a1b9a;">كَتَبَ</span></td><td><span class="answer-space"></span></td><td><span class="arabic" style="color:#6a1b9a;">فَهِمَ</span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td>3ᵉ sg. f.</td><td><span class="arabic" style="color:#6a1b9a;">كَتَبَتْ</span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td>3ᵉ pl. m.</td><td><span class="arabic" style="color:#6a1b9a;">كَتَبُوا</span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td>2ᵉ sg. m.</td><td><span class="arabic" style="color:#6a1b9a;">كَتَبْتَ</span></td><td><span class="answer-space"></span></td><td><span class="arabic" style="color:#6a1b9a;">فَهِمْتَ</span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td>2ᵉ sg. f.</td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td>1ʳᵉ sg.</td><td><span class="arabic" style="color:#6a1b9a;">كَتَبْتُ</span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td></tr>
+                <tr><td>1ʳᵉ pl.</td><td><span class="answer-space"></span></td><td><span class="answer-space"></span></td><td><span class="arabic" style="color:#6a1b9a;">فَهِمْنَا</span></td><td><span class="answer-space"></span></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2><span class="section-number">14</span>Exercice de compréhension</h2>
+    <div class="exercise">
+        <h3>Lisez et répondez</h3>
+        <div class="question">
+            <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2.2;">
+                يَكْتُبُ الطَّالِبُ دَرْسَهُ كُلَّ يَوْمٍ. تَفْهَمُ الطَّالِبَةُ الشَّرْحَ جَيِّدًا.
+                سَيَكْبُرُ الأَطْفَالُ وَسَوْفَ يَفْهَمُونَ أَهَمِّيَّةَ العِلْمِ.
+                نَكْتُبُ مَعاً وَنَتَعَلَّمُ كُلَّ يَوْمٍ.
+            </p>
+            <p><strong>Questions :</strong></p>
+            <ol>
+                <li>Combien de formes à l'inaccompli y a-t-il dans ce texte ? <span class="answer-space"></span></li>
+                <li>Combien de formes au futur (avec سَ / سَوْفَ) y a-t-il ? <span class="answer-space"></span></li>
+                <li>Quelle est la personne/genre/nombre de <span class="arabic">تَفْهَمُ</span> ? <span class="answer-space wide-space"></span></li>
+                <li>Quelle est la différence entre <span class="arabic">سَيَكْبُرُ</span> et <span class="arabic">سَوْفَ يَفْهَمُونَ</span> ? <span class="answer-space wide-space"></span></li>
+                <li>Traduisez <span class="arabic">نَكْتُبُ مَعاً وَنَتَعَلَّمُ كُلَّ يَوْمٍ</span> : <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="note">
+        <strong>💡 Conseil :</strong> Pour bien maîtriser l'inaccompli, pratiquez en deux étapes :
+        d'abord identifiez le préfixe (qui vous donne la personne), puis le suffixe (qui précise genre
+        et nombre). Pour le futur, habituez-vous à reconnaître <span class="fut-p">سَـ</span> collé
+        et <span class="fut-p">سَوْفَ</span> séparé avant même de lire le verbe.
+    </div>
+
+    <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+        <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable de
+        conjuguer كَتَبَ / فَهِمَ / كَبُرَ à l'inaccompli dans toutes leurs formes, d'identifier chaque
+        forme verbale, et d'exprimer le futur avec سَـ et سَوْفَ. Excellent travail ! 🎉
+    </div>
+
+</div>
+</body>
+</html>
