@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Le pronom relatif et la clause relative en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.45em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .ar-ant {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.35em;
+        }
+
+        .ar-rel {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 1.35em;
+        }
+
+        .ar-rev {
+            color: #1565c0;
+            font-weight: bold;
+            font-size: 1.35em;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2.2;
+            direction: ltr;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 350px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #f44336;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .legende {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .legende-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.95em;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.25em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين الاِسْم المَوْصُول وصِلة المَوْصُول</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer les pronoms relatifs et
+            les clauses relatives en arabe. Rappelez-vous les trois types de clauses : <strong>définie</strong>
+            (antécédent défini + pronom spécifique), <strong>indéfinie</strong> (antécédent indéfini, pas de pronom),
+            <strong>réduite</strong> (pas d'antécédent, pronom générique مَنْ/ما/أَيّ).
+        </div>
+
+        <h2><span class="section-number">1</span>Les pronoms relatifs spécifiques — Tableau</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau des pronoms relatifs spécifiques</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Genre</th>
+                        <th>Singulier</th>
+                        <th>Duel (cas sujet)</th>
+                        <th>Duel (cas dir./ind.)</th>
+                        <th>Pluriel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Masculin</strong></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Féminin</strong></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note">
+                <strong>⚠️ Règle cruciale :</strong> Pour les noms <strong>non doués de raison</strong> au pluriel
+                (objets, animaux…), le pronom relatif utilisé est toujours <span class="arabic">التِي</span> (féminin
+                singulier), même si le nom est masculin ou pluriel.
+            </div>
+        </div>
+
+        <h2><span class="section-number">2</span>Choisissez le bon pronom relatif</h2>
+        <div class="exercise">
+            <h3>Choisissez parmi : الذِي / التِي / الذِينَ / اللَّواتِي</h3>
+            <p><em>Rappel : accord avec l'antécédent défini en genre et en nombre. Pour pluriel non-humain : التِي</em>
+            </p>
+            <ol>
+                <li><span class="arabic">الوَلَدُ ______ يَلْعَبُ</span> → Le garçon qui joue : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">الطَّالِبَةُ ______ نَجَحَتْ</span> → L'étudiante qui a réussi : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">المُعَلِّمُونَ ______ يَعْمَلُونَ</span> → Les enseignants qui travaillent :
+                    <span class="answer-space"></span></li>
+                <li><span class="arabic">الكُتُبُ ______ قَرَأْتُها</span> → Les livres que j'ai lus : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">النِّسَاءُ ______ يَسْكُنَّ هُنَا</span> → Les femmes qui habitent ici : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">المَدِينَةُ ______ وُلِدْتُ فِيها</span> → La ville dans laquelle je suis né(e)
+                    : <span class="answer-space"></span></li>
+                <li><span class="arabic">الأَطِبَّاءُ ______ عالَجُونِي</span> → Les médecins qui m'ont soigné : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">الأَقْلامُ ______ اشْتَرَيْتُها</span> → Les stylos que j'ai achetés : <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Identifiez les éléments de la clause relative</h2>
+        <div class="exercise">
+            <h3>Pour chaque phrase, identifiez : l'antécédent (vert), le pronom relatif (rouge) et le revenant (bleu)
+                s'il est présent</h3>
+            <div class="legende">
+                <div class="legende-item">
+                    <div class="dot" style="background:#2e7d32;"></div> Antécédent
+                </div>
+                <div class="legende-item">
+                    <div class="dot" style="background:#d32f2f;"></div> Pronom relatif
+                </div>
+                <div class="legende-item">
+                    <div class="dot" style="background:#1565c0;"></div> Revenant
+                </div>
+            </div>
+
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.3em; font-weight:bold;">قَرَأْتُ الكِتَابَ الذِي
+                    اشْتَرَيْتُهُ أَمْسِ</p>
+                <p>Antécédent : <span class="answer-space"></span></p>
+                <p>Pronom relatif : <span class="answer-space"></span></p>
+                <p>Revenant : <span class="answer-space"></span> (fonction : COD du verbe اشترى)</p>
+                <p>Traduction : <span class="answer-space wide-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.3em; font-weight:bold;">الطَّالِبَةُ التِي
+                    نَجَحَتْ في الاِمْتِحانِ مُجْتَهِدَةٌ</p>
+                <p>Antécédent : <span class="answer-space"></span></p>
+                <p>Pronom relatif : <span class="answer-space"></span></p>
+                <p>Revenant : implicite ou explicite ? <span class="answer-space"></span></p>
+                <p>Traduction : <span class="answer-space wide-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.3em; font-weight:bold;">الكُتُبُ التِي قَرَأْتُها
+                    مُفِيدَةٌ</p>
+                <p>Antécédent : <span class="answer-space"></span></p>
+                <p>Pourquoi التِي et non الذِينَ ? <span class="answer-space wide-space"></span></p>
+                <p>Revenant : <span class="answer-space"></span></p>
+                <p>Traduction : <span class="answer-space wide-space"></span></p>
+            </div>
+        </div>
+
+        <h2><span class="section-number">4</span>Clause relative définie — Construisez la phrase</h2>
+        <div class="exercise">
+            <h3>Combinez les deux phrases en utilisant le bon pronom relatif</h3>
+            <p><em>Exemple : الوَلَدُ يَلْعَبُ + هُوَ صَدِيقِي → الوَلَدُ الذِي يَلْعَبُ صَدِيقِي</em></p>
+
+            <div class="question">
+                <p><strong>1.</strong> الرَّجُلُ يَسْكُنُ هُنَا + هُوَ مُعَلِّمٌ<br>
+                    → <span class="answer-space wide-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p><strong>2.</strong> السَّيَّارَةُ + أَبِي اشْتَرَاهَا<br>
+                    → أُحِبُّ <span class="answer-space wide-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p><strong>3.</strong> الطُّلاَّبُ نَجَحُوا + هُمُ الطُّلاَّبُ<br>
+                    → هَؤُلاءِ هُمُ <span class="answer-space wide-space"></span></p>
+            </div>
+
+            <div class="question">
+                <p><strong>4.</strong> الطَّالِباتُ حَضَرْنَ الدَّرْسَ + فَهِمْنَ المَوْضُوعَ<br>
+                    → <span class="answer-space wide-space"></span></p>
+            </div>
+        </div>
+
+        <h2><span class="section-number">5</span>Clause relative indéfinie — Pas de pronom !</h2>
+        <div class="exercise">
+            <h3>Ces phrases contiennent un antécédent indéfini. Complétez-les directement sans pronom relatif</h3>
+            <div class="warning">
+                <strong>⚠️ Attention !</strong> En français, on dit « un homme <u>qui</u> parle ». En arabe avec un
+                antécédent indéfini, le « qui » disparaît complètement !
+            </div>
+            <ol>
+                <li>J'ai voyagé avec un jeune homme qui n'habite pas ici<br>
+                    <span class="arabic">سَافَرْتُ مَعَ شابٍّ</span> ______ → <span
+                        class="answer-space wide-space"></span>
+                </li>
+                <li>J'ai rencontré des gens qui parlent beaucoup<br>
+                    <span class="arabic">اِلْتَقَيْتُ بِناسٍ</span> ______ → <span
+                        class="answer-space wide-space"></span>
+                </li>
+                <li>J'ai vu un enfant qui pleurait dans la rue<br>
+                    <span class="arabic">رَأَيْتُ طِفْلًا</span> ______ → <span class="answer-space wide-space"></span>
+                </li>
+                <li>J'ai trouvé un livre qui parle d'histoire<br>
+                    <span class="arabic">وَجَدْتُ كِتابًا</span> ______ → <span class="answer-space wide-space"></span>
+                </li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">6</span>Clause relative réduite — مَنْ / ما / أَيّ</h2>
+        <div class="exercise">
+            <h3>Complétez avec le bon pronom générique : مَنْ (personnes) / ما (choses) / أَيّ (tout)</h3>
+            <ol>
+                <li>______ يَزْرَعُ الخَيْرَ يَحْصُدُ السَّعادَةَ → Celui qui sème le bien récolte le bonheur : <span
+                        class="answer-space"></span></li>
+                <li>______ فَعَلَهُ + نَسِيَ → Il a oublié ce qu'il a fait : <span class="answer-space"></span></li>
+                <li>أَحْتَرِمُ ______ يَعْمَلُ بِصِدْقٍ → Je respecte ceux qui travaillent honnêtement : <span
+                        class="answer-space"></span></li>
+                <li>أَعْطِني ______ عِنْدَكَ → Donne-moi ce que tu as : <span class="answer-space"></span></li>
+                <li>سَأُساعِدُ ______ شَخْصٍ يَحْتاجُ → J'aiderai quiconque a besoin : <span
+                        class="answer-space"></span></li>
+                <li>تَطْلُبُونَ المالَ مِمَّنْ = مِنْ + ______ (qui a volé) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Le revenant (العائِد) — Explicite ou implicite ?</h2>
+        <div class="exercise">
+            <h3>Identifiez le revenant dans chaque phrase et dites s'il est explicite ou implicite</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em;">1. <span class="ar-ant">الرَّجُلُ</span>
+                    <span class="ar-rel">الذِي</span> يَسْكُنُ هُنا مُعَلِّمٌ</p>
+                <p>Revenant : <span class="answer-space"></span> — Explicite ou implicite ? <span
+                        class="answer-space"></span></p>
+            </div>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em;">2. <span class="ar-ant">الكِتَابَ</span>
+                    <span class="ar-rel">الذِي</span> اشْتَرَيْتُ<span class="ar-rev">هُ</span> أَمْسِ</p>
+                <p>Revenant : <span class="answer-space"></span> — Fonction grammaticale : <span
+                        class="answer-space"></span></p>
+            </div>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em;">3. زُرْتُ <span
+                        class="ar-ant">المَدِينَةَ</span> <span class="ar-rel">التِي</span> وُلِدَتْ فِي<span
+                        class="ar-rev">هَا</span> أُمِّي</p>
+                <p>Revenant : <span class="answer-space"></span> — Il est attaché à : <span class="answer-space"></span>
+                </p>
+            </div>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em;">4. <span class="ar-rel">مَنْ</span>
+                    يَصْبِرُ يَنْجَحُ</p>
+                <p>Y a-t-il un revenant ? <span class="answer-space"></span> — Pourquoi ? <span
+                        class="answer-space wide-space"></span></p>
+            </div>
+        </div>
+
+        <h2><span class="section-number">8</span>Tableau récapitulatif des trois types de clauses</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Antécédent</th>
+                        <th>Pronom relatif</th>
+                        <th>Revenant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Définie</strong></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Indéfinie</strong></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Réduite</strong></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">9</span>Traduisez en arabe</h2>
+        <div class="exercise">
+            <h3>Traduisez en utilisant la bonne structure de clause relative</h3>
+            <ol>
+                <li>Le garçon qui joue dans la rue est mon ami → <span class="answer-space wide-space"></span></li>
+                <li>J'ai vu un enfant qui pleurait (antécédent indéfini !) → <span
+                        class="answer-space wide-space"></span></li>
+                <li>Je respecte les enseignants qui travaillent sérieusement → <span
+                        class="answer-space wide-space"></span></li>
+                <li>Celui qui est patient réussit → <span class="answer-space wide-space"></span></li>
+                <li>Les livres que j'ai lus sont utiles (pluriel non-humain !) → <span
+                        class="answer-space wide-space"></span></li>
+                <li>Je te donne ce dont tu as besoin → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Les pronoms relatifs arabes s'accordent en genre et en nombre avec l'antécédent <span
+                        class="answer-space"></span></li>
+                <li>Avec un antécédent indéfini, on doit utiliser الذِي ou التِي <span class="answer-space"></span></li>
+                <li>Pour un pluriel non-humain, on utilise toujours التِي <span class="answer-space"></span></li>
+                <li>Le revenant peut être implicite (sujet du verbe) <span class="answer-space"></span></li>
+                <li>مَنْ s'utilise pour les choses, ما pour les personnes <span class="answer-space"></span></li>
+                <li>مِمَّنْ est la contraction de مِنْ + مَنْ <span class="answer-space"></span></li>
+                <li>Dans une clause réduite, l'antécédent est présent mais non défini <span class="answer-space"></span>
+                </li>
+                <li>Le revenant n'est jamais obligatoire en arabe <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">11</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur. Corrigez-la :</h3>
+            <ol>
+                <li><span class="arabic">الوَلَدُ التِي يَلْعَبُ</span> (mauvais pronom pour masculin singulier) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">الكُتُبُ الذِينَ قَرَأْتُها</span> (mauvais pronom pour pluriel non-humain) →
+                    <span class="answer-space"></span></li>
+                <li><span class="arabic">رَأَيْتُ طِفْلًا الذِي يَبْكِي</span> (pronom relatif avec antécédent indéfini)
+                    → <span class="answer-space"></span></li>
+                <li><span class="arabic">الطَّالِباتُ الذِينَ نَجَحُوا</span> (mauvais pronom pour féminin pluriel
+                    humain) → <span class="answer-space"></span></li>
+                <li><span class="arabic">ما يَصْبِرُ يَنْجَحُ</span> (mauvais pronom générique pour une personne) →
+                    <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">12</span>Exercice de compréhension globale</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2;">
+                    هَذَا هُوَ الطَّبِيبُ الذِي عالَجَنِي. الطَّبِيبُ الذِي يَعْمَلُ في المُسْتَشْفَى القَرِيبِ.
+                    التَقَيْتُ بِناسٍ يَعْرِفُونَهُ جَيِّدًا. مَنْ يَزُورُهُ يَشْعُرُ بِالارْتِياحِ.
+                </p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de pronoms relatifs spécifiques y a-t-il ? <span class="answer-space"></span></li>
+                    <li>Y a-t-il une clause relative indéfinie ? Laquelle ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Y a-t-il une clause relative réduite ? Laquelle ? <span class="answer-space wide-space"></span>
+                    </li>
+                    <li>Dans <span class="arabic">عالَجَنِي</span>, identifiez le revenant : <span
+                            class="answer-space"></span></li>
+                    <li>Pourquoi الذِي et non التِي pour le médecin ? <span class="answer-space wide-space"></span></li>
+                    <li>Traduisez la phrase <span class="arabic">مَنْ يَزُورُهُ يَشْعُرُ بِالارْتِياحِ</span> : <span
+                            class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseils pour maîtriser les pronoms relatifs :</strong>
+            <ul>
+                <li>Mémorisez les trois formes de base : <span class="arabic">الذِي</span> (m. sg.), <span
+                        class="arabic">التِي</span> (f. sg. + pluriel non-humain), <span class="arabic">الذِينَ</span>
+                    (m. pl. humain)</li>
+                <li>Entraînez-vous à identifier le revenant dans chaque phrase</li>
+                <li>Repérez les antécédents définis vs indéfinis dans vos lectures</li>
+                <li>N'oubliez jamais : التِي pour TOUT pluriel non-humain, même masculin !</li>
+            </ul>
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable
+            d'identifier les trois types de clauses relatives, de choisir le bon pronom relatif selon l'antécédent,
+            d'identifier le revenant, et de construire vos propres phrases relatives en arabe. Excellent travail ! 🎉
+        </div>
+    </div>
+</body>
+
+</html>

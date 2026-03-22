@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les formes du pluriel en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .badge-reg {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .badge-bris {
+            background: #fff3e0;
+            color: #e65100;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين الجَمْع</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer les formes du pluriel en
+            arabe. Rappelez-vous : il existe deux types de pluriel — le <strong>pluriel régulier (الجَمْع
+                السالِم)</strong> formé par suffixes, et le <strong>pluriel brisé (جَمْع التَّكسِير)</strong> à
+            formation interne irrégulière.
+        </div>
+
+        <h2><span class="section-number">1</span>Pluriel masculin régulier : cas sujet</h2>
+        <div class="exercise">
+            <h3>Ajoutez le suffixe ـُونَ (cas sujet) pour former le pluriel masculin régulier</h3>
+            <ol>
+                <li><span class="arabic">مُهَنْدِس</span> (ingénieur) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّم</span> (enseignant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طالِب</span> (étudiant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُدِير</span> (directeur) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَبِيب</span> (médecin) → <span class="answer-space"></span></li>
+                <li><span class="arabic">صَحْفِيّ</span> (journaliste) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُحَامٍ</span> (avocat) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Pluriel masculin régulier : cas direct/indirect</h2>
+        <div class="exercise">
+            <h3>Formez le pluriel masculin régulier au cas direct/indirect (ـِينَ)</h3>
+            <ol>
+                <li><span class="arabic">مُهَنْدِس</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّم</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">طالِب</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُوَظَّف</span> (employé) → <span class="answer-space"></span></li>
+                <li><span class="arabic">كاتِب</span> (écrivain) → <span class="answer-space"></span></li>
+            </ol>
+            <div class="note">
+                <strong>⚠️ Rappel :</strong> En phrase : <span class="arabic">رَأَيْتُ مُهَنْدِسِينَ</span> (J'ai vu des
+                ingénieurs) — cas direct donc ـِينَ.
+            </div>
+        </div>
+
+        <h2><span class="section-number">3</span>Pluriel féminin régulier</h2>
+        <div class="exercise">
+            <h3>Formez le pluriel féminin régulier (ـاتٌ au nominatif)</h3>
+            <p><em>Rappel : retirez le ة s'il y en a un, puis ajoutez ـاتٌ</em></p>
+            <ol>
+                <li><span class="arabic">مَلِكَة</span> (reine) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُعَلِّمَة</span> (enseignante) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طالِبَة</span> (étudiante) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُمَرِّضَة</span> (infirmière) → <span class="answer-space"></span></li>
+                <li><span class="arabic">جامِعَة</span> (université) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَيَّارَة</span> (voiture) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Exceptions du pluriel féminin régulier</h2>
+        <div class="exercise">
+            <h3>Donnez le pluriel de ces mots irréguliers</h3>
+            <p><em>Ces pluriels doivent être mémorisés !</em></p>
+            <ol>
+                <li><span class="arabic">سَنَة</span> (année) → <span class="answer-space"></span></li>
+                <li><span class="arabic">بِنْت</span> (fille) → <span class="answer-space"></span></li>
+                <li><span class="arabic">أُمّ</span> (mère) → <span class="answer-space"></span></li>
+                <li><span class="arabic">أُخْت</span> (sœur) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَناة</span> (canal) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سَماء</span> (ciel) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">5</span>Pluriel brisé — Mémorisez !</h2>
+        <div class="exercise">
+            <h3>Associez le singulier à son pluriel brisé</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Singulier</th>
+                        <th>Pluriel brisé</th>
+                        <th>Traduction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="arabic">كِتاب</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>livre → livres</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">وَلَد</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>garçon → garçons</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">بَيْت</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>maison → maisons</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">رَجُل</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>homme → hommes</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">يَوْم</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>jour → jours</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">مَدِينَة</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>ville → villes</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">قَلَم</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>stylo → stylos</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">صَدِيق</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>ami → amis</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">6</span>Plus de pluriels brisés</h2>
+        <div class="exercise">
+            <h3>Complétez avec le pluriel brisé correct</h3>
+            <ol>
+                <li><span class="arabic">دَرْس</span> (leçon) → <span class="answer-space"></span></li>
+                <li><span class="arabic">سُوق</span> (marché) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مَطْعَم</span> (restaurant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">عالِم</span> (savant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَصِيدَة</span> (poème) → <span class="answer-space"></span></li>
+                <li><span class="arabic">جار</span> (voisin) → <span class="answer-space"></span></li>
+                <li><span class="arabic">شَهْر</span> (mois) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَلْب</span> (cœur) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">7</span>Pluriel régulier ou brisé ?</h2>
+        <div class="exercise">
+            <h3>Identifiez le type de pluriel : <span class="badge-reg">Régulier</span> ou <span
+                    class="badge-bris">Brisé</span></h3>
+            <ol>
+                <li><span class="arabic">مُعَلِّمُونَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">كُتُب</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">طالِبات</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَوْلاد</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُهَنْدِسِينَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">بُيُوت</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَبِيبات</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">رِجال</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُدِيرُونَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَيّام</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Doués de raison ou non ?</h2>
+        <div class="exercise">
+            <h3>Classez ces mots : doués de raison (العاقِل) ou non doués de raison (غَيْر العاقِل)</h3>
+            <p><em>Rappel : doués de raison = êtres humains ; non doués de raison = animaux, objets, concepts</em></p>
+            <ol>
+                <li><span class="arabic">مُعَلِّم</span> (enseignant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">كِتاب</span> (livre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">حَيَوان</span> (animal) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طالِبَة</span> (étudiante) → <span class="answer-space"></span></li>
+                <li><span class="arabic">شَجَرَة</span> (arbre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">طَبِيب</span> (médecin) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَصِيدَة</span> (poème) → <span class="answer-space"></span></li>
+                <li><span class="arabic">بِنْت</span> (fille) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>Quel pluriel utiliser ?</h2>
+        <div class="exercise">
+            <h3>Choisissez le pluriel correct selon la règle "doué de raison / non doué de raison"</h3>
+            <ol>
+                <li>Pour <span class="arabic">مُعَلِّم</span> (humain masculin), le pluriel est :<br>
+                    a) <span class="arabic">مُعَلِّمُونَ</span> &nbsp; b) <span class="arabic">مَعالِم</span> &nbsp; →
+                    <span class="answer-space"></span></li>
+                <li>Pour <span class="arabic">طالِبَة</span> (humain féminin), le pluriel est :<br>
+                    a) <span class="arabic">طالِبات</span> &nbsp; b) <span class="arabic">طُلاّب</span> &nbsp; → <span
+                        class="answer-space"></span></li>
+                <li>Pour <span class="arabic">شَجَرَة</span> (non humain), le pluriel est :<br>
+                    a) <span class="arabic">شَجَرات</span> (régulier) &nbsp; b) <span class="arabic">أَشْجار</span>
+                    (brisé) → les deux sont possibles, mais lequel est plus courant ? <span class="answer-space"></span>
+                </li>
+                <li>Pour <span class="arabic">حَيَوان</span> (animal), le pluriel courant est :<br>
+                    a) <span class="arabic">حَيَوانُونَ</span> &nbsp; b) <span class="arabic">حَيَوانات</span> &nbsp; →
+                    <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Tableau complet singulier → pluriel</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau avec toutes les informations</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Singulier</th>
+                        <th>Pluriel</th>
+                        <th>Type de pluriel</th>
+                        <th>Traduction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="arabic">مُهَنْدِس</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>ingénieur → ingénieurs</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">مَدِينَة</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>ville → villes</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">بَنْك</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>banque → banques</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">مُمَرِّضَة</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>infirmière → infirmières</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">صُورَة</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>image → images</td>
+                    </tr>
+                    <tr>
+                        <td><span class="arabic">طَعام</span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td>nourriture → nourritures</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">11</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Le pluriel brisé modifie la structure interne du mot <span class="answer-space"></span></li>
+                <li>Le pluriel masculin régulier utilise les suffixes ـُونَ et ـِينَ <span class="answer-space"></span>
+                </li>
+                <li>Le pluriel régulier est plus fréquent que le pluriel brisé en arabe <span
+                        class="answer-space"></span></li>
+                <li>Les pluriels de noms non-humains s'accordent au féminin singulier <span class="answer-space"></span>
+                </li>
+                <li>On peut prédire le pluriel brisé depuis le singulier grâce à des règles absolues <span
+                        class="answer-space"></span></li>
+                <li>Le pluriel féminin régulier s'utilise parfois pour des objets inanimés <span
+                        class="answer-space"></span></li>
+                <li>Il est essentiel de mémoriser le pluriel en même temps que le singulier <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">12</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque forme de pluriel est incorrecte. Corrigez-la :</h3>
+            <ol>
+                <li><span class="arabic">مُعَلِّمات</span> pour le pluriel masculin de مُعَلِّم → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">كِتابُونَ</span> comme pluriel de كِتاب → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">بَيْتات</span> comme pluriel de بَيْت → <span class="answer-space"></span></li>
+                <li><span class="arabic">أُمَّات</span> comme pluriel de أُمّ → <span class="answer-space"></span></li>
+                <li><span class="arabic">مُهَنْدِسون</span> au cas direct (complément) → <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">13</span>Phrases en contexte</h2>
+        <div class="exercise">
+            <h3>Mettez le mot au pluriel correct selon le contexte</h3>
+            <div class="question">
+                <p>فِي المَدْرَسَةِ عَشَرَةُ ______ (مُعَلِّم) وَخَمْسُ ______ (مُعَلِّمَة)</p>
+                <p>Réponses : <span class="answer-space"></span> / <span class="answer-space"></span></p>
+            </div>
+            <div class="question">
+                <p>قَرَأْتُ ثَلاثَةَ ______ (كِتاب) أَمْسِ</p>
+                <p>Réponse : <span class="answer-space"></span></p>
+            </div>
+            <div class="question">
+                <p>في الشَّارِعِ ______ (بَيْت) كَبِيرَة (accord au féminin singulier !)</p>
+                <p>Réponse (pluriel de بَيْت) : <span class="answer-space"></span></p>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseil :</strong> Le pluriel brisé est la forme la plus fréquente en arabe. Lors de
+            l'apprentissage d'un nouveau mot, mémorisez toujours le singulier ET le pluriel ensemble. Avec l'exposition
+            à la langue, ces formes se mémoriseront naturellement !
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable de
+            former les pluriels réguliers masculins et féminins, de reconnaître les pluriels brisés courants, et de
+            choisir le bon type de pluriel selon la nature du nom (doué ou non doué de raison). 🎉
+        </div>
+    </div>
+</body>
+
+</html>

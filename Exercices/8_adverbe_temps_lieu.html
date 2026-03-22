@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les adverbes de temps et de lieu en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .tag-m {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .tag-i {
+            background: #fce4ec;
+            color: #880e4f;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين ظُرُوف الزَّمَان وَالمَكَان</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer les adverbes de temps et
+            de lieu en arabe. Rappelez-vous : les adverbes <strong>déclinables (مُعْرَب)</strong> changent leur
+            terminaison selon la fonction grammaticale, tandis que les adverbes <strong>indéclinables
+                (مَبْنِيّ)</strong> restent toujours identiques.
+        </div>
+
+        <h2><span class="section-number">1</span>Déclinable ou indéclinable ?</h2>
+        <div class="exercise">
+            <h3>Identifiez si chaque adverbe est déclinable <span class="tag-m">Déclinable</span> ou indéclinable <span
+                    class="tag-i">Indéclinable</span></h3>
+            <ol>
+                <li><span class="arabic">أَمَامَ</span> (devant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">هُنَا</span> (ici) → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَعْدَ</span> (après) → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَمْسِ</span> (hier) → <span class="answer-space"></span></li>
+                <li><span class="arabic">فَوْقَ</span> (au-dessus) → <span class="answer-space"></span></li>
+                <li><span class="arabic">الآنَ</span> (maintenant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">قَبْلَ</span> (avant) → <span class="answer-space"></span></li>
+                <li><span class="arabic">هُنَاكَ</span> (là-bas) → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَحْتَ</span> (sous) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مَتَى</span> (quand ?) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">2</span>Adverbes de lieu — Où est-ce ?</h2>
+        <div class="exercise">
+            <h3>Complétez avec le bon adverbe de lieu</h3>
+            <p><em>Utilisez : أَمَامَ / خَلْفَ / فَوْقَ / تَحْتَ / بَيْنَ / حَوْلَ / عِنْدَ / وَسْطَ</em></p>
+            <ol>
+                <li>الكِتَابُ ______ الطَّاوِلَةِ → Le livre est sur la table</li>
+                <li>القِطَّةُ ______ السَّرِيرِ → Le chat est sous le lit</li>
+                <li>جَلَسَ الطَّالِبُ ______ المُعَلِّمِ → L'étudiant s'est assis devant le professeur</li>
+                <li>المَكْتَبَةُ ______ المَسْجِدِ → La bibliothèque est derrière la mosquée</li>
+                <li>الحَدِيقَةُ ______ المَبْنَيَيْنِ → Le jardin est entre les deux bâtiments</li>
+                <li>الأَشْجَارُ ______ البَيْتِ → Les arbres sont autour de la maison</li>
+                <li>وَقَفَ ______ المَيْدَانِ → Il s'est arrêté au milieu de la place</li>
+                <li><span class="arabic">أَنَا ______ صَدِيقِي</span> → Je suis chez mon ami</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Adverbes de lieu indéclinables</h2>
+        <div class="exercise">
+            <h3>Traduisez les phrases suivantes en arabe en utilisant : هُنَا / هُنَاكَ / أَيْنَ / حَيْثُ / لَدَى</h3>
+            <ol>
+                <li>Où est la clé ? → <span class="answer-space wide-space"></span></li>
+                <li>La clé est ici → <span class="answer-space wide-space"></span></li>
+                <li>Le bureau est là-bas → <span class="answer-space wide-space"></span></li>
+                <li>Assieds-toi où tu veux → <span class="answer-space wide-space"></span></li>
+                <li>Il a des informations importantes → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">4</span>Adverbes de temps — Quand ?</h2>
+        <div class="exercise">
+            <h3>Complétez avec le bon adverbe de temps</h3>
+            <p><em>Utilisez : قَبْلَ / بَعْدَ / حِينَ / أَثْنَاءَ / فَوْرَ / بَيْنَمَا / لَمَّا / مُنْذُ</em></p>
+            <ol>
+                <li>______ الدَّرْسِ، دَخَلَ المُدِيرُ → Pendant le cours, le directeur est entré</li>
+                <li>______ وَصَلَ، اتَّصَلَ بِي → Dès qu'il est arrivé, il m'a appelé</li>
+                <li>سَأَذْهَبُ ______ الدَّرْسِ → J'irai après le cours</li>
+                <li>جَاءَ ______ الغُرُوبِ → Il est venu avant le coucher du soleil</li>
+                <li>______ كُنْتُ أَدْرُسُ، دَخَلَ أَخِي → Tandis que j'étudiais, mon frère est entré</li>
+                <li>______ انْتَهَى الدَّرْسُ، خَرَجْنَا → Quand le cours s'est terminé, nous sommes sortis</li>
+                <li>______ سَاعَةٍ أَنْتَظِرُ → J'attends depuis une heure</li>
+                <li>جِئْتُ ______ وُصُولِهِ → Je suis venu au moment de son arrivée</li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">5</span>Adverbes de temps indéclinables</h2>
+        <div class="exercise">
+            <h3>Identifiez l'adverbe qui convient et expliquez pourquoi il est indéclinable</h3>
+            <p><em>Utilisez : أَمْسِ / قَطُّ / الآنَ / مَتَى / بَيْنَمَا</em></p>
+            <ol>
+                <li>Je l'ai vu hier → <span class="answer-space wide-space"></span></li>
+                <li>Je n'ai jamais fait cela → <span class="answer-space wide-space"></span></li>
+                <li>Je suis occupé maintenant → <span class="answer-space wide-space"></span></li>
+                <li>Quand viendras-tu ? → <span class="answer-space wide-space"></span></li>
+                <li>Tandis que tu dormais, il est parti → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">6</span>Exprimer la possession avec عِنْدَ et لَدَى</h2>
+        <div class="exercise">
+            <h3>Construisez des phrases pour exprimer "avoir" en arabe</h3>
+            <p><em>Rappel : عِنْدَ = courant ; لَدَى = formel/littéraire</em></p>
+            <ol>
+                <li>J'ai une voiture → (avec عِنْدَ) <span class="answer-space wide-space"></span></li>
+                <li>As-tu du temps ? → (avec عِنْدَ) <span class="answer-space wide-space"></span></li>
+                <li>Elle a un nouveau livre → <span class="answer-space wide-space"></span></li>
+                <li>Le médecin a une grande expérience → (avec لَدَى) <span class="answer-space wide-space"></span></li>
+                <li>Nous avons un projet important → (avec لَدَى) <span class="answer-space wide-space"></span></li>
+                <li>Sara a un beau chat → <span class="answer-space wide-space"></span></li>
+            </ol>
+            <div class="note">
+                <strong>⚠️ Rappel :</strong> Quand <span class="arabic">لَدَى</span> est suivi d'un pronom, il devient
+                <span class="arabic">لَدَيْـ</span> : <span class="arabic">لَدَيَّ، لَدَيْكَ، لَدَيْهِ</span>
+            </div>
+        </div>
+
+        <h2><span class="section-number">7</span>Tableau récapitulatif</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau avec les adverbes appropriés</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Français</th>
+                        <th>Arabe</th>
+                        <th>Type (lieu/temps)</th>
+                        <th>Déclinable ?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Devant</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Hier</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Entre</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Maintenant</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Au-dessus</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Depuis</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Là-bas</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Pendant</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">8</span>Adverbes dans des situations réelles</h2>
+        <div class="exercise">
+            <h3>Traduisez ces phrases de la vie quotidienne en arabe</h3>
+            <ol>
+                <li>Le livre est sur la table → <span class="answer-space wide-space"></span></li>
+                <li>La bibliothèque est derrière la mosquée → <span class="answer-space wide-space"></span></li>
+                <li>Il est venu avant le coucher du soleil → <span class="answer-space wide-space"></span></li>
+                <li>J'ai vu mon ami hier → <span class="answer-space wide-space"></span></li>
+                <li>Pendant le voyage, j'ai rencontré un ami → <span class="answer-space wide-space"></span></li>
+                <li>Il s'est assis entre les deux portes → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li><span class="arabic">أَمْسِ</span> garde toujours la kasra finale, quelle que soit sa position <span
+                        class="answer-space"></span></li>
+                <li>Les adverbes déclinables sont généralement à l'accusatif (fatḥa) quand ils fonctionnent seuls <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">هُنَا</span> peut changer de forme selon les cas grammaticaux <span
+                        class="answer-space"></span></li>
+                <li>Quand un adverbe déclinable est suivi d'un nom, ils forment une annexion (إِضَافَة) <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">عِنْدَ</span> et <span class="arabic">لَدَى</span> peuvent exprimer la
+                    possession <span class="answer-space"></span></li>
+                <li><span class="arabic">قَطُّ</span> s'utilise pour nier une action au futur <span
+                        class="answer-space"></span></li>
+                <li>Les adverbes répondent aux questions أَيْنَ؟ ou مَتَى؟ <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">10</span>Dialogue : À la maison</h2>
+        <div class="exercise">
+            <h3>Complétez le dialogue avec les adverbes corrects</h3>
+            <div class="question">
+                <p><strong>A :</strong> ______ هَاتِفُكَ؟ (Où est ton téléphone ?)</p>
+                <p><strong>B :</strong> ______ ، ______ الطَّاوِلَةِ (Ici, sur la table)</p>
+                <p><strong>A :</strong> وَ______ وَصَلَ أَبُوكَ؟ (Et quand ton père est-il arrivé ?)</p>
+                <p><strong>B :</strong> وَصَلَ ______ (Il est arrivé hier)</p>
+                <p><strong>A :</strong> هَلْ ______ سَيَّارَةٌ جَدِيدَةٌ؟ (As-tu une nouvelle voiture ?)</p>
+                <p><strong>B :</strong> نَعَمْ ______ سَيَّارَةٌ جَدِيدَةٌ (Oui, j'ai une nouvelle voiture)</p>
+            </div>
+        </div>
+
+        <h2><span class="section-number">11</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur. Corrigez-la :</h3>
+            <ol>
+                <li><span class="arabic">رَأَيْتُهُ أَمْسَ</span> (hier, avec fatḥa) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">جَلَسَ فَوْقُ الطَّاوِلَةِ</span> (avec ḍamma) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">ما فَعَلْتُ ذٰلِكَ قَطَّ</span> (avec fatḥa) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">عِنْدَهُ عِلْمٌ كَبِيرَةٌ</span> (erreur d'accord) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">أَيْنَ الْكِتَابُ؟ هُوَ هُنَاكَ</span> (réponse correcte pour un objet visible
+                    proche) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">12</span>Construction de phrases libres</h2>
+        <div class="exercise">
+            <h3>Créez des phrases complètes en utilisant les éléments donnés</h3>
+            <div class="question">
+                <strong>1.</strong> أَثْنَاءَ + السَّفَر + قابَلَ + صَدِيق<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+            <div class="question">
+                <strong>2.</strong> بَيْنَ + المَسْجِد + المَكْتَبَة + فُنْدُق<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+            <div class="question">
+                <strong>3.</strong> مُنْذُ + ساعة + أَنْتَظِر<br>
+                Votre phrase : <span class="answer-space" style="width: 400px;"></span>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseil :</strong> Pour bien distinguer les adverbes de lieu et de temps, posez-vous toujours la
+            question : est-ce que cet adverbe répond à <span class="arabic">أَيْنَ؟</span> (où ?) ou à <span
+                class="arabic">مَتَى؟</span> (quand ?). Et pour la déclinabilité : les adverbes anciens ou qui ont perdu
+            leur flexion naturelle sont indéclinables (comme <span class="arabic">أَمْسِ</span>).
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable de
+            distinguer les adverbes de lieu et de temps, d'identifier les adverbes déclinables et indéclinables, et de
+            les utiliser correctement dans des phrases arabes complètes !
+        </div>
+    </div>
+</body>
+
+</html>

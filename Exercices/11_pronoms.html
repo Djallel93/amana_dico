@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les pronoms en arabe</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 300px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: bold;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        .tag-det {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .tag-aff {
+            background: #f3e5f5;
+            color: #6a1b9a;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 150px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Exercices Pratiques</h1>
+        <div class="arabic-title">تَمَارِين الضَّمائِر</div>
+
+        <div class="intro">
+            <strong>👋 Instructions :</strong> Complétez les exercices suivants pour pratiquer les pronoms arabes.
+            Rappelez-vous : les pronoms arabes sont <strong>indéclinables</strong> (ne changent pas de forme). Il existe
+            deux catégories : les <strong>pronoms détachés</strong> (sujets indépendants) et les <strong>pronoms
+                affixes</strong> (suffixes attachés aux noms, verbes ou prépositions).
+        </div>
+
+        <h2><span class="section-number">1</span>Pronoms détachés — Tableau</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau des pronoms détachés</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Personne</th>
+                        <th>Genre</th>
+                        <th>Singulier</th>
+                        <th>Duel</th>
+                        <th>Pluriel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2"><strong>1ère</strong></td>
+                        <td>M/F</td>
+                        <td><span class="answer-space"></span></td>
+                        <td>—</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="font-style:italic; font-size:0.9em;">Pas de distinction de genre à la
+                            1ère personne</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>2ème</strong></td>
+                        <td>Masculin</td>
+                        <td><span class="answer-space"></span></td>
+                        <td rowspan="2"><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Féminin</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>3ème</strong></td>
+                        <td>Masculin</td>
+                        <td><span class="answer-space"></span></td>
+                        <td rowspan="2"><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Féminin</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">2</span>Quel pronom détaché choisir ?</h2>
+        <div class="exercise">
+            <h3>Choisissez le bon pronom détaché selon le contexte</h3>
+            <ol>
+                <li>______ طالِبٌ (Il est étudiant) → <span class="answer-space"></span></li>
+                <li>______ مُعَلِّمَةٌ (Elle est enseignante) → <span class="answer-space"></span></li>
+                <li>______ مُهَنْدِسُونَ (Ils sont ingénieurs) → <span class="answer-space"></span></li>
+                <li>______ طَالِبَتَانِ (Elles deux sont étudiantes) → <span class="answer-space"></span></li>
+                <li>______ نَاجِحُونَ (Ce sont eux qui réussissent) → <span class="answer-space"></span> + règle :
+                    devient <span class="answer-space"></span> devant ال</li>
+                <li>______ فِي البَيْتِ؟ (Es-tu [masc.] à la maison ?) → <span class="answer-space"></span></li>
+                <li>______ نَدْرُسُ مَعاً (Nous étudions ensemble) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">3</span>Pronoms affixes — Tableau</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau des pronoms affixes (suffixes)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Personne</th>
+                        <th>Genre</th>
+                        <th>Singulier</th>
+                        <th>Duel</th>
+                        <th>Pluriel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1ère</strong></td>
+                        <td>M/F</td>
+                        <td><span class="answer-space"></span></td>
+                        <td>—</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>2ème</strong></td>
+                        <td>Masc.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td rowspan="2"><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Fém.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><strong>3ème</strong></td>
+                        <td>Masc.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td rowspan="2"><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Fém.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2><span class="section-number">4</span>Pronoms affixes attachés aux noms (possession)</h2>
+        <div class="exercise">
+            <h3>Attachez le pronom affixe au nom كِتاب (livre)</h3>
+            <ol>
+                <li>mon livre → <span class="arabic">كِتاب</span> + ـي = <span class="answer-space"></span></li>
+                <li>ton livre (masc.) → <span class="arabic">كِتاب</span> + ـكَ = <span class="answer-space"></span>
+                </li>
+                <li>son livre (à lui) → <span class="arabic">كِتاب</span> + ـهُ = <span class="answer-space"></span>
+                </li>
+                <li>son livre (à elle) → <span class="arabic">كِتاب</span> + ـهَا = <span class="answer-space"></span>
+                </li>
+                <li>notre livre → <span class="arabic">كِتاب</span> + ـنَا = <span class="answer-space"></span></li>
+                <li>votre livre (masc. pl.) → <span class="arabic">كِتاب</span> + ـكُم = <span
+                        class="answer-space"></span></li>
+            </ol>
+            <div class="note">
+                <strong>💡 Exemple en phrase :</strong> <span class="arabic">نَظَرْتُ إِلى جُرْحِكَ</span> = J'ai
+                regardé ta blessure.
+            </div>
+        </div>
+
+        <h2><span class="section-number">5</span>Pronoms affixes attachés aux verbes (COD)</h2>
+        <div class="exercise">
+            <h3>Attachez le pronom affixe au verbe رَأَى (voir, passé 1ère pers. sg.)</h3>
+            <p><em>Rappel : رَأَيْتُ + pronom = COD du verbe</em></p>
+            <ol>
+                <li>Je l'ai vu (lui) → <span class="arabic">رَأَيْتُ</span> + ـهُ = <span class="answer-space"></span>
+                </li>
+                <li>Je l'ai vue (elle) → <span class="arabic">رَأَيْتُ</span> + ـهَا = <span
+                        class="answer-space"></span></li>
+                <li>Je les ai vus (eux) → <span class="arabic">رَأَيْتُ</span> + ـهُم = <span
+                        class="answer-space"></span></li>
+                <li>Il m'a vu → <span class="arabic">رَأَى</span> + ـنِي = <span class="answer-space"></span></li>
+                <li>Il nous a aidés → <span class="arabic">سَاعَدَ</span> + ـنَا = <span class="answer-space"></span>
+                </li>
+                <li>Il les a remerciés → <span class="arabic">شَكَرَ</span> + ـهُم = <span class="answer-space"></span>
+                </li>
+            </ol>
+            <div class="note">
+                <strong>⚠️ Règle spéciale :</strong> Le pronom de 1ère personne du singulier (ـي) attaché à un verbe
+                prend un نُون de protection → ـنِي.<br>
+                Exemple : <span class="arabic">لَكَمَ + ـي = لَكَمَنِي</span> (Il m'a donné un coup de poing)
+            </div>
+        </div>
+
+        <h2><span class="section-number">6</span>Pronoms affixes attachés aux prépositions</h2>
+        <div class="exercise">
+            <h3>Combinez les prépositions avec les pronoms affixes</h3>
+            <ol>
+                <li><span class="arabic">لِ</span> + lui → <span class="answer-space"></span></li>
+                <li><span class="arabic">لِ</span> + elle → <span class="answer-space"></span></li>
+                <li><span class="arabic">لِ</span> + toi (masc.) → <span class="answer-space"></span></li>
+                <li><span class="arabic">مَعَ</span> + lui → <span class="answer-space"></span></li>
+                <li><span class="arabic">عِنْدَ</span> + elle → <span class="answer-space"></span></li>
+                <li><span class="arabic">بِ</span> + eux → <span class="answer-space"></span></li>
+                <li><span class="arabic">مِنْ</span> + moi → <span class="answer-space"></span></li>
+                <li><span class="arabic">عَنْ</span> + moi → <span class="answer-space"></span></li>
+            </ol>
+            <div class="note">
+                <strong>⚠️ Règles spéciales :</strong>
+                <ul>
+                    <li>Préposition <span class="arabic">لِ</span> : sa kasra devient une fatḥa → <span
+                            class="arabic">لَهُ، لَكَ</span> (sauf pour ـي → <span class="arabic">لِي</span>)</li>
+                    <li><span class="arabic">مِنْ + ـي = مِنِّي</span> / <span class="arabic">عَنْ + ـي = عَنِّي</span>
+                        (ajout du نُون)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2><span class="section-number">7</span>Pronoms affixes : 3ème pers. — kasra ou ḍamma ?</h2>
+        <div class="exercise">
+            <h3>Choisissez la forme correcte du pronom de 3ème personne</h3>
+            <p><em>Rappel : le pronom ـهُ devient ـهِ après un cas génitif ou un ي</em></p>
+            <ol>
+                <li><span class="arabic">الكِتَابُ في بَيْتِ______</span> → ـهُ ou ـهِ ? → <span
+                        class="answer-space"></span><br><em>(Le livre est dans sa maison → بَيْت est au génitif)</em>
+                </li>
+                <li><span class="arabic">رَأَيْتُ______</span> → ـهُ ou ـهِ ? → <span
+                        class="answer-space"></span><br><em>(Je l'ai vu → après verbe à l'accusatif)</em></li>
+                <li><span class="arabic">في______</span> → ـهُم ou ـهِم ? → <span
+                        class="answer-space"></span><br><em>(Parmi eux → après préposition)</em></li>
+                <li><span class="arabic">كِتابِي______</span> → ـهُ ou ـهِ ? → <span
+                        class="answer-space"></span><br><em>(Après un mot terminant par ي)</em></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">8</span>Détaché ou affixe ? Quelle fonction ?</h2>
+        <div class="exercise">
+            <h3>Pour chaque pronom souligné, indiquez : détaché (D) ou affixe (A), et sa fonction</h3>
+            <ol>
+                <li><span class="arabic"><u>هُوَ</u> طالِبٌ</span> → type : <span class="answer-space"></span> /
+                    fonction : <span class="answer-space"></span></li>
+                <li><span class="arabic">كِتاب<u>ُهُ</u> جَدِيدٌ</span> → type : <span class="answer-space"></span> /
+                    fonction : <span class="answer-space"></span></li>
+                <li><span class="arabic">رَأَيْتُ<u>هُ</u></span> → type : <span class="answer-space"></span> / fonction
+                    : <span class="answer-space"></span></li>
+                <li><span class="arabic">ذَهَبَ إِلَيْ<u>هِ</u></span> → type : <span class="answer-space"></span> /
+                    fonction : <span class="answer-space"></span></li>
+                <li><span class="arabic"><u>نَحْنُ</u> نَدْرُسُ</span> → type : <span class="answer-space"></span> /
+                    fonction : <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">9</span>La particule إِيَّا</h2>
+        <div class="exercise">
+            <h3>Analysez les phrases avec إِيَّا</h3>
+            <ol>
+                <li><span class="arabic">أَعْطاها إيّاهُ</span> → Traduction : <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">إِيَّاكَ وَالكَسَلَ</span> → Traduction : <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+            <div class="note">
+                <strong>💡 À savoir :</strong> إِيَّا + pronom affixe est utilisé quand un verbe a deux COD, ou seul
+                pour avertir/mettre en garde.
+            </div>
+        </div>
+
+        <h2><span class="section-number">10</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Les pronoms arabes changent de forme selon leur cas grammatical <span class="answer-space"></span>
+                </li>
+                <li>Les pronoms détachés s'utilisent principalement comme sujets <span class="answer-space"></span></li>
+                <li>هُمُ devient هُمُ devant l'article défini <span class="answer-space"></span></li>
+                <li>Le pronom de 1ère pers. sg. ـي prend un نُون de protection avec les verbes <span
+                        class="answer-space"></span></li>
+                <li>Le pronom ـهُ reste toujours avec ḍamma quelle que soit sa position <span
+                        class="answer-space"></span></li>
+                <li>Les pronoms affixes attachés aux noms ont une fonction possessive <span class="answer-space"></span>
+                </li>
+                <li>أَنْتِ est le pronom de la 2ème personne féminin singulier <span class="answer-space"></span></li>
+                <li>هُما désigne exclusivement deux personnes masculines <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">11</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Corrigez les erreurs dans les phrases suivantes</h3>
+            <ol>
+                <li><span class="arabic">رَأَيْتُكِ</span> (J'ai vu lui) → <span class="answer-space"></span></li>
+                <li><span class="arabic">كِتابَهُ في بَيْتِهُ</span> (Le livre est dans sa maison — pronom après
+                    génitif) → <span class="answer-space"></span></li>
+                <li><span class="arabic">لَكَمَيْ</span> (Il m'a frappé — sans نُون de protection) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">مِنْي</span> (De moi — sans نُون) → <span class="answer-space"></span></li>
+                <li><span class="arabic">هُم الناجِحُونَ</span> (Eux, les gagnants — sans ḍamma de liaison) → <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <h2><span class="section-number">12</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p><span class="arabic">هُوَ طالِبٌ في الجامِعَةِ. كِتابُهُ كَبِيرٌ. رَأَيْتُهُ أَمْسِ. تَحَدَّثْتُ
+                        مَعَهُ عَنْ دَرْسِهِ.</span></p>
+                <p>(Il est étudiant à l'université. Son livre est grand. Je l'ai vu hier. J'ai parlé avec lui de sa
+                    leçon.)</p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de pronoms affixes y a-t-il dans ce texte ? <span class="answer-space"></span></li>
+                    <li>Quel pronom détaché est utilisé ? <span class="answer-space"></span></li>
+                    <li>Dans <span class="arabic">كِتابُهُ</span>, le pronom ـهُ a quelle fonction ? <span
+                            class="answer-space"></span></li>
+                    <li>Dans <span class="arabic">رَأَيْتُهُ</span>, le pronom ـهُ a quelle fonction ? <span
+                            class="answer-space"></span></li>
+                    <li>Dans <span class="arabic">مَعَهُ</span>, le pronom ـهُ est attaché à quelle partie du discours ?
+                        <span class="answer-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>💡 Conseil :</strong> Pour mémoriser les pronoms, pratiquez régulièrement en construisant des
+            phrases avec chaque personne. Commencez par les pronoms détachés (sujets), puis exercez-vous aux pronoms
+            affixes en les attachant aux noms, verbes et prépositions.
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez être capable
+            d'identifier et d'utiliser correctement les pronoms détachés et affixes arabes dans leurs trois fonctions
+            (possession, COD, complément de préposition). Félicitations ! 🎉
+        </div>
+    </div>
+</body>
+
+</html>
