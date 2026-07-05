@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'impératif en arabe — فِعْل الأَمْر</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50%       { transform: scale(1.05); }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 30px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+        h2:hover { transform: translateX(10px); }
+
+        h3 { color: #764ba2; font-size: 1.3em; margin-top: 20px; }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 13px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+        td {
+            padding: 11px 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f0f4ff; transition: all 0.2s ease; }
+
+        .prefix  { color: #1565c0; font-weight: bold; }
+        .suffix  { color: #d32f2f; font-weight: bold; }
+        .hamza   { color: #e65100; font-weight: bold; }
+        .root    { color: #4a148c; font-weight: bold; }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .arabic:hover { color: #667eea; }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .note:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
+        .note strong { color: #856404; font-size: 1.05em; }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .example-box:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(76,175,80,0.3); }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .rule-box:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(156,39,176,0.3); }
+
+        .info-box {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #03a9f4;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .info-box:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(3,169,244,0.3); }
+
+        .warning-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #f44336;
+            margin: 15px 0;
+        }
+        .warning-box strong { color: #c62828; }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .verb-card {
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 3px 10px rgba(102,126,234,0.15);
+        }
+        .verb-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .verb-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        .verb-meaning {
+            color: #555;
+            font-style: italic;
+            font-size: 1em;
+        }
+
+        /* étapes de construction */
+        .step-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin: 12px 0;
+            padding: 14px;
+            border-radius: 10px;
+            background: #f8f4ff;
+            border: 1px solid #d1c4e9;
+            transition: transform 0.3s ease;
+        }
+        .step-box:hover { transform: translateX(6px); }
+        .step-num {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            flex-shrink: 0;
+        }
+        .step-content { flex: 1; line-height: 1.6; }
+
+        /* flèche de dérivation */
+        .derivation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            font-size: 1.15em;
+        }
+        .arrow { color: #764ba2; font-size: 1.4em; font-weight: bold; }
+
+        /* scroll animations */
+        .scroll-animate        { opacity:0; transform:translateY(30px);  transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scroll-animate-left   { opacity:0; transform:translateX(-30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scroll-animate-right  { opacity:0; transform:translateX(30px);  transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scroll-animate-scale  { opacity:0; transform:scale(0.95);       transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scroll-animate.visible, .scroll-animate-left.visible,
+        .scroll-animate-right.visible, .scroll-animate-scale.visible {
+            opacity:1; transform:none;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>L'impératif en arabe</h1>
+    <div class="arabic-title">فِعْل الأَمْر</div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">📌 À quoi sert l'impératif ?</h2>
+
+    <div class="intro scroll-animate">
+        L'impératif permet de <strong>donner un ordre, une instruction ou un conseil</strong>.<br>
+        En arabe, il n'existe qu'à la <strong>2ᵉ personne</strong> (tu / vous), exactement comme en français.
+        On ne dit pas « qu'il écrive » avec l'impératif arabe — pour les 3ᵉ personnes, l'arabe utilise
+        une autre construction que nous verrons plus tard.<br><br>
+        La bonne nouvelle : <strong>l'impératif se construit directement à partir du présent</strong>,
+        que vous connaissez déjà.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">🔧 La règle de construction — en 3 étapes</h2>
+
+    <div class="rule-box scroll-animate-scale" style="font-size:1.05em;">
+        <strong>Point de départ :</strong> la forme <span class="arabic" style="font-size:1em;">تَفْعَلُ</span>
+        — le présent à la <strong>2ᵉ personne du singulier masculin</strong> (« tu »)
+    </div>
+
+    <div class="step-box scroll-animate">
+        <div class="step-num">1</div>
+        <div class="step-content">
+            <strong>Supprime le préfixe <span class="arabic" style="font-size:1em; color:#1565c0;">تَـ</span></strong>
+            et la voyelle finale <span class="arabic" style="font-size:1em;">ـُ</span> (la ḍamma de l'indicatif)<br>
+            <span style="color:#888; font-size:0.95em;">→ il reste le squelette consonantique du verbe, appelé le « jussif »</span>
+        </div>
+    </div>
+
+    <div class="step-box scroll-animate">
+        <div class="step-num">2</div>
+        <div class="step-content">
+            <strong>Regarde la première consonne restante :</strong><br>
+            <ul style="margin:8px 0;">
+                <li>Si elle porte une <strong>voyelle</strong> (fatḥa, kasra ou ḍamma) → <strong>impératif direct</strong>, pas besoin d'ajouter quoi que ce soit</li>
+                <li>Si elle est <strong>sâkine</strong> (sans voyelle, avec sukûn) → il faut ajouter une <span class="hamza">همزة وصل</span> (hamza de liaison) au début pour pouvoir prononcer</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="step-box scroll-animate">
+        <div class="step-num">3</div>
+        <div class="step-content">
+            <strong>Choisir la voyelle de la <span class="hamza">همزة وصل</span></strong> (si elle est nécessaire) :<br>
+            <ul style="margin:8px 0;">
+                <li>La 2ᵉ radicale porte un <span style="color:#d32f2f;">ḍamma</span> au présent → hamza avec <strong>ḍamma</strong> : <span class="arabic" style="font-size:1em;"><span class="hamza">اُ</span></span></li>
+                <li>La 2ᵉ radicale porte une <span style="color:#1565c0;">fatḥa ou kasra</span> au présent → hamza avec <strong>kasra</strong> : <span class="arabic" style="font-size:1em;"><span class="hamza">اِ</span></span></li>
+            </ul>
+            <span style="color:#888; font-size:0.95em;">Cette hamza disparaît à l'oral quand elle est précédée d'un mot.</span>
+        </div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📝 En pratique pour les débutants :</strong> pour les verbes réguliers à 3 radicales que vous connaissez,
+        la première radicale est <em>toujours</em> sâkine après la suppression du préfixe تَـ.
+        Vous ajouterez donc <em>toujours</em> une hamza de liaison. La règle du choix ḍamma/kasra s'apprend
+        automatiquement avec les exemples.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">📊 Tableau des formes de l'impératif</h2>
+
+    <div class="intro scroll-animate">
+        L'impératif n'existe qu'à la 2ᵉ personne. Les <strong>suffixes</strong> s'ajoutent
+        à la base de l'impératif exactement comme au présent — ce sont les mêmes terminaisons.
+    </div>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr>
+                <th>Personne</th>
+                <th>Genre</th>
+                <th>Singulier</th>
+                <th>Duel</th>
+                <th>Pluriel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2"><strong>2ᵉ</strong></td>
+                <td>M.</td>
+                <td><span class="arabic"><span class="hamza">اُ</span>فْعَلْ</span><br><small>— (sans suffixe)</small></td>
+                <td><span class="arabic"><span class="hamza">اُ</span>فْعَلَ<span class="suffix">ا</span></span></td>
+                <td><span class="arabic"><span class="hamza">اُ</span>فْعَلُ<span class="suffix">وا</span></span></td>
+            </tr>
+            <tr>
+                <td>F.</td>
+                <td><span class="arabic"><span class="hamza">اُ</span>فْعَلِ<span class="suffix">ي</span></span></td>
+                <td><span class="arabic"><span class="hamza">اُ</span>فْعَلَ<span class="suffix">ا</span></span></td>
+                <td><span class="arabic"><span class="hamza">اُ</span>فْعَلْ<span class="suffix">نَ</span></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="info-box scroll-animate">
+        <strong>ℹ️ Comparaison avec le présent :</strong><br>
+        Au présent on a <span class="arabic" style="font-size:1em;"><span class="prefix">تَ</span>كْتُبُ / <span class="prefix">تَ</span>كْتُبُ<span class="suffix">ونَ</span> / <span class="prefix">تَ</span>كْتُبِ<span class="suffix">ينَ</span></span><br>
+        À l'impératif on a <span class="arabic" style="font-size:1em;"><span class="hamza">اُ</span>كْتُبْ / <span class="hamza">اُ</span>كْتُبُ<span class="suffix">وا</span> / <span class="hamza">اُ</span>كْتُبِ<span class="suffix">ي</span></span><br><br>
+        On retrouve les mêmes terminaisons — seul le préfixe <span class="arabic" style="font-size:1em; color:#1565c0;">تَـ</span> a été remplacé par la hamza de liaison.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">✏️ Application sur les trois verbes du cours</h2>
+
+    <!-- ---- كَتَبَ ---- -->
+    <div class="verb-card scroll-animate">
+        <div class="verb-card-header">
+            <span class="verb-badge">Type فَعَلَ → يَفْعُلُ</span>
+            <span class="arabic" style="font-size:1.8em;"><span class="hamza">اُ</span>كْتُبْ</span>
+            <span class="verb-meaning">écrire — racine : ك – ت – ب</span>
+        </div>
+
+        <h3>Étapes de construction :</h3>
+        <div class="derivation">
+            <span>Présent (tu) :<br><span class="arabic" style="font-size:1.2em;"><span class="prefix">تَ</span>كْتُبُ</span></span>
+            <span class="arrow">→</span>
+            <span>Suppression de <span class="arabic" style="font-size:1em; color:#1565c0;">تَـ</span> et ḍamma finale :<br><span class="arabic" style="font-size:1.2em;">كْتُبْ</span></span>
+            <span class="arrow">→</span>
+            <span>Le <span class="arabic" style="font-size:1em;">كـ</span> est sâkine → hamza ḍamma (car 2ᵉ radicale = <span style="color:#d32f2f;">ḍamma</span>) :<br><span class="arabic" style="font-size:1.2em;"><span class="hamza">اُ</span>كْتُبْ</span></span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Personne</th>
+                    <th>Genre</th>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic"><span class="hamza">اُ</span>كْتُبْ</span></td>
+                    <td rowspan="2"><span class="arabic"><span class="hamza">اُ</span>كْتُبَ<span class="suffix">ا</span></span></td>
+                    <td><span class="arabic"><span class="hamza">اُ</span>كْتُبُ<span class="suffix">وا</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic"><span class="hamza">اُ</span>كْتُبِ<span class="suffix">ي</span></span></td>
+                    <td><span class="arabic"><span class="hamza">اُ</span>كْتُبْ<span class="suffix">نَ</span></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <strong>Exemples :</strong>
+            <ul>
+                <li><span class="arabic"><span class="hamza">اُ</span>كْتُبْ رِسَالَةً</span> → Écris une lettre ! (à un homme)</li>
+                <li><span class="arabic"><span class="hamza">اُ</span>كْتُبِي اسْمَكِ</span> → Écris ton nom ! (à une femme)</li>
+                <li><span class="arabic"><span class="hamza">اُ</span>كْتُبُوا الدَّرْسَ</span> → Écrivez la leçon ! (à un groupe)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ---- فَهِمَ ---- -->
+    <div class="verb-card scroll-animate">
+        <div class="verb-card-header">
+            <span class="verb-badge">Type فَعِلَ → يَفْعَلُ</span>
+            <span class="arabic" style="font-size:1.8em;"><span class="hamza">اِ</span>فْهَمْ</span>
+            <span class="verb-meaning">comprendre — racine : ف – ه – م</span>
+        </div>
+
+        <h3>Étapes de construction :</h3>
+        <div class="derivation">
+            <span>Présent (tu) :<br><span class="arabic" style="font-size:1.2em;"><span class="prefix">تَ</span>فْهَمُ</span></span>
+            <span class="arrow">→</span>
+            <span>Suppression de <span class="arabic" style="font-size:1em; color:#1565c0;">تَـ</span> et ḍamma finale :<br><span class="arabic" style="font-size:1.2em;">فْهَمْ</span></span>
+            <span class="arrow">→</span>
+            <span>Le <span class="arabic" style="font-size:1em;">فـ</span> est sâkine → hamza kasra (car 2ᵉ radicale = <span style="color:#1565c0;">fatḥa</span>) :<br><span class="arabic" style="font-size:1.2em;"><span class="hamza">اِ</span>فْهَمْ</span></span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Personne</th>
+                    <th>Genre</th>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>2ᵉ</strong></td>
+                    <td>M.</td>
+                    <td><span class="arabic"><span class="hamza">اِ</span>فْهَمْ</span></td>
+                    <td rowspan="2"><span class="arabic"><span class="hamza">اِ</span>فْهَمَ<span class="suffix">ا</span></span></td>
+                    <td><span class="arabic"><span class="hamza">اِ</span>فْهَمُ<span class="suffix">وا</span></span></td>
+                </tr>
+                <tr>
+                    <td>F.</td>
+                    <td><span class="arabic"><span class="hamza">اِ</span>فْهَمِ<span class="suffix">ي</span></span></td>
+                    <td><span class="arabic"><span class="hamza">اِ</span>فْهَمْ<span class="suffix">نَ</span></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box">
+            <strong>Exemples :</strong>
+            <ul>
+                <li><span class="arabic"><span class="hamza">اِ</span>فْهَمْ هَذِهِ القَاعِدَةَ</span> → Comprends cette règle ! (à un homme)</li>
+                <li><span class="arabic"><span class="hamza">اِ</span>فْهَمِي السُّؤالَ</span> → Comprends la question ! (à une femme)</li>
+                <li><span class="arabic"><span class="hamza">اِ</span>فْهَمُوا الدَّرْسَ</span> → Comprenez la leçon ! (à un groupe)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ---- كَبُرَ — impératif non naturel, note pédagogique ---- -->
+    <div class="verb-card scroll-animate">
+        <div class="verb-card-header">
+            <span class="verb-badge">Type فَعُلَ → يَفْعُلُ</span>
+            <span class="arabic" style="font-size:1.8em;">كَبُرَ / يَكْبُرُ</span>
+            <span class="verb-meaning">grandir — racine : ك – ب – ر</span>
+        </div>
+        <div class="warning-box">
+            <strong>⚠️ Cas particulier :</strong> Les verbes de type <span class="arabic">فَعُلَ</span>
+            — comme <span class="arabic">كَبُرَ</span> (grandir), <span class="arabic">كَرُمَ</span> (être généreux),
+            <span class="arabic">حَسُنَ</span> (être bon) — expriment des <strong>qualités ou états permanents</strong>.
+            On ne peut pas vraiment ordonner à quelqu'un d'« être grand » ou de « grandir » instantanément.<br><br>
+            En arabe, l'impératif de ces verbes est <strong>grammaticalement possible mais rarissime</strong>
+            dans l'usage courant. Vous n'avez pas besoin de le mémoriser pour l'instant.
+            Retenez simplement que <span class="arabic">فَعُلَ</span> est un cas à part.
+        </div>
+        <div class="info-box">
+            <strong>ℹ️ Construction théorique</strong> (pour information) :<br>
+            La règle s'applique de la même façon : <span class="arabic">يَكْبُرُ</span> → suppression de
+            <span class="arabic" style="color:#1565c0;">يَـ</span> → <span class="arabic">كْبُرْ</span> →
+            hamza ḍamma (2ᵉ radicale = ḍamma) → <span class="arabic"><span class="hamza">اُ</span>كْبُرْ</span>.<br>
+            La mécanique est identique, mais ce type de verbe n'appellera pas l'impératif naturellement.
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">🚫 La négation de l'impératif — لا + مضارع</h2>
+
+    <div class="intro scroll-animate">
+        Pour exprimer un ordre <strong>négatif</strong> (« Ne fais pas… »), l'arabe n'utilise
+        <em>pas</em> la forme de l'impératif. Il utilise la particule <span class="arabic" style="font-size:1em;">لا</span>
+        suivie du <strong>présent</strong> à la 2ᵉ personne — forme que vous connaissez déjà parfaitement.
+    </div>
+
+    <div class="rule-box scroll-animate-scale" style="text-align:center; font-size:1.1em;">
+        <strong>Ordre négatif :</strong>
+        <span class="arabic" style="font-size:1.2em;">لا</span> + présent (2ᵉ personne)
+    </div>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr>
+                <th>Ordre positif</th>
+                <th>Traduction</th>
+                <th>Ordre négatif</th>
+                <th>Traduction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="arabic"><span class="hamza">اُ</span>كْتُبْ</span></td>
+                <td>Écris !</td>
+                <td><span class="arabic">لا <span class="prefix">تَ</span>كْتُبْ</span></td>
+                <td>N'écris pas !</td>
+            </tr>
+            <tr>
+                <td><span class="arabic"><span class="hamza">اُ</span>كْتُبِي</span></td>
+                <td>Écris ! (f.)</td>
+                <td><span class="arabic">لا <span class="prefix">تَ</span>كْتُبِي</span></td>
+                <td>N'écris pas ! (f.)</td>
+            </tr>
+            <tr>
+                <td><span class="arabic"><span class="hamza">اُ</span>كْتُبُوا</span></td>
+                <td>Écrivez !</td>
+                <td><span class="arabic">لا <span class="prefix">تَ</span>كْتُبُوا</span></td>
+                <td>N'écrivez pas !</td>
+            </tr>
+            <tr>
+                <td><span class="arabic"><span class="hamza">اِ</span>فْهَمْ</span></td>
+                <td>Comprends !</td>
+                <td><span class="arabic">لا <span class="prefix">تَ</span>فْهَمْ</span></td>
+                <td>Ne comprends pas !</td>
+            </tr>
+            <tr>
+                <td><span class="arabic"><span class="hamza">اِ</span>فْهَمُوا</span></td>
+                <td>Comprenez !</td>
+                <td><span class="arabic">لا <span class="prefix">تَ</span>فْهَمُوا</span></td>
+                <td>Ne comprenez pas !</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note scroll-animate">
+        <strong>📝 À retenir :</strong> La forme du verbe après <span class="arabic">لا</span> de prohibition
+        est légèrement différente de l'indicatif normal — c'est le <strong>mode jussif</strong> (مجزوم).
+        Pour les verbes réguliers, la différence est minime (la ḍamma finale disparaît).
+        Nous étudierons les modes en détail dans un prochain cours.
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">🗣️ Expressions utiles avec l'impératif</h2>
+
+    <div class="example-box scroll-animate">
+        <strong>Dans la vie quotidienne :</strong>
+        <ul>
+            <li><span class="arabic"><span class="hamza">اِ</span>جْلِسْ</span> — Assieds-toi ! &nbsp;|&nbsp; <span class="arabic"><span class="hamza">اِ</span>جْلِسِي</span> (f.)</li>
+            <li><span class="arabic"><span class="hamza">اُ</span>دْخُلْ</span> — Entre ! &nbsp;|&nbsp; <span class="arabic"><span class="hamza">اُ</span>دْخُلُوا</span> (pl.)</li>
+            <li><span class="arabic"><span class="hamza">اِ</span>سْمَعْ</span> — Écoute ! &nbsp;|&nbsp; <span class="arabic"><span class="hamza">اِ</span>سْمَعُوا</span> (pl.)</li>
+            <li><span class="arabic"><span class="hamza">اِ</span>قْرَأْ</span> — Lis ! &nbsp;|&nbsp; <span class="arabic"><span class="hamza">اِ</span>قْرَأِي</span> (f.)</li>
+            <li><span class="arabic"><span class="hamza">اُ</span>خْرُجْ</span> — Sors ! &nbsp;|&nbsp; <span class="arabic"><span class="hamza">اُ</span>خْرُجُوا</span> (pl.)</li>
+            <li><span class="arabic"><span class="hamza">اِ</span>نْتَظِرْ</span> — Attends ! &nbsp;|&nbsp; <span class="arabic"><span class="hamza">اِ</span>نْتَظِرِي</span> (f.)</li>
+        </ul>
+        <small style="color:#555;">Ces verbes vous seront présentés progressivement — remarquez que la règle de construction reste la même.</small>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+
+    <div class="rule-box scroll-animate">
+        <ul>
+            <li>L'impératif arabe n'existe qu'à la <strong>2ᵉ personne</strong> (tu / vous)</li>
+            <li>Il se construit à partir du <strong>présent à la 2ᵉ personne</strong> en supprimant le préfixe <span class="arabic">تَـ</span></li>
+            <li>Pour les verbes réguliers, on ajoute toujours une <span class="hamza"><strong>همزة وصل</strong></span> (hamza de liaison) au début</li>
+            <li>La voyelle de cette hamza est <strong>ḍamma</strong> si la 2ᵉ radicale est ḍamma au présent, <strong>kasra</strong> dans les autres cas</li>
+            <li>Les <strong>suffixes</strong> sont identiques à ceux du présent</li>
+            <li>Pour l'ordre <strong>négatif</strong> : <span class="arabic">لا</span> + présent — la forme de l'impératif n'est pas utilisée</li>
+            <li>Les verbes de type <span class="arabic">فَعُلَ</span> (qualités innées) ont un impératif <strong>rarissime</strong> et peuvent être ignorés pour l'instant</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll(
+            '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+        ).forEach(el => observer.observe(el));
+    });
+</script>
+</body>
+</html>

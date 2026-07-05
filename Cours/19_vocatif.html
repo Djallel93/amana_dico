@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le vocatif en arabe — النِداء</title>
+    <style>
+        @keyframes fadeIn { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
+        @keyframes slideInLeft { from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)} }
+
+        .scroll-animate       {opacity:0;transform:translateY(30px); transition:opacity .6s ease,transform .6s ease}
+        .scroll-animate-left  {opacity:0;transform:translateX(-30px);transition:opacity .6s ease,transform .6s ease}
+        .scroll-animate-scale {opacity:0;transform:scale(.9);        transition:opacity .6s ease,transform .6s ease}
+        .scroll-animate.visible,.scroll-animate-left.visible,.scroll-animate-scale.visible{opacity:1;transform:none}
+
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;max-width:900px;margin:0 auto;padding:20px;
+             background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#333;animation:fadeIn .6s ease-out}
+        .container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+        h1{color:#764ba2;text-align:center;font-size:2.5em;margin-bottom:10px;border-bottom:3px solid #667eea;
+           padding-bottom:15px;animation:slideInLeft .8s ease-out}
+        .arabic-title{text-align:center;font-size:2em;color:#667eea;margin-bottom:30px;font-weight:bold;
+                      animation:fadeIn 1s ease-out .3s both}
+        h2{color:#667eea;margin-top:35px;font-size:1.8em;border-left:5px solid #764ba2;padding-left:15px;
+           transition:transform .3s ease}
+        h2:hover{transform:translateX(10px)}
+        h3{color:#764ba2;font-size:1.3em;margin-top:20px}
+
+        .intro{background:#f0f4ff;padding:20px;border-radius:10px;border-left:5px solid #667eea;
+               margin-bottom:25px;font-size:1.1em;line-height:1.6;animation:fadeIn 1s ease-out .5s both}
+
+        table{width:100%;border-collapse:collapse;margin:20px auto;box-shadow:0 2px 8px rgba(0,0,0,.1);
+              border-radius:8px;overflow:hidden}
+        th{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:13px;
+           text-align:center;font-size:1.05em}
+        td{padding:11px 14px;border:1px solid #ddd;text-align:center;vertical-align:middle}
+        tr:nth-child(even){background:#f9f9f9}
+        tr:hover{background:#f0f4ff;transition:all .2s ease}
+
+        .arabic{font-size:1.4em;color:#764ba2;font-weight:bold;transition:color .3s ease}
+        .arabic:hover{color:#667eea}
+        .arabic-lg{font-size:1.9em;color:#764ba2;font-weight:bold}
+
+        /* couleurs vocatif */
+        .part   {color:#c62828;font-weight:bold}   /* particule يا */
+        .munaada{color:#1565c0;font-weight:bold}   /* destinataire */
+
+        .note{background:#fff3cd;padding:15px;border-radius:8px;border-left:5px solid #ffc107;
+              margin:20px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .note:hover{transform:translateX(5px);box-shadow:0 4px 12px rgba(255,193,7,.3)}
+        .note strong{color:#856404;font-size:1.05em}
+
+        .example-box{background:#e8f5e9;padding:15px;border-radius:8px;border-left:5px solid #4caf50;
+                     margin:15px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .example-box:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(76,175,80,.3)}
+
+        .rule-box{background:#f3e5f5;padding:15px;border-radius:8px;border-left:5px solid #9c27b0;
+                  margin:15px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .rule-box:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(156,39,176,.3)}
+
+        .warning-box{background:#ffebee;padding:15px;border-radius:8px;border-left:5px solid #f44336;margin:15px 0}
+        .warning-box strong{color:#c62828}
+
+        .info-box{background:#e1f5fe;padding:15px;border-radius:8px;border-left:5px solid #03a9f4;
+                  margin:15px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .info-box:hover{transform:translateX(5px);box-shadow:0 4px 12px rgba(3,169,244,.3)}
+
+        .section-divider{display:flex;align-items:center;gap:15px;margin:35px 0 25px;color:#764ba2}
+        .section-divider::before,.section-divider::after{content:'';flex:1;border-top:2px solid #d8c5f0}
+
+        /* blocs exemple vocatif */
+        .voc-example{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;
+                     padding:14px 20px;margin:12px 0;transition:box-shadow .3s}
+        .voc-example:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
+        .voc-example .ar{font-size:1.5em;font-weight:bold;text-align:right;direction:rtl;margin-bottom:6px}
+        .voc-example .fr{color:#555;font-size:.95em}
+        .voc-example .note-line{font-size:.85em;color:#888;margin-top:4px;font-style:italic}
+
+        /* cartes des particules */
+        .part-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0}
+        @media(max-width:600px){.part-grid{grid-template-columns:1fr}}
+        .part-card{border-radius:12px;padding:18px;text-align:center;
+                   box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .3s,box-shadow .3s}
+        .part-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+        .part-card.ya   {background:linear-gradient(135deg,#fce4ec,#f8bbd9);border:2px solid #c62828}
+        .part-card.ayy  {background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #2e7d32}
+        .part-card.ayyt {background:linear-gradient(135deg,#e3f2fd,#bbdefb);border:2px solid #1565c0}
+        .part-card h3{margin-top:0;font-size:1.05em}
+        .part-card .arabic-lg{display:block;margin:8px 0;font-size:2.2em}
+        .part-card p{font-size:.88em;color:#555;margin:4px 0}
+        .part-card .badge{display:inline-block;padding:4px 12px;border-radius:20px;
+                          font-size:.82em;font-weight:bold;margin-top:8px}
+        .ya   .badge{background:#c62828;color:#fff}
+        .ayy  .badge{background:#2e7d32;color:#fff}
+        .ayyt .badge{background:#1565c0;color:#fff}
+
+        /* cas grammaticaux visuels */
+        .cas-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+        @media(max-width:600px){.cas-grid{grid-template-columns:1fr}}
+        .cas-card{border-radius:10px;padding:16px;border:2px solid}
+        .cas-card.marfou {background:#e8f5e9;border-color:#2e7d32}
+        .cas-card.mansou {background:#fff3e0;border-color:#e65100}
+        .cas-card h4{margin:0 0 8px;font-size:1em}
+        .cas-card ul{margin:0;padding-left:18px;font-size:.92em;line-height:1.8}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>Le vocatif en arabe</h1>
+    <div class="arabic-title">النِداء</div>
+
+    <div class="intro">
+        Le vocatif (النِداء) est l'acte d'<strong>appeler ou d'interpeller quelqu'un directement</strong>. Contrairement au français où
+        on se contente souvent du prénom, l'arabe utilise des <strong>particules vocatives</strong> spécifiques placées avant le nom de la
+        personne appelée. C'est une structure très présente dans la langue quotidienne, dans la littérature et dans le Coran.
+        La structure est simple : <strong>particule + nom appelé (المُنادى)</strong>.
+    </div>
+
+    <!-- VUE D'ENSEMBLE DES PARTICULES -->
+    <h2 class="scroll-animate-left">📋 Les particules vocatives — أَدَوات النِداء</h2>
+
+    <div class="intro scroll-animate">
+        Il existe plusieurs particules vocatives en arabe, toutes traduisibles par « Ô / Hé ». Trois d'entre elles sont
+        régulièrement utilisées selon le contexte :
+    </div>
+
+    <div class="part-grid scroll-animate">
+        <div class="part-card ya">
+            <h3>La plus courante</h3>
+            <span class="arabic-lg">يَا</span>
+            <p>Utilisée pour appeler <strong>sans article défini</strong></p>
+            <p>Prénoms, noms communs, professions…</p>
+            <span class="badge">يا + nom sans الـ</span>
+        </div>
+        <div class="part-card ayy">
+            <h3>Pour les hommes (défini)</h3>
+            <span class="arabic-lg">أَيُّها</span>
+            <p>Utilisée quand le nom qui suit porte <strong>l'article الـ</strong></p>
+            <p>Masculin — singulier, duel, pluriel</p>
+            <span class="badge">أَيُّها + الـ + nom masc.</span>
+        </div>
+        <div class="part-card ayyt">
+            <h3>Pour les femmes (défini)</h3>
+            <span class="arabic-lg">أَيَّتُها</span>
+            <p>Utilisée quand le nom qui suit porte <strong>l'article الـ</strong></p>
+            <p>Féminin — singulier, duel, pluriel</p>
+            <span class="badge">أَيَّتُها + الـ + nom fém.</span>
+        </div>
+    </div>
+
+    <div class="rule-box scroll-animate">
+        <strong>⚙️ Règle de base :</strong>
+        <ul style="margin-top:8px;line-height:2.2">
+            <li>Le nom appelé <strong>n'a pas l'article الـ</strong> → on utilise <span class="part">يَا</span></li>
+            <li>Le nom appelé <strong>a l'article الـ</strong> + masculin → on utilise <span class="part">أَيُّها</span></li>
+            <li>Le nom appelé <strong>a l'article الـ</strong> + féminin → on utilise <span class="part">أَيَّتُها</span></li>
+        </ul>
+    </div>
+
+    <!-- ════════════ PARTIE 1 : يا ════════════ -->
+    <div class="section-divider scroll-animate"><span>📣 Partie 1</span></div>
+    <h2 class="scroll-animate-left">📣 La particule يَا — usages et exemples</h2>
+
+    <div class="intro scroll-animate">
+        يَا est de loin la particule la plus fréquente. Elle s'utilise dans trois grandes situations :
+        l'<strong>appel direct</strong>, le <strong>cri de détresse</strong>, et la <strong>lamentation</strong>.
+    </div>
+
+    <h3 class="scroll-animate">👤 1. L'appel direct — النِداء العادي</h3>
+    <p class="scroll-animate">La fonction principale : attirer l'attention de quelqu'un.</p>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> <span class="munaada">مُحَمَّدُ</span> !</div>
+        <div class="fr">Ô Mohamed ! / Hé Mohamed !</div>
+        <div class="note-line">Prénom propre → يا + cas sujet sans tanwīn (ضمة)</div>
+    </div>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> <span class="munaada">أُسْتَاذُ</span>، أَعْرِفُ الجَوَابَ !</div>
+        <div class="fr">Professeur ! Je connais la réponse !</div>
+        <div class="note-line">Nom commun singulier bien déterminé → cas sujet sans tanwīn</div>
+    </div>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> <span class="munaada">أَمِينَةُ</span>، أَيْنَ أَنْتِ ؟</div>
+        <div class="fr">Amina, où es-tu ?</div>
+        <div class="note-line">Prénom féminin → cas sujet sans tanwīn</div>
+    </div>
+
+    <h3 class="scroll-animate">🆘 2. L'appel de détresse — الاِسْتِغاثة</h3>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> <span class="munaada">قَوْمِي</span> !</div>
+        <div class="fr">Ô mon peuple ! (aidez-moi !)</div>
+        <div class="note-line">Appel collectif de détresse — suffixe pronominal ي</div>
+    </div>
+
+    <h3 class="scroll-animate">😢 3. La lamentation — النَدْبة</h3>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> حَسْرَةً عَلَى العِبَادِ !</div>
+        <div class="fr">Quel regret pour les serviteurs ! (Coran, Yā-Sīn : 30)</div>
+        <div class="note-line">Emploi littéraire et coranique — exprime la douleur ou le regret</div>
+    </div>
+
+    <!-- ════════════ CAS GRAMMATICAUX ════════════ -->
+    <div class="section-divider scroll-animate"><span>⚖️ Partie 2</span></div>
+    <h2 class="scroll-animate-left">⚖️ Le cas du nom appelé — إِعراب المُنادى</h2>
+
+    <div class="intro scroll-animate">
+        Le nom appelé (المُنادى) après يَا peut être au <strong>cas sujet</strong> ou au <strong>cas direct</strong>
+        selon le type de nom. C'est la règle la plus importante du vocatif !
+    </div>
+
+    <div class="cas-grid scroll-animate">
+        <div class="cas-card marfou">
+            <h4>✅ Cas sujet (مَرْفُوع) sans tanwīn</h4>
+            <ul>
+                <li>Nom propre simple<br><span class="arabic" style="font-size:1.1em">يَا <span class="munaada">عَلِيُّ</span></span></li>
+                <li>Nom commun singulier bien identifié<br><span class="arabic" style="font-size:1.1em">يَا <span class="munaada">أُسْتَاذُ</span></span></li>
+            </ul>
+        </div>
+        <div class="cas-card mansou">
+            <h4>✅ Cas direct (مَنْصُوب)</h4>
+            <ul>
+                <li>Entité vague / indéfinie<br><span class="arabic" style="font-size:1.1em">يَا <span class="munaada">زَعِيمًا</span> كُنْ عادِلاً</span></li>
+                <li>Nom suivi d'une annexion (إضافة)<br><span class="arabic" style="font-size:1.1em">يَا <span class="munaada">رَئِيسَ</span> الوُزَرَاءِ</span></li>
+                <li>Prénom composé (عَبْد + الـ)<br><span class="arabic" style="font-size:1.1em">يَا <span class="munaada">عَبْدَ</span> الكَرِيمِ</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📝 Exemples avec annexion (إضافة) — cas direct</h3>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> <span class="munaada">رَئِيسَ الوُزَرَاءِ</span> !</div>
+        <div class="fr">Ô Premier ministre !</div>
+        <div class="note-line">Annexion → cas direct (فتحة sur رَئِيسَ)</div>
+    </div>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> <span class="munaada">عَبْدَ الكَرِيمِ</span> !</div>
+        <div class="fr">Ô Abdelkarim !</div>
+        <div class="note-line">Prénom composé عبد + الكريم → cas direct</div>
+    </div>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">يَا</span> <span class="munaada">طَالِبًا</span> كُنْ مُجْتَهِدًا !</div>
+        <div class="fr">Ô étudiant (en général), sois appliqué !</div>
+        <div class="note-line">Destinataire vague (n'importe quel étudiant) → cas direct + tanwīn</div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📌 يَا + suffixe pronom ي :</strong> Quand le nom appelé est suivi du pronom personnel suffixe ي
+        (mon/ma), la dernière voyelle s'allège souvent :<br>
+        <span class="arabic">يَا رَبِّي</span> → <span class="arabic">يَا رَبِّ</span> (Ô mon Seigneur !)
+    </div>
+
+    <!-- ════════════ PARTIE 3 : أَيُّها ════════════ -->
+    <div class="section-divider scroll-animate"><span>🎙️ Partie 3</span></div>
+    <h2 class="scroll-animate-left">🎙️ Les particules أَيُّها et أَيَّتُها</h2>
+
+    <div class="intro scroll-animate">
+        Ces deux particules s'utilisent <strong>exclusivement avec des noms portant l'article الـ</strong>.
+        Elles sont typiques des discours formels, des sermons, des allocutions et du style coranique.
+        Le nom qui les suit est toujours au <strong>cas sujet (مَرْفُوع)</strong>.
+    </div>
+
+    <h3 class="scroll-animate">📝 Exemples de discours formels</h3>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">أَيُّها</span> <span class="munaada">المُوَاطِنُونَ</span> !</div>
+        <div class="fr">Chers citoyens ! / Ô citoyens !</div>
+        <div class="note-line">Masculin pluriel → أَيُّها + المواطنون (cas sujet)</div>
+    </div>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">أَيَّتُها</span> <span class="munaada">السَّيِّدَاتُ</span> !</div>
+        <div class="fr">Mesdames !</div>
+        <div class="note-line">Féminin pluriel → أَيَّتُها + السيدات (cas sujet)</div>
+    </div>
+
+    <div class="voc-example scroll-animate">
+        <div class="ar"><span class="part">أَيُّها</span> <span class="munaada">المُدِيرُ</span>، لَدَيَّ سُؤَالٌ !</div>
+        <div class="fr">Monsieur le directeur, j'ai une question !</div>
+        <div class="note-line">Masculin singulier avec الـ → أَيُّها</div>
+    </div>
+
+    <h3 class="scroll-animate">📖 يَا + أَيُّها — la formule coranique</h3>
+
+    <div class="example-box scroll-animate">
+        <strong>La combinaison يَا أَيُّها</strong> ajoute encore plus de solennité. C'est la formule
+        utilisée dans le Coran pour s'adresser aux croyants :<br><br>
+        <div style="text-align:center;margin:10px 0">
+            <span class="arabic"><span class="part">يَا أَيُّها</span> <span class="munaada">الَّذِينَ آمَنُوا</span></span><br>
+            <span style="color:#555">Ô vous qui avez cru ! (formule coranique récurrente)</span>
+        </div>
+    </div>
+
+    <!-- ════════════ NOTE ALLAH ════════════ -->
+    <div class="info-box scroll-animate">
+        <strong>🕌 Cas particulier : s'adresser à Dieu</strong><br><br>
+        Pour s'adresser à Dieu, on peut utiliser la construction normale <span class="arabic">يَا إِلَهِي</span>,
+        mais il existe une forme spéciale sans particule vocative, largement utilisée dans le Coran :<br><br>
+        <div style="text-align:center;font-size:1.3em;margin:10px 0">
+            <span class="arabic">اللّهُمَّ</span> = <span class="arabic">يَا إِلَهِي</span>
+        </div>
+        « Ô Dieu ! » — le suffixe مَّ remplace la particule يَا.
+    </div>
+
+    <!-- ════════════ PARTIE 4 : le nom qui suit ════════════ -->
+    <div class="section-divider scroll-animate"><span>📎 Partie 4</span></div>
+    <h2 class="scroll-animate-left">📎 Le nom qui suit le destinataire</h2>
+
+    <div class="intro scroll-animate">
+        Parfois, le nom appelé (المُنادى) est suivi d'un adjectif, d'un deuxième nom ou d'une conjonction.
+        Voici les règles pour ces cas :
+    </div>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr><th>Cas</th><th>Règle</th><th>Exemple</th><th>Traduction</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Destinataire indéclinable (démonstratif, pronom)</td>
+                <td>Le nom qui suit est au <strong>cas sujet</strong></td>
+                <td><span class="arabic">يَا هَذَا <span class="munaada">الحَارِسُ</span></span></td>
+                <td>Ô ce gardien !</td>
+            </tr>
+            <tr>
+                <td>Adjectif non premier terme d'annexion</td>
+                <td>Cas direct <strong>ou</strong> cas sujet</td>
+                <td><span class="arabic">يَا سُفْيَانُ <span class="munaada">الشَّرِيفُ</span></span></td>
+                <td>Ô honorable Sofiane !</td>
+            </tr>
+            <tr>
+                <td>Deux noms reliés par وَ</td>
+                <td>Le deuxième suit le premier</td>
+                <td><span class="arabic">يَا <span class="munaada">سَمِيرُ وَمُحْسِنُ</span></span></td>
+                <td>Ô Samir et Mohsin !</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ════════════ TABLEAU RÉCAP ════════════ -->
+    <div class="section-divider scroll-animate"><span>🗺️ Récapitulatif</span></div>
+    <h2 class="scroll-animate-left">🗺️ Tableau récapitulatif</h2>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr><th>Situation</th><th>Particule</th><th>Cas du nom</th><th>Exemple</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Prénom / nom propre simple</td>
+                <td><span class="part arabic">يَا</span></td>
+                <td>Cas sujet (ضمة)</td>
+                <td><span class="arabic">يَا أَحْمَدُ</span></td>
+            </tr>
+            <tr>
+                <td>Nom commun bien identifié</td>
+                <td><span class="part arabic">يَا</span></td>
+                <td>Cas sujet (ضمة)</td>
+                <td><span class="arabic">يَا أُسْتَاذُ</span></td>
+            </tr>
+            <tr>
+                <td>Entité vague / indéfinie</td>
+                <td><span class="part arabic">يَا</span></td>
+                <td>Cas direct + tanwīn</td>
+                <td><span class="arabic">يَا طَالِبًا</span></td>
+            </tr>
+            <tr>
+                <td>Nom en annexion (إضافة)</td>
+                <td><span class="part arabic">يَا</span></td>
+                <td>Cas direct (فتحة)</td>
+                <td><span class="arabic">يَا رَئِيسَ الوُزَرَاءِ</span></td>
+            </tr>
+            <tr>
+                <td>Nom défini (الـ) masculin</td>
+                <td><span class="part arabic">أَيُّها</span></td>
+                <td>Cas sujet (ضمة)</td>
+                <td><span class="arabic">أَيُّها المُدِيرُ</span></td>
+            </tr>
+            <tr>
+                <td>Nom défini (الـ) féminin</td>
+                <td><span class="part arabic">أَيَّتُها</span></td>
+                <td>Cas sujet (ضمة)</td>
+                <td><span class="arabic">أَيَّتُها الطَّالِبَةُ</span></td>
+            </tr>
+            <tr>
+                <td>S'adresser à Dieu</td>
+                <td><span class="part arabic">اللّهُمَّ</span></td>
+                <td>—</td>
+                <td><span class="arabic">اللّهُمَّ ارْحَمْنَا</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- RÉSUMÉ -->
+    <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+    <div class="rule-box scroll-animate">
+        <ul style="line-height:2.2">
+            <li>Le vocatif = <strong>particule + nom appelé (المُنادى)</strong></li>
+            <li><strong>يَا</strong> s'utilise avec les noms <strong>sans article الـ</strong> (prénoms, noms communs, entités vagues, annexions)</li>
+            <li><strong>أَيُّها</strong> (masc.) et <strong>أَيَّتُها</strong> (fém.) s'utilisent avec les noms <strong>portant الـ</strong></li>
+            <li>Le nom appelé est au <strong>cas sujet sans tanwīn</strong> si c'est un nom propre ou commun bien identifié</li>
+            <li>Le nom appelé est au <strong>cas direct</strong> si c'est une entité vague ou en annexion</li>
+            <li>Après أَيُّها / أَيَّتُها, le nom est toujours au <strong>cas sujet</strong></li>
+            <li><strong>اللّهُمَّ</strong> = يَا إِلَهِي — formule spéciale pour s'adresser à Dieu</li>
+        </ul>
+    </div>
+
+</div>
+<script>
+    const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),
+        {threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.addEventListener('DOMContentLoaded',()=>{
+        document.querySelectorAll('.scroll-animate,.scroll-animate-left,.scroll-animate-scale')
+            .forEach(el=>obs.observe(el));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'annexion et l'adjectif en arabe — الإِضافة والنَعْت</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ── Scroll-animate classes ── */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate.visible,
+        .scroll-animate-left.visible,
+        .scroll-animate-right.visible,
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 13px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        td {
+            padding: 11px 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transition: all 0.2s ease;
+        }
+
+        /* colour coding */
+        .modaf {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        /* bleu   = 1er terme / مُضاف */
+        .modaf-ilayh {
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        /* orange = 2ème terme / مُضاف إليه */
+        .manout {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        /* bleu   = nom qualifié / مَنْعوت */
+        .naat {
+            color: #9c27b0;
+            font-weight: bold;
+        }
+
+        /* violet = adjectif / نَعْت */
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .arabic-lg {
+            font-size: 1.7em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.05em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(156, 39, 176, 0.3);
+        }
+
+        .info-box {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #03a9f4;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(3, 169, 244, 0.3);
+        }
+
+        .warning-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #f44336;
+            margin: 15px 0;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* ── Big comparison cards ── */
+        .phrase-type-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        @media (max-width: 600px) {
+            .phrase-type-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .phrase-card {
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .phrase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .phrase-card.nominale {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 2px solid #1565c0;
+        }
+
+        .phrase-card.verbale {
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            border: 2px solid #9c27b0;
+        }
+
+        .phrase-card h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .phrase-card .arabic-lg {
+            display: block;
+            margin: 10px 0;
+            font-size: 2em;
+        }
+
+        .phrase-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .phrase-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .nominale .badge {
+            background: #1565c0;
+            color: white;
+        }
+
+        .verbale .badge {
+            background: #9c27b0;
+            color: white;
+        }
+
+        /* ── Sentence / structure anatomy ── */
+        .anatomy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 18px;
+            background: #fafafa;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .anatomy .block {
+            text-align: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            min-width: 90px;
+        }
+
+        .anatomy .block .arabic {
+            font-size: 1.6em;
+        }
+
+        .anatomy .block .label {
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        .anatomy .arrow {
+            font-size: 1.5em;
+            color: #999;
+        }
+
+        .block.b-modaf {
+            background: #bbdefb;
+            border: 2px solid #1565c0;
+        }
+
+        .block.b-modaf-ilayh {
+            background: #ffe0b2;
+            border: 2px solid #e65100;
+        }
+
+        .block.b-manout {
+            background: #bbdefb;
+            border: 2px solid #1565c0;
+        }
+
+        .block.b-naat {
+            background: #e1bee7;
+            border: 2px solid #9c27b0;
+        }
+
+        /* ── Legend ── */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 20px;
+            font-size: 0.9em;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* ── Phrase example rows ── */
+        .phrase-example {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 12px 0;
+            transition: box-shadow 0.3s;
+        }
+
+        .phrase-example:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .phrase-example .ar {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: right;
+            direction: rtl;
+            margin-bottom: 8px;
+        }
+
+        .phrase-example .fr {
+            color: #555;
+        }
+
+        .phrase-example .parse {
+            font-size: 0.88em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* ── Section divider ── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 35px 0 25px;
+            color: #764ba2;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-top: 2px solid #d8c5f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>L'annexion et l'adjectif</h1>
+        <div class="arabic-title">الإِضافة والنَعْت</div>
+
+        <!-- ─── INTRODUCTION ─────────────────────────── -->
+        <div class="intro">
+            Tu sais maintenant construire une phrase nominale ou verbale. Il te manque un dernier outil essentiel :
+            savoir <strong>préciser un nom</strong>. En arabe, il y a deux façons principales de le faire — soit en
+            liant deux noms entre eux (<strong>l'annexion</strong>, الإِضافة), soit en lui accolant un adjectif
+            (<strong>le نَعْت</strong>). Les deux constructions se ressemblent beaucoup à l'œil — un nom suivi d'un
+            autre mot — mais elles obéissent à des règles très différentes, et elles finissent même par se combiner
+            l'une avec l'autre. C'est ce que nous allons voir.
+        </div>
+
+        <!-- ─── VUE D'ENSEMBLE ───────────────────────── -->
+        <h2 class="scroll-animate-left">📊 Vue d'ensemble</h2>
+
+        <div class="phrase-type-grid scroll-animate">
+            <div class="phrase-card nominale">
+                <h3>L'annexion</h3>
+                <span class="arabic-lg">الإِضافة</span>
+                <p>Deux <strong>noms</strong> mis bout à bout</p>
+                <p>Le 2ème complète le 1er</p>
+                <p>Équivalent de "le X de Y" en français</p>
+                <span class="badge">مُضاف + مُضاف إليه</span>
+            </div>
+            <div class="phrase-card verbale">
+                <h3>L'adjectif</h3>
+                <span class="arabic-lg">النَعْت</span>
+                <p>Un <strong>nom</strong> suivi d'un <strong>adjectif</strong></p>
+                <p>L'adjectif décrit le nom</p>
+                <p>Équivalent de "le X Y" en français</p>
+                <span class="badge">مَنْعوت + نَعْت</span>
+            </div>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Comment les distinguer :</strong> Dans une annexion, le 2ème mot est presque toujours un
+            <strong>nom défini</strong> et le 1er terme ne porte jamais ال. Dans le cas de l'adjectif, les deux mots
+            <strong>s'accordent</strong> — même article, même genre, même cas. C'est ce test de l'accord qui te
+            sauvera à chaque fois.
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-divider scroll-animate"><span>🔗 Partie 1</span></div>
+
+        <h2 class="scroll-animate-left">🔗 L'annexion — الإِضافة</h2>
+
+        <div class="intro scroll-animate">
+            L'annexion (الإِضافة) permet de lier deux noms sans avoir besoin d'une préposition comme « de ». Elle est
+            composée de deux termes :
+            <ul>
+                <li><span class="modaf">المُضاف</span> — <strong>le 1er terme</strong> : « l'annexé », celui qui est
+                    complété</li>
+                <li><span class="modaf-ilayh">المُضاف إِليه</span> — <strong>le 2ème terme</strong> : « l'annexeur »,
+                    celui qui complète</li>
+            </ul>
+            C'est exactement la structure de « le château <em>du</em> roi » — sauf qu'en arabe, il n'y a pas de mot
+            pour « de » : l'ordre des deux noms suffit.
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ Formule :</strong>
+            <p style="text-align:center; font-size:1.2em; margin:8px 0;">
+                <span class="modaf">المُضاف</span> (1er terme) + <span class="modaf-ilayh">المُضاف إِليه</span>
+                (2ème terme)
+            </p>
+            <p style="text-align:center; font-size:1em; color:#666; margin:0;">Le 1er terme ne porte jamais ال ni de
+                tanwīn — le 2ème terme est toujours au cas indirect (مَجْرور)</p>
+        </div>
+
+        <!-- Anatomie visuelle -->
+        <h3 class="scroll-animate">🔬 Anatomie d'une annexion</h3>
+
+        <div class="anatomy scroll-animate">
+            <div class="block b-modaf">
+                <div class="arabic">قَصْرُ</div>
+                <div class="label modaf">1er terme (مُضاف)</div>
+            </div>
+            <div class="arrow">+</div>
+            <div class="block b-modaf-ilayh">
+                <div class="arabic">المَلِكِ</div>
+                <div class="label modaf-ilayh">2ème terme (مُضاف إِليه)</div>
+            </div>
+        </div>
+        <div class="example-box scroll-animate" style="text-align:center;">
+            <span class="arabic">قَصْرُ المَلِكِ</span> → Le château du roi
+        </div>
+
+        <div class="legend scroll-animate">
+            <div class="legend-item"><span class="legend-dot" style="background:#1565c0;"></span> <span
+                    class="modaf">1er terme (مُضاف)</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#e65100;"></span> <span
+                    class="modaf-ilayh">2ème terme (مُضاف إِليه)</span></div>
+        </div>
+
+        <!-- Règles -->
+        <h3 class="scroll-animate">📜 Les règles de l'annexion</h3>
+
+        <div class="rule-box scroll-animate">
+            <ul style="line-height:2;">
+                <li>Le <span class="modaf">1er terme</span> — qu'il soit « logiquement » défini ou non — <strong>ne
+                        prend jamais ال</strong> et <strong>n'est jamais nuné</strong> (pas de tanwīn).</li>
+                <li>Le <span class="modaf-ilayh">2ème terme</span> est <strong>toujours au cas indirect</strong>
+                    (مَجْرور), qu'il porte ال ou le tanwīn selon son propre statut.</li>
+                <li>C'est le <span class="modaf-ilayh">2ème terme</span> qui décide si toute l'annexion est
+                    <strong>définie</strong> ou <strong>indéfinie</strong> : s'il est défini, toute la structure
+                    l'est ; sinon, toute la structure reste indéfinie.
+                </li>
+            </ul>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Forme définie</th>
+                    <th>Forme indéfinie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic"><span class="modaf">قَصْرُ</span> <span
+                                class="modaf-ilayh">المَلِكِ</span></span><br><small>Le château du roi</small></td>
+                    <td><span class="arabic"><span class="modaf">قَصْرُ</span> <span
+                                class="modaf-ilayh">مَلِكٍ</span></span><br><small>Le château d'un roi</small></td>
+                </tr>
+                <tr>
+                    <td><span class="arabic"><span class="modaf">وَزيرُ</span> <span
+                                class="modaf-ilayh">البَلَدِ</span></span><br><small>Le ministre du pays</small></td>
+                    <td><span class="arabic"><span class="modaf">وَزيرُ</span> <span
+                                class="modaf-ilayh">بَلَدٍ</span></span><br><small>Ministre d'un pays</small></td>
+                </tr>
+                <tr>
+                    <td><span class="arabic"><span class="modaf">كُرْسيُّ</span> <span
+                                class="modaf-ilayh">الخَشَبِ</span></span><br><small>Le siège en bois</small></td>
+                    <td><span class="arabic"><span class="modaf">كُرْسيُّ</span> <span
+                                class="modaf-ilayh">خَشَبٍ</span></span><br><small>Un siège en bois</small></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Deux types -->
+        <h3 class="scroll-animate">🧩 Deux types d'annexion</h3>
+
+        <div class="info-box scroll-animate">
+            <strong>1. L'annexion authentique — الإِضافة الحَقِيقِيّة</strong><br>
+            C'est le type que tu viens de voir : elle correspond à la construction génitive du français (« le X de
+            Y », « le X en Y »), et peut exprimer une possession, une appartenance ou la matière d'un objet.
+        </div>
+
+        <div class="info-box scroll-animate">
+            <strong>2. L'annexion adjectivale — الإِضافة المَجازِيّة</strong><br>
+            Ici, c'est un <strong>adjectif</strong> qui joue le rôle du 1er terme, suivi de son complément. On
+            l'appelle « métaphorique » car elle exprime une qualité plutôt qu'une possession réelle — pense-y comme
+            un adjectif suivi directement de ce sur quoi porte cette qualité, sans préposition.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="modaf">سَريعُ</span> <span class="modaf-ilayh">التَّعَلُّمِ</span></div>
+            <div class="fr">Rapide en apprentissage</div>
+            <div class="parse">Littéralement : « rapide de l'apprentissage »</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="modaf">طَوِيلُ</span> <span class="modaf-ilayh">اللِّسانِ</span></div>
+            <div class="fr">Insolent</div>
+            <div class="parse">Littéralement : « long de langue »</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="modaf">قَلِيلُ</span> <span class="modaf-ilayh">الصَبْرِ</span></div>
+            <div class="fr">Impatient</div>
+            <div class="parse">Littéralement : « peu de patience »</div>
+        </div>
+
+        <!-- Duel et pluriel -->
+        <h3 class="scroll-animate">🔢 L'annexion avec le duel et le pluriel</h3>
+
+        <div class="note scroll-animate">
+            <strong>💡 Une lettre disparaît :</strong> Quand le 1er terme est un duel ou un pluriel régulier masculin,
+            le ن final <strong>disparaît</strong> dès qu'on lui ajoute un complément (annexion).
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Forme seule</th>
+                    <th>En annexion</th>
+                    <th>Cas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمانِ</span><br><small>les deux enseignants</small></td>
+                    <td><span class="arabic"><span class="modaf">مُعَلِّما</span> <span
+                                class="modaf-ilayh">المَدْرَسةِ</span></span><br><small>les deux enseignants de
+                            l'école</small></td>
+                    <td>Duel — cas sujet</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمَيْنِ</span><br><small>les deux enseignants</small></td>
+                    <td><span class="arabic"><span class="modaf">مُعَلِّمَيِ</span> <span
+                                class="modaf-ilayh">المَدْرَسةِ</span></span><br><small>les deux enseignants de
+                            l'école</small></td>
+                    <td>Duel — accusatif / génitif</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمُونَ</span><br><small>les enseignants</small></td>
+                    <td><span class="arabic"><span class="modaf">مُعَلِّمُو</span> <span
+                                class="modaf-ilayh">المَدْرَسةِ</span></span><br><small>les enseignants de
+                            l'école</small></td>
+                    <td>Pluriel régulier — cas sujet</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic">مُعَلِّمِينَ</span><br><small>les enseignants</small></td>
+                    <td><span class="arabic"><span class="modaf">مُعَلِّمِي</span> <span
+                                class="modaf-ilayh">المَدْرَسةِ</span></span><br><small>les enseignants de
+                            l'école</small></td>
+                    <td>Pluriel régulier — cas direct / indirect</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box scroll-animate">
+            <strong>⚠️ Attention :</strong> Cette disparition du ن ne concerne que le <strong>duel</strong> et le
+            <strong>pluriel régulier masculin</strong> — jamais les pluriels brisés, qui se comportent comme des noms
+            singuliers ordinaires en annexion.
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-divider scroll-animate"><span>🎨 Partie 2</span></div>
+
+        <h2 class="scroll-animate-left">🎨 L'adjectif — النَعْت</h2>
+
+        <div class="intro scroll-animate">
+            L'adjectif s'appelle <span class="naat">النَعْت</span>, et le nom qu'il qualifie
+            <span class="manout">المَنْعوت</span>. Contrairement au français, où l'adjectif peut se placer avant ou
+            après le nom, l'arabe suit une règle stricte : <strong>l'adjectif vient toujours après le nom</strong>.
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ La règle d'accord :</strong>
+            <p style="text-align:center; font-size:1.2em; margin:8px 0;">
+                <span class="manout">المَنْعوت</span> (nom) + <span class="naat">النَعْت</span> (adjectif)
+            </p>
+            <p style="text-align:center; color:#666; margin:0;">L'adjectif s'accorde avec le nom sur <strong>quatre
+                    plans</strong> à la fois</p>
+        </div>
+
+        <!-- Anatomie visuelle -->
+        <h3 class="scroll-animate">🔬 Les quatre accords</h3>
+
+        <div class="anatomy scroll-animate">
+            <div class="block b-naat">
+                <div class="arabic">الكَبِيرةِ</div>
+                <div class="label naat">Adjectif (نَعْت)</div>
+            </div>
+            <div class="block b-manout">
+                <div class="arabic">الجامِعةِ</div>
+                <div class="label manout">Nom (مَنْعوت)</div>
+            </div>
+            <div class="arrow">+</div>
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Plan d'accord</th>
+                    <th>Nom : اَلجامِعةِ (l'université)</th>
+                    <th>Adjectif : اَلكَبِيرةِ (grande)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Genre (الجِنْس)</strong></td>
+                    <td>Féminin (par nature)</td>
+                    <td>Prend la marque du féminin ة</td>
+                </tr>
+                <tr>
+                    <td><strong>Nombre (العَدَد)</strong></td>
+                    <td>Singulier</td>
+                    <td>Reste au singulier</td>
+                </tr>
+                <tr>
+                    <td><strong>Définition (التَعْريف)</strong></td>
+                    <td>Défini (ال)</td>
+                    <td>Porte aussi ال</td>
+                </tr>
+                <tr>
+                    <td><strong>Déclinaison (الإِعْراب)</strong></td>
+                    <td>Cas indirect → kasra</td>
+                    <td>Même cas → kasra</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="example-box scroll-animate" style="text-align:center;">
+            <span class="arabic"><span class="manout">الجامِعةِ</span> <span class="naat">الكَبِيرةِ</span></span> → la
+            grande université
+        </div>
+
+        <div class="legend scroll-animate">
+            <div class="legend-item"><span class="legend-dot" style="background:#1565c0;"></span> <span
+                    class="manout">Nom qualifié (مَنْعوت)</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#9c27b0;"></span> <span
+                    class="naat">Adjectif (نَعْت)</span></div>
+        </div>
+
+        <!-- Exemples détaillés -->
+        <h3 class="scroll-animate">📝 Exemples détaillés</h3>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="manout">قِطٌّ</span> <span class="naat">صَغِيرٌ</span></div>
+            <div class="fr">Un petit chat</div>
+            <div class="parse">قِطّ est masculin, singulier, indéfini, cas sujet (ḍamma) → صَغِير garde exactement
+                les quatre mêmes traits : masculin, singulier, sans ال, ḍamma.</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="manout">الطُلّابُ</span> <span class="naat">النَاجِحونَ</span> مُجْتَهِدونَ
+            </div>
+            <div class="fr">Les étudiants qui ont réussi sont travailleurs</div>
+            <div class="parse">الطُلّاب est masculin pluriel défini, cas sujet → النَاجِحونَ s'accorde sur les quatre
+                plans, y compris le pluriel régulier en ونَ. En revanche, مُجْتَهِدونَ ici n'est <strong>pas un
+                    adjectif</strong> : c'est l'information (الخَبَر) de la phrase nominale, car il ne suit pas
+                immédiatement le nom qu'il décrit.</div>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Adjectif ou information ?</strong> Un mot placé juste après le nom qu'il qualifie, avec le
+            <strong>même article</strong> (défini/indéfini), est un adjectif (نَعْت). Un mot qui suit un nom
+            <strong>déjà défini</strong> mais qui, lui, reste <strong>indéfini</strong>, n'est pas un adjectif : c'est
+            l'information d'une phrase nominale.
+        </div>
+
+        <!-- Pluriels inanimés -->
+        <h3 class="scroll-animate">📦 Le cas des pluriels inanimés</h3>
+
+        <div class="rule-box scroll-animate">
+            Lorsque le nom au pluriel désigne une <strong>chose</strong> ou un <strong>animal</strong> — donc rien de
+            personnifié — l'adjectif qui le qualifie se met <strong>au féminin singulier</strong>, quel que soit le
+            genre du nom au singulier. Cette règle ne s'applique qu'au pluriel, jamais au duel.
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Nom (pluriel inanimé)</th>
+                    <th>Adjectif (féminin singulier)</th>
+                    <th>Traduction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic manout">حِكاياتٌ</span></td>
+                    <td><span class="arabic naat">جميلةٌ</span></td>
+                    <td>De belles histoires</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic manout">أُسُدٌ</span></td>
+                    <td><span class="arabic naat">شَرِسةٌ</span></td>
+                    <td>Lions féroces</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic manout">الوِلاياتُ</span></td>
+                    <td><span class="arabic naat">المُتَّحِدةُ</span></td>
+                    <td>Les États-Unis</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 Exception rare :</strong> Certains adjectifs restent au pluriel avec un pluriel inanimé, pour
+            <strong>insister</strong> sur la valeur de la qualité exprimée — par exemple
+            <span class="arabic"><span class="manout">أَيّامٌ</span> <span class="naat">مَعْدُوداتٌ</span></span>
+            (un nombre déterminé de jours) ou
+            <span class="arabic"><span class="manout">ساعاتٌ</span> <span class="naat">طِوالٌ</span></span>
+            (des heures interminables).
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-divider scroll-animate"><span>🔗 Le point de jonction</span></div>
+
+        <h2 class="scroll-animate-left">🔗 L'adjectif et l'annexion, ensemble</h2>
+
+        <div class="intro scroll-animate">
+            Voici où les deux notions se rencontrent : que se passe-t-il quand un des deux termes d'une annexion a
+            <strong>aussi</strong> besoin d'un adjectif ? La règle est simple mais surprenante au premier abord :
+            <strong>rien ne peut séparer les deux termes d'une annexion</strong> (à l'exception des démonstratifs).
+            L'adjectif du <span class="modaf">1er terme</span> doit donc être repoussé
+            <strong>après le 2ème terme</strong>, tout à la fin.
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ Formule :</strong>
+            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
+                <span class="modaf">مُضاف</span> + <span class="modaf-ilayh">مُضاف إليه</span> + <span
+                    class="naat">نَعْت</span>
+            </p>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="modaf">ثِيابُ</span> <span class="modaf-ilayh">الوَلَدِ</span> <span
+                    class="naat">الجَديدةُ</span></div>
+            <div class="fr">Les nouveaux vêtements du garçon</div>
+            <div class="parse">L'adjectif « nouveaux » qualifie ثِياب (les vêtements), le 1er terme — pourtant il se
+                place après الوَلَدِ (le garçon), le 2ème terme, car rien ne peut s'intercaler entre les deux.</div>
+        </div>
+
+        <div class="warning-box scroll-animate">
+            <strong>⚠️ Comment savoir qui est qualifié ?</strong> Si le 2ème terme peut lui aussi avoir un adjectif,
+            une phrase peut devenir ambiguë à l'écrit. C'est alors le <strong>genre</strong> ou le <strong>cas</strong>
+            de l'adjectif qui permet de trancher : il s'accorde avec le terme qu'il qualifie réellement, jamais avec
+            l'autre.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="modaf">وَزِيرُ</span> <span class="modaf-ilayh">الحُكُومةِ</span> <span
+                    class="naat">الجَديدَةِ</span></div>
+            <div class="fr">Le ministre du nouveau gouvernement</div>
+            <div class="parse">الجَديدَةِ est au féminin cas indirect — cela ne peut correspondre qu'à
+                الحُكُومةِ (le gouvernement, féminin), et non à وَزِيرُ (le ministre, masculin). C'est donc bien le
+                gouvernement qui est « nouveau », pas le ministre.</div>
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+
+        <div class="rule-box scroll-animate">
+            <ul style="line-height:2;">
+                <li>L'<strong>annexion</strong> (الإِضافة) lie deux noms sans préposition : <span
+                        class="modaf">مُضاف</span> (jamais ال, jamais de tanwīn) + <span class="modaf-ilayh">مُضاف
+                        إليه</span> (toujours au cas indirect).</li>
+                <li>C'est le <strong>2ème terme</strong> qui rend toute l'annexion définie ou indéfinie.</li>
+                <li>Il existe une annexion <strong>authentique</strong> (possession, matière) et une annexion
+                    <strong>adjectivale</strong> (un adjectif + son complément, comme سَريعُ التَّعَلُّمِ).
+                </li>
+                <li>Le ن du duel et du pluriel régulier masculin <strong>disparaît</strong> quand ce mot devient le
+                    1er terme d'une annexion.</li>
+                <li>L'<strong>adjectif</strong> (النَعْت) se place toujours <strong>après</strong> le nom
+                    (المَنْعوت) et s'accorde avec lui en <strong>genre, nombre, définition et cas</strong>.</li>
+                <li>Un pluriel <strong>inanimé</strong> se qualifie par un adjectif au <strong>féminin
+                        singulier</strong>.</li>
+                <li>Dans une annexion, l'adjectif d'un des deux termes se place <strong>toujours après le 2ème
+                        terme</strong> — c'est son propre accord qui indique lequel des deux il qualifie
+                    réellement.</li>
+            </ul>
+        </div>
+
+    </div><!-- .container -->
+
+    <script>
+        /* ── Scroll animations ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            ).forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

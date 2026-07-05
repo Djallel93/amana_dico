@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les phrases interrogatives en arabe — الاِسْتِفْهام</title>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50%       { transform: scale(1.05); }
+        }
+
+        .scroll-animate        { opacity: 0; transform: translateY(30px);  transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scroll-animate-left   { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scroll-animate-scale  { opacity: 0; transform: scale(0.9);        transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scroll-animate.visible, .scroll-animate-left.visible, .scroll-animate-scale.visible {
+            opacity: 1; transform: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+        h2:hover { transform: translateX(10px); }
+
+        h3 { color: #764ba2; font-size: 1.3em; margin-top: 20px; }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 13px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+        td {
+            padding: 11px 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f0f4ff; transition: all 0.2s ease; }
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .arabic:hover { color: #667eea; }
+
+        .arabic-lg {
+            font-size: 1.7em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        /* interrogatif en surbrillance */
+        .interro { color: #c62828; font-weight: bold; }
+        .reponse { color: #1565c0; font-weight: bold; }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .note:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(255,193,7,0.3); }
+        .note strong { color: #856404; font-size: 1.05em; }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .example-box:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(76,175,80,0.3); }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .rule-box:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(156,39,176,0.3); }
+
+        .warning-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #f44336;
+            margin: 15px 0;
+        }
+        .warning-box strong { color: #c62828; }
+
+        .info-box {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #03a9f4;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .info-box:hover { transform: translateX(5px); box-shadow: 0 4px 12px rgba(3,169,244,0.3); }
+
+        /* ── Section divider ── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 35px 0 25px;
+            color: #764ba2;
+        }
+        .section-divider::before,
+        .section-divider::after { content: ''; flex: 1; border-top: 2px solid #d8c5f0; }
+
+        /* ── Phrase example rows ── */
+        .phrase-example {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 12px 0;
+            transition: box-shadow 0.3s;
+        }
+        .phrase-example:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .phrase-example .ar   { font-size: 1.5em; font-weight: bold; text-align: right; direction: rtl; margin-bottom: 8px; }
+        .phrase-example .fr   { color: #555; }
+        .phrase-example .rep  { font-size: 0.95em; color: #2e7d32; margin-top: 6px; font-style: italic; }
+
+        /* ── Big 2-col grid (réutilisé du cours 17) ── */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+        /* ── Interrogatif cards ── */
+        .interro-card {
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .interro-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+        .interro-card.hal  { background: linear-gradient(135deg, #fce4ec, #f8bbd9); border: 2px solid #c62828; }
+        .interro-card.aw   { background: linear-gradient(135deg, #e8eaf6, #c5cae9); border: 2px solid #283593; }
+        .interro-card h3   { margin-top: 0; font-size: 1.1em; }
+        .interro-card .arabic-lg { display: block; margin: 8px 0; font-size: 2.2em; }
+        .interro-card p    { font-size: 0.9em; color: #555; margin: 4px 0; }
+        .interro-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+        .hal .badge { background: #c62828; color: white; }
+        .aw  .badge { background: #283593; color: white; }
+
+        /* ── Big pronoun card grid (3 cols) ── */
+        .pronoun-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+        .pronoun-card {
+            background: linear-gradient(135deg, #f3e5f5, #e8eaf6);
+            border: 2px solid #7b1fa2;
+            border-radius: 10px;
+            padding: 14px 10px;
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .pronoun-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(123,31,162,0.25); }
+        .pronoun-card .ar-word { font-size: 1.8em; font-weight: bold; color: #6a1b9a; }
+        .pronoun-card .fr-word { font-size: 0.9em; color: #555; margin-top: 4px; }
+        .pronoun-card .usage   { font-size: 0.75em; color: #888; margin-top: 3px; font-style: italic; }
+
+        /* ── Q&A pair block ── */
+        .qa-block {
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 14px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .qa-q {
+            background: #7b1fa2;
+            color: white;
+            padding: 12px 18px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .qa-q .ar { font-size: 1.3em; direction: rtl; }
+        .qa-q .fr { font-size: 0.9em; opacity: 0.9; }
+        .qa-a {
+            background: #f9f9f9;
+            padding: 12px 18px;
+            font-size: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .qa-a .ar { font-size: 1.3em; font-weight: bold; color: #1565c0; direction: rtl; }
+        .qa-a .fr { font-size: 0.9em; color: #555; }
+
+        /* ── Highlight tag ── */
+        .hl { background: #ffeb3b; padding: 1px 5px; border-radius: 3px; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Les phrases interrogatives en arabe</h1>
+    <div class="arabic-title">الاِسْتِفْهام</div>
+
+    <!-- INTRO -->
+    <div class="intro">
+        Maintenant que tu sais construire des phrases nominales et verbales, il est temps d'apprendre à <strong>poser des questions</strong> !
+        En arabe, les questions se forment de deux façons : avec une <strong>particule interrogative</strong> (هَلْ ou أَ) pour les questions
+        auxquelles on répond par oui/non, ou avec un <strong>pronom interrogatif</strong> (مَنْ، أَيْنَ، كَيْفَ...) pour les questions
+        ouvertes. La bonne nouvelle : l'ordre des mots de la phrase de base <strong>ne change pas</strong> !
+    </div>
+
+    <!-- VUE D'ENSEMBLE -->
+    <h2 class="scroll-animate-left">📊 Vue d'ensemble — نَظْرَة عامَّة</h2>
+
+    <div class="two-col scroll-animate">
+        <div class="interro-card hal">
+            <h3>Questions oui / non</h3>
+            <span class="arabic-lg">هَلْ ؟ / أَ ؟</span>
+            <p>Particules interrogatives</p>
+            <p>حَرْفا الاِسْتِفْهام</p>
+            <p>Réponse attendue : <strong>نَعَمْ</strong> (oui) ou <strong>لا</strong> (non)</p>
+            <span class="badge">Est-ce que… ?</span>
+        </div>
+        <div class="interro-card aw">
+            <h3>Questions ouvertes</h3>
+            <span class="arabic-lg">مَنْ / مَا / أَيْنَ…</span>
+            <p>Pronoms interrogatifs</p>
+            <p>أَسْماء الاِسْتِفْهام</p>
+            <p>Réponse attendue : une <strong>information précise</strong></p>
+            <span class="badge">Qui ? Quoi ? Où ?…</span>
+        </div>
+    </div>
+
+    <div class="rule-box scroll-animate">
+        <strong>⚙️ Règle de base :</strong> En arabe, pour poser une question, on place simplement l'interrogatif
+        <strong>au début de la phrase</strong>. Le reste de la phrase garde son ordre normal (nominale ou verbale).
+        <br><br>
+        ✅ <span class="arabic">الوَلَدُ فِي البَيْتِ</span> → Le garçon est à la maison (affirmation)<br>
+        ✅ <span class="arabic"><span class="interro">هَلْ</span> الوَلَدُ فِي البَيْتِ ؟</span> → Le garçon est-il à la maison ? (question)
+    </div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section-divider scroll-animate"><span>❓ Partie 1</span></div>
+
+    <h2 class="scroll-animate-left">❓ Les particules oui/non — هَلْ et أَ</h2>
+
+    <div class="intro scroll-animate">
+        Ces deux particules s'utilisent pour transformer n'importe quelle affirmation en question fermée (réponse : oui ou non).
+        Elles sont l'équivalent de « est-ce que » en français, ou de l'inversion sujet-verbe.
+    </div>
+
+    <div class="two-col scroll-animate">
+        <div class="interro-card hal">
+            <h3>هَلْ</h3>
+            <span class="arabic-lg">هَلْ</span>
+            <p>La plus courante à l'écrit et à l'oral</p>
+            <p>Toujours séparée du mot suivant</p>
+            <span class="badge">Est-ce que… ?</span>
+        </div>
+        <div class="interro-card aw">
+            <h3>أَ</h3>
+            <span class="arabic-lg">أَ</span>
+            <p>Plus formelle, souvent à l'écrit</p>
+            <p>S'attache directement au mot suivant</p>
+            <span class="badge">Est-ce que… ?</span>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📝 Exemples avec هَلْ</h3>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">هَلْ</span> أَنْتَ طَالِبٌ ؟</span>
+            <span class="fr">Es-tu étudiant ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">نَعَمْ، أَنَا طَالِبٌ</span>
+            <span class="fr">Oui, je suis étudiant</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">هَلْ</span> ذَهَبَ الوَلَدُ إِلَى المَدْرَسَةِ ؟</span>
+            <span class="fr">Le garçon est-il allé à l'école ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">نَعَمْ، ذَهَبَ إِلَى المَدْرَسَةِ</span>
+            <span class="fr">Oui, il est allé à l'école</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">هَلْ</span> تَدْرُسِينَ العَرَبِيَّةَ ؟</span>
+            <span class="fr">Étudies-tu l'arabe ? (à une femme)</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">لا، أَدْرُسُ الفَرَنْسِيَّةَ</span>
+            <span class="fr">Non, j'étudie le français</span>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📝 Exemples avec أَ</h3>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">أَ</span>أَنْتَ مُعَلِّمٌ ؟</span>
+            <span class="fr">Es-tu professeur ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">نَعَمْ، أَنَا مُعَلِّمٌ</span>
+            <span class="fr">Oui, je suis professeur</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">أَ</span>هُمْ مِنَ المَغْرِبِ أَمْ مِنَ الجَزَائِرِ ؟</span>
+            <span class="fr">Sont-ils du Maroc ou d'Algérie ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">هُمْ مِنَ المَغْرِبِ</span>
+            <span class="fr">Ils sont du Maroc</span>
+        </div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📌 أَمْ — ou (dans une question alternative) :</strong><br>
+        La particule <span class="arabic">أَمْ</span> s'utilise avec <span class="arabic">أَ</span> pour donner le choix entre deux options,
+        comme « ou » dans « es-tu X ou Y ? ». Ce n'est pas le même <span class="arabic">أَوْ</span> (ou) des phrases affirmatives.
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📌 هَلِ devant une hamza de liaison :</strong><br>
+        هَلْ devient <span class="arabic">هَلِ</span> (avec kasra) devant une hamza de liaison pour éviter trois consonnes consécutives.<br>
+        Ex : <span class="arabic">هَلِ الجَوُّ حَارٌّ ؟</span> → Le temps est-il chaud ?
+    </div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section-divider scroll-animate"><span>🔍 Partie 2</span></div>
+
+    <h2 class="scroll-animate-left">🔍 Les pronoms interrogatifs — أَسْماء الاِسْتِفْهام</h2>
+
+    <div class="intro scroll-animate">
+        Les pronoms interrogatifs permettent de poser des questions <strong>ouvertes</strong> : qui, quoi, où, quand, comment, combien…
+        Ils se placent <strong>toujours en tête de phrase</strong> et sont tous <strong>indéclinables</strong> (leur forme ne change pas).
+    </div>
+
+    <!-- Grille des pronoms -->
+    <div class="pronoun-grid scroll-animate">
+        <div class="pronoun-card">
+            <div class="ar-word">مَنْ</div>
+            <div class="fr-word">Qui ?</div>
+            <div class="usage">personnes</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">مَا</div>
+            <div class="fr-word">Quoi / Quel ?</div>
+            <div class="usage">choses (défini)</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">مَاذَا</div>
+            <div class="fr-word">Quoi / Que ?</div>
+            <div class="usage">choses (indéfini)</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">أَيْنَ</div>
+            <div class="fr-word">Où ?</div>
+            <div class="usage">lieu</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">مَتَى</div>
+            <div class="fr-word">Quand ?</div>
+            <div class="usage">temps</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">كَيْفَ</div>
+            <div class="fr-word">Comment ?</div>
+            <div class="usage">manière</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">كَمْ</div>
+            <div class="fr-word">Combien ?</div>
+            <div class="usage">quantité</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">لِمَاذَا</div>
+            <div class="fr-word">Pourquoi ?</div>
+            <div class="usage">cause</div>
+        </div>
+        <div class="pronoun-card">
+            <div class="ar-word">أَيّ</div>
+            <div class="fr-word">Quel / Lequel ?</div>
+            <div class="usage">choix parmi plusieurs</div>
+        </div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📌 Tous indéclinables… sauf أَيّ !</strong><br>
+        Tous ces pronoms sont invariables, sauf <span class="arabic">أَيّ</span> qui s'accorde en genre avec le nom qui suit
+        et prend les cas grammaticaux normaux.<br>
+        Ex : <span class="arabic">أَيُّ كِتَابٍ تُفَضِّلُ ؟</span> (masc.) → Quel livre préfères-tu ?<br>
+        Ex : <span class="arabic">أَيَّةُ سَيَّارَةٍ اشْتَرَيْتَ ؟</span> (fém.) → Quelle voiture as-tu achetée ?
+    </div>
+
+    <!-- ─── MAN ─── -->
+    <h3 class="scroll-animate">👤 مَنْ — Qui ?</h3>
+    <p class="scroll-animate">S'utilise pour demander l'identité d'une <strong>personne</strong>.</p>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">مَنْ</span> هَذَا ؟</span>
+            <span class="fr">Qui est-ce ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">هَذَا أَحْمَدُ</span>
+            <span class="fr">C'est Ahmed</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">مَنْ</span> كَتَبَ هَذِهِ الرِّسَالَةَ ؟</span>
+            <span class="fr">Qui a écrit cette lettre ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">كَتَبَهَا الأُسْتَاذُ</span>
+            <span class="fr">C'est le professeur qui l'a écrite</span>
+        </div>
+    </div>
+
+    <!-- ─── MA / MADHA ─── -->
+    <h3 class="scroll-animate">📦 مَا / مَاذَا — Quoi ? Que ?</h3>
+    <p class="scroll-animate">S'utilisent pour demander des informations sur des <strong>choses ou des actions</strong>.</p>
+
+    <div class="example-box scroll-animate">
+        <strong>Différence مَا vs مَاذَا :</strong>
+        <ul style="margin-top:8px; line-height:2;">
+            <li><span class="arabic">مَا</span> → suivi d'un <strong>nom</strong> (phrase nominale) : <span class="arabic">مَا اِسْمُكَ ؟</span> → Quel est ton prénom ?</li>
+            <li><span class="arabic">مَاذَا</span> → suivi d'un <strong>verbe</strong> (phrase verbale) : <span class="arabic">مَاذَا تَفْعَلُ ؟</span> → Que fais-tu ?</li>
+        </ul>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">مَا</span> اِسْمُكَ ؟</span>
+            <span class="fr">Quel est ton prénom ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">اِسْمِي مُحَمَّدٌ</span>
+            <span class="fr">Mon prénom est Mohamed</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">مَاذَا</span> تَأْكُلُ ؟</span>
+            <span class="fr">Que manges-tu ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">آكُلُ خُبْزًا</span>
+            <span class="fr">Je mange du pain</span>
+        </div>
+    </div>
+
+    <!-- ─── AYNA ─── -->
+    <h3 class="scroll-animate">📍 أَيْنَ — Où ?</h3>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">أَيْنَ</span> تَسْكُنُ ؟</span>
+            <span class="fr">Où habites-tu ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">أَسْكُنُ فِي بَارِيسَ</span>
+            <span class="fr">J'habite à Paris</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">أَيْنَ</span> الكِتَابُ ؟</span>
+            <span class="fr">Où est le livre ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">الكِتَابُ عَلَى الطَّاوِلَةِ</span>
+            <span class="fr">Le livre est sur la table</span>
+        </div>
+    </div>
+
+    <div class="example-box scroll-animate">
+        <strong>Variantes de lieu :</strong>
+        <ul style="margin-top:8px; line-height:2.2;">
+            <li><span class="arabic">مِنْ أَيْنَ ؟</span> → D'où ? &nbsp;— <span class="arabic">مِنْ أَيْنَ أَنْتَ ؟</span> (D'où es-tu ?)</li>
+            <li><span class="arabic">إِلَى أَيْنَ ؟</span> → Vers où ? &nbsp;— <span class="arabic">إِلَى أَيْنَ تَذْهَبُ ؟</span> (Où vas-tu ?)</li>
+        </ul>
+    </div>
+
+    <!-- ─── MATA ─── -->
+    <h3 class="scroll-animate">🕐 مَتَى — Quand ?</h3>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">مَتَى</span> وَصَلْتَ ؟</span>
+            <span class="fr">Quand es-tu arrivé ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">وَصَلْتُ أَمْسِ</span>
+            <span class="fr">Je suis arrivé hier</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">مَتَى</span> يَبْدَأُ الدَّرْسُ ؟</span>
+            <span class="fr">Quand commence le cours ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">يَبْدَأُ السَّاعَةَ التَّاسِعَةَ</span>
+            <span class="fr">Il commence à neuf heures</span>
+        </div>
+    </div>
+
+    <!-- ─── KAYFA ─── -->
+    <h3 class="scroll-animate">⚙️ كَيْفَ — Comment ?</h3>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">كَيْفَ</span> حَالُكَ ؟</span>
+            <span class="fr">Comment vas-tu ? (litt. : comment est ton état ?)</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">بِخَيْرٍ، شُكْرًا</span>
+            <span class="fr">Bien, merci</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">كَيْفَ</span> ذَهَبْتَ إِلَى المَدْرَسَةِ ؟</span>
+            <span class="fr">Comment es-tu allé à l'école ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">ذَهَبْتُ بِالسَّيَّارَةِ</span>
+            <span class="fr">J'y suis allé en voiture</span>
+        </div>
+    </div>
+
+    <!-- ─── KAM ─── -->
+    <h3 class="scroll-animate">🔢 كَمْ — Combien ?</h3>
+    <p class="scroll-animate">كَمْ est suivi soit d'un <strong>nom au cas direct</strong> (singulier), soit de <strong>مِنْ + nom</strong>.</p>
+
+    <div class="example-box scroll-animate">
+        <strong>Deux constructions :</strong>
+        <ul style="margin-top:8px; line-height:2.2;">
+            <li><span class="arabic">كَمْ + nom singulier au cas direct</span> (objet dénombrable précis)<br>
+                <span class="arabic">كَمْ كِتَابًا اشْتَرَيْتَ ؟</span> → Combien de livres as-tu achetés ?</li>
+            <li><span class="arabic">كَمْ + مِنْ + nom</span> (quantité plus générale)<br>
+                <span class="arabic">كَمْ مِنَ الطُّلابِ فِي الفَصْلِ ؟</span> → Combien d'étudiants y a-t-il en classe ?</li>
+        </ul>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">كَمْ</span> عُمْرُكَ ؟</span>
+            <span class="fr">Quel âge as-tu ? (litt. : combien est ton âge ?)</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">عُمْرِي عِشْرُونَ سَنَةً</span>
+            <span class="fr">J'ai vingt ans</span>
+        </div>
+    </div>
+
+    <!-- ─── LIMADHA ─── -->
+    <h3 class="scroll-animate">❓ لِمَاذَا — Pourquoi ?</h3>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">لِمَاذَا</span> تَدْرُسُ العَرَبِيَّةَ ؟</span>
+            <span class="fr">Pourquoi étudies-tu l'arabe ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">لِأَنِّي أُحِبُّ اللُّغَةَ العَرَبِيَّةَ</span>
+            <span class="fr">Parce que j'aime la langue arabe</span>
+        </div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📌 لِمَاذَا vs لِمَ :</strong> Les deux signifient « pourquoi ? ». لِمَ est la forme courte (littéraire),
+        لِمَاذَا est la forme complète, plus courante à l'oral et dans les textes modernes.
+    </div>
+
+    <!-- ─── AYY ─── -->
+    <h3 class="scroll-animate">📋 أَيّ — Quel / Lequel ?</h3>
+    <p class="scroll-animate">S'utilise pour choisir parmi plusieurs options. C'est le seul pronom interrogatif qui s'accorde et se décline.</p>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar"><span class="interro">أَيُّ</span> كِتَابٍ تُفَضِّلُ ؟</span>
+            <span class="fr">Quel livre préfères-tu ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">أُفَضِّلُ هَذَا الكِتَابَ</span>
+            <span class="fr">Je préfère ce livre</span>
+        </div>
+    </div>
+
+    <div class="qa-block scroll-animate">
+        <div class="qa-q">
+            <span class="ar">فِي <span class="interro">أَيَّةِ</span> مَدِينَةٍ تَسْكُنُ ؟</span>
+            <span class="fr">Dans quelle ville habites-tu ?</span>
+        </div>
+        <div class="qa-a">
+            <span class="ar">أَسْكُنُ فِي القَاهِرَةِ</span>
+            <span class="fr">J'habite au Caire</span>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section-divider scroll-animate"><span>🔗 Partie 3</span></div>
+
+    <h2 class="scroll-animate-left">🔗 Interrogatifs avec prépositions</h2>
+
+    <div class="intro scroll-animate">
+        Certains pronoms interrogatifs se combinent avec des prépositions pour former de nouvelles questions.
+        Quand <strong>مَا</strong> est précédé d'une préposition, son <strong>alif ا final disparaît</strong>.
+    </div>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr>
+                <th>Expression</th>
+                <th>Sens</th>
+                <th>Exemple</th>
+                <th>Traduction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="arabic interro">لِمَنْ</span></td>
+                <td>À qui ?</td>
+                <td><span class="arabic">لِمَنْ هَذَا الكِتَابُ ؟</span></td>
+                <td>À qui est ce livre ?</td>
+            </tr>
+            <tr>
+                <td><span class="arabic interro">مَعَ مَنْ</span></td>
+                <td>Avec qui ?</td>
+                <td><span class="arabic">مَعَ مَنْ تُسَافِرُ ؟</span></td>
+                <td>Avec qui voyages-tu ?</td>
+            </tr>
+            <tr>
+                <td><span class="arabic interro">عَمَّنْ</span></td>
+                <td>À propos de qui ?</td>
+                <td><span class="arabic">عَمَّنْ تَتَحَدَّثُ ؟</span></td>
+                <td>De qui parles-tu ?</td>
+            </tr>
+            <tr>
+                <td><span class="arabic interro">مِنْ أَيْنَ</span></td>
+                <td>D'où ?</td>
+                <td><span class="arabic">مِنْ أَيْنَ أَنْتَ ؟</span></td>
+                <td>D'où es-tu ?</td>
+            </tr>
+            <tr>
+                <td><span class="arabic interro">إِلَى أَيْنَ</span></td>
+                <td>Vers où ?</td>
+                <td><span class="arabic">إِلَى أَيْنَ تَذْهَبُ ؟</span></td>
+                <td>Où vas-tu ?</td>
+            </tr>
+            <tr>
+                <td><span class="arabic interro">بِكَمْ</span></td>
+                <td>Combien (prix) ?</td>
+                <td><span class="arabic">بِكَمْ هَذَا ؟</span></td>
+                <td>Combien ça coûte ?</td>
+            </tr>
+            <tr>
+                <td><span class="arabic interro">بِمَ</span></td>
+                <td>Avec quoi ?</td>
+                <td><span class="arabic">بِمَ كَتَبْتَ ؟</span></td>
+                <td>Avec quoi as-tu écrit ?</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="note scroll-animate">
+        <strong>📌 La chute du alif de مَا :</strong> Quand une préposition précède مَا, le ا final tombe :<br>
+        عَنْ + مَا = <span class="arabic">عَمَّ</span> (shadda car assimilation du نْ)<br>
+        مِنْ + مَا = <span class="arabic">مِمَّ</span> (idem)<br>
+        بِ + مَا = <span class="arabic">بِمَ</span> (pas d'assimilation, juste la chute du ا)
+    </div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section-divider scroll-animate"><span>🗺️ Guide rapide</span></div>
+
+    <h2 class="scroll-animate-left">🗺️ Quel interrogatif choisir ?</h2>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr>
+                <th>Je veux demander…</th>
+                <th>J'utilise</th>
+                <th>Exemple rapide</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Oui ou non ?</td>
+                <td><span class="arabic interro">هَلْ / أَ</span></td>
+                <td><span class="arabic">هَلْ أَنْتَ مُتْعَبٌ ؟</span></td>
+            </tr>
+            <tr>
+                <td>L'identité d'une personne</td>
+                <td><span class="arabic interro">مَنْ</span></td>
+                <td><span class="arabic">مَنْ هُوَ ؟</span></td>
+            </tr>
+            <tr>
+                <td>La nature d'une chose</td>
+                <td><span class="arabic interro">مَا</span></td>
+                <td><span class="arabic">مَا هَذَا ؟</span></td>
+            </tr>
+            <tr>
+                <td>Ce que quelqu'un fait</td>
+                <td><span class="arabic interro">مَاذَا</span></td>
+                <td><span class="arabic">مَاذَا تَفْعَلُ ؟</span></td>
+            </tr>
+            <tr>
+                <td>Un lieu</td>
+                <td><span class="arabic interro">أَيْنَ</span></td>
+                <td><span class="arabic">أَيْنَ تَعِيشُ ؟</span></td>
+            </tr>
+            <tr>
+                <td>Un moment</td>
+                <td><span class="arabic interro">مَتَى</span></td>
+                <td><span class="arabic">مَتَى تَعُودُ ؟</span></td>
+            </tr>
+            <tr>
+                <td>La manière</td>
+                <td><span class="arabic interro">كَيْفَ</span></td>
+                <td><span class="arabic">كَيْفَ حَالُكَ ؟</span></td>
+            </tr>
+            <tr>
+                <td>Une quantité</td>
+                <td><span class="arabic interro">كَمْ</span></td>
+                <td><span class="arabic">كَمْ وَلَدًا عِنْدَكَ ؟</span></td>
+            </tr>
+            <tr>
+                <td>La raison</td>
+                <td><span class="arabic interro">لِمَاذَا</span></td>
+                <td><span class="arabic">لِمَاذَا تَبْكِي ؟</span></td>
+            </tr>
+            <tr>
+                <td>Un choix parmi plusieurs</td>
+                <td><span class="arabic interro">أَيّ</span></td>
+                <td><span class="arabic">أَيُّ لَوْنٍ تُحِبُّ ؟</span></td>
+            </tr>
+            <tr>
+                <td>L'origine / la provenance</td>
+                <td><span class="arabic interro">مِنْ أَيْنَ</span></td>
+                <td><span class="arabic">مِنْ أَيْنَ أَنْتَ ؟</span></td>
+            </tr>
+            <tr>
+                <td>Le prix</td>
+                <td><span class="arabic interro">بِكَمْ</span></td>
+                <td><span class="arabic">بِكَمْ هَذَا الكِتَابُ ؟</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ════════════════════════════════════════════ -->
+    <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+
+    <div class="rule-box scroll-animate">
+        <ul style="line-height: 2;">
+            <li>Il existe <strong>deux types d'interrogatifs</strong> en arabe : les <strong>particules</strong> (هَلْ / أَ) pour les questions fermées, et les <strong>pronoms</strong> pour les questions ouvertes</li>
+            <li><strong>هَلْ</strong> et <strong>أَ</strong> transforment n'importe quelle affirmation en question oui/non — elles se placent en tête de phrase</li>
+            <li>Tous les pronoms interrogatifs se placent en <strong>tête de phrase</strong> — le reste de la phrase garde son ordre normal</li>
+            <li>Tous les pronoms sont <strong>indéclinables</strong>, sauf <strong>أَيّ</strong> qui s'accorde en genre et en cas</li>
+            <li><strong>مَا</strong> est suivi d'un nom, <strong>مَاذَا</strong> est suivi d'un verbe</li>
+            <li><strong>كَمْ</strong> est suivi d'un nom au <strong>cas direct</strong> (singulier) ou de مِنْ + nom</li>
+            <li>Quand مَا est précédé d'une préposition, son <strong>alif ا tombe</strong> (بِمَ, مِمَّ, عَمَّ…)</li>
+        </ul>
+    </div>
+
+</div><!-- .container -->
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll(
+            '.scroll-animate, .scroll-animate-left, .scroll-animate-scale'
+        ).forEach(el => observer.observe(el));
+    });
+</script>
+</body>
+</html>

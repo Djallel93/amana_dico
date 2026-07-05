@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le conditionnel en arabe — الجُمْلة الشَرْطِيّة</title>
+    <style>
+        @keyframes fadeIn { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
+        @keyframes slideInLeft { from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)} }
+
+        .scroll-animate       {opacity:0;transform:translateY(30px); transition:opacity .6s ease,transform .6s ease}
+        .scroll-animate-left  {opacity:0;transform:translateX(-30px);transition:opacity .6s ease,transform .6s ease}
+        .scroll-animate-scale {opacity:0;transform:scale(.9);        transition:opacity .6s ease,transform .6s ease}
+        .scroll-animate.visible,.scroll-animate-left.visible,.scroll-animate-scale.visible{opacity:1;transform:none}
+
+        body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;max-width:900px;margin:0 auto;padding:20px;
+             background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#333;animation:fadeIn .6s ease-out}
+        .container{background:#fff;border-radius:15px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+
+        h1{color:#764ba2;text-align:center;font-size:2.5em;margin-bottom:10px;border-bottom:3px solid #667eea;
+           padding-bottom:15px;animation:slideInLeft .8s ease-out}
+        .arabic-title{text-align:center;font-size:2em;color:#667eea;margin-bottom:30px;font-weight:bold;
+                      animation:fadeIn 1s ease-out .3s both}
+        h2{color:#667eea;margin-top:35px;font-size:1.8em;border-left:5px solid #764ba2;padding-left:15px;
+           transition:transform .3s ease}
+        h2:hover{transform:translateX(10px)}
+        h3{color:#764ba2;font-size:1.3em;margin-top:20px}
+
+        .intro{background:#f0f4ff;padding:20px;border-radius:10px;border-left:5px solid #667eea;
+               margin-bottom:25px;font-size:1.1em;line-height:1.6;animation:fadeIn 1s ease-out .5s both}
+
+        table{width:100%;border-collapse:collapse;margin:20px auto;box-shadow:0 2px 8px rgba(0,0,0,.1);
+              border-radius:8px;overflow:hidden}
+        th{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:13px;
+           text-align:center;font-size:1.05em}
+        td{padding:11px 14px;border:1px solid #ddd;text-align:center;vertical-align:middle}
+        tr:nth-child(even){background:#f9f9f9}
+        tr:hover{background:#f0f4ff;transition:all .2s ease}
+
+        .arabic{font-size:1.4em;color:#764ba2;font-weight:bold;transition:color .3s ease}
+        .arabic:hover{color:#667eea}
+        .arabic-lg{font-size:2em;color:#764ba2;font-weight:bold}
+
+        /* couleurs conditionnelles */
+        .part-cond {color:#c62828;font-weight:bold}   /* particule si */
+        .shart     {color:#1565c0;font-weight:bold}   /* condition الشرط */
+        .jawab     {color:#2e7d32;font-weight:bold}   /* réponse جواب */
+
+        .note{background:#fff3cd;padding:15px;border-radius:8px;border-left:5px solid #ffc107;
+              margin:20px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .note:hover{transform:translateX(5px);box-shadow:0 4px 12px rgba(255,193,7,.3)}
+        .note strong{color:#856404;font-size:1.05em}
+
+        .example-box{background:#e8f5e9;padding:15px;border-radius:8px;border-left:5px solid #4caf50;
+                     margin:15px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .example-box:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(76,175,80,.3)}
+
+        .rule-box{background:#f3e5f5;padding:15px;border-radius:8px;border-left:5px solid #9c27b0;
+                  margin:15px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .rule-box:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(156,39,176,.3)}
+
+        .warning-box{background:#ffebee;padding:15px;border-radius:8px;border-left:5px solid #f44336;margin:15px 0}
+        .warning-box strong{color:#c62828}
+
+        .info-box{background:#e1f5fe;padding:15px;border-radius:8px;border-left:5px solid #03a9f4;
+                  margin:15px 0;transition:transform .3s ease,box-shadow .3s ease}
+        .info-box:hover{transform:translateX(5px);box-shadow:0 4px 12px rgba(3,169,244,.3)}
+
+        .section-divider{display:flex;align-items:center;gap:15px;margin:35px 0 25px;color:#764ba2}
+        .section-divider::before,.section-divider::after{content:'';flex:1;border-top:2px solid #d8c5f0}
+
+        /* blocs double-phrase conditionnelle */
+        .cond-block{border-radius:12px;overflow:hidden;margin:16px 0;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+        .cond-part{padding:11px 18px;font-size:1.1em;display:flex;justify-content:space-between;
+                   align-items:center;flex-wrap:wrap;gap:8px}
+        .cond-part.header{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:.9em;font-weight:bold}
+        .cond-part.p-shart{background:#e3f2fd;border-left:4px solid #1565c0}
+        .cond-part.p-jawab{background:#e8f5e9;border-left:4px solid #2e7d32}
+        .cond-part .ar{font-size:1.3em;font-weight:bold;direction:rtl}
+        .cond-part .fr{font-size:.9em;color:#555}
+        .cond-part .fr-white{font-size:.9em;color:rgba(255,255,255,.85)}
+
+        /* cartes des trois particules */
+        .three-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0}
+        @media(max-width:600px){.three-grid{grid-template-columns:1fr}}
+        .cond-card{border-radius:12px;padding:18px;text-align:center;
+                   box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .3s,box-shadow .3s}
+        .cond-card:hover{transform:translateY(-5px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+        .cond-card.idha {background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:2px solid #2e7d32}
+        .cond-card.in   {background:linear-gradient(135deg,#fff3e0,#ffe0b2);border:2px solid #e65100}
+        .cond-card.law  {background:linear-gradient(135deg,#fce4ec,#f8bbd9);border:2px solid #c62828}
+        .cond-card h3{margin-top:0;font-size:1em}
+        .cond-card .arabic-lg{display:block;margin:8px 0;font-size:2.4em}
+        .cond-card p{font-size:.85em;color:#555;margin:3px 0}
+        .cond-card .badge{display:inline-block;padding:4px 12px;border-radius:20px;
+                          font-size:.82em;font-weight:bold;margin-top:8px}
+        .idha .badge{background:#2e7d32;color:#fff}
+        .in   .badge{background:#e65100;color:#fff}
+        .law  .badge{background:#c62828;color:#fff}
+
+        /* tableau concessions */
+        .conc-row td:first-child{font-weight:bold;color:#764ba2;font-size:1.1em}
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>Le conditionnel en arabe</h1>
+    <div class="arabic-title">الجُمْلة الشَرْطِيّة</div>
+
+    <div class="intro">
+        La phrase conditionnelle exprime un lien de <strong>cause à effet</strong> : « si X, alors Y ».
+        En arabe, elle est toujours composée de <strong>deux parties</strong> : la condition et sa réponse.
+        Trois particules principales introduisent ces phrases : <strong>إِذَا, إِنْ</strong> et <strong>لَوْ</strong>,
+        chacune apportant une nuance différente — du réaliste au complètement irréel.
+    </div>
+
+    <!-- CONCEPT DE LA DOUBLE PHRASE -->
+    <h2 class="scroll-animate-left">🔗 La structure : la phrase double</h2>
+
+    <div class="rule-box scroll-animate">
+        <strong>⚙️ Formule universelle :</strong>
+        <div style="text-align:center;font-size:1.2em;margin:12px 0">
+            <span class="part-cond">particule conditionnelle</span>
+            + <span class="shart">condition (الشَرْط)</span>
+            + <span class="jawab">réponse (جَوَاب الشَرْط)</span>
+        </div>
+        <div style="text-align:center;font-size:.9em;color:#666">
+            = protase + apodose (terminologie française)
+        </div>
+    </div>
+
+    <div class="example-box scroll-animate" style="text-align:center">
+        <span class="part-cond arabic" style="font-size:1.5em">إِذَا</span>
+        <span class="shart arabic" style="font-size:1.5em">دَرَسْتَ</span>
+        <span class="jawab arabic" style="font-size:1.5em">نَجَحْتَ</span><br>
+        <span style="color:#888;font-size:.9em">↑ particule</span>
+        &nbsp;&nbsp;&nbsp;
+        <span style="color:#1565c0;font-size:.9em">↑ condition</span>
+        &nbsp;&nbsp;&nbsp;
+        <span style="color:#2e7d32;font-size:.9em">↑ réponse</span><br><br>
+        <strong>Si tu étudies, tu réussiras.</strong>
+    </div>
+
+    <!-- VUE D'ENSEMBLE 3 PARTICULES -->
+    <h2 class="scroll-animate-left">📊 Vue d'ensemble des trois particules</h2>
+
+    <div class="three-grid scroll-animate">
+        <div class="cond-card idha">
+            <h3>Éventualité concrète</h3>
+            <span class="arabic-lg">إِذَا</span>
+            <p>Quelque chose qui a de<br>bonnes chances de se produire</p>
+            <p>Condition → <strong>passé</strong></p>
+            <p>Réponse → passé / présent / futur</p>
+            <span class="badge">Si (probable)</span>
+        </div>
+        <div class="cond-card in">
+            <h3>Hypothèse possible</h3>
+            <span class="arabic-lg">إِنْ</span>
+            <p>Potentialité — peut arriver<br>ou non</p>
+            <p>Condition → <strong>passé ou apocopé</strong></p>
+            <p>Réponse → passé / apocopé / futur</p>
+            <span class="badge">Si (possible)</span>
+        </div>
+        <div class="cond-card law">
+            <h3>Hypothèse irréelle</h3>
+            <span class="arabic-lg">لَوْ</span>
+            <p>Très improbable ou<br>contraire à la réalité</p>
+            <p>Condition → <strong>passé</strong></p>
+            <p>Réponse → <strong>لَـ + passé</strong></p>
+            <span class="badge">Si (irréel)</span>
+        </div>
+    </div>
+
+    <!-- ════════════ إذا ════════════ -->
+    <div class="section-divider scroll-animate"><span>🟢 Partie 1 — إِذَا</span></div>
+    <h2 class="scroll-animate-left">🟢 إِذَا — l'éventualité concrète</h2>
+
+    <div class="intro scroll-animate">
+        <strong>إِذَا</strong> exprime une condition que le locuteur considère comme <strong>probable ou réaliste</strong>.
+        C'est la particule la plus courante. La condition est au <strong>passé</strong>, la réponse peut être au
+        passé, au présent de l'indicatif ou au futur.
+    </div>
+
+    <h3 class="scroll-animate">📝 إِذَا + passé → passé</h3>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header">
+            <span>Condition (الشَرْط)</span><span>Réponse (جَوَاب الشَرْط)</span>
+        </div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">إِذَا</span> <span class="shart">جِئْتَ إِلَى بَيْتِي</span></span>
+            <span class="fr shart">Si tu viens chez moi…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">أَكَلْتَ طَبَقًا طَيِّبًا</span></span>
+            <span class="fr jawab">…tu mangeras un bon plat.</span>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📝 إِذَا + passé → présent de l'indicatif</h3>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header">
+            <span>Condition (الشَرْط)</span><span>Réponse (جَوَاب الشَرْط)</span>
+        </div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">إِذَا</span> <span class="shart">جِئْتَ إِلَى بَيْتِي</span></span>
+            <span class="fr shart">Si tu viens chez moi…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">تَأْكُلُ طَبَقًا طَيِّبًا</span></span>
+            <span class="fr jawab">…tu mangeras un bon plat.</span>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📝 إِذَا + passé → futur</h3>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header">
+            <span>Condition (الشَرْط)</span><span>Réponse (جَوَاب الشَرْط)</span>
+        </div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">إِذَا</span> <span class="shart">نَجَحْتَ فِي الاِمْتِحَانِ</span></span>
+            <span class="fr shart">Si tu réussis l'examen…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">سَأَحْتَفِلُ مَعَ أَصْدِقَائِي</span></span>
+            <span class="fr jawab">…je ferai la fête avec mes amis.</span>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📌 Quand ajouter فَـ devant la réponse ?</h3>
+    <p class="scroll-animate">La réponse est introduite par <strong>فَـ</strong> dans ces cas :</p>
+
+    <table class="scroll-animate">
+        <thead><tr><th>Cas</th><th>Exemple</th><th>Traduction</th></tr></thead>
+        <tbody>
+            <tr>
+                <td>Réponse = phrase nominale</td>
+                <td><span class="arabic">إِذَا اشْتَرَكْتَ فِي الحَرْبِ <span class="jawab">فَدُعَائِي مَعَكَ</span></span></td>
+                <td>Si tu pars à la guerre, mes prières t'accompagnent.</td>
+            </tr>
+            <tr>
+                <td>Réponse = impératif</td>
+                <td><span class="arabic">إِذَا ذَهَبْتَ إِلَى السُوقِ <span class="jawab">فَاشْتَرِ</span> تُفَّاحًا</span></td>
+                <td>Si tu vas au marché, achète des pommes.</td>
+            </tr>
+            <tr>
+                <td>Réponse avec سَـ / سَوْفَ</td>
+                <td><span class="arabic">إِذَا أَكْمَلْتُ الدِّرَاسَةَ <span class="jawab">فَسَأَذْهَبُ</span> إِلَى المَكْتَبِ</span></td>
+                <td>Si je termine l'étude, je me rendrai au bureau.</td>
+            </tr>
+            <tr>
+                <td>Réponse avec لَنْ / لا (négation)</td>
+                <td><span class="arabic">إِذَا تَبَعْتَ نَصِيحَتِي <span class="jawab">فَلَنْ تَفْشَلَ</span></span></td>
+                <td>Si tu suis mes conseils, tu n'échoueras pas.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="warning-box scroll-animate">
+        <strong>⚠️ À ne pas faire avec إِذَا :</strong><br>
+        Le présent de l'apocopé (المُضارِع المَجْزوم) et l'impératif ne peuvent <strong>pas</strong> être utilisés
+        dans la condition après إِذَا. → Pour cela, on utilise إِنْ.
+    </div>
+
+    <!-- ════════════ إن ════════════ -->
+    <div class="section-divider scroll-animate"><span>🟠 Partie 2 — إِنْ</span></div>
+    <h2 class="scroll-animate-left">🟠 إِنْ — l'hypothèse possible</h2>
+
+    <div class="intro scroll-animate">
+        <strong>إِنْ</strong> est proche de إِذَا mais exprime une hypothèse dont la réalisation est
+        <strong>incertaine ou simplement possible</strong>. Sa particularité : la condition peut être au
+        <strong>présent de l'apocopé (المُضارِع المَجْزوم)</strong> en plus du passé.
+    </div>
+
+    <h3 class="scroll-animate">📝 Exemples avec إِنْ</h3>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header"><span>إِنْ + passé</span><span>→ passé</span></div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">إِنْ</span> <span class="shart">دَرَسْتَ</span></span>
+            <span class="fr shart">Si tu étudies…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">نَجَحْتَ</span></span>
+            <span class="fr jawab">…tu réussiras.</span>
+        </div>
+    </div>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header"><span>إِنْ + passé</span><span>→ futur</span></div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">إِنْ</span> <span class="shart">دَرَسْتَ</span></span>
+            <span class="fr shart">Si tu étudies…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">سَتَنْجَحُ</span></span>
+            <span class="fr jawab">…tu réussiras.</span>
+        </div>
+    </div>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header"><span>إِنْ + apocopé</span><span>→ apocopé</span></div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">إِنْ</span> <span class="shart">تَعْمَلْ</span></span>
+            <span class="fr shart">Si tu travailles…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">تَنْجَحْ</span></span>
+            <span class="fr jawab">…tu réussiras.</span>
+        </div>
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📌 مَنْ, مَا, مَهْما — fonctionnent comme إِنْ :</strong><br>
+        Les pronoms relatifs-conditionnels مَنْ (quiconque), مَا (quoi que), et مَهْما (quoi qu'il arrive)
+        suivent les mêmes règles que إِنْ :<br>
+        <span class="arabic">مَنْ يَعْمَلْ يَنْجَحْ</span> → Quiconque travaille réussira.
+    </div>
+
+    <!-- ════════════ لو ════════════ -->
+    <div class="section-divider scroll-animate"><span>🔴 Partie 3 — لَوْ</span></div>
+    <h2 class="scroll-animate-left">🔴 لَوْ — l'hypothèse irréelle</h2>
+
+    <div class="intro scroll-animate">
+        <strong>لَوْ</strong> introduit une hypothèse <strong>très improbable ou contraire à la réalité</strong>.
+        C'est l'équivalent du conditionnel passé en français : « si j'avais été… j'aurais… ».
+        Les deux parties sont au <strong>passé</strong>, et la réponse est toujours précédée de <strong>لَـ</strong>
+        (sauf si elle commence par لا ou لَمْ).
+    </div>
+
+    <div class="rule-box scroll-animate">
+        <strong>⚙️ Formule :</strong>
+        <div style="text-align:center;font-size:1.15em;margin:10px 0">
+            <span class="part-cond">لَوْ</span> + <span class="shart">passé</span>
+            + <span class="jawab">لَـ + passé</span>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📝 Exemples avec لَوْ</h3>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header"><span>لَوْ + passé</span><span>→ لَـ + passé</span></div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">لَوْ</span> <span class="shart">كُنْتُ مُدِيرًا</span></span>
+            <span class="fr shart">Si j'étais directeur…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">لَحَلَّتِ المُشْكِلَةُ</span></span>
+            <span class="fr jawab">…le problème serait résolu.</span>
+        </div>
+    </div>
+
+    <div class="cond-block scroll-animate">
+        <div class="cond-part header"><span>لَوْ + passé</span><span>→ لَـ + passé</span></div>
+        <div class="cond-part p-shart">
+            <span class="ar"><span class="part-cond">لَوْ</span> <span class="shart">وَاكَبْتَنِي البَارِحَةَ</span></span>
+            <span class="fr shart">Si tu m'avais accompagné hier…</span>
+        </div>
+        <div class="cond-part p-jawab">
+            <span class="ar"><span class="jawab">لاسْتَمْتَعْتَ بِوَقْتِكَ</span></span>
+            <span class="fr jawab">…tu aurais passé un bon moment.</span>
+        </div>
+    </div>
+
+    <h3 class="scroll-animate">📌 Cas particuliers de لَوْ</h3>
+
+    <div class="example-box scroll-animate">
+        <strong>لَوْلا — « Sans… / Si ce n'était pas… »</strong><br>
+        لَوْ + لا = لَوْلا, suivi d'un nom au <strong>cas sujet</strong> ou d'un suffixe pronominal :<br><br>
+        <span class="arabic">لَوْلا صَدَاقَةٌ قَدِيمَةٌ بَيْنَنَا لَصَفَعْتُكَ</span><br>
+        → S'il n'y avait pas une vieille amitié entre nous, je t'aurais giflé.
+    </div>
+
+    <div class="example-box scroll-animate">
+        <strong>لَوْ لَمْ — « Si… n'avait pas… »</strong><br>
+        لَوْ + لَمْ + présent de l'apocopé :<br><br>
+        <span class="arabic">لَوْ لَمْ تُضَيِّعْ وَقْتَكَ لَتَعَلَّمْتَ أَشْيَاءَ كَثِيرَةً</span><br>
+        → Si tu n'avais pas perdu ton temps, tu aurais appris beaucoup de choses.
+    </div>
+
+    <div class="note scroll-animate">
+        <strong>📌 L'ordre peut s'inverser !</strong><br>
+        La réponse (جَواب الشَرْط) peut précéder la condition :<br>
+        <span class="arabic">لَأَصْبَحُوا مَجَانِينَ لَوْ عَمِلُوا فِي هَذِهِ الشَّرِكَةِ</span><br>
+        → Ils seraient devenus fous s'ils avaient travaillé pour cette entreprise.
+    </div>
+
+    <!-- ════════════ TABLEAU COMPARATIF ════════════ -->
+    <div class="section-divider scroll-animate"><span>⚖️ Comparaison</span></div>
+    <h2 class="scroll-animate-left">⚖️ Les trois particules en un coup d'œil</h2>
+
+    <table class="scroll-animate">
+        <thead>
+            <tr>
+                <th>Particule</th>
+                <th>Nuance</th>
+                <th>Condition</th>
+                <th>Réponse</th>
+                <th>Exemple fr.</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="arabic part-cond" style="font-size:1.6em">إِذَا</span></td>
+                <td>Éventualité concrète</td>
+                <td>Passé</td>
+                <td>Passé / Présent / Futur</td>
+                <td><em>Si tu viens (et tu vas probablement venir)…</em></td>
+            </tr>
+            <tr>
+                <td><span class="arabic part-cond" style="font-size:1.6em">إِنْ</span></td>
+                <td>Hypothèse possible</td>
+                <td>Passé ou Apocopé</td>
+                <td>Passé / Apocopé / Futur</td>
+                <td><em>Si tu étudies (peut-être que tu étudieras)…</em></td>
+            </tr>
+            <tr>
+                <td><span class="arabic part-cond" style="font-size:1.6em">لَوْ</span></td>
+                <td>Irréel / très improbable</td>
+                <td>Passé</td>
+                <td>لَـ + Passé</td>
+                <td><em>Si j'avais été riche (mais je ne le suis pas)…</em></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ════════════ PARTICULES CONCESSIVES ════════════ -->
+    <div class="section-divider scroll-animate"><span>🔀 Partie 4</span></div>
+    <h2 class="scroll-animate-left">🔀 Les particules concessives — même si / bien que</h2>
+
+    <div class="intro scroll-animate">
+        إِنْ et لَوْ peuvent se combiner avec d'autres particules pour exprimer une <strong>concession</strong>
+        (« même si », « bien que », « malgré »). La condition est alors admise mais ne change pas le résultat.
+    </div>
+
+    <table class="scroll-animate conc-row">
+        <thead>
+            <tr><th>Expression</th><th>Sens</th><th>Exemple</th><th>Traduction</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="arabic">وَلَوْ</span></td>
+                <td>même si / quand même</td>
+                <td><span class="arabic">لَنْ أَشْتَرِيَ سَيَّارَةً وَلَوْ كَانَ عِنْدِي المَالُ</span></td>
+                <td>Je n'achèterais pas de voiture même si j'avais l'argent</td>
+            </tr>
+            <tr>
+                <td><span class="arabic">حَتَّى وَلَوْ</span></td>
+                <td>même si / à supposer que</td>
+                <td><span class="arabic">حَتَّى وَلَوْ تَعِبْتَ لا تَتَرَاجَعْ</span></td>
+                <td>Même si tu es fatigué, ne recule pas</td>
+            </tr>
+            <tr>
+                <td><span class="arabic">وَإِنْ</span></td>
+                <td>même si</td>
+                <td><span class="arabic">سَنَصِلُ حَتَّى وَإِنْ كَانَ الطَّرِيقُ صَعْبًا</span></td>
+                <td>Nous atteindrons l'objectif même si la route est difficile</td>
+            </tr>
+            <tr>
+                <td><span class="arabic">مَعَ أَنَّ</span></td>
+                <td>bien que / même si</td>
+                <td><span class="arabic">مَعَ أَنَّ الاِمْتِحَانَ كَانَ صَعْبًا حَصَلْتُ عَلَى نَتِيجَةٍ جَيِّدَةٍ</span></td>
+                <td>Bien que l'examen était difficile, j'ai eu une bonne note</td>
+            </tr>
+            <tr>
+                <td><span class="arabic">رَغْمَ أَنَّ</span></td>
+                <td>bien que / même si</td>
+                <td><span class="arabic">رَغْمَ أَنَّ الجَوَّ حَارٌّ ذَهَبْنَا إِلَى الحَدِيقَةِ</span></td>
+                <td>Bien qu'il faisait chaud, nous sommes allés au parc</td>
+            </tr>
+            <tr>
+                <td><span class="arabic">رَغْمَ</span></td>
+                <td>malgré</td>
+                <td><span class="arabic">رَغْمَ المَطَرِ خَرَجْنَا لِلنُّزْهَةِ</span></td>
+                <td>Malgré la pluie, nous sommes sortis nous promener</td>
+            </tr>
+            <tr>
+                <td><span class="arabic">بِالرَّغْمِ مِنْ</span></td>
+                <td>malgré / en dépit de</td>
+                <td><span class="arabic">بِالرَّغْمِ مِنَ العَوَاصِفِ انْطَلَقْنَا فِي الرِّحْلَةِ</span></td>
+                <td>Malgré les tempêtes, nous nous sommes mis en route</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- RÉSUMÉ -->
+    <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+    <div class="rule-box scroll-animate">
+        <ul style="line-height:2.2">
+            <li>La phrase conditionnelle = <strong>particule + condition (الشَرْط) + réponse (جَوَاب الشَرْط)</strong></li>
+            <li><strong>إِذَا</strong> → éventualité concrète ; condition au <strong>passé</strong> ; réponse au passé / présent / futur</li>
+            <li><strong>إِنْ</strong> → hypothèse possible ; condition au <strong>passé ou apocopé</strong> ; réponse au passé / apocopé / futur</li>
+            <li><strong>لَوْ</strong> → irréel / très improbable ; condition au <strong>passé</strong> ; réponse = <strong>لَـ + passé</strong></li>
+            <li>La réponse est précédée de <strong>فَـ</strong> quand elle est : phrase nominale, impératif, سَ/سَوْف, لا/لَنْ, لَيْسَ</li>
+            <li><strong>لَوْلا</strong> = « sans / si ce n'était pas » + nom au cas sujet</li>
+            <li>وَلَوْ / حَتَّى وَلَوْ / وَإِنْ / رَغْمَ / مَعَ أَنَّ → <strong>concession</strong> (même si, bien que, malgré)</li>
+            <li>مَنْ / مَا / مَهْما fonctionnent comme <strong>إِنْ</strong> (condition potentielle)</li>
+        </ul>
+    </div>
+
+</div>
+<script>
+    const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),
+        {threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    document.addEventListener('DOMContentLoaded',()=>{
+        document.querySelectorAll('.scroll-animate,.scroll-animate-left,.scroll-animate-scale')
+            .forEach(el=>obs.observe(el));
+    });
+</script>
+</body>
+</html>
