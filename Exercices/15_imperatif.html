@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : L'impératif en arabe — فِعْل الأَمْر</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .hamza {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .neg {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 340px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 140px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Exercices : L'impératif</h1>
+        <div class="arabic-title">فِعْل الأَمْر</div>
+
+        <div class="intro">
+            Ces exercices reprennent les trois verbes du cours — <span class="arabic"
+                style="font-size:1.1em;">كَتَبَ</span> (écrire),
+            <span class="arabic" style="font-size:1.1em;">فَهِمَ</span> (comprendre) et <span class="arabic"
+                style="font-size:1.1em;">كَبُرَ</span> (grandir) —
+            ainsi que quelques verbes d'usage courant. Rappelle-toi la méthode en trois étapes : supprimer le préfixe
+            تَـ et la ḍamma finale, puis ajouter si besoin une <span class="hamza">همزة وصل</span> vocalisée selon la 2ᵉ
+            radicale.
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">1</span>Du présent à l'impératif</h2>
+        <div class="exercise">
+            <h3>Construisez l'impératif à partir de la forme du présent donnée (2ᵉ personne)</h3>
+            <ol>
+                <li><span class="arabic">تَكْتُبُ</span> (tu écris) → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَفْهَمُ</span> (tu comprends) → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَكْتُبِينَ</span> (tu écris, f.) → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَفْهَمِينَ</span> (tu comprends, f.) → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَكْتُبُونَ</span> (vous écrivez) → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَفْهَمُونَ</span> (vous comprenez) → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَكْتُبَانِ</span> (vous deux écrivez) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">تَفْهَمْنَ</span> (vous, f. pl., comprenez) → <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">2</span>Quelle voyelle pour la hamza ?</h2>
+        <div class="exercise">
+            <h3>Pour chaque verbe, indiquez si la hamza de liaison prend une ḍamma (اُ) ou une kasra (اِ), en observant
+                la voyelle de la 2ᵉ radicale au présent</h3>
+            <ol>
+                <li><span class="arabic">يَجْلِسُ</span> (2ᵉ radicale : kasra) → hamza : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">يَدْخُلُ</span> (2ᵉ radicale : ḍamma) → hamza : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">يَسْمَعُ</span> (2ᵉ radicale : fatḥa) → hamza : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">يَخْرُجُ</span> (2ᵉ radicale : ḍamma) → hamza : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">يَكْتُبُ</span> (2ᵉ radicale : ḍamma) → hamza : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">يَفْهَمُ</span> (2ᵉ radicale : fatḥa) → hamza : <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">3</span>Tableau de conjugaison — كَتَبَ</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau de l'impératif du verbe كَتَبَ (écrire)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Personne</th>
+                        <th>Genre</th>
+                        <th>Impératif</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2ᵉ sg.</td>
+                        <td>M.</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2ᵉ sg.</td>
+                        <td>F.</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2ᵉ duel</td>
+                        <td>M/F</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2ᵉ pl.</td>
+                        <td>M.</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2ᵉ pl.</td>
+                        <td>F.</td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">4</span>Traduisez en arabe</h2>
+        <div class="exercise">
+            <h3>Donnez la forme d'impératif correspondante</h3>
+            <ol>
+                <li>Écris une lettre ! (à un homme) → <span class="answer-space wide-space"></span></li>
+                <li>Écrivez la leçon ! (à un groupe d'hommes) → <span class="answer-space wide-space"></span></li>
+                <li>Comprends la question ! (à une femme) → <span class="answer-space wide-space"></span></li>
+                <li>Comprenez ! (à un groupe de femmes) → <span class="answer-space wide-space"></span></li>
+                <li>Assieds-toi ! (à un homme) → <span class="answer-space wide-space"></span></li>
+                <li>Entrez ! (à un groupe) → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">5</span>Un cas particulier : كَبُرَ</h2>
+        <div class="exercise">
+            <h3>Répondez aux questions</h3>
+            <ol>
+                <li>Pourquoi l'impératif du verbe كَبُرَ (grandir) est-il rarissime dans l'usage courant ? <span
+                        class="answer-space wide-space"></span></li>
+                <li>Construisez malgré tout, sur le plan théorique, la forme masculin singulier de l'impératif de كَبُرَ
+                    à partir de يَكْبُرُ : <span class="answer-space"></span></li>
+                <li>Citez un autre verbe du même type (فَعُلَ) évoqué dans le cours : <span class="answer-space"></span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">6</span>La négation de l'impératif — <span class="neg">لا</span> + مضارع</h2>
+        <div class="exercise">
+            <h3>Transformez chaque ordre positif en ordre négatif (« Ne fais pas... »)</h3>
+            <ol>
+                <li><span class="arabic">اُكْتُبْ</span> (Écris !) → <span class="answer-space"></span></li>
+                <li><span class="arabic">اُكْتُبِي</span> (Écris ! f.) → <span class="answer-space"></span></li>
+                <li><span class="arabic">اُكْتُبُوا</span> (Écrivez !) → <span class="answer-space"></span></li>
+                <li><span class="arabic">اِفْهَمْ</span> (Comprends !) → <span class="answer-space"></span></li>
+                <li><span class="arabic">اِفْهَمُوا</span> (Comprenez !) → <span class="answer-space"></span></li>
+            </ol>
+            <div class="note">
+                <strong>⚠️ Rappel :</strong> Après <span class="neg">لا</span> de prohibition, le verbe est au mode
+                jussif (مجزوم) — pour les verbes réguliers, la ḍamma finale de l'indicatif disparaît simplement.
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">7</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>L'impératif arabe existe à toutes les personnes, y compris la 3ᵉ <span class="answer-space"></span>
+                </li>
+                <li>L'impératif se construit à partir du présent à la 2ᵉ personne du masculin singulier <span
+                        class="answer-space"></span></li>
+                <li>La hamza de liaison disparaît toujours à l'oral quand elle est précédée d'un mot <span
+                        class="answer-space"></span></li>
+                <li>Pour nier un ordre, on ajoute simplement لا devant l'impératif lui-même <span
+                        class="answer-space"></span></li>
+                <li>Les suffixes de l'impératif sont les mêmes qu'au présent <span class="answer-space"></span></li>
+                <li>Le verbe كَبُرَ a un impératif très courant dans la langue de tous les jours <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">8</span>Expressions du quotidien</h2>
+        <div class="exercise">
+            <h3>Reliez chaque ordre à sa traduction (écrivez la lettre correspondante)</h3>
+            <ol>
+                <li><span class="arabic">اِجْلِسْ</span> — <span class="answer-space"></span> &nbsp;a. Sors !</li>
+                <li><span class="arabic">اُدْخُلْ</span> — <span class="answer-space"></span> &nbsp;b. Lis !</li>
+                <li><span class="arabic">اِسْمَعْ</span> — <span class="answer-space"></span> &nbsp;c. Assieds-toi !
+                </li>
+                <li><span class="arabic">اِقْرَأْ</span> — <span class="answer-space"></span> &nbsp;d. Entre !</li>
+                <li><span class="arabic">اُخْرُجْ</span> — <span class="answer-space"></span> &nbsp;e. Écoute !</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">9</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2.2;">
+                    قَالَتِ الأُسْتَاذَةُ لِلطُّلَابِ: اُكْتُبُوا الدَّرْسَ وَاِفْهَمُوا السُّؤَالَ جَيِّدًا.
+                    لا تَتَكَلَّمُوا كَثِيرًا. اِجْلِسِي يَا سَارَةُ وَاِفْتَحِي كِتَابَكِ.
+                </p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien d'ordres au pluriel masculin trouve-t-on dans ce texte ? <span
+                            class="answer-space"></span></li>
+                    <li>Quel ordre est adressé uniquement à une femme ? <span class="answer-space wide-space"></span>
+                    </li>
+                    <li>Quel ordre est négatif ? Que signifie-t-il ? <span class="answer-space wide-space"></span></li>
+                    <li>Traduisez <span class="arabic">اُكْتُبُوا الدَّرْسَ</span> : <span
+                            class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez savoir construire
+            l'impératif de n'importe quel verbe régulier à partir du présent, choisir la bonne voyelle pour la hamza
+            de liaison, et exprimer un ordre négatif avec لا + le mode jussif. Bravo ! 🎉
+        </div>
+
+    </div>
+</body>
+
+</html>

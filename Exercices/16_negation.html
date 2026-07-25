@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : La négation en arabe — النَّفْي</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .neg-ma {
+            color: #6a1b9a;
+            font-weight: bold;
+        }
+
+        .neg-la {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        .neg-lan {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 340px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 140px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Exercices : La négation</h1>
+        <div class="arabic-title">النَّفْي</div>
+
+        <div class="intro">
+            Trois particules, trois temps : <span class="neg-ma">ما</span> pour nier le passé,
+            <span class="neg-la">لا</span> pour nier le présent, et <span class="neg-lan">لَنْ</span> pour nier le
+            futur.
+            Ces exercices reprennent كَتَبَ (écrire) et فَهِمَ (comprendre), déjà bien connus, pour fixer les trois
+            structures.
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">1</span>Nier le passé — <span class="neg-ma">ما</span> + ماضي</h2>
+        <div class="exercise">
+            <h3>Mettez chaque phrase à la forme négative avec ما</h3>
+            <ol>
+                <li><span class="arabic">كَتَبَ الوَلَدُ الدَّرْسَ</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">فَهِمْتُ السُّؤَالَ</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">كَتَبْنَا رِسَالَةً</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">فَهِمَتِ البِنْتُ الدَّرْسَ</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">كَتَبَ الطُّلَابُ الوَاجِبَ</span> → <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">2</span>Nier le présent — <span class="neg-la">لا</span> + مضارع</h2>
+        <div class="exercise">
+            <h3>Mettez chaque phrase à la forme négative avec لا</h3>
+            <ol>
+                <li><span class="arabic">يَكْتُبُ الوَلَدُ رِسَالَةً</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">أَفْهَمُ الدَّرْسَ</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">تَكْتُبِينَ جَيِّدًا</span> → <span class="answer-space wide-space"></span>
+                </li>
+                <li><span class="arabic">نَفْهَمُ اللُّغَةَ العَرَبِيَّةَ</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">تَفْهَمُونَ السُّؤَالَ</span> → <span class="answer-space wide-space"></span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">3</span>Nier le futur — <span class="neg-lan">لَنْ</span> + مضارع</h2>
+        <div class="exercise">
+            <h3>Transformez chaque futur affirmatif en futur nié avec لَنْ (attention à la terminaison)</h3>
+            <ol>
+                <li><span class="arabic">سَيَكْتُبُ الوَلَدُ</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">سَأَفْهَمُ الدَّرْسَ</span> → <span class="answer-space wide-space"></span>
+                </li>
+                <li><span class="arabic">سَوْفَ نَفْهَمُ</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">سَتَكْتُبُونَ الوَاجِبَ</span> → <span class="answer-space wide-space"></span>
+                </li>
+            </ol>
+            <div class="note">
+                <strong>⚠️ Rappel :</strong> Après <span class="neg-lan">لَنْ</span>, la ḍamma finale devient une fatḥa,
+                et le نَ final des formes en ـُونَ / ـِينَ disparaît.
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">4</span>Quelle particule choisir ?</h2>
+        <div class="exercise">
+            <h3>Complétez chaque phrase avec ما, لا ou لَنْ selon le contexte</h3>
+            <ol>
+                <li><span class="answer-space"></span> <span class="arabic">فَهِمْتُ هَذَا الكِتَابَ أَمْسِ</span>
+                    (hier, donc passé)</li>
+                <li><span class="answer-space"></span> <span class="arabic">أَذْهَبُ إِلَى المَدْرَسَةِ غَدًا</span>
+                    (demain, donc futur)</li>
+                <li><span class="answer-space"></span> <span class="arabic">يَفْهَمُ الوَلَدُ الدَّرْسَ الآنَ</span>
+                    (maintenant, donc présent)</li>
+                <li><span class="answer-space"></span> <span class="arabic">كَتَبَتِ البِنْتُ رِسَالَةً
+                        البَارِحَةَ</span> (hier soir, donc passé)</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">5</span>لا de négation ou لا de prohibition ?</h2>
+        <div class="exercise">
+            <h3>Pour chaque phrase, indiquez s'il s'agit d'un constat (négation) ou d'un ordre (prohibition)</h3>
+            <ol>
+                <li><span class="arabic">لا يَكْتُبُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لا تَكْتُبْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لا تَفْهَمِينَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لا تَفْهَمِي</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">6</span>Tableau récapitulatif — فَهِمَ / يَفْهَمُ</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau des trois négations pour le verbe فَهِمَ / يَفْهَمُ (comprendre)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Personne</th>
+                        <th>ما + passé</th>
+                        <th>لا + présent</th>
+                        <th>لَنْ + présent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3ᵉ sg. m.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>2ᵉ sg. f.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>1ʳᵉ sg.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>3ᵉ pl. m.</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">7</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur de négation. Corrigez-la</h3>
+            <ol>
+                <li><span class="arabic">لَنْ يَكْتُبُ الوَلَدُ</span> (après لَنْ, pas de ḍamma finale) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">ما يَكْتُبُ الوَلَدُ أَمْسِ</span> (ما se combine avec le passé, pas le
+                    présent) → <span class="answer-space"></span></li>
+                <li><span class="arabic">لا كَتَبَ الوَلَدُ</span> (لا se combine avec le présent, pas le passé) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">لَنْ تَكْتُبُونَ الوَاجِبَ</span> (le نَ final doit disparaître) → <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">8</span>Traduisez en arabe</h2>
+        <div class="exercise">
+            <h3>Choisissez la bonne particule de négation selon le temps indiqué</h3>
+            <ol>
+                <li>Ahmed n'est pas allé à l'école <em>(passé)</em> → <span class="answer-space wide-space"></span></li>
+                <li>Je ne comprends pas ce livre <em>(présent)</em> → <span class="answer-space wide-space"></span></li>
+                <li>Le garçon n'écrira pas le devoir <em>(futur)</em> → <span class="answer-space wide-space"></span>
+                </li>
+                <li>Nous n'avons pas compris la leçon hier <em>(passé)</em> → <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">9</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2.2;">
+                    ما فَهِمَ الوَلَدُ الدَّرْسَ أَمْسِ، وَلا يَفْهَمُهُ الآنَ أَيْضًا.
+                    لَنْ يَنْجَحَ فِي الاِمْتِحَانِ إِذَا لَمْ يَدْرُسْ. قَالَتِ الأُسْتَاذَةُ: لا تَقْلَقْ،
+                    سَأُسَاعِدُكَ.
+                </p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de négations au passé (ما) trouve-t-on dans ce texte ? <span
+                            class="answer-space"></span></li>
+                    <li>Quelle négation porte sur le futur ? Que signifie-t-elle ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>لا تَقْلَقْ est-elle une négation ou une prohibition ? <span class="answer-space"></span></li>
+                    <li>Traduisez <span class="arabic">لا يَفْهَمُهُ الآنَ أَيْضًا</span> : <span
+                            class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez savoir choisir
+            la bonne particule de négation selon le temps de la phrase (ما، لا، لَنْ), et repérer la petite
+            transformation qu'entraîne لَنْ sur la terminaison du verbe. Excellent travail ! 🎉
+        </div>
+
+    </div>
+</body>
+
+</html>

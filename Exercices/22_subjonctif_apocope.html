@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Le subjonctif et l'apocopé en arabe — المُضارِع المَنْصُوب والمُضارِع المَجْزُوم</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 1.7em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .subj {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .apoc {
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 340px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 140px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Exercices : Le subjonctif et l'apocopé</h1>
+        <div class="arabic-title">المُضارِع المَنْصُوب والمُضارِع المَجْزُوم</div>
+
+        <div class="intro">
+            Un même présent, deux terminaisons possibles : <span class="subj">le subjonctif</span> (fatḥa, après أَنْ،
+            لِـ، كَي، حَتّى، لَنْ...) et <span class="apoc">l'apocopé</span> (sukūn, après لَمْ، لا de prohibition).
+            Dans les deux modes, le نَ final des formes en ـُونَ / ـِينَ disparaît.
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">1</span>Indicatif → Subjonctif</h2>
+        <div class="exercise">
+            <h3>Transformez chaque forme à l'indicatif en subjonctif</h3>
+            <ol>
+                <li><span class="arabic">يَكْتُبُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَفْهَمُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَكْتُبُونَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">نَفْهَمُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">يَكْتُبُونَ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">2</span>Indicatif → Apocopé</h2>
+        <div class="exercise">
+            <h3>Transformez chaque forme à l'indicatif en apocopé</h3>
+            <ol>
+                <li><span class="arabic">يَكْتُبُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَفْهَمُ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">تَكْتُبُونَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">يَفْهَمُونَ</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">3</span>Complétez avec le subjonctif</h2>
+        <div class="exercise">
+            <h3>Complétez chaque phrase en mettant le verbe entre parenthèses au subjonctif</h3>
+            <ol>
+                <li><span class="arabic">يَجِبُ أَنْ</span> ___ (تَتَعَلَّمُ) السِياقَةَ → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">طَلَبَ الماءَ لِـ</span> ___ (يَشْرَبُ) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">جَلَسْنَا كَيْ</span> ___ (نَسْتَرِيحُ) → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">لَنْ</span> ___ (أَذْهَبُ) مَعَكُمْ → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">4</span>Les formes négatives du subjonctif</h2>
+        <div class="exercise">
+            <h3>Donnez la forme négative de chaque particule</h3>
+            <ol>
+                <li><span class="arabic">أَنْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لِـ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">كَي</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">حَتّى</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">5</span>Complétez avec l'apocopé — لَمْ</h2>
+        <div class="exercise">
+            <h3>Mettez chaque phrase au passé nié avec لَمْ + apocopé</h3>
+            <ol>
+                <li><span class="arabic">فَهِمْتُ شَيْئًا</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">كَتَبَ الوَلَدُ الدَّرْسَ</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">زَارُوهُمَا فِي المُسْتَشْفَى</span> → <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+            <div class="note">
+                <strong>💡 Rappel :</strong> <span class="arabic">لَمْ</span> + apocopé équivaut exactement à
+                <span class="arabic">ما</span> + passé.
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">6</span>Complétez avec l'apocopé — لا d'interdiction</h2>
+        <div class="exercise">
+            <h3>Transformez chaque ordre positif en interdiction avec لا + apocopé</h3>
+            <ol>
+                <li><span class="arabic">اُزْعِجِ الجِيرَانَ</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">تَكَاسَلُوا</span> → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">7</span>Subjonctif ou apocopé ?</h2>
+        <div class="exercise">
+            <h3>Indiquez quel mode déclenche chaque particule (S pour subjonctif, A pour apocopé)</h3>
+            <ol>
+                <li><span class="arabic">أَنْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لَمْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لَنْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لا</span> (prohibition) → <span class="answer-space"></span></li>
+                <li><span class="arabic">حَتّى</span> (but) → <span class="answer-space"></span></li>
+                <li><span class="arabic">كَي</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">8</span>Le مَصْدَر comme alternative</h2>
+        <div class="exercise">
+            <h3>Reformulez chaque phrase avec أَنْ + subjonctif en utilisant le مَصْدَر (nom d'action), ou inversement
+            </h3>
+            <ol>
+                <li><span class="arabic">أُحِبُّ الاِسْتِرَاحَةَ</span> → avec أَنْ + subjonctif : <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">يَكْرَهُ أَنْ يَمْشِيَ فِي الغَابَةِ</span> → avec le مَصْدَر : <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">9</span>Tableau des trois modes</h2>
+        <div class="exercise">
+            <h3>Complétez le tableau des trois modes du présent pour يَفْهَمُ (comprendre)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mode</th>
+                        <th>Terminaison</th>
+                        <th>Forme (3ᵉ sg. m.)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Indicatif (مَرْفُوع)</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Subjonctif (مَنْصُوب)</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Apocopé (مَجْزُوم)</td>
+                        <td><span class="answer-space"></span></td>
+                        <td><span class="answer-space"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">10</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Le féminin pluriel (أَنْتُنَّ، هُنَّ) change de forme au subjonctif et à l'apocopé <span
+                        class="answer-space"></span></li>
+                <li>لَمْ + apocopé exprime une action passée niée <span class="answer-space"></span></li>
+                <li>Le مَصْدَر peut remplacer أَنْ + subjonctif dans une subordonnée <span class="answer-space"></span>
+                </li>
+                <li>لَنْ est toujours suivi de l'apocopé <span class="answer-space"></span></li>
+                <li>Le نَ final des formes en ـُونَ / ـِينَ disparaît aux deux modes, subjonctif et apocopé <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">11</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2.2;">
+                    يَجِبُ أَنْ تَدْرُسَ جَيِّدًا لِتَنْجَحَ. لَمْ أَفْهَمْ هَذَا الدَّرْسَ أَمْسِ، وَلَنْ أَفْهَمَهُ
+                    إِذَا لَمْ أَسْأَلِ الأُسْتَاذَ. لا تَتَكَاسَلْ يَا صَدِيقِي !
+                </p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de verbes au subjonctif trouve-t-on dans ce texte ? Lesquels ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Combien de verbes à l'apocopé trouve-t-on ? Lesquels ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Quelle particule déclenche <span class="arabic">تَدْرُسَ</span> ? <span
+                            class="answer-space"></span></li>
+                    <li>Traduisez <span class="arabic">لا تَتَكَاسَلْ يَا صَدِيقِي</span> : <span
+                            class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez savoir reconnaître
+            les particules qui déclenchent le subjonctif ou l'apocopé, transformer un verbe entre les trois modes du
+            présent, et manier les formes négatives des particules subjonctives. Excellent travail ! 🎉
+        </div>
+
+    </div>
+</body>
+
+</html>

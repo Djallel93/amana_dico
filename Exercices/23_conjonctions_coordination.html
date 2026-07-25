@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les conjonctions de coordination en arabe — حُرُوف العَطْف</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .maatouf-alayh {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        .harf {
+            color: #6a1b9a;
+            font-weight: bold;
+        }
+
+        .maatouf {
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 340px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 140px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Exercices : Les conjonctions de coordination</h1>
+        <div class="arabic-title">حُرُوف العَطْف</div>
+
+        <div class="intro">
+            Dix particules relient deux mots ou deux phrases de même niveau. Retiens la règle d'or : le
+            <span class="maatouf">مَعْطُوف</span> (mot rattaché) copie toujours le cas du <span
+                class="maatouf-alayh">مَعْطُوف عَلَيْه</span>
+            (mot de référence), via le <span class="harf">حَرْف العَطْف</span> (la conjonction elle-même).
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">1</span>Complétez la liste</h2>
+        <div class="exercise">
+            <h3>Complétez la traduction de chacune des dix conjonctions</h3>
+            <ol>
+                <li><span class="arabic">وَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">فَـ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">ثُمَّ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَوْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَمْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">إِمَّا</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">بَلْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لا</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">لٰكِنْ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">حَتّى</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">2</span>Appliquez la règle d'or</h2>
+        <div class="exercise">
+            <h3>Donnez au مَعْطُوف le même cas que le مَعْطُوف عَلَيْه</h3>
+            <ol>
+                <li><span class="arabic">قامَ زَيْدٌ وَ</span> ___ (عَمْرٌو، cas sujet) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">رَأَيْتُ زَيْدًا وَ</span> ___ (عَمْرٌو، cas direct) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">مَرَرْتُ بِزَيْدٍ وَ</span> ___ (عَمْرٌو، cas indirect) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">زَيْدٌ لَمْ يَقُمْ وَلَمْ</span> ___ (يَقْعُدُ، mode apocopé) → <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">3</span>وَ ou فَـ ou ثُمَّ ?</h2>
+        <div class="exercise">
+            <h3>Choisissez la conjonction la plus adaptée à la nuance indiquée entre parenthèses</h3>
+            <ol>
+                <li><span class="arabic">لَعِبَ مَعَ اِبْنِهِ</span> ___ <span class="arabic">كَلْبِهِ</span> (simple
+                    addition, sans ordre) → <span class="answer-space"></span></li>
+                <li><span class="arabic">لَمْ يَعْرِفِ الجَوابَ</span> ___ <span class="arabic">سَأَلَ صَدِيقَهُ</span>
+                    (conséquence immédiate) → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَكَلَ</span> ___ <span class="arabic">اسْتَراحَ</span> (avec une vraie pause
+                    dans le temps) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">4</span>أَوْ ou أَمْ ?</h2>
+        <div class="exercise">
+            <h3>Complétez avec أَوْ ou أَمْ selon le contexte</h3>
+            <ol>
+                <li><span class="arabic">سَأَذْهَبُ إِلى الدَوحةِ</span> ___ <span class="arabic">الرِياضِ غَدًا</span>
+                    (alternative générale, phrase affirmative) → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَمُطْرِبٌ أَنْتَ</span> ___ <span class="arabic">شاعِرٌ ؟</span> (question
+                    avec أَ, choix explicite) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">5</span>بَلْ : renforcer ou corriger ?</h2>
+        <div class="exercise">
+            <h3>Pour chaque phrase, indiquez si بَلْ renforce l'idée précédente ou la corrige</h3>
+            <ol>
+                <li><span class="arabic">لَدَيْهِ المَلايِينُ بَلِ المِلْيارَاتُ</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">لا يُحِبُّ الكِلابَ بَلِ القِطَطَ</span> → <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">6</span>Traduisez en arabe</h2>
+        <div class="exercise">
+            <h3>Utilisez la conjonction appropriée</h3>
+            <ol>
+                <li>J'ai vu Karim, Salim et Layla <em>(répétez وَ devant chaque nom)</em> → <span
+                        class="answer-space wide-space"></span></li>
+                <li>Il n'est pas talentueux, mais il travaille dur → <span class="answer-space wide-space"></span></li>
+                <li>Soit tu réussis, soit tu redoubles l'année → <span class="answer-space wide-space"></span></li>
+                <li>Rafiq est ingénieur, pas cuisinier → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">7</span>لٰكِنْ ou لٰكِنَّ ?</h2>
+        <div class="exercise">
+            <h3>Répondez aux questions sur cette paire souvent confondue</h3>
+            <ol>
+                <li>Laquelle des deux est une conjonction de coordination ? <span class="answer-space"></span></li>
+                <li>À quelle famille grammaticale appartient l'autre ? <span class="answer-space wide-space"></span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">8</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Les conjonctions de coordination sont des particules déclinables <span class="answer-space"></span>
+                </li>
+                <li>وَ se répète devant chaque élément d'une liste en arabe, contrairement au français <span
+                        class="answer-space"></span></li>
+                <li>فَـ marque un enchaînement plus immédiat que ثُمَّ <span class="answer-space"></span></li>
+                <li>حَتّى ne peut être qu'une conjonction de coordination, jamais une préposition <span
+                        class="answer-space"></span></li>
+                <li>Le مَعْطُوف copie toujours le cas du مَعْطُوف عَلَيْه <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">9</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur de cas sur le مَعْطُوف. Corrigez-la</h3>
+            <ol>
+                <li><span class="arabic">رَأَيْتُ زَيْدًا وَعَمْرٌو</span> (cas direct attendu) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">قامَ زَيْدٌ وَعَمْرًا</span> (cas sujet attendu) → <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">10</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2.2;">
+                    ذَهَبَ أَحْمَدُ وَسَامِيٌ إِلَى السُّوقِ، فَاشْتَرَيَا خُبْزًا وَفَاكِهَةً.
+                    لَيْسَ أَحْمَدُ غَنِيًّا وَلٰكِنْ يَعْمَلُ بِجِدٍّ. سَتَذْهَبُ لَيْلَى إِلَى باريسَ أَوْ لَنْدَنَ
+                    فِي الصَيْفِ.
+                </p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de conjonctions de coordination différentes trouve-t-on dans ce texte ? Lesquelles ?
+                        <span class="answer-space wide-space"></span></li>
+                    <li>Dans <span class="arabic">أَحْمَدُ وَسَامِيٌ</span>, quel est le مَعْطُوف عَلَيْه et quel est le
+                        مَعْطُوف ? <span class="answer-space wide-space"></span></li>
+                    <li>Quelle nuance apporte فَـ dans <span class="arabic">فَاشْتَرَيَا</span> ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Traduisez la phrase avec وَلٰكِنْ : <span class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez savoir choisir
+            la conjonction adaptée à la nuance voulue parmi les dix, et appliquer systématiquement la règle d'or :
+            le مَعْطُوف copie le cas du مَعْطُوف عَلَيْه. Bravo, tu as terminé toute la série ! 🎉
+        </div>
+
+    </div>
+</body>
+
+</html>
