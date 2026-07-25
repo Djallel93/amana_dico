@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les phrases interrogatives en arabe — الاِسْتِفْهام</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .interr {
+            color: #c62828;
+            font-weight: bold;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 340px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 140px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Exercices : Les phrases interrogatives</h1>
+        <div class="arabic-title">الاِسْتِفْهام</div>
+
+        <div class="intro">
+            Deux familles d'outils pour poser une question : <span class="interr">هَلْ</span> et <span
+                class="interr">أَ</span>
+            pour les questions fermées (oui/non), et les pronoms interrogatifs (<span class="interr">مَنْ</span>،
+            <span class="interr">مَا</span>، <span class="interr">أَيْنَ</span>...) pour les questions ouvertes.
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">1</span>Questions fermées avec هَلْ</h2>
+        <div class="exercise">
+            <h3>Transformez chaque affirmation en question avec هَلْ</h3>
+            <ol>
+                <li><span class="arabic">أَنْتَ طَالِبٌ</span> → <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">ذَهَبَ الوَلَدُ إِلَى المَدْرَسَةِ</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">تَدْرُسِينَ العَرَبِيَّةَ</span> → <span
+                        class="answer-space wide-space"></span></li>
+                <li><span class="arabic">الجَوُّ حَارٌّ</span> (attention à la hamza de liaison) → <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">2</span>هَلْ ou أَمْ ?</h2>
+        <div class="exercise">
+            <h3>Complétez avec أَ ... أَمْ ... pour proposer un choix</h3>
+            <ol>
+                <li><span class="answer-space"></span> هُمْ مِنَ المَغْرِبِ <span class="answer-space"></span> مِنَ
+                    الجَزَائِرِ ؟ (Sont-ils du Maroc ou d'Algérie ?)</li>
+                <li><span class="answer-space"></span> أَنْتَ مُعَلِّمٌ <span class="answer-space"></span> طَبِيبٌ ؟
+                    (Es-tu professeur ou médecin ?)</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">3</span>Choisissez le bon pronom interrogatif</h2>
+        <div class="exercise">
+            <h3>Complétez chaque question avec مَنْ، مَا، مَاذَا، أَيْنَ، مَتَى، كَيْفَ، كَمْ ou لِمَاذَا</h3>
+            <ol>
+                <li><span class="answer-space"></span> هَذَا ؟ — هَذَا أَحْمَدُ (identité d'une personne)</li>
+                <li><span class="answer-space"></span> اِسْمُكَ ؟ — اِسْمِي مُحَمَّدٌ (suivi d'un nom)</li>
+                <li><span class="answer-space"></span> تَأْكُلُ ؟ — آكُلُ خُبْزًا (suivi d'un verbe)</li>
+                <li><span class="answer-space"></span> تَسْكُنُ ؟ — أَسْكُنُ فِي بَارِيسَ (lieu)</li>
+                <li><span class="answer-space"></span> وَصَلْتَ ؟ — وَصَلْتُ أَمْسِ (temps)</li>
+                <li><span class="answer-space"></span> حَالُكَ ؟ — بِخَيْرٍ، شُكْرًا (manière)</li>
+                <li><span class="answer-space"></span> كِتَابًا اشْتَرَيْتَ ؟ — اشْتَرَيْتُ ثَلَاثَةَ كُتُبٍ (quantité)
+                </li>
+                <li><span class="answer-space"></span> تَدْرُسُ العَرَبِيَّةَ ؟ — لِأَنِّي أُحِبُّهَا (cause)</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">4</span>مَا ou مَاذَا ?</h2>
+        <div class="exercise">
+            <h3>Choisissez la bonne forme selon ce qui suit (nom → مَا, verbe → مَاذَا)</h3>
+            <ol>
+                <li><span class="answer-space"></span> اِسْمُكَ ؟ (suivi du nom اِسْمُكَ)</li>
+                <li><span class="answer-space"></span> تَفْعَلُ ؟ (suivi du verbe تَفْعَلُ)</li>
+                <li><span class="answer-space"></span> تَقْرَأُ الآنَ ؟ (suivi du verbe تَقْرَأُ)</li>
+                <li><span class="answer-space"></span> هَذَا ؟ (suivi du démonstratif هَذَا)</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">5</span>أَيّ — le pronom qui s'accorde</h2>
+        <div class="exercise">
+            <h3>Complétez avec أَيُّ (masc.) ou أَيَّةُ (fém.) selon le nom qui suit</h3>
+            <ol>
+                <li><span class="answer-space"></span> كِتَابٍ تُفَضِّلُ ؟ (كِتَاب est masculin)</li>
+                <li><span class="answer-space"></span> سَيَّارَةٍ اشْتَرَيْتَ ؟ (سَيَّارَة est féminin)</li>
+                <li>فِي <span class="answer-space"></span> مَدِينَةٍ تَسْكُنُ ؟ (مَدِينَة est féminin)</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">6</span>Interrogatifs avec prépositions</h2>
+        <div class="exercise">
+            <h3>Traduisez en arabe en utilisant la préposition combinée appropriée</h3>
+            <ol>
+                <li>À qui est ce livre ? → <span class="answer-space wide-space"></span></li>
+                <li>Avec qui voyages-tu ? → <span class="answer-space wide-space"></span></li>
+                <li>D'où es-tu ? → <span class="answer-space wide-space"></span></li>
+                <li>Vers où vas-tu ? → <span class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">7</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>هَلْ s'attache directement au mot qui suit, sans espace <span class="answer-space"></span></li>
+                <li>L'ordre des mots de la phrase de base ne change pas quand on pose une question <span
+                        class="answer-space"></span></li>
+                <li>Tous les pronoms interrogatifs sont invariables, sauf أَيّ <span class="answer-space"></span></li>
+                <li>مَا est suivi d'un verbe, et مَاذَا est suivi d'un nom <span class="answer-space"></span></li>
+                <li>لِمَ et لِمَاذَا ont le même sens <span class="answer-space"></span></li>
+                <li>كَمْ peut être suivi d'un nom singulier au cas direct, ou de مِنْ + nom <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">8</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque question contient une erreur. Corrigez-la</h3>
+            <ol>
+                <li><span class="arabic">مَاذَا اِسْمُكَ ؟</span> (مَاذَا devant un nom) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">هَلِ الجَوُّ حَارٌّ ؟</span> (est-ce correct ou faut-il هَلْ ?) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">أَيّ كِتَابٍ تُفَضِّلِينَ ؟</span> pour une amie qui a acheté une سَيَّارَة
+                    (accord de genre) → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">9</span>Posez la question</h2>
+        <div class="exercise">
+            <h3>Pour chaque réponse donnée, formulez la question la plus logique</h3>
+            <ol>
+                <li>— <span class="answer-space wide-space"></span> ؟ — أَسْكُنُ فِي القَاهِرَةِ.</li>
+                <li>— <span class="answer-space wide-space"></span> ؟ — عُمْرِي عِشْرُونَ سَنَةً.</li>
+                <li>— <span class="answer-space wide-space"></span> ؟ — يَبْدَأُ الدَّرْسُ السَّاعَةَ التَّاسِعَةَ.</li>
+                <li>— <span class="answer-space wide-space"></span> ؟ — نَعَمْ، أَنَا طَالِبٌ.</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">10</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2.2;">
+                    هَلْ أَنْتَ طَالِبٌ فِي الجَامِعَةِ ؟ نَعَمْ، أَنَا طَالِبٌ. مَاذَا تَدْرُسُ ؟ أَدْرُسُ اللُّغَةَ
+                    العَرَبِيَّةَ.
+                    أَيْنَ تَسْكُنُ ؟ أَسْكُنُ فِي بَارِيسَ. لِمَاذَا تَدْرُسُ العَرَبِيَّةَ ؟ لِأَنِّي أُحِبُّهَا
+                    كَثِيرًا.
+                </p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de questions fermées (oui/non) trouve-t-on dans ce texte ? <span
+                            class="answer-space"></span></li>
+                    <li>Combien de pronoms interrogatifs différents sont utilisés ? Lesquels ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Que signifie <span class="arabic">أَيْنَ تَسْكُنُ ؟</span> et quelle est la réponse ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Traduisez <span class="arabic">لِأَنِّي أُحِبُّهَا كَثِيرًا</span> : <span
+                            class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez savoir poser
+            une question fermée avec هَلْ ou أَ, choisir le bon pronom interrogatif pour une question ouverte,
+            et manier les particularités de مَا/مَاذَا et أَيّ. Excellent travail ! 🎉
+        </div>
+
+    </div>
+</body>
+
+</html>

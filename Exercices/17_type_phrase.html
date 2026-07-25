@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices : Les types de phrases en arabe — الجُمْلة العَرَبِيَّة</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+        }
+
+        .exercise {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid #dee2e6;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise h3 {
+            color: #1976d2;
+            margin-top: 0;
+            font-size: 1.4em;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+        }
+
+        .arabic {
+            font-size: 1.5em;
+            color: #764ba2;
+            font-weight: bold;
+            background: #f3e5f5;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .mubtada {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        .khabar {
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        .fiil {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .faail {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        .maful {
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            line-height: 2;
+        }
+
+        .answer-space {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #667eea;
+            margin: 0 10px;
+            min-height: 25px;
+        }
+
+        .wide-space {
+            width: 340px;
+        }
+
+        .intro {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4caf50;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        .note strong {
+            color: #856404;
+        }
+
+        ol {
+            padding-left: 25px;
+        }
+
+        li {
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            display: block;
+            overflow-x: auto;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .arabic {
+                font-size: 1.3em;
+            }
+
+            .answer-space {
+                width: 140px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .wide-space {
+                width: 100%;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Exercices : Les types de phrases</h1>
+        <div class="arabic-title">الجُمْلة العَرَبِيَّة</div>
+
+        <div class="intro">
+            La phrase nominale (<span class="mubtada">مُبْتَدَأ</span> + <span class="khabar">خَبَر</span>) et la phrase
+            verbale (<span class="fiil">فِعْل</span> + <span class="faail">فَاعِل</span> + <span
+                class="maful">مَفْعُول</span>)
+            se distinguent d'abord par le premier mot de la phrase. Ces exercices vous entraînent à les reconnaître,
+            à en analyser les éléments, et à passer de l'une à l'autre.
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">1</span>Nominale ou verbale ?</h2>
+        <div class="exercise">
+            <h3>Indiquez le type de chaque phrase (N pour nominale, V pour verbale)</h3>
+            <ol>
+                <li><span class="arabic">البَيْتُ كَبِيرٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">ذَهَبَ الوَلَدُ إِلَى المَدْرَسَةِ</span> → <span class="answer-space"></span>
+                </li>
+                <li><span class="arabic">الطَّالِبُ مُجْتَهِدٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">يَشْرَبُ الوَلَدُ مَاءً</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">هُوَ طَالِبٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">فَتَحَ الأُسْتَاذُ الكِتَابَ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">المَدِينَةُ جَمِيلَةٌ</span> → <span class="answer-space"></span></li>
+                <li><span class="arabic">أَكَلَتِ البِنْتُ تُفَّاحَةً</span> → <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">2</span>Analysez la phrase nominale</h2>
+        <div class="exercise">
+            <h3>Identifiez le مُبْتَدَأ (sujet) et le خَبَر (information) de chaque phrase</h3>
+            <ol>
+                <li><span class="arabic">السَّيَّارَةُ سَرِيعَةٌ</span> — مُبْتَدَأ : <span class="answer-space"></span>
+                    — خَبَر : <span class="answer-space"></span></li>
+                <li><span class="arabic">الجَوُّ بَارِدٌ</span> — مُبْتَدَأ : <span class="answer-space"></span> — خَبَر
+                    : <span class="answer-space"></span></li>
+                <li><span class="arabic">مُحَمَّدٌ طَبِيبٌ</span> — مُبْتَدَأ : <span class="answer-space"></span> —
+                    خَبَر : <span class="answer-space"></span></li>
+                <li><span class="arabic">الكِتَابُ هُنَا</span> — مُبْتَدَأ : <span class="answer-space"></span> — خَبَر
+                    : <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">3</span>Analysez la phrase verbale</h2>
+        <div class="exercise">
+            <h3>Identifiez le فِعْل (verbe), le فَاعِل (sujet) et le مَفْعُول (complément) de chaque phrase</h3>
+            <ol>
+                <li><span class="arabic">كَتَبَ الوَلَدُ رِسَالَةً</span> — فِعْل : <span class="answer-space"></span> —
+                    فَاعِل : <span class="answer-space"></span> — مَفْعُول : <span class="answer-space"></span></li>
+                <li><span class="arabic">تَدْرُسُ الطَّالِبَةُ العَرَبِيَّةَ</span> — فِعْل : <span
+                        class="answer-space"></span> — فَاعِل : <span class="answer-space"></span> — مَفْعُول : <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">فَهِمَ الطَّالِبُ الدَّرْسَ</span> — فِعْل : <span class="answer-space"></span>
+                    — فَاعِل : <span class="answer-space"></span> — مَفْعُول : <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">4</span>Accord sujet/verbe : le piège du pluriel</h2>
+        <div class="exercise">
+            <h3>Complétez chaque phrase verbale avec la forme du verbe correctement accordée (rappel : toujours au
+                singulier quand le sujet suit le verbe)</h3>
+            <ol>
+                <li><span class="answer-space"></span> <span class="arabic">الرِّجَالُ</span> (travailler, présent — les
+                    hommes travaillent)</li>
+                <li><span class="answer-space"></span> <span class="arabic">النِّسَاءُ</span> (rire, présent — les
+                    femmes rient)</li>
+                <li><span class="answer-space"></span> <span class="arabic">الطُّلَّابُ الدَّرْسَ</span> (écrire, passé
+                    — les étudiants ont écrit la leçon)</li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">5</span>Nominale ↔ verbale : transformez</h2>
+        <div class="exercise">
+            <h3>Transformez chaque phrase nominale en phrase verbale équivalente, ou inversement, en gardant le même
+                sens général</h3>
+            <ol>
+                <li><span class="arabic">الأُسْتَاذُ يَكْتُبُ الدَّرْسَ</span> (verbale) → transformez en description
+                    nominale (ex. « habile ») : <span class="answer-space wide-space"></span></li>
+                <li><span class="arabic">أَنْتَ تَفْهَمُ الدَّرْسَ</span> (verbale) → مُبْتَدَأ + خَبَر équivalent :
+                    <span class="answer-space wide-space"></span>
+                </li>
+                <li>Formez une phrase verbale avec le verbe كَتَبَ, un sujet et un complément de votre choix : <span
+                        class="answer-space wide-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">6</span>Le sujet implicite</h2>
+        <div class="exercise">
+            <h3>Pour chaque phrase verbale, indiquez quel est le sujet, même s'il n'est pas écrit séparément</h3>
+            <ol>
+                <li><span class="arabic">كَتَبْتُ رِسَالَةً</span> → sujet : <span class="answer-space"></span></li>
+                <li><span class="arabic">اُكْتُبْ الدَّرْسَ</span> → sujet : <span class="answer-space"></span></li>
+                <li><span class="arabic">فَهِمْنَا السُّؤَالَ</span> → sujet : <span class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">7</span>Vrai ou faux ?</h2>
+        <div class="exercise">
+            <h3>Indiquez si les affirmations sont vraies (V) ou fausses (F)</h3>
+            <ol>
+                <li>Une phrase nominale doit toujours contenir un verbe « être » explicite <span
+                        class="answer-space"></span></li>
+                <li>Une phrase verbale commence toujours par un verbe <span class="answer-space"></span></li>
+                <li>Le مُبْتَدَأ et le خَبَر sont tous les deux au cas sujet (مَرْفُوع) <span
+                        class="answer-space"></span></li>
+                <li>Dans une phrase verbale, le complément direct est au cas sujet <span class="answer-space"></span>
+                </li>
+                <li>Le خَبَر peut être un adjectif, un nom, un adverbe de lieu ou un groupe prépositionnel <span
+                        class="answer-space"></span></li>
+                <li>Le verbe reste toujours au singulier quand le sujet le suit, même si ce sujet est pluriel <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">8</span>Trouvez l'erreur</h2>
+        <div class="exercise">
+            <h3>Chaque phrase contient une erreur d'accord ou de cas. Corrigez-la</h3>
+            <ol>
+                <li><span class="arabic">الوَلَدُ صَغِيرَةٌ</span> (accord de genre) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">كَتَبَ الوَلَدُ رِسَالَةٌ</span> (cas du complément direct) → <span
+                        class="answer-space"></span></li>
+                <li><span class="arabic">يَعْمَلُونَ الرِّجَالُ</span> (accord verbe/sujet postposé) → <span
+                        class="answer-space"></span></li>
+            </ol>
+        </div>
+
+        <!-- ══════════════════════════════════════ -->
+        <h2><span class="section-number">9</span>Exercice de compréhension</h2>
+        <div class="exercise">
+            <h3>Lisez et répondez</h3>
+            <div class="question">
+                <p style="direction:rtl; text-align:right; font-size:1.2em; line-height:2.2;">
+                    البَيْتُ كَبِيرٌ. يَسْكُنُ فِيهِ الأُسْتَاذُ مَعَ عَائِلَتِهِ. الأُسْتَاذُ مَاهِرٌ فِي التَّدْرِيسِ.
+                    كُلَّ يَوْمٍ، يَكْتُبُ الدَّرْسَ عَلَى السَّبُّورَةِ وَيَشْرَحُهُ لِلطُّلَابِ.
+                </p>
+                <p><strong>Questions :</strong></p>
+                <ol>
+                    <li>Combien de phrases nominales trouve-t-on dans ce texte ? <span class="answer-space"></span></li>
+                    <li>Combien de phrases verbales trouve-t-on ? <span class="answer-space"></span></li>
+                    <li>Quel est le مُبْتَدَأ et le خَبَر de la première phrase ? <span
+                            class="answer-space wide-space"></span></li>
+                    <li>Dans <span class="arabic">يَكْتُبُ الدَّرْسَ عَلَى السَّبُّورَةِ</span>, identifiez le فِعْل, le
+                        فَاعِل (implicite) et le مَفْعُول : <span class="answer-space wide-space"></span></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="intro" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 30px;">
+            <strong>🎯 Objectifs atteints :</strong> Après avoir complété ces exercices, vous devriez savoir distinguer
+            d'un coup d'œil une phrase nominale d'une phrase verbale, en identifier les éléments (مُبْتَدَأ/خَبَر ou
+            فِعْل/فَاعِل/مَفْعُول), et appliquer la règle d'accord du verbe avec un sujet postposé. Bravo ! 🎉
+        </div>
+
+    </div>
+</body>
+
+</html>

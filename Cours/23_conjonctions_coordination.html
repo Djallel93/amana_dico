@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le subjonctif et l'apocopé en arabe — المُضارِع المَنْصُوب والمُضارِع المَجْزُوم</title>
+    <title>Les conjonctions de coordination en arabe — حُرُوف العَطْف</title>
     <style>
         @keyframes fadeIn {
             from {
@@ -199,30 +199,24 @@
         }
 
         /* colour coding */
-        .indic {
-            color: #455a64;
+        .maatouf-alayh {
+            color: #1565c0;
             font-weight: bold;
         }
 
-        /* gris-bleu = indicatif (المُضارِع المَرْفوع), la forme de référence */
-        .subj {
-            color: #00897b;
-            font-weight: bold;
-        }
-
-        /* vert-bleu = subjonctif (المُضارِع المَنْصُوب) */
-        .juss {
-            color: #d84315;
-            font-weight: bold;
-        }
-
-        /* orange foncé = apocopé / jussif (المُضارِع المَجْزُوم) */
-        .particle {
+        /* bleu   = مَعْطُوف عَلَيْهِ, le mot déjà présent, la référence */
+        .harf {
             color: #6a1b9a;
             font-weight: bold;
         }
 
-        /* violet = particule qui déclenche le mode */
+        /* violet = حَرْف العَطْف, la conjonction elle-même */
+        .maatouf {
+            color: #e65100;
+            font-weight: bold;
+        }
+
+        /* orange = المَعْطُوف, le mot nouvellement rattaché */
 
         .arabic {
             font-size: 1.4em;
@@ -322,79 +316,6 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
-        /* ── Big comparison cards ── */
-        .phrase-type-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin: 25px 0;
-        }
-
-        @media (max-width: 600px) {
-            .phrase-type-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .phrase-card {
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .phrase-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        }
-
-        .phrase-card.subjonctif {
-            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
-            border: 2px solid #00897b;
-        }
-
-        .phrase-card.apocope {
-            background: linear-gradient(135deg, #fbe9e7, #ffccbc);
-            border: 2px solid #d84315;
-        }
-
-        .phrase-card h3 {
-            margin-top: 0;
-            font-size: 1.2em;
-        }
-
-        .phrase-card .arabic-lg {
-            display: block;
-            margin: 10px 0;
-            font-size: 2em;
-        }
-
-        .phrase-card p {
-            font-size: 0.95em;
-            color: #555;
-            margin: 5px 0;
-        }
-
-        .phrase-card .badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-top: 8px;
-        }
-
-        .subjonctif .badge {
-            background: #00897b;
-            color: white;
-        }
-
-        .apocope .badge {
-            background: #d84315;
-            color: white;
-        }
-
         /* ── Sentence / structure anatomy ── */
         .anatomy {
             display: flex;
@@ -432,19 +353,19 @@
             color: #999;
         }
 
-        .block.b-indic {
-            background: #eceff1;
-            border: 2px solid #455a64;
+        .block.b-maatouf-alayh {
+            background: #bbdefb;
+            border: 2px solid #1565c0;
         }
 
-        .block.b-subj {
-            background: #b2dfdb;
-            border: 2px solid #00897b;
+        .block.b-harf {
+            background: #e1bee7;
+            border: 2px solid #6a1b9a;
         }
 
-        .block.b-juss {
-            background: #ffccbc;
-            border: 2px solid #d84315;
+        .block.b-maatouf {
+            background: #ffe0b2;
+            border: 2px solid #e65100;
         }
 
         /* ── Legend ── */
@@ -522,517 +443,382 @@
 <body>
     <div class="container">
 
-        <h1>Le subjonctif et l'apocopé</h1>
-        <div class="arabic-title">المُضارِع المَنْصُوب والمُضارِع المَجْزُوم</div>
+        <h1>Les conjonctions de coordination</h1>
+        <div class="arabic-title">حُرُوف العَطْف</div>
 
         <!-- ─── INTRODUCTION ─────────────────────────── -->
         <div class="intro">
-            Tu connais déjà le présent « normal » de l'indicatif — le <span class="indic">المُضارِع المَرْفوع</span> —
-            celui qui se termine par une ḍamma ( ُ ). En arabe, ce même verbe au présent peut prendre
-            <strong>deux autres visages</strong> selon ce qui le précède dans la phrase : le
-            <span class="subj">subjonctif</span> (المُضارِع المَنْصُوب) et l'<span class="juss">apocopé</span> — aussi
-            appelé jussif — (المُضارِع المَجْزُوم). Dans les deux cas, le verbe ne change pas de sens : seule sa
-            <strong>terminaison</strong> se transforme, sous l'effet d'une petite particule placée juste avant lui.
-            C'est ce mécanisme que nous allons découvrir.
+            Une conjonction de coordination relie deux mots ou deux phrases de <strong>même niveau</strong> — deux
+            noms, deux verbes, deux phrases entières — un peu comme « et », « ou », « mais » en français. En
+            grammaire arabe traditionnelle, ce chapitre s'appelle <span class="harf">العَطْف</span> (littéralement
+            « le rattachement ») : le second élément est <span class="maatouf">« rattaché »</span> au premier, qui
+            lui sert de <span class="maatouf-alayh">référence</span>. Les grammairiens classiques, notamment l'auteur
+            de l'<em>al-Ajurrūmiyya</em> — le petit traité qui sert de référence à l'apprentissage du nahw (النَحْو,
+            la grammaire arabe) depuis huit siècles — en dénombrent exactement <strong>dix</strong>.
         </div>
 
         <!-- ─── VUE D'ENSEMBLE ───────────────────────── -->
-        <h2 class="scroll-animate-left">📊 Vue d'ensemble</h2>
+        <h2 class="scroll-animate-left">📊 Vue d'ensemble — les dix conjonctions</h2>
 
-        <div class="phrase-type-grid scroll-animate">
-            <div class="phrase-card subjonctif">
-                <h3>Le subjonctif</h3>
-                <span class="arabic-lg">المَنْصُوب</span>
-                <p>Terminaison en <strong>fatḥa</strong> ( َ )</p>
-                <p>Déclenché par : أَنْ، لِـ، كَي، حَتّى، لَنْ...</p>
-                <p>Exprime un but, une conséquence, un futur nié</p>
-                <span class="badge">يَفْعَلَ</span>
-            </div>
-            <div class="phrase-card apocope">
-                <h3>L'apocopé (jussif)</h3>
-                <span class="arabic-lg">المَجْزُوم</span>
-                <p>Terminaison en <strong>sukūn</strong> ( ْ )</p>
-                <p>Déclenché par : لَمْ، لا (interdiction)</p>
-                <p>Exprime une négation au passé ou un ordre négatif</p>
-                <span class="badge">يَفْعَلْ</span>
-            </div>
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Conjonction</th>
+                    <th>Sens principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic harf">وَ</span></td>
+                    <td>et</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">فَـ</span></td>
+                    <td>puis, donc, alors</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">ثُمَّ</span></td>
+                    <td>puis, ensuite (avec une pause)</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">أَوْ</span></td>
+                    <td>ou</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">أَمْ</span></td>
+                    <td>ou (dans une question à choix)</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">إِمَّا</span></td>
+                    <td>soit... soit...</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">بَلْ</span></td>
+                    <td>plutôt, voire, au contraire</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">لا</span></td>
+                    <td>et non, pas</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">لٰكِنْ</span></td>
+                    <td>mais</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic harf">حَتّى</span></td>
+                    <td>même, y compris</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 Des particules invariables :</strong> Toutes ces conjonctions sont des <span
+                class="harf">حُرُوف</span> — des particules <strong>indéclinables</strong> (مَبْنِيّة). Elles ne
+            prennent donc jamais de cas et ne portent jamais de voyelle finale variable : c'est le mot qu'elles
+            introduisent qui, lui, va se plier à une règle très précise.
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-divider scroll-animate"><span>🔑 Principe fondamental</span></div>
+
+        <h2 class="scroll-animate-left">🔑 La règle d'or de l'Ajurrūmiyya</h2>
+
+        <div class="intro scroll-animate">
+            L'<em>al-Ajurrūmiyya</em> résume en une seule phrase tout ce qu'il faut savoir sur le comportement du mot
+            coordonné : il <strong>copie exactement le cas</strong> du mot qui le précède. Peu importe lequel des
+            quatre cas est en jeu — le principe ne change jamais.
         </div>
 
         <div class="anatomy scroll-animate">
-            <div class="block b-indic">
-                <div class="arabic">يَفْعَلُ</div>
-                <div class="label indic">Indicatif (مَرْفوع)</div>
+            <div class="block b-maatouf-alayh">
+                <div class="arabic">زَيْدٌ</div>
+                <div class="label maatouf-alayh">مَعْطُوف عَلَيْه (référence)</div>
             </div>
-            <div class="arrow">→</div>
-            <div class="block b-subj">
-                <div class="arabic">يَفْعَلَ</div>
-                <div class="label subj">Subjonctif (مَنْصوب)</div>
+            <div class="block b-harf">
+                <div class="arabic">وَ</div>
+                <div class="label harf">حَرْف العَطْف</div>
             </div>
-            <div class="arrow">→</div>
-            <div class="block b-juss">
-                <div class="arabic">يَفْعَلْ</div>
-                <div class="label juss">Apocopé (مَجْزوم)</div>
+            <div class="block b-maatouf">
+                <div class="arabic">عَمْرٌو</div>
+                <div class="label maatouf">مَعْطُوف (copie le cas)</div>
             </div>
-        </div>
-
-        <div class="note scroll-animate">
-            <strong>💡 L'essentiel à retenir :</strong> Dans les trois cas, c'est le <strong>même verbe</strong>
-            يَفْعَل — seule sa toute dernière voyelle change : ḍamma ( ُ ) à l'indicatif, fatḥa ( َ ) au subjonctif,
-            sukūn ( ْ ) à l'apocopé. Pour les personnes dont la terminaison indicative se finit par نَ (تَفْعَلُونَ،
-            تَفْعَلِينَ, etc.), c'est ce نَ tout entier qui disparaît au lieu d'une simple voyelle.
-        </div>
-
-        <!-- ════════════════════════════════════════════ -->
-        <div class="section-divider scroll-animate"><span>🟢 Partie 1</span></div>
-
-        <h2 class="scroll-animate-left">🟢 Le subjonctif — المُضارِع المَنْصُوب</h2>
-
-        <div class="intro scroll-animate">
-            Le subjonctif présent apparaît chaque fois qu'une <strong>particule subjonctive</strong> précède le verbe.
-            Il correspond souvent, en français, à une subordonnée introduite par « que » + subjonctif, ou à un
-            infinitif de but (« pour faire »).
         </div>
 
         <div class="rule-box scroll-animate-scale">
-            <strong>⚙️ Formation :</strong>
-            <ul style="line-height:1.9; text-align:left;">
-                <li>On remplace la dernière <strong>ḍamma</strong> ( ُ ) de l'indicatif par une
-                    <strong>fatḥa</strong> ( َ ) : <span class="indic">يَفْعَلُ</span> → <span
-                        class="subj">يَفْعَلَ</span>
-                </li>
-                <li>Pour les formes se terminant par نَ (أَنْتِ، أَنْتُم، هُم، أَنْتُما، هُما), ce نَ
-                    <strong>disparaît entièrement</strong> : <span class="indic">تَفْعَلُونَ</span> → <span
-                        class="subj">تَفْعَلُوا</span>
-                </li>
-                <li>Le <strong>féminin pluriel</strong> (أَنْتُنَّ، هُنَّ) ne change jamais, à aucun mode</li>
-            </ul>
-        </div>
-
-        <h3 class="scroll-animate">🔬 Conjugaison complète du subjonctif</h3>
-
-        <table class="scroll-animate">
-            <thead>
-                <tr>
-                    <th>Personne</th>
-                    <th>Singulier</th>
-                    <th>Duel</th>
-                    <th>Pluriel</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>1ère (je / nous)</strong></td>
-                    <td><span class="arabic">أَنا أَفْعَلَ</span></td>
-                    <td>—</td>
-                    <td><span class="arabic">نَحْنُ نَفْعَلَ</span></td>
-                </tr>
-                <tr>
-                    <td><strong>2ème masc.</strong></td>
-                    <td><span class="arabic">أَنْتَ تَفْعَلَ</span></td>
-                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
-                    <td><span class="arabic">أَنْتُمْ تَفْعَلُوا</span></td>
-                </tr>
-                <tr>
-                    <td><strong>2ème fém.</strong></td>
-                    <td><span class="arabic">أَنْتِ تَفْعَلِي</span></td>
-                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
-                    <td><span class="arabic">أَنْتُنَّ تَفْعَلْنَ</span></td>
-                </tr>
-                <tr>
-                    <td><strong>3ème masc.</strong></td>
-                    <td><span class="arabic">هُوَ يَفْعَلَ</span></td>
-                    <td><span class="arabic">هُما يَفْعَلا</span></td>
-                    <td><span class="arabic">هُمْ يَفْعَلُوا</span></td>
-                </tr>
-                <tr>
-                    <td><strong>3ème fém.</strong></td>
-                    <td><span class="arabic">هِيَ تَفْعَلَ</span></td>
-                    <td><span class="arabic">هُما تَفْعَلا</span></td>
-                    <td><span class="arabic">هُنَّ يَفْعَلْنَ</span></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="note scroll-animate">
-            <strong>💡 Remarque :</strong> Les formes du duel (أَنْتُما / هُما تَفْعَلا) et le féminin pluriel
-            (أَنْتُنَّ / هُنَّ تَفْعَلْنَ) sont <strong>identiques</strong> à l'indicatif — seule la disparition du نَ
-            final concerne les formes masculines/mixtes du pluriel et le أَنْتِ du singulier.
-        </div>
-
-        <!-- Particules de liaison -->
-        <h3 class="scroll-animate">🔗 Les particules du subjonctif — حُرُوف النَصْب</h3>
-
-        <div class="intro scroll-animate">
-            Le subjonctif est presque toujours introduit par l'une des <span class="particle">particules de
-                liaison</span> suivantes, qui relient une proposition principale à une subordonnée exprimant un but,
-            une conséquence ou une condition logique.
+            <strong>⚙️ Formule :</strong>
+            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
+                <span class="maatouf-alayh">مَعْطُوف عَلَيْه</span> + <span class="harf">حَرْف عَطْف</span> + <span
+                    class="maatouf">مَعْطُوف</span>
+            </p>
+            <p style="text-align:center; color:#666; margin:0;">Le مَعْطُوف (le second mot) prend toujours le
+                <strong>même cas</strong> que le مَعْطُوف عَلَيْه (le premier) : مَرْفُوع, مَنْصُوب, مَجْرُور, et même
+                مَجْزُوم pour un verbe
+            </p>
         </div>
 
         <table class="scroll-animate">
             <thead>
                 <tr>
-                    <th>Particule</th>
-                    <th>Sens</th>
+                    <th>Cas du 1er mot</th>
                     <th>Exemple</th>
+                    <th>Traduction</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><span class="arabic particle">أَنْ</span></td>
-                    <td>que / à (introduit une subordonnée)</td>
-                    <td><span class="arabic">يَجِبُ <span class="particle">أَنْ</span> تَتَعَلَّمَ السِياقةَ</span><br>
-                        <small>Il faut que tu apprennes à conduire</small>
-                    </td>
+                    <td>مَرْفُوع (sujet)</td>
+                    <td><span class="arabic">قامَ <span class="maatouf-alayh">زَيْدٌ</span> <span
+                                class="harf">وَ</span><span class="maatouf">عَمْرٌو</span></span></td>
+                    <td>Zayd et Amr se sont levés</td>
                 </tr>
                 <tr>
-                    <td><span class="arabic particle">لِـ</span></td>
-                    <td>afin de, pour</td>
-                    <td><span class="arabic">طَلَبَ الماءَ <span class="particle">لِ</span>يَشْرَبَ</span><br>
-                        <small>Il a demandé de l'eau pour boire</small>
-                    </td>
+                    <td>مَنْصُوب (COD)</td>
+                    <td><span class="arabic">رَأَيْتُ <span class="maatouf-alayh">زَيْدًا</span> <span
+                                class="harf">وَ</span><span class="maatouf">عَمْرًا</span></span></td>
+                    <td>J'ai vu Zayd et Amr</td>
                 </tr>
                 <tr>
-                    <td><span class="arabic particle">كَي</span></td>
-                    <td>afin de, pour que</td>
-                    <td><span class="arabic">جَلَسا <span class="particle">كَيْ</span> يَسْتَرِيحا</span><br>
-                        <small>Ils (deux) se sont assis pour se reposer</small>
-                    </td>
+                    <td>مَجْرُور (après préposition)</td>
+                    <td><span class="arabic">مَرَرْتُ بِ<span class="maatouf-alayh">زَيْدٍ</span> <span
+                                class="harf">وَ</span><span class="maatouf">عَمْرٍو</span></span></td>
+                    <td>Je suis passé près de Zayd et Amr</td>
                 </tr>
                 <tr>
-                    <td><span class="arabic particle">فَـ</span></td>
-                    <td>afin que (après un impératif)</td>
-                    <td><span class="arabic">تَعالَ مَعَها <span class="particle">فَ</span>تُرِيَكَ شَيْئًا</span><br>
-                        <small>Viens avec elle, afin qu'elle te montre quelque chose</small>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="arabic particle">حَتّى</span></td>
-                    <td>de sorte que, pour que</td>
-                    <td><span class="arabic">نَبْتَسِمُ <span class="particle">حَتّى</span> لا تَرى غَضَبَنا</span><br>
-                        <small>Nous sourions pour que tu ne voies pas notre colère</small>
-                    </td>
-                </tr>
-                <tr>
-                    <td><span class="arabic particle">إِذَنْ</span></td>
-                    <td>alors, dans ce cas</td>
-                    <td><span class="arabic"><span class="particle">إِذَنْ</span> تُقاتِلَ بِشَجاعةٍ</span><br>
-                        <small>Alors, tu te bats avec courage</small>
-                    </td>
+                    <td>مَجْزُوم (verbe à l'apocopé)</td>
+                    <td><span class="arabic">زَيْدٌ <span class="maatouf-alayh">لَمْ يَقُمْ</span> <span
+                                class="harf">وَ</span>لَمْ <span class="maatouf">يَقْعُدْ</span></span></td>
+                    <td>Zayd ne s'est ni levé ni assis</td>
                 </tr>
             </tbody>
         </table>
 
         <div class="note scroll-animate">
-            <strong>💡 بَعْدَ et قَبْلَ :</strong> Les prépositions <strong>بَعْدَ</strong> (après) et
-            <strong>قَبْلَ</strong> (avant) peuvent elles aussi entraîner un subjonctif, en se combinant avec la
-            particule <span class="particle">أَنْ</span> :
-            <div class="phrase-example" style="margin-top:10px;">
-                <div class="ar">أَفْطَرْتُ <span class="particle">قَبْلَ أَنْ</span> أَخْرُجَ مِنْ بَيْتِي</div>
-                <div class="fr">J'ai pris mon petit déjeuner avant de sortir de chez moi</div>
-            </div>
-            <div class="phrase-example" style="margin-top:10px;">
-                <div class="ar">يَنامُونَ <span class="particle">بَعْدَ أَنْ</span> يُشاهِدُوا التِلْفازَ</div>
-                <div class="fr">Ils s'endorment après avoir regardé la télévision</div>
-            </div>
-        </div>
-
-        <!-- Formes négatives -->
-        <h3 class="scroll-animate">🚫 Les formes négatives du subjonctif</h3>
-
-        <div class="intro scroll-animate">
-            Trois de ces particules ont une <strong>forme négative</strong>, obtenue en leur ajoutant la négation
-            لا — le subjonctif qui suit exprime alors un but que l'on cherche à <strong>éviter</strong>.
-        </div>
-
-        <table class="scroll-animate">
-            <thead>
-                <tr>
-                    <th>Forme positive</th>
-                    <th>Forme négative</th>
-                    <th>Sens</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="arabic particle">أَنْ</span></td>
-                    <td><span class="arabic particle">أَلاّ</span></td>
-                    <td>que... ne pas</td>
-                </tr>
-                <tr>
-                    <td><span class="arabic particle">لِـ</span></td>
-                    <td><span class="arabic particle">لِئَلاّ</span></td>
-                    <td>afin de ne pas</td>
-                </tr>
-                <tr>
-                    <td><span class="arabic particle">كَي</span></td>
-                    <td><span class="arabic particle">كَيْلا</span></td>
-                    <td>afin de ne pas</td>
-                </tr>
-                <tr>
-                    <td><span class="arabic particle">حَتّى</span></td>
-                    <td><span class="arabic particle">حَتّى لا</span></td>
-                    <td>afin de ne pas</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar">طَلَبْنَ مِنْها <span class="particle">أَلاّ</span> تَفْعَلَ كَذا</div>
-            <div class="fr">Elles lui ont demandé de ne pas faire cela</div>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar">حَذِرْتُ <span class="particle">لِئَلاّ</span> يَسْرِقَنِي أَحَدٌ</div>
-            <div class="fr">J'ai fait attention pour que personne ne me vole</div>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar">طَرَدَهُ <span class="particle">كَيْلا</span> يَعُودَ</div>
-            <div class="fr">Il l'a expulsé afin qu'il ne revienne pas</div>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar">قَبَّلَتْ اِبْنَها <span class="particle">حَتّى لا</span> يَبْكِيَ</div>
-            <div class="fr">Elle a embrassé son fils pour qu'il ne pleure pas</div>
-        </div>
-
-        <!-- Le masdar -->
-        <h3 class="scroll-animate">📖 Le مَصْدَر, une alternative au subjonctif</h3>
-
-        <div class="info-box scroll-animate">
-            De la même manière qu'un infinitif en français peut remplacer une subordonnée (« j'aime <strong>me
-                reposer</strong> » plutôt que « j'aime que je me repose »), le <strong>nom d'action</strong>
-            (المَصْدَر) peut en arabe remplacer entièrement أَنْ + subjonctif dans une subordonnée.
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar">أُحِبُّ الاِسْتِراحةَ</div>
-            <div class="fr">J'aime le repos <span style="color:#999;">(litt. « j'aime le repos », masdar)</span></div>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar">يَكْرَهُ المَشْيَ فِي الغابةِ</div>
-            <div class="fr">Il déteste marcher dans les bois</div>
-        </div>
-
-        <!-- Négation du futur -->
-        <h3 class="scroll-animate">⏳ La négation du futur — لَنْ</h3>
-
-        <div class="rule-box scroll-animate-scale">
-            <strong>⚙️ Formule :</strong>
-            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
-                <span class="particle">لَنْ</span> + <span class="subj">المُضارِع المَنْصُوب</span>
-            </p>
-            <p style="text-align:center; color:#666; margin:0;">لَنْ est la particule qui nie une action au futur —
-                elle est toujours suivie du subjonctif</p>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar"><span class="particle">لَنْ</span> أَكْذِبَ</div>
-            <div class="fr">Je ne mentirai pas</div>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar"><span class="particle">لَنْ</span> تَذْهَبُوا مَعِي</div>
-            <div class="fr">Vous ne viendrez pas avec moi</div>
+            <strong>💡 Retiens ce réflexe :</strong> Chaque fois que tu vois une de ces dix conjonctions, pose-toi une
+            seule question : « quel cas porte le mot juste avant ? » — c'est ce même cas qu'il faut donner au mot
+            juste après. Si le premier verbe est à l'apocopé (comme dans la leçon précédente sur لَمْ), le second le
+            sera aussi.
         </div>
 
         <!-- ════════════════════════════════════════════ -->
-        <div class="section-divider scroll-animate"><span>🟠 Partie 2</span></div>
+        <div class="section-divider scroll-animate"><span>📌 Détail</span></div>
 
-        <h2 class="scroll-animate-left">🟠 L'apocopé — المُضارِع المَجْزُوم</h2>
+        <h2 class="scroll-animate-left">📌 Chaque conjonction en détail</h2>
 
-        <div class="intro scroll-animate">
-            L'apocopé, aussi appelé <strong>jussif</strong>, est le second mode du présent déclenché par une
-            particule. Il sert essentiellement à <strong>nier une action passée</strong> ou à exprimer un
-            <strong>ordre négatif</strong> (une interdiction).
+        <!-- WAW -->
+        <h3 class="scroll-animate">وَ — et</h3>
+
+        <div class="rule-box scroll-animate">
+            Formée d'une seule lettre, elle se <strong>colle directement</strong> au mot qui suit, sans espace ni
+            voyelle propre. C'est la conjonction la plus courante : elle relie deux noms ou deux phrases sans
+            imposer d'ordre chronologique entre les deux actions.
         </div>
 
-        <div class="rule-box scroll-animate-scale">
-            <strong>⚙️ Formation :</strong>
-            <ul style="line-height:1.9; text-align:left;">
-                <li>On remplace la dernière <strong>ḍamma</strong> ( ُ ) de l'indicatif par un
-                    <strong>sukūn</strong> ( ْ ) : <span class="indic">يَفْعَلُ</span> → <span
-                        class="juss">يَفْعَلْ</span>
-                </li>
-                <li>Comme au subjonctif, le نَ final <strong>disparaît</strong> pour أَنْتِ، أَنْتُم، هُم، أَنْتُما،
-                    هُما : <span class="indic">تَفْعَلُونَ</span> → <span class="juss">تَفْعَلُوا</span></li>
-                <li>Le <strong>féminin pluriel</strong> (أَنْتُنَّ، هُنَّ) ne change jamais</li>
-            </ul>
+        <div class="phrase-example scroll-animate">
+            <div class="ar">لَعِبَ مَعَ <span class="maatouf-alayh">اِبْنِهِ</span> <span class="harf">وَ</span><span
+                    class="maatouf">كَلْبِهِ</span></div>
+            <div class="fr">Il a joué avec son fils et son chien</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="maatouf-alayh">قامَ</span> <span class="harf">وَ</span><span
+                    class="maatouf">تَكَلَّمَ</span></div>
+            <div class="fr">Il s'est levé et a parlé</div>
         </div>
 
         <div class="note scroll-animate">
-            <strong>💡 Subjonctif et apocopé, presque jumeaux :</strong> Compare bien les deux tableaux de
-            conjugaison : à l'exception de la toute dernière voyelle (fatḥa au subjonctif, sukūn à l'apocopé), les
-            deux modes se construisent de façon <strong>identique</strong>, avec la même disparition du نَ final.
-        </div>
-
-        <h3 class="scroll-animate">🔬 Conjugaison complète de l'apocopé</h3>
-
-        <table class="scroll-animate">
-            <thead>
-                <tr>
-                    <th>Personne</th>
-                    <th>Singulier</th>
-                    <th>Duel</th>
-                    <th>Pluriel</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>1ère (je / nous)</strong></td>
-                    <td><span class="arabic">أَنا أَفْعَلْ</span></td>
-                    <td>—</td>
-                    <td><span class="arabic">نَحْنُ نَفْعَلْ</span></td>
-                </tr>
-                <tr>
-                    <td><strong>2ème masc.</strong></td>
-                    <td><span class="arabic">أَنْتَ تَفْعَلْ</span></td>
-                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
-                    <td><span class="arabic">أَنْتُمْ تَفْعَلُوا</span></td>
-                </tr>
-                <tr>
-                    <td><strong>2ème fém.</strong></td>
-                    <td><span class="arabic">أَنْتِ تَفْعَلِي</span></td>
-                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
-                    <td><span class="arabic">أَنْتُنَّ تَفْعَلْنَ</span></td>
-                </tr>
-                <tr>
-                    <td><strong>3ème masc.</strong></td>
-                    <td><span class="arabic">هُوَ يَفْعَلْ</span></td>
-                    <td><span class="arabic">هُما يَفْعَلا</span></td>
-                    <td><span class="arabic">هُمْ يَفْعَلُوا</span></td>
-                </tr>
-                <tr>
-                    <td><strong>3ème fém.</strong></td>
-                    <td><span class="arabic">هِيَ تَفْعَلْ</span></td>
-                    <td><span class="arabic">هُما تَفْعَلا</span></td>
-                    <td><span class="arabic">هُنَّ يَفْعَلْنَ</span></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- lam -->
-        <h3 class="scroll-animate">⏮️ La négation du passé — لَمْ</h3>
-
-        <div class="rule-box scroll-animate-scale">
-            <strong>⚙️ Formule :</strong>
-            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
-                <span class="particle">لَمْ</span> + <span class="juss">المُضارِع المَجْزُوم</span>
-            </p>
-            <p style="text-align:center; color:#666; margin:0;">Un présent apocopé précédé de لَمْ exprime en réalité
-                une action <strong>passée niée</strong></p>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar"><span class="particle">لَمْ</span> أَفْهَمْ شَيْئًا</div>
-            <div class="fr">Je n'ai rien compris</div>
-        </div>
-
-        <div class="phrase-example scroll-animate">
-            <div class="ar"><span class="particle">لَمْ</span> يَزُورُوهُما فِي المُسْتَشْفى</div>
-            <div class="fr">Ils n'ont pas rendu visite aux deux à l'hôpital</div>
-        </div>
-
-        <div class="info-box scroll-animate">
-            <strong>Une autre façon de nier le passé :</strong> la tournure la plus ancienne consiste à utiliser
-            <span class="particle">ما</span> suivi directement du <strong>passé</strong> (الماضِي), sans passer par
-            l'apocopé :
-            <p style="text-align:center; font-size:1.1em; margin:10px 0;">
-                <span class="particle">ما</span> + الماضِي = <span class="particle">لَمْ</span> + <span
-                    class="juss">المُضارِع المَجْزُوم</span>
-            </p>
+            <strong>💡 Une conjonction pour chaque élément :</strong> Contrairement au français, qui ne place « et »
+            que devant le tout dernier élément d'une liste, l'arabe répète وَ devant <strong>chaque</strong> nom
+            coordonné :
             <div class="phrase-example" style="margin-top:10px;">
-                <div class="ar"><span class="particle">ما</span> فَهِمْتُ شَيْئًا</div>
-                <div class="fr">Je n'ai rien compris <span style="color:#999;">(équivalent à لَمْ أَفْهَمْ
-                        شَيْئًا)</span></div>
+                <div class="ar">رَأَيْتُ كَريمًا <span class="harf">وَ</span>سالِمًا <span class="harf">وَ</span>لَيْلَى
+                    <span class="harf">وَ</span>خَديجةَ
+                </div>
+                <div class="fr">J'ai vu Karim, Salim, Layla et Khadija</div>
             </div>
         </div>
 
-        <!-- la -->
-        <h3 class="scroll-animate">🛑 L'interdiction — لا</h3>
+        <div class="phrase-example scroll-animate">
+            <div class="ar">لَيْسَ قَلِقًا <span class="harf">وَ</span>لا مُرْتاحًا</div>
+            <div class="fr">Il n'est ni stressé ni détendu</div>
+            <div class="parse">Pour dire « ni... ni... », l'arabe combine toujours وَ + لا devant le second terme
+                nié, quelle que soit la négation employée dans la phrase.</div>
+        </div>
 
-        <div class="rule-box scroll-animate-scale">
-            <strong>⚙️ Formule :</strong>
-            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
-                <span class="particle">لا</span> + <span class="juss">المُضارِع المَجْزُوم</span>
-            </p>
-            <p style="text-align:center; color:#666; margin:0;">L'interdiction est l'équivalent d'un
-                <strong>impératif négatif</strong> : « ne fais pas », « ne faites pas »
-            </p>
+        <!-- FA -->
+        <h3 class="scroll-animate">فَـ — puis, donc, alors</h3>
+
+        <div class="rule-box scroll-animate">
+            Elle aussi collée au mot qui suit, فَـ relie deux verbes ou deux phrases en marquant un
+            <strong>enchaînement rapide</strong>, souvent avec une nuance de cause à effet. Selon le contexte, elle
+            se traduit par « puis », « donc » ou « alors » — un peu comme jouerait, en français, une virgule ou un
+            point-virgule.
         </div>
 
         <div class="phrase-example scroll-animate">
-            <div class="ar"><span class="particle">لا</span> تُزْعِجِ الجِيرانَ</div>
-            <div class="fr">Ne dérange pas les voisins</div>
+            <div class="ar">لَمْ يَعْرِفِ الجَوابَ <span class="harf">فَ</span>سَأَلَ صَدِيقَهُ</div>
+            <div class="fr">Il ne connaissait pas la réponse, donc il a demandé à son ami</div>
         </div>
 
         <div class="phrase-example scroll-animate">
-            <div class="ar"><span class="particle">لا</span> تَتَكاسَلُوا</div>
-            <div class="fr">Ne soyez pas paresseux</div>
+            <div class="ar">خَرَجَ حَكِيمٌ <span class="harf">فَ</span>سالِمٌ</div>
+            <div class="fr">Hakim est sorti, puis Salim (juste après lui)</div>
+            <div class="parse">Contrairement à وَ, فَـ indique clairement que le deuxième événement suit le premier
+                de très près.</div>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Pour aller plus loin :</strong> Quand فَـ relie une phrase à une <strong>conséquence
+                voulue</strong> plutôt qu'à un simple fait, le verbe qui la suit peut passer au subjonctif (voir la
+            leçon sur <em>le subjonctif et l'apocopé</em>) — un signe que la relation entre les deux devient plus
+            une subordination qu'une simple coordination.
+        </div>
+
+        <!-- THUMMA -->
+        <h3 class="scroll-animate">ثُمَّ — puis, ensuite</h3>
+
+        <div class="rule-box scroll-animate">
+            ثُمَّ exprime elle aussi une succession, mais avec une <strong>vraie pause</strong> dans le temps entre
+            les deux actions — contrairement à فَـ, qui suggère l'immédiateté.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">أَكَلَ <span class="harf">ثُمَّ</span> اسْتَراحَ</div>
+            <div class="fr">Il a mangé, puis s'est reposé (un moment après)</div>
+        </div>
+
+        <!-- AW / AM -->
+        <h3 class="scroll-animate">أَوْ et أَمْ — ou</h3>
+
+        <div class="info-box scroll-animate">
+            <strong>أَوْ</strong> relie deux noms ou deux phrases pour proposer une <strong>alternative</strong>,
+            aussi bien dans une phrase affirmative que dans une question ouverte, où la réponse n'est pas
+            forcément l'un des éléments cités.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">سَأَذْهَبُ إِلى الدَوحةِ <span class="harf">أَوْ</span> الرِياضِ غَدًا</div>
+            <div class="fr">Demain, je vais à Doha ou à Riyad</div>
+        </div>
+
+        <div class="info-box scroll-animate">
+            <strong>أَمْ</strong> a le même sens général, mais s'utilise dans une question <strong>introduite par
+                أَ</strong> qui propose un choix explicite entre deux éléments précis — on attend une réponse parmi
+            les deux, pas une troisième option.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">أَمُطْرِبٌ أَنْتَ <span class="harf">أَمْ</span> شاعِرٌ ؟</div>
+            <div class="fr">Es-tu chanteur ou poète ?</div>
+        </div>
+
+        <!-- IMMA -->
+        <h3 class="scroll-animate">إِمَّا... إِمَّا / إِمَّا... أَوْ — soit... soit...</h3>
+
+        <div class="info-box scroll-animate">
+            C'est la dixième conjonction citée par l'Ajurrūmiyya. Répétée deux fois — ou combinée à أَوْ pour le
+            second terme — elle marque un choix <strong>exclusif</strong> entre deux possibilités.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="harf">إِمَّا</span> أَنْ تَنْجَحَ <span class="harf">وَإِمَّا</span> أَنْ
+                تُعِيدَ السَنةَ</div>
+            <div class="fr">Soit tu réussis, soit tu redoubles l'année</div>
+        </div>
+
+        <!-- BAL -->
+        <h3 class="scroll-animate">بَلْ — plutôt, voire, au contraire</h3>
+
+        <div class="info-box scroll-animate">
+            Dans une phrase <strong>affirmative</strong>, بَلْ renforce l'idée précédente : « bien plus », « même ».
+            Dans une phrase <strong>négative</strong>, elle corrige au contraire ce qui vient d'être dit : « mais
+            plutôt », « au contraire ».
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">لَدَيْهِ المَلايِينُ <span class="harf">بَلِ</span> المِلْيارَاتُ</div>
+            <div class="fr">Il a des millions, voire des milliards</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">لا يُحِبُّ الكِلابَ <span class="harf">بَلِ</span> القِطَطَ</div>
+            <div class="fr">Il n'aime pas les chiens, mais plutôt les chats</div>
+        </div>
+
+        <!-- LAKIN -->
+        <h3 class="scroll-animate">لٰكِنْ — mais</h3>
+
+        <div class="rule-box scroll-animate">
+            لٰكِنْ s'utilise généralement précédée de وَ, et introduit une opposition simple entre deux idées.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">لَيْسَ مَوْهُوبًا <span class="harf">وَلٰكِنْ</span> يَجْتَهِدُ</div>
+            <div class="fr">Il n'est pas talentueux, mais il travaille dur</div>
         </div>
 
         <div class="warning-box scroll-animate">
-            <strong>⚠️ Ne pas confondre :</strong> Cette particule لا d'interdiction, suivie de l'apocopé, s'oppose au
-            لا qui accompagne parfois le subjonctif dans les formes négatives (كَيْلا، حَتّى لا) vues plus haut. Le
-            mode qui suit dépend uniquement de la particule qui précède directement le verbe.
+            <strong>⚠️ Ne pas confondre :</strong> Il existe une autre particule, لٰكِنَّ (avec une chadda sur le
+            نّ), de sens identique mais qui appartient à une tout autre famille grammaticale — celle des
+            « gouverneurs » de la phrase nominale (إِنَّ وأَخَواتُها), qui influencent le cas du nom qui les suit.
+            Elle sera vue dans une prochaine leçon : ce n'est pas une conjonction de coordination.
         </div>
 
-        <!-- ════════════════════════════════════════════ -->
-        <div class="section-divider scroll-animate"><span>🔎 Synthèse</span></div>
+        <!-- HATTA -->
+        <h3 class="scroll-animate">حَتّى — même</h3>
 
-        <h2 class="scroll-animate-left">🔎 Les trois modes du présent, côte à côte</h2>
+        <div class="rule-box scroll-animate">
+            En tant que conjonction, حَتّى relie un élément à un ensemble déjà mentionné, en soulignant qu'il en fait
+            partie <strong>lui aussi</strong>, parfois de façon inattendue.
+        </div>
 
-        <table class="scroll-animate">
-            <thead>
-                <tr>
-                    <th>Mode</th>
-                    <th>Marque finale</th>
-                    <th>Exemple (هُوَ)</th>
-                    <th>Déclencheurs principaux</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong class="indic">Indicatif</strong><br>المَرْفوع</td>
-                    <td>ḍamma ( ُ )</td>
-                    <td><span class="arabic indic">يَفْعَلُ</span></td>
-                    <td>Aucune particule — présent simple</td>
-                </tr>
-                <tr>
-                    <td><strong class="subj">Subjonctif</strong><br>المَنْصُوب</td>
-                    <td>fatḥa ( َ )</td>
-                    <td><span class="arabic subj">يَفْعَلَ</span></td>
-                    <td>أَنْ، لِـ، كَي، فَـ، حَتّى، إِذَنْ، لَنْ</td>
-                </tr>
-                <tr>
-                    <td><strong class="juss">Apocopé (jussif)</strong><br>المَجْزُوم</td>
-                    <td>sukūn ( ْ )</td>
-                    <td><span class="arabic juss">يَفْعَلْ</span></td>
-                    <td>لَمْ (passé nié), لا (interdiction)</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="phrase-example scroll-animate">
+            <div class="ar">تَمَتَّعَ الأَطْفالُ بِالحَفْلةِ <span class="harf">حَتّى</span> الآباءُ</div>
+            <div class="fr">Les enfants ont apprécié la fête, même les parents</div>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Attention :</strong> حَتّى a un autre emploi, beaucoup plus fréquent : celui de
+            <strong>préposition</strong> signifiant « jusqu'à » (حَرْف جَرّ). Ce sera l'objet d'une leçon à part sur
+            les prépositions.
+        </div>
+
+        <!-- LA -->
+        <h3 class="scroll-animate">لا — pas, non</h3>
+
+        <div class="rule-box scroll-animate">
+            Après une phrase <strong>affirmative</strong>, لا permet d'exclure explicitement un second terme, pour
+            dire « et non pas ». Le mot qui suit reste au singulier.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">رَفِيقٌ مُهَنْدِسٌ <span class="harf">لا</span> طَبَّاخٌ</div>
+            <div class="fr">Rafiq est ingénieur, pas cuisinier</div>
+        </div>
 
         <!-- ════════════════════════════════════════════ -->
         <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
 
         <div class="rule-box scroll-animate">
             <ul style="line-height:2;">
-                <li>Le verbe au présent peut prendre <strong>trois marques finales</strong> différentes :
-                    ḍamma (indicatif), <strong>fatḥa</strong> (subjonctif) ou <strong>sukūn</strong> (apocopé).</li>
-                <li>Pour les personnes en نَ (تَفْعَلُونَ، تَفْعَلِينَ...), les deux modes déclenchés
-                    <strong>suppriment le نَ entier</strong>, pas seulement une voyelle.
+                <li>Les <strong>dix conjonctions de coordination</strong> selon l'Ajurrūmiyya : وَ، فَـ، ثُمَّ، أَوْ،
+                    أَمْ، إِمَّا، بَلْ، لا، لٰكِنْ، حَتّى.</li>
+                <li>Ce sont des <strong>particules indéclinables</strong> : elles n'ont pas de cas propre.</li>
+                <li><strong>Règle d'or :</strong> le mot coordonné (<span class="maatouf">المَعْطُوف</span>) prend
+                    toujours le <strong>même cas</strong> que le mot de référence (<span
+                        class="maatouf-alayh">المَعْطُوف عَلَيْه</span>) — مَرْفُوع، مَنْصُوب، مَجْرُور ou
+                    مَجْزُوم.</li>
+                <li><strong>وَ</strong> (et) ne suppose aucun ordre ; elle se répète devant chaque élément d'une
+                    liste, contrairement au français.</li>
+                <li><strong>فَـ</strong> (puis/donc) marque un enchaînement immédiat, souvent causal ;
+                    <strong>ثُمَّ</strong>
+                    (puis) marque un enchaînement avec une pause.
                 </li>
-                <li>Le <strong>duel</strong> et le <strong>féminin pluriel</strong> ne changent jamais, quel que soit
-                    le mode.</li>
-                <li>Le <span class="subj">subjonctif</span> suit des particules de but ou de conséquence : أَنْ، لِـ،
-                    كَي، فَـ، حَتّى، إِذَنْ — et leurs formes négatives أَلاّ، لِئَلاّ، كَيْلا، حَتّى لا.</li>
-                <li>Le futur se nie avec <span class="particle">لَنْ</span> + subjonctif ; un nom d'action
-                    (مَصْدَر) peut aussi remplacer أَنْ + subjonctif.</li>
-                <li>L'<span class="juss">apocopé</span> apparaît après <span class="particle">لَمْ</span> (négation du
-                    passé, équivalente à ما + passé) et après <span class="particle">لا</span> (interdiction, ordre
-                    négatif).</li>
+                <li><strong>أَوْ</strong> propose une alternative générale ; <strong>أَمْ</strong> introduit un choix
+                    explicite après أَ ; <strong>إِمَّا... إِمَّا</strong> marque un choix exclusif.</li>
+                <li><strong>بَلْ</strong> corrige ou renforce ; <strong>لٰكِنْ</strong> oppose simplement (à ne pas
+                    confondre avec لٰكِنَّ) ; <strong>حَتّى</strong> ajoute un élément inclus dans un ensemble ;
+                    <strong>لا</strong> exclut un second terme après une affirmation.
+                </li>
             </ul>
         </div>
 
