@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le subjonctif et l'apocopé en arabe — المُضارِع المَنْصُوب والمُضارِع المَجْزُوم</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ── Scroll-animate classes ── */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scroll-animate.visible,
+        .scroll-animate-left.visible,
+        .scroll-animate-right.visible,
+        .scroll-animate-scale.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .arabic-title {
+            text-align: center;
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-top: 35px;
+            font-size: 1.8em;
+            border-left: 5px solid #764ba2;
+            padding-left: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover {
+            transform: translateX(10px);
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+
+        .intro {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 13px;
+            text-align: center;
+            font-size: 1.05em;
+        }
+
+        td {
+            padding: 11px 14px;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f4ff;
+            transition: all 0.2s ease;
+        }
+
+        /* colour coding */
+        .indic {
+            color: #455a64;
+            font-weight: bold;
+        }
+
+        /* gris-bleu = indicatif (المُضارِع المَرْفوع), la forme de référence */
+        .subj {
+            color: #00897b;
+            font-weight: bold;
+        }
+
+        /* vert-bleu = subjonctif (المُضارِع المَنْصُوب) */
+        .juss {
+            color: #d84315;
+            font-weight: bold;
+        }
+
+        /* orange foncé = apocopé / jussif (المُضارِع المَجْزُوم) */
+        .particle {
+            color: #6a1b9a;
+            font-weight: bold;
+        }
+
+        /* violet = particule qui déclenche le mode */
+
+        .arabic {
+            font-size: 1.4em;
+            color: #764ba2;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .arabic:hover {
+            color: #667eea;
+        }
+
+        .arabic-lg {
+            font-size: 1.7em;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+        }
+
+        .note strong {
+            color: #856404;
+            font-size: 1.05em;
+        }
+
+        .example-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.3);
+        }
+
+        .rule-box {
+            background: #f3e5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #9c27b0;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(156, 39, 176, 0.3);
+        }
+
+        .info-box {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #03a9f4;
+            margin: 15px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(3, 169, 244, 0.3);
+        }
+
+        .warning-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #f44336;
+            margin: 15px 0;
+        }
+
+        .warning-box strong {
+            color: #c62828;
+        }
+
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* ── Big comparison cards ── */
+        .phrase-type-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        @media (max-width: 600px) {
+            .phrase-type-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .phrase-card {
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .phrase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .phrase-card.subjonctif {
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+            border: 2px solid #00897b;
+        }
+
+        .phrase-card.apocope {
+            background: linear-gradient(135deg, #fbe9e7, #ffccbc);
+            border: 2px solid #d84315;
+        }
+
+        .phrase-card h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .phrase-card .arabic-lg {
+            display: block;
+            margin: 10px 0;
+            font-size: 2em;
+        }
+
+        .phrase-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .phrase-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .subjonctif .badge {
+            background: #00897b;
+            color: white;
+        }
+
+        .apocope .badge {
+            background: #d84315;
+            color: white;
+        }
+
+        /* ── Sentence / structure anatomy ── */
+        .anatomy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 18px;
+            background: #fafafa;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+
+        .anatomy .block {
+            text-align: center;
+            padding: 10px 16px;
+            border-radius: 8px;
+            min-width: 90px;
+        }
+
+        .anatomy .block .arabic {
+            font-size: 1.6em;
+        }
+
+        .anatomy .block .label {
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        .anatomy .arrow {
+            font-size: 1.5em;
+            color: #999;
+        }
+
+        .block.b-indic {
+            background: #eceff1;
+            border: 2px solid #455a64;
+        }
+
+        .block.b-subj {
+            background: #b2dfdb;
+            border: 2px solid #00897b;
+        }
+
+        .block.b-juss {
+            background: #ffccbc;
+            border: 2px solid #d84315;
+        }
+
+        /* ── Legend ── */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 20px;
+            font-size: 0.9em;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* ── Phrase example rows ── */
+        .phrase-example {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 12px 0;
+            transition: box-shadow 0.3s;
+        }
+
+        .phrase-example:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .phrase-example .ar {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: right;
+            direction: rtl;
+            margin-bottom: 8px;
+        }
+
+        .phrase-example .fr {
+            color: #555;
+        }
+
+        .phrase-example .parse {
+            font-size: 0.88em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* ── Section divider ── */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 35px 0 25px;
+            color: #764ba2;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            border-top: 2px solid #d8c5f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Le subjonctif et l'apocopé</h1>
+        <div class="arabic-title">المُضارِع المَنْصُوب والمُضارِع المَجْزُوم</div>
+
+        <!-- ─── INTRODUCTION ─────────────────────────── -->
+        <div class="intro">
+            Tu connais déjà le présent « normal » de l'indicatif — le <span class="indic">المُضارِع المَرْفوع</span> —
+            celui qui se termine par une ḍamma ( ُ ). En arabe, ce même verbe au présent peut prendre
+            <strong>deux autres visages</strong> selon ce qui le précède dans la phrase : le
+            <span class="subj">subjonctif</span> (المُضارِع المَنْصُوب) et l'<span class="juss">apocopé</span> — aussi
+            appelé jussif — (المُضارِع المَجْزُوم). Dans les deux cas, le verbe ne change pas de sens : seule sa
+            <strong>terminaison</strong> se transforme, sous l'effet d'une petite particule placée juste avant lui.
+            C'est ce mécanisme que nous allons découvrir.
+        </div>
+
+        <!-- ─── VUE D'ENSEMBLE ───────────────────────── -->
+        <h2 class="scroll-animate-left">📊 Vue d'ensemble</h2>
+
+        <div class="phrase-type-grid scroll-animate">
+            <div class="phrase-card subjonctif">
+                <h3>Le subjonctif</h3>
+                <span class="arabic-lg">المَنْصُوب</span>
+                <p>Terminaison en <strong>fatḥa</strong> ( َ )</p>
+                <p>Déclenché par : أَنْ، لِـ، كَي، حَتّى، لَنْ...</p>
+                <p>Exprime un but, une conséquence, un futur nié</p>
+                <span class="badge">يَفْعَلَ</span>
+            </div>
+            <div class="phrase-card apocope">
+                <h3>L'apocopé (jussif)</h3>
+                <span class="arabic-lg">المَجْزُوم</span>
+                <p>Terminaison en <strong>sukūn</strong> ( ْ )</p>
+                <p>Déclenché par : لَمْ، لا (interdiction)</p>
+                <p>Exprime une négation au passé ou un ordre négatif</p>
+                <span class="badge">يَفْعَلْ</span>
+            </div>
+        </div>
+
+        <div class="anatomy scroll-animate">
+            <div class="block b-indic">
+                <div class="arabic">يَفْعَلُ</div>
+                <div class="label indic">Indicatif (مَرْفوع)</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="block b-subj">
+                <div class="arabic">يَفْعَلَ</div>
+                <div class="label subj">Subjonctif (مَنْصوب)</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="block b-juss">
+                <div class="arabic">يَفْعَلْ</div>
+                <div class="label juss">Apocopé (مَجْزوم)</div>
+            </div>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 L'essentiel à retenir :</strong> Dans les trois cas, c'est le <strong>même verbe</strong>
+            يَفْعَل — seule sa toute dernière voyelle change : ḍamma ( ُ ) à l'indicatif, fatḥa ( َ ) au subjonctif,
+            sukūn ( ْ ) à l'apocopé. Pour les personnes dont la terminaison indicative se finit par نَ (تَفْعَلُونَ،
+            تَفْعَلِينَ, etc.), c'est ce نَ tout entier qui disparaît au lieu d'une simple voyelle.
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-divider scroll-animate"><span>🟢 Partie 1</span></div>
+
+        <h2 class="scroll-animate-left">🟢 Le subjonctif — المُضارِع المَنْصُوب</h2>
+
+        <div class="intro scroll-animate">
+            Le subjonctif présent apparaît chaque fois qu'une <strong>particule subjonctive</strong> précède le verbe.
+            Il correspond souvent, en français, à une subordonnée introduite par « que » + subjonctif, ou à un
+            infinitif de but (« pour faire »).
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ Formation :</strong>
+            <ul style="line-height:1.9; text-align:left;">
+                <li>On remplace la dernière <strong>ḍamma</strong> ( ُ ) de l'indicatif par une
+                    <strong>fatḥa</strong> ( َ ) : <span class="indic">يَفْعَلُ</span> → <span
+                        class="subj">يَفْعَلَ</span>
+                </li>
+                <li>Pour les formes se terminant par نَ (أَنْتِ، أَنْتُم، هُم، أَنْتُما، هُما), ce نَ
+                    <strong>disparaît entièrement</strong> : <span class="indic">تَفْعَلُونَ</span> → <span
+                        class="subj">تَفْعَلُوا</span>
+                </li>
+                <li>Le <strong>féminin pluriel</strong> (أَنْتُنَّ، هُنَّ) ne change jamais, à aucun mode</li>
+            </ul>
+        </div>
+
+        <h3 class="scroll-animate">🔬 Conjugaison complète du subjonctif</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Personne</th>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1ère (je / nous)</strong></td>
+                    <td><span class="arabic">أَنا أَفْعَلَ</span></td>
+                    <td>—</td>
+                    <td><span class="arabic">نَحْنُ نَفْعَلَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2ème masc.</strong></td>
+                    <td><span class="arabic">أَنْتَ تَفْعَلَ</span></td>
+                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
+                    <td><span class="arabic">أَنْتُمْ تَفْعَلُوا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2ème fém.</strong></td>
+                    <td><span class="arabic">أَنْتِ تَفْعَلِي</span></td>
+                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
+                    <td><span class="arabic">أَنْتُنَّ تَفْعَلْنَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3ème masc.</strong></td>
+                    <td><span class="arabic">هُوَ يَفْعَلَ</span></td>
+                    <td><span class="arabic">هُما يَفْعَلا</span></td>
+                    <td><span class="arabic">هُمْ يَفْعَلُوا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3ème fém.</strong></td>
+                    <td><span class="arabic">هِيَ تَفْعَلَ</span></td>
+                    <td><span class="arabic">هُما تَفْعَلا</span></td>
+                    <td><span class="arabic">هُنَّ يَفْعَلْنَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 Remarque :</strong> Les formes du duel (أَنْتُما / هُما تَفْعَلا) et le féminin pluriel
+            (أَنْتُنَّ / هُنَّ تَفْعَلْنَ) sont <strong>identiques</strong> à l'indicatif — seule la disparition du نَ
+            final concerne les formes masculines/mixtes du pluriel et le أَنْتِ du singulier.
+        </div>
+
+        <!-- Particules de liaison -->
+        <h3 class="scroll-animate">🔗 Les particules du subjonctif — حُرُوف النَصْب</h3>
+
+        <div class="intro scroll-animate">
+            Le subjonctif est presque toujours introduit par l'une des <span class="particle">particules de
+                liaison</span> suivantes, qui relient une proposition principale à une subordonnée exprimant un but,
+            une conséquence ou une condition logique.
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Particule</th>
+                    <th>Sens</th>
+                    <th>Exemple</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic particle">أَنْ</span></td>
+                    <td>que / à (introduit une subordonnée)</td>
+                    <td><span class="arabic">يَجِبُ <span class="particle">أَنْ</span> تَتَعَلَّمَ السِياقةَ</span><br>
+                        <small>Il faut que tu apprennes à conduire</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">لِـ</span></td>
+                    <td>afin de, pour</td>
+                    <td><span class="arabic">طَلَبَ الماءَ <span class="particle">لِ</span>يَشْرَبَ</span><br>
+                        <small>Il a demandé de l'eau pour boire</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">كَي</span></td>
+                    <td>afin de, pour que</td>
+                    <td><span class="arabic">جَلَسا <span class="particle">كَيْ</span> يَسْتَرِيحا</span><br>
+                        <small>Ils (deux) se sont assis pour se reposer</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">فَـ</span></td>
+                    <td>afin que (après un impératif)</td>
+                    <td><span class="arabic">تَعالَ مَعَها <span class="particle">فَ</span>تُرِيَكَ شَيْئًا</span><br>
+                        <small>Viens avec elle, afin qu'elle te montre quelque chose</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">حَتّى</span></td>
+                    <td>de sorte que, pour que</td>
+                    <td><span class="arabic">نَبْتَسِمُ <span class="particle">حَتّى</span> لا تَرى غَضَبَنا</span><br>
+                        <small>Nous sourions pour que tu ne voies pas notre colère</small>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">إِذَنْ</span></td>
+                    <td>alors, dans ce cas</td>
+                    <td><span class="arabic"><span class="particle">إِذَنْ</span> تُقاتِلَ بِشَجاعةٍ</span><br>
+                        <small>Alors, tu te bats avec courage</small>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note scroll-animate">
+            <strong>💡 بَعْدَ et قَبْلَ :</strong> Les prépositions <strong>بَعْدَ</strong> (après) et
+            <strong>قَبْلَ</strong> (avant) peuvent elles aussi entraîner un subjonctif, en se combinant avec la
+            particule <span class="particle">أَنْ</span> :
+            <div class="phrase-example" style="margin-top:10px;">
+                <div class="ar">أَفْطَرْتُ <span class="particle">قَبْلَ أَنْ</span> أَخْرُجَ مِنْ بَيْتِي</div>
+                <div class="fr">J'ai pris mon petit déjeuner avant de sortir de chez moi</div>
+            </div>
+            <div class="phrase-example" style="margin-top:10px;">
+                <div class="ar">يَنامُونَ <span class="particle">بَعْدَ أَنْ</span> يُشاهِدُوا التِلْفازَ</div>
+                <div class="fr">Ils s'endorment après avoir regardé la télévision</div>
+            </div>
+        </div>
+
+        <!-- Formes négatives -->
+        <h3 class="scroll-animate">🚫 Les formes négatives du subjonctif</h3>
+
+        <div class="intro scroll-animate">
+            Trois de ces particules ont une <strong>forme négative</strong>, obtenue en leur ajoutant la négation
+            لا — le subjonctif qui suit exprime alors un but que l'on cherche à <strong>éviter</strong>.
+        </div>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Forme positive</th>
+                    <th>Forme négative</th>
+                    <th>Sens</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="arabic particle">أَنْ</span></td>
+                    <td><span class="arabic particle">أَلاّ</span></td>
+                    <td>que... ne pas</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">لِـ</span></td>
+                    <td><span class="arabic particle">لِئَلاّ</span></td>
+                    <td>afin de ne pas</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">كَي</span></td>
+                    <td><span class="arabic particle">كَيْلا</span></td>
+                    <td>afin de ne pas</td>
+                </tr>
+                <tr>
+                    <td><span class="arabic particle">حَتّى</span></td>
+                    <td><span class="arabic particle">حَتّى لا</span></td>
+                    <td>afin de ne pas</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">طَلَبْنَ مِنْها <span class="particle">أَلاّ</span> تَفْعَلَ كَذا</div>
+            <div class="fr">Elles lui ont demandé de ne pas faire cela</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">حَذِرْتُ <span class="particle">لِئَلاّ</span> يَسْرِقَنِي أَحَدٌ</div>
+            <div class="fr">J'ai fait attention pour que personne ne me vole</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">طَرَدَهُ <span class="particle">كَيْلا</span> يَعُودَ</div>
+            <div class="fr">Il l'a expulsé afin qu'il ne revienne pas</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">قَبَّلَتْ اِبْنَها <span class="particle">حَتّى لا</span> يَبْكِيَ</div>
+            <div class="fr">Elle a embrassé son fils pour qu'il ne pleure pas</div>
+        </div>
+
+        <!-- Le masdar -->
+        <h3 class="scroll-animate">📖 Le مَصْدَر, une alternative au subjonctif</h3>
+
+        <div class="info-box scroll-animate">
+            De la même manière qu'un infinitif en français peut remplacer une subordonnée (« j'aime <strong>me
+                reposer</strong> » plutôt que « j'aime que je me repose »), le <strong>nom d'action</strong>
+            (المَصْدَر) peut en arabe remplacer entièrement أَنْ + subjonctif dans une subordonnée.
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">أُحِبُّ الاِسْتِراحةَ</div>
+            <div class="fr">J'aime le repos <span style="color:#999;">(litt. « j'aime le repos », masdar)</span></div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar">يَكْرَهُ المَشْيَ فِي الغابةِ</div>
+            <div class="fr">Il déteste marcher dans les bois</div>
+        </div>
+
+        <!-- Négation du futur -->
+        <h3 class="scroll-animate">⏳ La négation du futur — لَنْ</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ Formule :</strong>
+            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
+                <span class="particle">لَنْ</span> + <span class="subj">المُضارِع المَنْصُوب</span>
+            </p>
+            <p style="text-align:center; color:#666; margin:0;">لَنْ est la particule qui nie une action au futur —
+                elle est toujours suivie du subjonctif</p>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="particle">لَنْ</span> أَكْذِبَ</div>
+            <div class="fr">Je ne mentirai pas</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="particle">لَنْ</span> تَذْهَبُوا مَعِي</div>
+            <div class="fr">Vous ne viendrez pas avec moi</div>
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-divider scroll-animate"><span>🟠 Partie 2</span></div>
+
+        <h2 class="scroll-animate-left">🟠 L'apocopé — المُضارِع المَجْزُوم</h2>
+
+        <div class="intro scroll-animate">
+            L'apocopé, aussi appelé <strong>jussif</strong>, est le second mode du présent déclenché par une
+            particule. Il sert essentiellement à <strong>nier une action passée</strong> ou à exprimer un
+            <strong>ordre négatif</strong> (une interdiction).
+        </div>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ Formation :</strong>
+            <ul style="line-height:1.9; text-align:left;">
+                <li>On remplace la dernière <strong>ḍamma</strong> ( ُ ) de l'indicatif par un
+                    <strong>sukūn</strong> ( ْ ) : <span class="indic">يَفْعَلُ</span> → <span
+                        class="juss">يَفْعَلْ</span>
+                </li>
+                <li>Comme au subjonctif, le نَ final <strong>disparaît</strong> pour أَنْتِ، أَنْتُم، هُم، أَنْتُما،
+                    هُما : <span class="indic">تَفْعَلُونَ</span> → <span class="juss">تَفْعَلُوا</span></li>
+                <li>Le <strong>féminin pluriel</strong> (أَنْتُنَّ، هُنَّ) ne change jamais</li>
+            </ul>
+        </div>
+
+        <div class="note scroll-animate">
+            <strong>💡 Subjonctif et apocopé, presque jumeaux :</strong> Compare bien les deux tableaux de
+            conjugaison : à l'exception de la toute dernière voyelle (fatḥa au subjonctif, sukūn à l'apocopé), les
+            deux modes se construisent de façon <strong>identique</strong>, avec la même disparition du نَ final.
+        </div>
+
+        <h3 class="scroll-animate">🔬 Conjugaison complète de l'apocopé</h3>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Personne</th>
+                    <th>Singulier</th>
+                    <th>Duel</th>
+                    <th>Pluriel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1ère (je / nous)</strong></td>
+                    <td><span class="arabic">أَنا أَفْعَلْ</span></td>
+                    <td>—</td>
+                    <td><span class="arabic">نَحْنُ نَفْعَلْ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2ème masc.</strong></td>
+                    <td><span class="arabic">أَنْتَ تَفْعَلْ</span></td>
+                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
+                    <td><span class="arabic">أَنْتُمْ تَفْعَلُوا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>2ème fém.</strong></td>
+                    <td><span class="arabic">أَنْتِ تَفْعَلِي</span></td>
+                    <td><span class="arabic">أَنْتُما تَفْعَلا</span></td>
+                    <td><span class="arabic">أَنْتُنَّ تَفْعَلْنَ</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3ème masc.</strong></td>
+                    <td><span class="arabic">هُوَ يَفْعَلْ</span></td>
+                    <td><span class="arabic">هُما يَفْعَلا</span></td>
+                    <td><span class="arabic">هُمْ يَفْعَلُوا</span></td>
+                </tr>
+                <tr>
+                    <td><strong>3ème fém.</strong></td>
+                    <td><span class="arabic">هِيَ تَفْعَلْ</span></td>
+                    <td><span class="arabic">هُما تَفْعَلا</span></td>
+                    <td><span class="arabic">هُنَّ يَفْعَلْنَ</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- lam -->
+        <h3 class="scroll-animate">⏮️ La négation du passé — لَمْ</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ Formule :</strong>
+            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
+                <span class="particle">لَمْ</span> + <span class="juss">المُضارِع المَجْزُوم</span>
+            </p>
+            <p style="text-align:center; color:#666; margin:0;">Un présent apocopé précédé de لَمْ exprime en réalité
+                une action <strong>passée niée</strong></p>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="particle">لَمْ</span> أَفْهَمْ شَيْئًا</div>
+            <div class="fr">Je n'ai rien compris</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="particle">لَمْ</span> يَزُورُوهُما فِي المُسْتَشْفى</div>
+            <div class="fr">Ils n'ont pas rendu visite aux deux à l'hôpital</div>
+        </div>
+
+        <div class="info-box scroll-animate">
+            <strong>Une autre façon de nier le passé :</strong> la tournure la plus ancienne consiste à utiliser
+            <span class="particle">ما</span> suivi directement du <strong>passé</strong> (الماضِي), sans passer par
+            l'apocopé :
+            <p style="text-align:center; font-size:1.1em; margin:10px 0;">
+                <span class="particle">ما</span> + الماضِي = <span class="particle">لَمْ</span> + <span
+                    class="juss">المُضارِع المَجْزُوم</span>
+            </p>
+            <div class="phrase-example" style="margin-top:10px;">
+                <div class="ar"><span class="particle">ما</span> فَهِمْتُ شَيْئًا</div>
+                <div class="fr">Je n'ai rien compris <span style="color:#999;">(équivalent à لَمْ أَفْهَمْ
+                        شَيْئًا)</span></div>
+            </div>
+        </div>
+
+        <!-- la -->
+        <h3 class="scroll-animate">🛑 L'interdiction — لا</h3>
+
+        <div class="rule-box scroll-animate-scale">
+            <strong>⚙️ Formule :</strong>
+            <p style="text-align:center; font-size:1.15em; margin:8px 0;">
+                <span class="particle">لا</span> + <span class="juss">المُضارِع المَجْزُوم</span>
+            </p>
+            <p style="text-align:center; color:#666; margin:0;">L'interdiction est l'équivalent d'un
+                <strong>impératif négatif</strong> : « ne fais pas », « ne faites pas »
+            </p>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="particle">لا</span> تُزْعِجِ الجِيرانَ</div>
+            <div class="fr">Ne dérange pas les voisins</div>
+        </div>
+
+        <div class="phrase-example scroll-animate">
+            <div class="ar"><span class="particle">لا</span> تَتَكاسَلُوا</div>
+            <div class="fr">Ne soyez pas paresseux</div>
+        </div>
+
+        <div class="warning-box scroll-animate">
+            <strong>⚠️ Ne pas confondre :</strong> Cette particule لا d'interdiction, suivie de l'apocopé, s'oppose au
+            لا qui accompagne parfois le subjonctif dans les formes négatives (كَيْلا، حَتّى لا) vues plus haut. Le
+            mode qui suit dépend uniquement de la particule qui précède directement le verbe.
+        </div>
+
+        <!-- ════════════════════════════════════════════ -->
+        <div class="section-divider scroll-animate"><span>🔎 Synthèse</span></div>
+
+        <h2 class="scroll-animate-left">🔎 Les trois modes du présent, côte à côte</h2>
+
+        <table class="scroll-animate">
+            <thead>
+                <tr>
+                    <th>Mode</th>
+                    <th>Marque finale</th>
+                    <th>Exemple (هُوَ)</th>
+                    <th>Déclencheurs principaux</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong class="indic">Indicatif</strong><br>المَرْفوع</td>
+                    <td>ḍamma ( ُ )</td>
+                    <td><span class="arabic indic">يَفْعَلُ</span></td>
+                    <td>Aucune particule — présent simple</td>
+                </tr>
+                <tr>
+                    <td><strong class="subj">Subjonctif</strong><br>المَنْصُوب</td>
+                    <td>fatḥa ( َ )</td>
+                    <td><span class="arabic subj">يَفْعَلَ</span></td>
+                    <td>أَنْ، لِـ، كَي، فَـ، حَتّى، إِذَنْ، لَنْ</td>
+                </tr>
+                <tr>
+                    <td><strong class="juss">Apocopé (jussif)</strong><br>المَجْزُوم</td>
+                    <td>sukūn ( ْ )</td>
+                    <td><span class="arabic juss">يَفْعَلْ</span></td>
+                    <td>لَمْ (passé nié), لا (interdiction)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ════════════════════════════════════════════ -->
+        <h2 class="scroll-animate-left">📝 Résumé de la leçon</h2>
+
+        <div class="rule-box scroll-animate">
+            <ul style="line-height:2;">
+                <li>Le verbe au présent peut prendre <strong>trois marques finales</strong> différentes :
+                    ḍamma (indicatif), <strong>fatḥa</strong> (subjonctif) ou <strong>sukūn</strong> (apocopé).</li>
+                <li>Pour les personnes en نَ (تَفْعَلُونَ، تَفْعَلِينَ...), les deux modes déclenchés
+                    <strong>suppriment le نَ entier</strong>, pas seulement une voyelle.
+                </li>
+                <li>Le <strong>duel</strong> et le <strong>féminin pluriel</strong> ne changent jamais, quel que soit
+                    le mode.</li>
+                <li>Le <span class="subj">subjonctif</span> suit des particules de but ou de conséquence : أَنْ، لِـ،
+                    كَي، فَـ، حَتّى، إِذَنْ — et leurs formes négatives أَلاّ، لِئَلاّ، كَيْلا، حَتّى لا.</li>
+                <li>Le futur se nie avec <span class="particle">لَنْ</span> + subjonctif ; un nom d'action
+                    (مَصْدَر) peut aussi remplacer أَنْ + subjonctif.</li>
+                <li>L'<span class="juss">apocopé</span> apparaît après <span class="particle">لَمْ</span> (négation du
+                    passé, équivalente à ما + passé) et après <span class="particle">لا</span> (interdiction, ordre
+                    négatif).</li>
+            </ul>
+        </div>
+
+    </div><!-- .container -->
+
+    <script>
+        /* ── Scroll animations ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll(
+                '.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale'
+            ).forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
